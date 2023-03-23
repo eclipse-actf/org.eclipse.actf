@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: miChecker Help Nl1 Fragment
+Bundle-SymbolicName: org.eclipse.actf.examples.michecker.doc.nl1
+Bundle-Version: 2.0.1
+Bundle-Vendor: Ministry of Internal Affairs and Communications
+Fragment-Host: org.eclipse.actf.examples.michecker.doc;bundle-version="[2.0.0,3.0.0)"

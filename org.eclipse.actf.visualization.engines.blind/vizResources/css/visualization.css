@@ -1,0 +1,19 @@
+div.main {
+	border: 5px blue solid; padding: 2px; margin: 1px;
+}
+
+article,nav,*[role="article"],*[role="navigation"],*[role="application"] {			
+	border: 2px blue solid; padding: 2px; margin: 1px;
+}
+
+.header_footer,*[role="banner"],*[role="contentinfo"] {	
+	border: 2px blue solid; padding: 2px; margin: 1px;
+}
+
+aside,*[role="complementary"],*[role="search"] {			
+	border: 1px blue solid; padding: 1px; margin: 1px;
+}
+
+section,*[role="region"] {
+	border: 1px blue dotted; padding: 1px; margin: 1px;
+}

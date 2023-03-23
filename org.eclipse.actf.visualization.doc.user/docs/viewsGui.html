@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>GUI Accessibility perspective configurations</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>GUI Accessibility perspective configurations</H1>
+
+<ul>
+<li><a href="#guiSettings">GUI Accessibility preferences</a>
+<li><a href="#voiceSettings">Voice preferences</a>
+<li><a href="#sapiSettings">SAPI5 TTS settings</a>
+<li><a href="#eventFilter">GUI Event Filters</a>
+</ul>
+
+<H2 id="guiSettings">GUI Accessibility preferences</H2>
+<P>
+Users can change the visual appearance of the GUI Accessibility perspective using these preferences.
+</P>
+<DIV class="figure">
+<IMG src="images/gui/guiSettings.png" alt=""><BR>
+<SPAN>Figure 1. GUI Accessibility preferences</SPAN>
+</DIV>
+
+<DL><DT>Options</DT><DD></DD><DL>
+<DT>GUI Summary Font</DT>
+<DD>Select size and style of the font used in the GUI Summary view.</DD>
+<DT>GUI Event Font</DT>
+<DD>Select size and style of the font used in the GUI Event view.</DD>
+<DT>Use transparent window for visualization</DT>
+<DD>A full-screen transparent window will be used for highlighting and for drawing icons. 
+<BR>We recommend that screen reader users turn off this option.</DD>
+<DT>Keep tool window on top</DT>
+<DD>Show the tool on top of external applications. This keeps the tool visible even though other applications are being used. 
+<BR>We recommend that screen reader users turn off this option.</DD>
+</DL></DL>
+
+
+<H2 id="voiceSettings">Voice preferences</H2>
+<P>
+Use this dialog to change the basic voice settings. The basic voice settings include the TTS engine and speed. 
+<BR>Use the TTS settings dialog located in the voice preferences to set the TTS-engine-dependent settings.
+</P>
+<DIV class="figure">
+<IMG src="images/gui/voiceSettings.png" alt=""><BR>
+<SPAN>Figure 2. Voice preferences dialog</SPAN>
+</DIV>
+<DL><DT>Options</DT><DD></DD><DL>
+<DT>TTS Engine</DT>
+<DD>Selects a Text-To-Speech engine.</DD>
+<DT>Speed</DT>
+<DD>Controls the voice speaking speed. When the slider is moved to the left, the reading is slower, and when moved to the right, the reading becomes faster. 
+The range of voice speaking speeds differs for each Text-To-Speech engine.</DD>
+<DT>Test</DT>
+<DD>Reads a test message using the current <B>Speed</B> setting. 
+<BR>Select the <B>Apply</B> button then the <B>Test</B> button to test a TTS engine.</DD>
+</DL></DL>
+
+<H2 id="sapiSettings">SAPI5 TTS settings</H2>
+<P>
+ACTF supports any Microsoft&#174; SAPI 5 compliant Text-to-Speech engine.
+Windows&#174; XP includes a default voice, "Microsoft Sam". 
+The voice can be changed by installing a different TTS engine. 
+The preferred audio output device can also be changed to optional audio output devices, such as external USB speakers.
+</P>
+<DIV class="figure">
+<IMG src="images/gui/sapiSettings.png" alt=""><BR>
+<SPAN>Figure 3. SAPI5 TTS settings dialog</SPAN>
+</DIV>
+<DL><DT>Options</DT><DD></DD><DL>
+<DT>Voice name</DT>
+<DD>Selects a named voice.</DD>
+<DT>Audio Output Device</DT>
+<DD>Selects an available audio output device.</DD>
+<DT>Test</DT>
+<DD>Reads a test message using the current settings.</DD>
+</DL></DL>
+
+<H2 id="eventFilter">GUI Event Filters</H2>
+<P>
+The GUI Event Filters dialog shows the available event types in the GUI Event view.
+This dialog can be opened from the View menu (Ctrl+F10) of the GUI Event view. 
+Only the MSAA focus change event (EVENT_OBJECT_FOCUS) is selected by default.
+</P>
+<DIV class="figure">
+<IMG src="images/gui/eventFilter.png" alt=""><BR>
+<SPAN>Figure 4. GUI Event Filters dialog</SPAN>
+</DIV>
+<DL><DT>Options</DT><DD></DD><DL>
+<DT>Event</DT>
+<DD>Specify which events are displayed in the GUI Event view. Only EVENT_OBJECT_FOCUS is selected by default.</DD>
+<DT>Show Event Details</DT>
+<DD>The accName, accRole, and accState information will be displayed if this option is selected.</DD>
+</DL></DL>
+
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="workspaceGui.html">Exploring the GUI Accessibility perspective</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+<P class="trademark">
+Microsoft, Windows, Windows NT, and the Windows logo are trademarks of Microsoft Corporation in the United States, other countries, or both. 
+</P>
+</BODY>
+</HTML>

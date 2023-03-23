@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF HTML validation Plugin
+Bundle-SymbolicName: org.eclipse.actf.validation.html;singleton:=true
+Bundle-Version: 1.5.1.qualifier
+Bundle-Vendor: Eclipse ACTF Project
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.actf.core,
+ org.eclipse.actf.model.ui,
+ org.eclipse.actf.visualization.eval,
+ com.ibm.icu,
+ org.eclipse.actf.model.dom.html,
+ org.eclipse.actf.visualization.engines.blind
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: org.eclipse.actf.examples.adesigner.eval.html

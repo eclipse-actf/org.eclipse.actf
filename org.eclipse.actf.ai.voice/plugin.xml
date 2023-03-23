@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="TTSEngine" name="TTS Engine" schema="schema/TTSEngine.exsd"/>
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.actf.ui.preferences.RootPreferencePage"
+            class="org.eclipse.actf.ai.voice.preferences.VoicePreferencePage"
+            id="org.eclipse.actf.ai.voice.preferences.VoicePreferencePage"
+            name="%VoicePreferencePage.name"/>
+   </extension>
+
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="org.eclipse.actf.ai.voice.preferences.VoicePreferenceInitializer"/>
+   </extension>
+
+</plugin>

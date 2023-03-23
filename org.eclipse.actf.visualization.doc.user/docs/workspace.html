@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Exploring the HTML Accessibility perspective</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>Exploring the HTML Accessibility perspective</H1>
+<P>
+The HTML Accessibility perspective consists of five panes (see Figure 1).
+Two appear at the top: the ACTF Browser Editor is on the left, and (depending on the active mode) either the Low Vision Simulation View or the Blind Visualization View is on the right.
+Each pane includes function buttons.
+Below these panes is the Evaluation View pane. The Evaluation View pane has
+two kinds of Views, the Summary Report View and the Detailed Report View. The Summary
+Report View has the Summary Report pane and the Overall Rating
+pane. The Detailed Report View has the Tree View pane and the Line View
+pane (which together make up the Problem List) and 
+most ACTF Visualization components are shared by both modes.
+</P>
+
+<DIV class="figure">
+<IMG src="images/UI.jpg" alt=""><BR>
+<SPAN>Figure 1. The user interface of HTML Accessibility perspective.</SPAN>
+</DIV>
+
+<H2 id="browser_view">ACTF Browser Editor</H2>
+<P>
+The page to be tested is opened in the ACTF Browser Editor (Figure 2).
+By default, this pane is at the top left of the screen.
+The size of the pane can be changed by dragging the edges.
+</P>
+<P>
+At the top of the pane are the address bar, forward and backward arrow buttons, a stop button, a refresh button, and a GO button.
+The URL of the page to be tested is entered in the address bar and clicking GO opens the page.
+</P>
+
+<DIV class="figure">
+<IMG src="images/BrowserView.jpg" alt=""><BR>
+<SPAN>Figure 2. ACTF Browser Editor.</SPAN>
+</DIV>
+ 
+<H2>Simulation/Visualization View</H2>
+<P>
+To the right of the ACTF Browser Editor is a pane that changes depending on the active mode.
+In the Low Vision View, the pane is the Simulation View (Figure 3). In this pane, there is a simulated view showing the experience of what a low vision reader might see when looking at the target webpage.
+In the Blind Usability View, the pane is the Visualization View (Figure 4). In this view, the page shows an impression of how a blind user who relies on a voice browser is going to experience the page.
+By default, this pane is on the top right of the screen.
+The size of the pane can be changed by dragging the edges.
+</P>
+<P>
+Clicking one of the two views at the top of the pane select the visualization type.
+The buttons in the row below the Low Vision and Blind Usability Views are determined by the active view.
+</P>
+ 
+<DIV class="figure">
+<IMG src="images/LV_SimulationView.jpg" alt=""><BR>
+<SPAN>Figure 3. Simulation View.</SPAN>
+</DIV>
+
+<P>
+The buttons and check boxes specify the portions of the target page to be checked and the vision deficiency parameters the tool should use for the assessment.
+</P>
+ 
+<DIV class="figure">
+<IMG src="images/B_VisualizationView.jpg" alt=""><BR>
+<SPAN>Figure 4. Visualization View.</SPAN>
+</DIV>
+
+<P>
+The screen capture shows the buttons that appear in this pane and the items that the tool checks when it is running in the blind mode, such as reaching time, tags that can easily be accessed by voice browsers, and the availability of intra-page links.
+</P>
+
+<H2>Evaluation View pane</H2>
+The evaluation result appears in the Evaluation View pane. This pane has
+two kinds of views, the Summary Report View (Figure 5) and the Detailed
+Report View (Figure 6). The Summary
+Report View has the Summary Report pane and the Overall Rating
+pane. The Detailed Report View has the Tree View pane and the Line View
+pane (which together make up the Problem List).
+
+<DIV class="figure">
+<IMG src="images/SummaryTab.jpg" alt=""><BR>
+<SPAN>Figure 5. Examples of the Summary Report View.</SPAN>
+</DIV>
+<DIV class="figure">
+<IMG src="images/DetailedTab.jpg" alt=""><BR>
+<SPAN>Figure 6. Examples of the Detailed Report View.</SPAN>
+</DIV>
+
+
+<H3>Summary Report pane</H3>
+The Summary Report pane area provides the summary report of the target page's
+accessibility and usability (Figure 5).
+
+<H3>Overall Rating pane</H3>
+<P>
+The Overall Rating pane area provides the target page's overall rating for accessibility and usability (Figure 7).
+
+<DIV class="figure">
+<IMG src="images/LV_OverallRating.gif" alt="">
+<IMG src="images/B_OverallRating.gif" alt=""><BR>
+<SPAN>Figure 7. Examples of the Overall Rating pane in the low vision mode (left) and in the blind mode (right).</SPAN>
+</DIV>
+
+<P>
+In the low vision mode, the pane provides an overall rating that is based on the total severity values of the problems and a problem map that indicates the positions of the problems.
+In the blind mode, the pane provides an overall page rating that is based on the number of the problems and a radar chart that visually shows the target page's rating in terms of compliance, navigability, and listenability.
+The compliance rating is based on the number of problems concerned with compliance. The navigability rating reflects
+how well structured the Web content is by using headings, intra-page links, labels, and so on. The listenability rating denotes how appropriate the alternative texts are.
+</P>
+
+<H3>Tree View pane</H3>
+<P>
+When accessibility problems are detected, they appear in the Problem List.
+The list consists of two parts: the Tree View pane and the Line View pane.
+</P>
+<P>
+The Tree View (Figure 8) categorizes the problems. The category of problems to be listed in the Line View can be selected by clicking the category name.
+</P>
+
+<DIV class="figure">
+<IMG src="images/TreeView.gif" alt=""><BR>
+<SPAN>Figure 8. Tree View pane.</SPAN>
+</DIV>
+
+<UL>
+<LI>Error: The problems that must be addressed.
+<LI>User Check: The items that must be manually examined to determine if they comply with accessibility guidelines.
+An item in this category may or may not be a problem.
+<LI>Information: Informational items.
+</UL>
+
+<H3><A name="LineViewPane">Line View pane</A></H3>
+<P>
+The line view presents the problems for the selected categories line by
+line.
+Figure 9 shows a sample of the <A href="lineViewBlind.html">Line View pane (blind)</A>.
+<P>
+<DIV class="figure">
+<IMG src="images/B_LineView.jpg" alt=""><BR>
+<SPAN>Figure 9. An example of the Line View pane (blind)</SPAN>
+</DIV>
+
+<P>
+In the blind mode, each line provides the following information about a problem: 
+</P>
+<UL>
+<LI><A href="lineViewBlind.html">Symbolic icons and scores for evaluation metrics</a>,
+<LI>The checkpoints of the <A href="compliance.html">accessibility guidelines</A> related to the problem,
+<LI>The <A href="compliance.html#lineNumber">line number in the HTML
+document (optional)</A>, and
+<LI>A description
+</UL>
+
+<P>
+The <A href="lineViewLv.html">Line View pane (low vision)</A> differs slightly from that of the blind mode (Figure 9).
+</P>
+
+<DIV class="figure">
+<IMG src="images/LV_LineView.jpg" alt=""><BR>
+<SPAN>Figure 10. An example of the Line View pane (low vision)</SPAN>
+</DIV>
+
+<P>
+In the low vision mode, each line provides the following information about a problem:
+</P>
+<UL>
+<LI><A href="lineViewLV.html">Symbolic icon</a>, 
+<LI>The checkpoints of <A href="compliance.html">accessibility guidelines</A> related to the problem,
+<LI>A description, 
+<LI>The severity, 
+<LI>The foreground and background colors, 
+<LI>The position, and 
+<LI>The area 
+</UL>
+
+<P>
+Left-click a line in this view to highlight the element that corresponds to the problem in the Simulation/Visualization view.
+</P>
+<P>
+Right-click a line or press Shift+F10 to open a context menu.
+The items in the context menu are as follows:
+<UL>
+<LI><B>Clear Selection</B>: Selecting this item clears the current selection of problems in the Line view.
+This is used to stop highlighting problems in the Simulation/Visualization view.
+<LI><B>View Guideline</B>: Selecting this item refers to the
+corresponding help pages of the guideline items, which appear in a
+separate browser window. If there are no relevant checkpoints in
+any guideline, this item is not available.
+<LI><B>View Problem Description</B>: Selecting this item opens a dialog box that shows the problem description of the selected problem.
+This is useful when the problem description is too long to read in the Line View.
+<LI><B>View Source HTML</B>: Selecting this item opens the <A href="sourceViewer.html">HTML source viewer</A> in which the corresponding HTML element is highlighted. This item is available only in the blind mode.
+</UL>
+
+
+
+<H2>Status bar</H2>
+<P>
+The status bar shows information related to the active mode. 
+</P>
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="modes.html">Two types of visualization</A>
+<LI><A href="problemsBlind.html">Accessibility and usability problems for blind users</A>
+<LI><A href="problemsLv.html">Accessibility and usability problems for users with low vision</A>
+<LI><A href="menusIcons.html">User interface menus and icons</A>
+<LI><A href="sourceViewer.html">HTML source viewer</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+</BODY>
+</HTML>

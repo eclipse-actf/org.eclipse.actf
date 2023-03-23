@@ -1,0 +1,387 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>ODF Accessibility Checklist for ODF 1.0 and 1.1</TITLE>
+<LINK href="../base.css" rel="stylesheet" type="text/css" class="head"/>
+</HEAD>
+<BODY>
+<H1>ODF Accessibility Checklist for ODF 1.0 and 1.1</H1>
+<p>
+This document is a checklist for making ODF 1.0 and 1.1 documents accessible. 
+In this document, the following guidelines are referred to:
+<UL class="nobullet">
+<H2>ODF 1.0 Specification</H2>
+<LI>ODF 1.0 was approved as an OASIS standard on 1 May 2005, and it was also approved as the <a href="http://www.iso.org/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=43485&scopelist=PROGRAMME">ISO/IEC 26300:2006 standard</a>. 
+It is available as the <a href="http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=office#odf10">ODF 1.0 specification</a> from the OASIS ODF Technical Committee page.</LI>
+<H2>ODF 1.1 Specification</H2>
+<LI>ODF 1.1 was approved as an OASIS standard on 2 February 2007. Some accessibility functions were added in this version. 
+This newer standard is available as the <a href="http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=office#odf11">ODF 1.1 specification</a> from the OASIS ODF Technical Committee page.</LI>
+<H2>Accessibility Guidelines for Implementations of OpenDocument Format v1.1 (ODF Implementation Guideline)</H2>
+<LI>This document is a guideline for ODF 1.1 application developers. You can obtain it from the <a href='http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=office-accessibility'>OASIS ODF Accessibility Subcommittee page</a>.</LI>
+</UL>
+In addition to the ODF guidelines, the following Web accessibility guidelines are referenced to show the corresponding items in each of the guidelines. 
+<UL class="nobullet">
+<H2>WCAG 1.0</H2>
+<LI>Major Web accessibility guidelines published by the W3C Web Accessibility Initiative.</LI>
+<H2>Section 508</H2>
+<LI>U.S. federal law, which requires electronic information produced by the Federal Government to be accessible by people with disabilities.</LI>
+<H2>IBM Web Accessibility Checklist</H2>
+<LI>A checklist for making accessible web pages published by IBM.</LI>
+</UL>
+</p>
+<H2>Checkpoints for Images</H2>
+<UL class="nobullet">
+<H2 id="1.1" name="1.1">Checkpoint 1.1</H2>
+<LI>Please provide an alternative text or a caption for each image. (If the image is only for decoration, please provide a space character)</LI>
+<H4>Notes</H4>
+Current OpenOffice.org does not support associating an image and its caption. In OpenOffice.org, please fix this problem by adding an alternative text. <BR/>
+Because current OpenOffice.org Calc and Impress do not support adding an alternative text for an image, this problem cannot be fixed 
+in OpenDocument Spreadsheet (ODS) and OpenDocument Presentation (ODP) files.
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 9.2.15 Common Drawing Shape Attributes</LI>
+<LI>ODF 1.1 Specification, 9.2.20 Title and Description</LI>
+<LI>ODF Implementation Guideline, 3.2 Provision of alternative text versions of document content</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-text-equivalent'>WCAG 1.0, 1.1</A></LI>
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(a)'>Section 508 (a)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webimages.html'>IBM Guideline 1</A></LI>
+</UL>
+<H4>Fix in OpenOffice.org Writer (Add alternative text):</H4>
+<p>
+In OpenOffice.org Writer, a preference dialog box is shown by double clicking on an image. 
+After selecting the "Options" tab in the preference dialog, an alternative text string can be added in the "Alternative (Text only)" field.
+</p>
+<H4>Notes</H4>
+The current version of OpenOffice.org does not support blank alternative text, so a space character should be used for a decoration image.
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup> (Add alternative text):</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, right-click on an image, and select the option "Graphic Properties". 
+After selecting the "Alternative Text" tab in the Graphic Properties dialog, an alternative text string can be added in the "Alternative Text" field.
+</p>
+<H4>Notes</H4>
+The current version of IBM Lotus&reg; Symphony<sup>TM</sup> does not support blank alternative text, so a space character should be used for a decoration image.
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup> (Add caption):</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, one of the right-click menu options for an image is "Add Caption". This option adds a caption to the image.
+</p>
+<H2 id="1.2" name="1.2">Checkpoint 1.2 (ODF 1.1 or later)</H2>
+<LI>Consider providing a long description if the image is complicated.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 9.2.20 Title and Description</LI>
+<LI>ODF Implementation Guideline, 3.2 Provision of alternative text versions of document content</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-text-equivalent'>WCAG 1.0, 1.1</A></LI>
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(a)'>Section 508 (a)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webgraphs.html#ldesc'>IBM Guideline 3</A></LI>
+</UL>
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup> (Add long description):</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, right-click on an image, and select the option "Graphic Properties". 
+After selecting the "Alternative Text" tab in the Graphic Properties dialog, a long description string can be added in the "Long Description" field.
+</p>
+<H4>Notes</H4>
+The current version of IBM Lotus&reg; Symphony<sup>TM</sup> does not support blank long description text, so a space character should be used if a long description is not necessary.
+</UL>
+
+<H2>Checkpoints for Tables</H2>
+<UL class="nobullet">
+<H2 id="2.1" name="2.1">Checkpoint 2.1</H2>
+<LI>Please provide table headers for each table.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF Implementation Guideline, 3.1.6 Table navigation</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-table-headers'>WCAG 1.0, 5.1</A></LI>
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(g)'>Section 508 (g)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webtableheaders.html'>IBM Guideline 10</A></LI>
+</UL>
+<H4>Fix in OpenOffice.org:</H4>
+<p>
+In OpenOffice.org, right-click on a table, and select the option "Table" to set the table format.
+After selecting the "Text Flow" tab in "Table Format" dialog, table headers can be added by checking the "Repeat heading" option.
+</p>
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup>:</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, right-click on a table, and select the option "Table Properties" to set the table format.
+After selecting the "Rows and Columns" tab in "Table Properties" dialog, table headers can be added by checking the "Column header" or "Row label" option.
+</p>
+<H2 id="2.2" name="2.2">Checkpoint 2.2</H2>
+<LI>Consider providing a caption for each table.</LI>
+<H4>Notes</H4>
+Current ODF does not support associating a table and its caption, please do not insert any lines between a table and its caption.
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(g)'>Section 508 (g)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webtableheaders.html'>IBM Guideline 10</A></LI>
+</UL>
+<H4>Fix in OpenOffice.org:</H4>
+<p>
+In OpenOffice.org, one of the right-click menu options for a table is "Caption". This option adds a caption to the table.
+</p>
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup>:</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, one of the right-click menu options for a table is "Add Caption". This option adds a caption to the table.
+</p>
+</UL>
+
+<H2>Checkpoints for Image Maps</H2>
+<UL class="nobullet">
+<H2 id="3.1" name="3.1">Checkpoint 3.1</H2>
+<LI>Please provide an alternative text for each image map area.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 9.3.10 Client Side Image Maps</LI>
+<LI>ODF Implementation Guideline, 3.2.1 Image maps</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-text-equivalent'>WCAG 1.0, 1.1</A></LI>
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(a)'>Section 508 (a)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webmaps.html'>IBM Guideline 2</A></LI>
+</UL>
+<H4>Fix in OpenOffice.org:</H4>
+<p>
+In OpenOffice.org, one of the right-click menu options for an image is "ImageMap". This option opens the "ImageMap Editor".
+After selecting an area in the "ImageMap Editor", an alternative text can be added in the "Text" field.
+</p>
+<H2 id="3.2" name="3.2">Checkpoint 3.2 (ODF 1.1 or later)</H2>
+<LI>Consider providing a long description for an image map area if the image is complicated.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 9.3.10 Client Side Image Maps</LI>
+<LI>ODF Implementation Guideline, 3.2.1 Image maps</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-text-equivalent'>WCAG 1.0, 1.1</A></LI>
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(a)'>Section 508 (a)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webmaps.html'>IBM Guideline 2</A></LI>
+</UL>
+</UL>
+
+<H2>Checkpoints for Graphic Objects</H2>
+<UL class="nobullet">
+<H2 id="4.1" name="4.1">Checkpoint 4.1 (ODF 1.1 or later)</H2>
+<LI>Please provide alternative text for each graphic object. (If the graphic object is only for decoration, please provide a space character.)</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 9.2.20 Title and Description</LI>
+<LI>ODF Implementation Guideline, 3.2 Provision of alternative text versions of document content</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-text-equivalent'>WCAG 1.0, 1.1</A></LI>
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(a)'>Section 508 (a)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webimages.html'>IBM Guideline 1</A></LI>
+</UL>
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup>:</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, right-click on a graphic object, and select the option "Shape Properties". 
+After selecting the "Alternative Text" tab in the Shape Properties dialog, an alternative text string can be added in the "Alternative Text" field.
+</p>
+<H4>Notes</H4>
+The current version of IBM Lotus&reg; Symphony<sup>TM</sup> does not support blank alternative text, so a space character should be used for a decoration object.
+<H2 id="4.2" name="4.2">Checkpoint 4.2 (ODF 1.1 or later)</H2>
+<LI>Consider providing a long description if the graphic object is complicated.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 9.2.20 Title and Description</LI>
+<LI>ODF Implementation Guideline, 3.2 Provision of alternative text versions of document content</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-text-equivalent'>WCAG 1.0, 1.1</A></LI>
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(a)'>Section 508 (a)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webgraphs.html#ldesc'>IBM Guideline 3</A></LI>
+</UL>
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup>:</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, right-click on a graphic object, and select the option "Shape Properties". 
+After selecting the "Alternative Text" tab in the Shape Properties dialog, a long description string can be added in the "Long Description" field.
+</p>
+<H4>Notes</H4>
+The current version of IBM Lotus&reg; Symphony<sup>TM</sup> does not support blank long description text, so a space character should be used if a long description is not necessary.
+</UL>
+
+<H2>Checkpoints for Hyperlink Text</H2>
+<UL class="nobullet">
+<H2 id="5.1" name="5.1">Checkpoint 5.1 (ODF 1.1 or later)</H2>
+<LI>When the link text is not meaningful, consider providing additional description about the link target by using hint text.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 5.1.4 Hyperlinks</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-meaningful-links'>WCAG 1.0, 13.1</A></LI>
+</UL>
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup>:</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, select hyperlink text, and select the menu "Create" > "Hyperlink". 
+A description string about the link target can be added in the "Description" field in the Hyperlink dialog.
+</p>
+</UL>
+
+<H2>Checkpoints for Embedded Objects</H2>
+<UL class="nobullet">
+<H2 id="6.1" name="6.1">Checkpoint 6.1</H2>
+<LI>Please provide an alternative text or a caption for each embedded object. (If the embedded object is only for decoration, please provide a space character.)</LI>
+<H4>Notes</H4>
+Current OpenOffice.org does not support associating an embedded object and its caption. 
+Please fix this problem by adding an alternative text. <BR/>
+Because current OpenOffice.org Calc and Impress do not support adding an alternative text for an embedded object, this problem cannot be fixed 
+in OpenDocument Spreadsheet (ODS) and OpenDocument Presentation (ODP) files.
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 9.2.15 Common Drawing Shape Attributes</LI>
+<LI>ODF 1.1 Specification, 9.2.20 Title and Description</LI>
+<LI>ODF Implementation Guideline, 3.2 Provision of alternative text versions of document content</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-text-equivalent'>WCAG 1.0, 1.1</A></LI>
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(a)'>Section 508 (a)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webimages.html'>IBM Guideline 1</A></LI>
+</UL>
+<H4>Fix in OpenOffice.org Writer (Add alternative text):</H4>
+<p>
+In OpenOffice.org, double-clicking on an embedded object opens the preference dialog box. 
+After selecting the "Options" tab in the preference dialog, an alternative text string can be added in the "Alternative (Text Only)" field.
+</p>
+<H4>Notes</H4>
+The current version of OpenOffice.org does not support blank alternative text, so a space character can be used for a decoration object.
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup> (Add alternative text):</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, right-click on an embedded object, and select the option "OLE Object Properties". 
+After selecting the "Alternative Text" tab in the Graphic Properties dialog, an alternative text string can be added in the "Alternative Text" field.
+</p>
+<H4>Notes</H4>
+The current version of IBM Lotus&reg; Symphony<sup>TM</sup> does not support blank alternative text, so a space character should be used for a decoration image.
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup> (Add caption):</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, one of the right-click menu options for an embedded object is "Add Caption". This option adds a caption to the embedded object.
+</p>
+<H2 id="6.2" name="6.2">Checkpoint 6.2 (ODF 1.1 or later)</H2>
+<LI>Consider providing a long description if the embedded object is complicated.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 9.2.20 Title and Description</LI>
+<LI>ODF Implementation Guideline, 3.2 Provision of alternative text versions of document content</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-text-equivalent'>WCAG 1.0, 1.1</A></LI>
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(a)'>Section 508 (a)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webgraphs.html#ldesc'>IBM Guideline 3</A></LI>
+</UL>
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup> (Add long description):</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, right-click on an embedded object, and select the option "OLE Object Properties". 
+After selecting the "Alternative Text" tab in the OLE Object Properties dialog, a long description string can be added in the "Long Description" field.
+</p>
+<H4>Notes</H4>
+The current version of IBM Lotus&reg; Symphony<sup>TM</sup> does not support blank long description text, so a space character should be used if a long description is not necessary.
+</UL>
+
+<H2>Checkpoints for Form Controls</H2>
+<UL class="nobullet">
+<H2 id="7.1" name="7.1">Checkpoint 7.1</H2>
+<LI>Please provide a label for each form control.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 11.5.9 Label</LI>
+<LI><A href='http://www.w3.org/TR/WAI-WEBCONTENT/wai-pageauth.html#tech-associate-labels'>WCAG 1.0, 12.4</A></LI>
+<LI><A href='http://www.access-board.gov/sec508/guide/1194.22.htm#(n)'>Section 508 (n)</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webforms.html'>IBM Guideline 7</A></LI>
+</UL>
+<H4>Fix in OpenOffice.org and IBM Lotus&reg; Symphony<sup>TM</sup>:</H4>
+<p>
+In OpenOffice.org and IBM Lotus&reg; Symphony<sup>TM</sup>, the right-click menu for a form control includes a "Control" option. This opens the property box for the form control.
+After selecting the "General" tab in the property box, clicking the button next to the "Label Field" text box opens the dialog for setting the label field.
+By selecting the label field in "Label Field Selection" dialog, the form control can be labeled.
+</p>
+</UL>
+
+<H2>Checkpoints for Navigation Order</H2>
+<UL class="nobullet">
+<H2 id="8.1" name="8.1">Checkpoint 8.1 (ODF 1.1 or later)</H2>
+<LI>Please confirm the navigation order is set properly in each presentation slide.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 9.1.4 Drawing Pages</LI>
+<LI><A href='http://www.w3.org/TR/WCAG10-TECHS/#tech-tab-order'>WCAG 1.0 9.4</A></LI>
+</UL>
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup>:</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, selecting the menu "Presentation" > "Object Navigation Order" opens the dialog for setting the tab order. 
+By rearranging the order of the objects in the "Object Navigation Order" dialog, the tab order among graphic objects can be defined.
+</p>
+<H2 id="8.2" name="8.2">Checkpoint 8.2</H2>
+<LI>Consider specifying a logical tab order among form controls.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 11.5.15 Tab Index</LI>
+<LI><A href='http://www.w3.org/TR/WCAG10-TECHS/#tech-tab-order'>WCAG 1.0 9.4</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webforms.html'>IBM Guideline 7</A></LI>
+</UL>
+<H4>Fix in OpenOffice.org:</H4>
+<p>
+In OpenOffice.org, the right-click menu for a form control includes a "Control" option. This opens the property box for the form control.
+After selecting the "General" tab in the property box, clicking the button next to the "Tab order" text box opens the dialog for setting the tab order.
+By rearranging the order of the controls in the "Tab Order" dialog, the tab order among form controls can be defined.
+</p>
+<H4>Fix in IBM Lotus&reg; Symphony<sup>TM</sup>:</H4>
+<p>
+In IBM Lotus&reg; Symphony<sup>TM</sup>, the right-click menu for a form control includes a "Control" option. This opens the property box for the form control.
+After selecting the "General" tab in the property box, the tab order among form controls can be defined by setting the value of "Order" list box.
+</p>
+<H2 id="8.3" name="8.3">Checkpoint 8.3</H2>
+<LI>Consider using the tab stop function of form control.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 11.5.16 Tab Stop</LI>
+<LI><A href='http://www.w3.org/TR/WCAG10-TECHS/#tech-tab-order'>WCAG 1.0 9.4</A></LI>
+<LI><A href='http://www-03.ibm.com/able/guidelines/web/webforms.html'>IBM Guideline 7</A></LI>
+</UL>
+<H4>Fix in OpenOffice.org and IBM Lotus&reg; Symphony<sup>TM</sup>:</H4>
+<p>
+In OpenOffice.org and IBM Lotus&reg; Symphony<sup>TM</sup>, the right-click menu for a form control includes a "Control" option. This opens the property box for the form control.
+After selecting the "General" tab in the property box, set the value of the "Tabstop" list box as "Yes".
+</p>
+</UL>
+
+<!--
+<H2>Checkpoints for Compliance with ODF specification</H2>
+<UL class="nobullet">
+<H2 id="9.1" name="9.1">Guideline 9.1</H2>
+<LI>Please confirm ODF 1.1 functions are not used for ODF 1.0 files.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 2.1.2 Document Root Attributes</LI>
+</UL>
+<H4>Fix in OpenOffice.org 2.3.0:</H4>
+<p>
+OpenOffice.org 2.3.0 save files as ODF 1.0, but it has some ODF 1.1 functions. 
+Please confirm following functions are not used.
+<H5>Short description function for images in OpenOffice.org 2.3.0 Calc</H5>
+The right-click menu for a image includes a "Description" option. This opens the "Description" dialog. 
+Please do not use the "Title" text box, this is not supported in ODF 1.0.
+<H5>Short description function for images and drawing objects in OpenOffice.org 2.3.0 Impress</H5>
+The right-click menu for a image includes a "Description" option. This opens the "Description" dialog. 
+Please do not use the "Title" text box, this is a ODF 1.1 function.
+</p>
+</UL>
+-->
+<H2>Checkpoints for Compliance with ODF specification</H2>
+<UL class="nobullet">
+<H2 id="9.1" name="9.1">Guideline 9.1</H2>
+<LI>This file uses ODF 1.1 functions, but the ODF version of this file is saved as 1.0. 
+Accessibility of this file is checked as ODF 1.1.</LI>
+<H3>Related Specifications and Guidelines</H3>
+<UL class="nobullet">
+<LI>ODF 1.1 Specification, 2.1.2 Document Root Attributes</LI>
+</UL>
+<H4>Notes</H4>
+<p>
+OpenOffice.org 2.3.0 and IBM Lotus&reg; Symphony<sup>TM</sup> Beta 1 use ODF 1.1 functions, but save the ODF files as ODF Version 1.0.
+</p>
+</UL>
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="install.html">Installation guide for OpenDocument Accessibility perspective</A>
+<LI><A href="../workspaceOdf.html">Exploring the OpenDocument Accessibility perspective</A>
+<LI><A href="../checkOdfBlind.html">Checking the accessibility and usability of a document in the Blind Usability View</A>
+<LI><A href="../checkOdfLv.html">Checking the accessibility and usability of a document in the Low Vision View</A>
+<LI><A href="../checkOdfPresentation.html">Checking how the slide show of a presentation file looks in a meeting room</A>
+</UL>
+
+<P>
+<A href="../index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="../images/logo.jpg" alt=""></DIV>
+</P>
+
+</BODY>
+</HTML>

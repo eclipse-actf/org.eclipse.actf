@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<!--
+ Copyright (c) 2006, 2008 IBM Corporation and others.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     IBM Corporation - initial API and implementation
+-->
+<toc label="ACTF Visualization User Guide" topic="docs/index.html">
+	<topic label="About ACTF Visualization Feature" href="docs/about.html">
+		<topic label="Overview of the HTML Accessibility perspective" href="docs/overview.html"/>
+		<topic label="Exploring the HTML Accessibility perspective" href="docs/workspace.html"/>
+		<topic label="Two types of visualization" href="docs/modes.html"/>
+		<topic label="Overview of the OpenDocument Accessibility perspective" href="docs/overviewOdf.html"/>
+		<topic label="Exploring the OpenDocument Accessibility perspective" href="docs/workspaceOdf.html"/>
+		<topic label="Overview of the GUI Accessibility perspective" href="docs/overviewGui.html"/>
+		<topic label="Exploring the GUI Accessibility perspective" href="docs/workspaceGui.html"/>
+		<topic label="Overview of the Flash Accessibility perspective" href="docs/overviewFlash.html"/>
+		<topic label="Exploring the Flash Accessibility perspective" href="docs/workspaceFlash.html"/>
+	</topic>
+	
+	<topic label="Using ACTF Visualization Feature" href="docs/usingdesigner.html">
+		<topic label="How to change the perspective of ACTF Visualization" href="docs/switchPerspective.html"/>
+		<topic label="HTML Accessibility perspective" href="docs/usingHtmlMode.html">		
+			<topic label="Checking the accessibility and usability of a document in the Blind Usability View" href="docs/checkBlind.html"/>
+			<topic label="Checking the accessibility and usability of a document in the Low Vision View" href="docs/checkLv.html"/>
+			<topic label="Accessibility and usability problems for blind users" href="docs/problemsBlind.html"/>			
+			<topic label="Accessibility and usability problems for users with low vision" href="docs/problemsLv.html"/>
+			<topic label="Compliance and accessibility guidelines for Web content" href="docs/compliance.html"/>
+		</topic>
+		<topic label="OpenDocument Accessibility perspective" href="docs/usingOdfMode.html">
+			<topic label="Installation guide for OpenDocument Accessibility perspective" href="docs/odf/install.html"/>
+			<topic label="Checking the accessibility and usability of a document in the Blind Usability View" href="docs/checkOdfBlind.html"/>
+			<topic label="Checking the accessibility and usability of a document in the Low Vision View" href="docs/checkOdfLv.html"/>
+			<topic label="Checking how the slide show of a presentation file looks in a meeting room" href="docs/checkOdfPresentation.html"/>
+			<topic label="OpenDocument accessibility checklist" href="docs/odf/guideline.html"/>
+		</topic>
+		<topic label="Checking the accessibility of an application in the GUI Accessibility perspective" href="docs/checkGui.html"/>
+		<topic label="Checking the accessibility of a webpage containing Flash content in the Flash Accessibility perspective" href="docs/checkFlash.html"/>
+	</topic>
+ <topic href="docs/integration.html" label="Using ACTF Visualization in Web/J2EE/PHP perspectives">
+ </topic>
+ <anchor id="org.eclipse.actf.visualization.doc.user.additions"/>
+	
+	<topic label="Reference" href="docs/reference.html">
+		<topic label="User interface menus and icons" href="docs/menusIcons.html"/>
+		<topic label="Line View pane (Blind)" href="docs/lineViewBlind.html"/>
+		<topic label="Line View pane (Low Vision)" href="docs/lineViewLv.html"/>
+		<topic label="Blind Usability Visualization preference page" href="docs/parametersBlind.html"/>
+		<topic label="Low Vision Simulation preference page" href="docs/parametersLv.html"/>
+		<topic label="ID/AccessKey/Class/CSS Inspector Panel" href="docs/elementCss.html"/>
+		<topic label="HTML Source viewer" href="docs/sourceViewer.html"/>
+		<topic label="OpenDocument Accessibility perspective configurations" href="docs/viewsOdf.html"/>				
+		<topic label="GUI Accessibility perspective configurations" href="docs/viewsGui.html"/>
+		<topic label="Flash Accessibility perspective configurations" href="docs/viewsFlash.html"/>
+	</topic>
+	
+	<topic href="notices.html" label="Legal">
+ </topic>
+</toc>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+	<head>
+		<meta name="root" content=".." />
+		<title>ACTF Visualization SDK API Overview</title>
+	</head>
+
+	<body>
+		<p>
+		This document is the API specification for the ACTF Visualization SDK. 		
+		</p>
+		<p>
+			ACTF is a framework that serves as an extensible infrastructure
+			upon which developers can build a variety of utilities that help 
+			to evaluate and enhance the accessibility of applications and content 
+			for people with disabilities. 			
+		</p>
+	</body>
+</html>

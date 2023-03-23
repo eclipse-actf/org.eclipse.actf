@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF Lowvision Simulation Engine Plug-in
+Bundle-SymbolicName: org.eclipse.actf.visualization.engines.lowvision
+Bundle-Version: 1.5.1.qualifier
+Bundle-Vendor: Eclipse ACTF Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.actf.core,
+ org.eclipse.actf.visualization,
+ org.eclipse.actf.visualization.eval,
+ org.eclipse.actf.model.ui
+Export-Package: org.eclipse.actf.visualization.engines.lowvision,
+ org.eclipse.actf.visualization.engines.lowvision.image
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: org.eclipse.actf.visualization.engines.lowvision

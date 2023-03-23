@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Accessibility and usability problems for blind users</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>Accessibility and usability problems for blind users</H1>
+<P>
+Use the Blind Visualization View to learn how blind users who rely on voice browsers experience webpages.
+The sections that follow describe common issues that present accessibility and usability challenges for blind users and show how to address these challenges.
+(Problems are listed in the Problem pane. Clicking the line that describes the problem causes the corresponding element to be highlighted.)
+</P>
+
+<H2>Reaching time</H2>
+<P>
+<i>Reaching time</i> refers to the amount of time required to read up to an element on a page.
+If a page is long and has no intra-page links to facilitate navigation, blind users will find the content difficult to follow.
+In ACTF, an unacceptably long reaching time is conveyed by dark stripes across the Visualization pane and a red frowning face.
+By default, the maximum acceptable reaching time is 90 seconds and is conveyed by a black stripe. Anything in excess of that is unacceptable and should be changed.
+</P>
+<P>
+To address reaching time problems, webpages can be structured by using heading tags and by adding intra-page links so that users can navigate more quickly.
+</P>
+
+<H2>Intra-page linking</H2>
+<P>
+The ACTF checks for the existence of a &quot;skip-to-main-content link.&quot;
+Providing such a link in a webpage allows blind people to jump directly from the top to the main content of the page.
+</P>
+<P>
+Pages that are long should have internal links with clearly designated destination points, and ACTF also detects intra-page links without destinations and intra-page links without readable text at their source locations.
+Authors make sure that the destinations of intra-page links are correct by checking the arrow lines and by looking at the background colors of the areas of the page.
+</P>
+
+<H2>Redundant text</H2>
+<P>
+The ACTF detects redundant text information.
+For example, an icon whose ALT attribute is &quot;BluePages&quot; followed by the text string &quot;BluePages&quot; provides redundant information.
+In this case, voice browsers read this as &quot;Bluepages Bluepages,&quot; which is confusing.
+The ALT attribute of such an icon should be null text.
+If ACTF detects this on a webpage, the redundancy should be removed.
+</P>
+
+<H2>Inappropriate alternative text</H2>
+<P>
+Alternative text used to describe graphics must be meaningful. Text such as &quot;Spacer&quot; to indicate a spacer image (an image used to create space for some layout purpose) is inappropriate, because such information is useless and irritating for blind people. In such cases, the null text &quot;&quot; is appropriate as the ALT attribute.  
+</P>
+
+<H2>Problems with tables</H2>
+<P>
+The &lt;TABLE&gt; tags are used to create both data tables and layout tables.
+In both cases, they may cause usability problems for blind users because the reading order of a voice browser is often different from the intuition of sighted people.
+The ACTF Blind Visualization has a function to draw borders for the table cells, thus allowing an author to check the table structure of the target page.
+</P>
+<P>
+Nested tables can be difficult for voice browsers to read and for blind listeners to understand because they do not include table headers.
+Avoid using nested tables for layout purposes.
+</P>
+<P>
+The structure of the HTML document can be visualized by coloring accessible tags and by showing the table cell structure.
+All tables must have headers, which ACTF Blind Visualization presents in green in the Visualization pane.
+Heading tags are presented in blue.
+Heading tags help structure the page. Tables that are not tagged are difficult for blind readers to visualize.
+</P>
+
+<H2>Failure to comply with accessibility guidelines</H2>
+<P>
+The tool checks the target page's compliance with accessibility guidelines just as conventional accessibility checkers do. Refer to <A href="compliance.html">Compliance and accessibility guidelines for Web content</A>. 
+</P>
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="checkBlind.html">Checking the accessibility and usability of a document in the Blind Usability View</A>
+<LI><A href="problemsLv.html">Accessibility and usability problems for users with low vision</A>
+<LI><A href="compliance.html">Compliance and accessibility guidelines for Web content</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+
+</BODY>
+</HTML>

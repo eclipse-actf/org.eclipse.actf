@@ -1,0 +1,3107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+ Copyright (c) 2005, 2011 IBM Corporation and others.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     IBM Corporation - initial API and implementation
+-->
+<checker-config>
+    <checkitem type="error" id="C_0.0">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="a" name="Section508"/>
+            <gItem techniques="H35,F38,F65" id="7.1.1.1" name="JIS"/>
+            <gItem id="6" name="IBMGuideline"/>
+            <gItem techniques="H35,F38,F65" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Provide ALT attribute for each APPLET</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_0.1">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="a" name="Section508"/>
+            <gItem techniques="H35" id="7.1.1.1" name="JIS"/>
+            <gItem id="6" name="IBMGuideline"/>
+            <gItem techniques="H35" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Consider to provide alternative text or image within each APPLET</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_0.2">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="a" name="Section508"/>
+            <gItem id="6" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Provide ALT attribute and alternative text or image within each APPLET</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_1.1">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="a" name="Section508"/>
+            <gItem techniques="H53" id="7.1.1.1" name="JIS"/>
+            <gItem id="6" name="IBMGuideline"/>
+            <gItem techniques="H53" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Provide alternative text or image for each OBJECT</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_10.0">
+        <guideline>
+            <gItem id="3.2" name="WCAG"/>
+            <gItem techniques="G134,G192" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="G134,G192" id="4.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Make sure your document is valid according to the formal published grammars.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_12.0">
+        <guideline>
+            <gItem id="3.3" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Use style sheets to control layout and presentation wherever possible.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_12.1">
+        <guideline>
+            <gItem id="3.3" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this table is used for layout only, use style sheets to control layout wherever possible.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_12.2">
+        <guideline>
+            <gItem id="3.3" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this table is used for layout only, use style sheets to control layout wherever possible.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_13.0">
+        <guideline>
+            <gItem id="3.4" name="WCAG"/>
+            <gItem id="7.1.4.4" techniques="C12,SCR34" name="JIS"/>
+            <gItem id="1.4.4" techniques="C12,SCR34" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Use relative sizing and positioning (% values) rather than absolute (pixels).</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_14.0">
+        <guideline>
+            <gItem id="3.5" name="WCAG"/>
+            <gItem techniques="G141" id="7.2.4.10" name="JIS"/>
+            <gItem techniques="G141" id="2.4.10" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Nest headings properly.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_15.0">
+        <guideline>
+            <gItem id="3.5" name="WCAG"/>
+            <gItem techniques="H42" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="G130" id="7.2.4.6" name="JIS"/>
+            <gItem techniques="H42" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="G130" id="2.4.6" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that each heading identifies its section of the content and is not used to make text bold.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_16.0">
+        <guideline>
+            <gItem id="3.6" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Use list elements only for actual lists, not for formatting.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_16.1">
+        <guideline>
+            <gItem id="3.6" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Tag UL or OL without tag LI.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_16.2">
+        <guideline>
+            <gItem id="3.6" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Tag LI without tag UL or OL.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_17.0">
+        <guideline>
+            <gItem id="3.7" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Make sure BLOCKQUOTE is used only for quotations, not for indentation.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_17.1">
+        <guideline>
+            <gItem id="7.1.3.1" techniques="F43,H49" name="JIS"/>
+            <gItem id="1.3.1" techniques="F43,H49" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Make sure blockquote elements are used only for quotations, not for indentation.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_18.0">
+        <guideline>
+            <gItem id="3.7" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Use BLOCKQUOTE elements for long text blocks.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_18.1">
+        <guideline>
+            <gItem id="3.7" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Use Q elements for short text blocks.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_18.2">
+        <guideline>
+            <gItem id="3.7" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Please provide the URI of the source of the quotation as CITE attribute.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_19.0">
+        <guideline>
+            <gItem id="4.1" name="WCAG"/>
+            <!-- moved into 500.6
+            <gItem techniques="H58" id="7.3.1.2" name="JIS"/>
+            <gItem techniques="H58" id="3.1.2" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Identify any changes in the language used in the document.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_2.0">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="e" name="Section508"/>
+            <gItem id="2" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this submit button is being used with an image map, provide separate submit buttons for each active region.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_2.1">
+        <guideline>
+            <gItem id="1.2" name="WCAG"/>
+            <gItem id="e" name="Section508"/>
+            <gItem id="2" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Are there text links that duplicate all server-side image map hot spots?</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_2.2">
+        <guideline>
+            <gItem id="9.1" name="WCAG"/>
+            <gItem id="f" name="Section508"/>
+            <gItem id="2" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If possible, use a client-side image map instead of a server-side image map.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_20.0">
+        <guideline>
+            <gItem id="4.2" name="WCAG"/>
+            <gItem techniques="H28" id="7.3.1.4" name="JIS"/>
+            <gItem techniques="H28" id="3.1.4" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Use the ABBR and ACRONYM elements to denote and expand any abbreviations and acronyms that are present.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_200.0">
+        <guideline>
+            <gItem id="6.3" name="WCAG"/>
+            <gItem id="l" name="Section508"/>
+            <gItem id="6" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>This page has a link which might not be able to use without scripts.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_200.1">
+        <guideline>
+            <gItem id="6.3" name="WCAG"/>
+            <gItem id="l" name="Section508"/>
+            <gItem id="6" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>This page has more than ten links which might not be able to use without scripts. Please consider providing alternative links.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_201.0">
+        <guideline>
+            <gItem id="6.3" name="WCAG"/>
+            <gItem id="6" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>This page has some invisible elements in initial state. Please confirm that it is accessible without scripts, or there are accessible alternatives in the page.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_201.1">
+        <guideline>
+            <gItem id="6.3" name="WCAG"/>
+            <gItem id="6" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>This page has an invisible link in initial state. Please confirm that it is accessible without scripts, or there is an accessible alternative link in the page.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_21.0">
+        <guideline>
+            <gItem id="4.3" name="WCAG"/>
+            <gItem techniques="H57" id="7.3.1.1" name="JIS"/>
+            <gItem techniques="H57" id="3.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Identify the language of the text (e.g. &amp;lt;html lang=&quot;en&quot;&amp;gt;).</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_22.0">
+        <guideline>
+            <gItem id="5.3" name="WCAG"/>
+            <gItem techniques="F49" id="7.1.3.2" name="JIS"/>
+            <gItem techniques="F49" id="1.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Linearize the content using Voice browser mode of this tool and check that the linear reading order matches any meaningful sequence conveyed through presentation.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_23.0">
+        <guideline>
+            <gItem id="5.4" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this table is used for layout only, do not use TH tag to achieve formatting effects.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_25.0">
+        <guideline>
+            <gItem id="5.5" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this is a data table (not used for layout only), provide CAPTION and SUMMARY.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_25.1">
+        <guideline>
+            <gItem id="5.5" name="WCAG"/>
+            <gItem techniques="H39" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H39" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this is a data table (not used for layout only), provide CAPTION.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_25.2">
+        <guideline>
+            <gItem id="5.5" name="WCAG"/>
+            <gItem techniques="H73" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H73" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this is a data table (not used for layout only), provide SUMMARY.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_26.0">
+        <guideline>
+            <gItem id="5.6" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If row or column labels are long, use abbreviations.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_27.0">
+        <guideline>
+            <gItem id="6.2" name="WCAG"/>
+            <gItem id="9" name="IBMGuideline"/>
+            <gItem techniques="H88" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="H88" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H88" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Each FRAME must reference an HTML file.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_28.0">
+        <guideline>
+            <gItem id="6.3" name="WCAG"/>
+            <gItem id="l" name="Section508"/>
+            <gItem id="6" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Provide alternative content for each SCRIPT that conveys important information or functionality.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_29.0">
+        <guideline>
+            <gItem id="6.3" name="WCAG"/>
+            <gItem id="6" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Make sure pages are still usable if programmatic objects do not function.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_29.1">
+        <guideline>
+            <gItem id="6.3" name="WCAG"/>
+            <gItem id="6" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Make sure pages are still usable if javascript do not function.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_29.2">
+        <guideline>
+            <gItem id="6.3" name="WCAG"/>
+            <gItem id="6" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Make sure pages are still usable if programmatic objects do not function.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_3.0">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Do you have a descriptive (D) link in addition to LONGDESC?</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_30.0">
+        <guideline>
+            <gItem id="6.4" name="WCAG"/>
+            <gItem techniques="G90" id="7.2.1.1" name="JIS"/>
+            <gItem techniques="G90" id="7.2.1.3" name="JIS"/>
+            <gItem id="5" name="IBMGuideline"/>
+            <gItem techniques="G90" id="2.1.1" name="WCAG 2.0"/>
+            <gItem techniques="G90" id="2.1.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If objects or applets use event handlers, make sure they do not depend on input devices.</desc>
+        </description>
+    </checkitem>
+        <checkitem type="user" id="C_30.1">
+        <guideline>
+            <gItem techniques="G21" id="7.2.1.2" name="JIS"/>
+            <gItem techniques="G21" id="2.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that users are not trapped in content.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_31.0">
+        <guideline>
+            <gItem id="9" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Provide a NOFRAMES when using FRAMEs.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_32.0">
+        <guideline>
+            <gItem id="7.1" name="WCAG"/>
+            <gItem id="j" name="Section508"/>
+            <gItem id="13" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that the page does not cause the screen to flicker rapidly.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_33.0">
+        <guideline>
+            <gItem id="7.2" name="WCAG"/>
+            <gItem techniques="F47,G11,G187" id="7.2.2.2" name="JIS"/>
+            <gItem techniques="H88" id="7.4.1.1" name="JIS"/>
+            <gItem id="13" name="IBMGuideline"/>
+            <gItem techniques="F47,G11,G187" id="2.2.2" name="WCAG 2.0"/>
+            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+            <mItem score="5" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Avoid blinking text created with the BLINK element.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_33.1">
+        <guideline>
+            <gItem id="7.2" name="WCAG"/>
+            <gItem techniques="F47,G11,G187" id="7.2.2.2" name="JIS"/>
+            <gItem techniques="H88" id="7.4.1.1" name="JIS"/>
+            <gItem id="13" name="IBMGuideline"/>
+            <gItem techniques="F47,G11,G187" id="2.2.2" name="WCAG 2.0"/>
+            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Avoid blinking text created by using "text-decoration:blink".</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_33.2">
+        <guideline>
+            <gItem id="7.2" name="WCAG"/>
+            <gItem techniques="F47,G11,G187" id="7.2.2.2" name="JIS"/>
+            <gItem id="13" name="IBMGuideline"/>
+            <gItem techniques="F47,G11,G187" id="2.2.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Avoid blinking text created by using "text-decoration:blink".</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_34.0">
+        <guideline>
+            <gItem id="7.3" name="WCAG"/>
+            <gItem techniques="G4,F16" id="7.2.2.2" name="JIS"/>
+            <gItem techniques="H88" id="7.4.1.1" name="JIS"/>
+            <gItem id="13" name="IBMGuideline"/>
+            <gItem techniques="G4,F16" id="2.2.2" name="WCAG 2.0"/>
+            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+            <mItem score="5" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Avoid scrolling text created with the MARQUEE element.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_35.0">
+        <guideline>
+            <gItem id="7.3" name="WCAG"/>
+            <gItem techniques="G152" id="7.2.2.2" name="JIS"/>
+            <gItem id="13" name="IBMGuideline"/>
+            <gItem techniques="G152" id="2.2.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If this GIF image is animated, make sure it does not contain fast or distracting motion.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_36.0">
+        <guideline>
+            <gItem id="7.4" name="WCAG"/>
+            <gItem techniques="F41,G180,G198" id="7.2.2.1" name="JIS"/>
+            <gItem techniques="F41" id="7.2.2.4" name="JIS"/>
+            <gItem techniques="G76,H76,F41,SVR1" id="7.3.2.5" name="JIS"/>
+            <gItem id="14" name="IBMGuideline"/>
+            <gItem techniques="F41,G180,G198" id="2.2.1" name="WCAG 2.0"/>
+            <gItem techniques="F41" id="2.2.4" name="WCAG 2.0"/>
+            <gItem techniques="G76,H76,F41,SVR1" id="3.2.5" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Operable"/>
+            <mItem score="5" name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Do not create periodically auto-refreshing pages. (Avoid use of &amp;lt;META HTTP-EQUIV=&quot;Refresh&quot; &amp;gt;)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_36.1">
+        <guideline>
+            <gItem id="7.5" name="WCAG"/>
+            <gItem techniques="F40,F41,G180,G198" id="7.2.2.1" name="JIS"/>
+            <gItem techniques="F40,F41" id="7.2.2.4" name="JIS"/>
+            <gItem techniques="G76,H76,F40,F41,SVR1" id="7.3.2.5" name="JIS"/>
+            <gItem id="14" name="IBMGuideline"/>
+            <gItem techniques="F40,F41,G180,G198" id="2.2.1" name="WCAG 2.0"/>
+            <gItem techniques="F40,F41" id="2.2.4" name="WCAG 2.0"/>
+            <gItem techniques="G76,H76,F40,F41,SVR1" id="3.2.5" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Operable"/>
+            <mItem score="5" name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Do not use markup to redirect pages automatically. (Avoid use of &amp;lt;META HTTP-EQUIV=&quot;Refresh&quot; &amp;gt;)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_38.0">
+        <guideline>
+            <gItem id="9.3" name="WCAG"/>
+            <gItem techniques="SCR2,SCR20,SCR35,G90" id="7.2.1.1" name="JIS"/>
+            <gItem techniques="SCR2,SCR20,SCR35,G90" id="7.2.1.3" name="JIS"/>
+            <gItem id="5" name="IBMGuideline"/>
+            <gItem techniques="SCR2,SCR20,SCR35,G90" id="2.1.1" name="WCAG 2.0"/>
+            <gItem techniques="SCR2,SCR20,SCR35,G90" id="2.1.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Make sure event handlers do not require the use of a mouse.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_39.0">
+        <guideline>
+            <gItem id="9.4" name="WCAG"/>
+            <gItem id="n" name="Section508"/>
+            <gItem id="7" name="IBMGuideline"/>
+            <!-- moved into 600.13
+            <gItem techniques="G59,H4" id="7.2.4.3" name="JIS"/>
+            <gItem techniques="G59,H4" id="2.4.3" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Consider specifying a logical tab order among FORM controls, links and objects.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_4.0">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="a" name="Section508"/>
+            <gItem techniques="H45" id="7.1.1.1" name="JIS"/>
+            <gItem id="3" name="IBMGuideline"/>
+            <gItem techniques="H45" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If an image conveys important information beyond what is in its alternative text, provide an extended description.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_40.0">
+        <guideline>
+            <gItem id="9.5" name="WCAG"/>
+            <gItem id="5" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Consider adding keyboard shortcuts (AccessKey) to important links.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_41.0">
+        <guideline>
+            <gItem id="9.5" name="WCAG"/>
+            <gItem id="n" name="Section508"/>
+            <gItem id="7" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Consider furnishing keyboard shortcuts (AccessKey) for FORM elements.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_42.0">
+        <guideline>
+            <gItem id="10.1" name="WCAG"/>
+            <gItem techniques="H83" id="7.3.2.5" name="JIS"/>
+            <gItem techniques="H83" id="3.2.5" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Is the user made aware that there will be pop-up windows or changes in the active window?</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_43.0">
+        <guideline>
+            <gItem id="10.1" name="WCAG"/>
+            <gItem techniques="SCR24" id="7.3.2.5" name="JIS"/>
+            <gItem techniques="SCR24" id="3.2.5" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>If scripts create pop-up windows or change the active window, make sure that the user is aware that this is happening.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_45.0">
+        <guideline>
+            <gItem id="10.4" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Include default place-holding characters in edit boxes and text areas.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_45.1">
+        <guideline>
+            <gItem id="10.4" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Set default value for radio buttons or select boxes.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_46.0">
+        <guideline>
+            <gItem id="10.5" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Include non-link, printable characters between adjacent links.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_47.0">
+        <guideline>
+            <gItem id="11.1" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Use the latest technology specification available whenever possible.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_48.0">
+        <guideline>
+            <gItem id="11.2" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Avoid use of obsolete language features if possible.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_48.1">
+        <guideline>
+            <gItem id="11.2" name="WCAG"/>
+            <gItem techniques="H88" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="H88" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H88" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Avoid use of obsolete language features if possible. (Use OBJECT instead.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_48.2">
+        <guideline>
+            <gItem id="11.2" name="WCAG"/>
+            <gItem techniques="H88" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="H88" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H88" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Avoid use of obsolete language features if possible. (Use style sheets for these formatting effects.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_48.3">
+        <guideline>
+            <gItem id="11.2" name="WCAG"/>
+            <gItem techniques="H88" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="H88" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H88" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Avoid use of obsolete language features if possible. (Use other list elements such as UL or OL, and use style sheets to refine the formatting.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_48.4">
+        <guideline>
+            <gItem id="11.2" name="WCAG"/>
+            <gItem techniques="H88" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="H88" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H88" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Avoid use of obsolete language features if possible. (Use an INPUT element within a FORM.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_48.5">
+        <guideline>
+            <gItem id="11.2" name="WCAG"/>
+            <gItem techniques="H88" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="H88" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H88" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Avoid use of obsolete language features if possible. (Use the PRE element.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_49.0">
+        <guideline>
+            <gItem id="11.3" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Do you allow users to customize their experience of the Web page?</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_5.0">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="a" name="Section508"/>
+            <gItem id="b" name="Section508"/>
+            <gItem techniques="G158" id="7.1.2.1" name="JIS"/>
+            <gItem id="4" name="IBMGuideline"/>
+            <gItem techniques="G158" id="1.2.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Do all audio files have transcripts?</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_5.1">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="a" name="Section508"/>
+            <gItem id="b" name="Section508"/>
+            <gItem techniques="G87,G93" id="7.1.2.2" name="JIS"/>
+            <gItem id="4" name="IBMGuideline"/>
+            <gItem techniques="G87,G93" id="1.2.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Is there a synchronized textual transcript for the audio in videos?</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_5.2">
+        <guideline>
+            <gItem id="1.3" name="WCAG"/>
+            <gItem id="a" name="Section508"/>
+            <gItem id="b" name="Section508"/>
+            <gItem id="4" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Provide an auditory description of the visual track for multimedia presentations.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_5.3">
+        <guideline>
+            <gItem id="1.4" name="WCAG"/>
+            <gItem id="b" name="Section508"/>
+            <gItem id="4" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Synchronize equivalent alternatives with multimedia presentations.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_50.0">
+        <guideline>
+            <gItem id="11.4" name="WCAG"/>
+            <gItem id="k" name="Section508"/>
+            <gItem id="15" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If you can't make a page accessible, provide an alternate accessible version.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_51.0">
+        <guideline>
+            <gItem id="12.1" name="WCAG"/>
+            <gItem id="i" name="Section508"/>
+            <gItem techniques="H64" id="7.2.4.1" name="JIS"/>
+            <gItem techniques="H64" id="7.4.1.2" name="JIS"/>
+            <gItem id="9" name="IBMGuideline"/>
+            <gItem techniques="H64" id="2.4.1" name="WCAG 2.0"/>
+            <gItem techniques="H64" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Operable"/>
+            <mItem score="5" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>The frame element does not have title attribute. Provide nonempty title attribute to the frame element that contains text that identifies the frame.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_51.1">
+        <guideline>
+            <gItem id="12.1" name="WCAG"/>
+            <gItem id="i" name="Section508"/>
+            <gItem techniques="H64" id="7.2.4.1" name="JIS"/>
+            <gItem techniques="H64" id="7.4.1.2" name="JIS"/>
+            <gItem id="9" name="IBMGuideline"/>
+            <gItem techniques="H64" id="2.4.1" name="WCAG 2.0"/>
+            <gItem techniques="H64" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Operable"/>
+            <mItem score="5" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>The iframe element does not have title attribute. Provide nonempty title attribute to the iframe element that contains text that identifies the iframe.{0}</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_52.0">
+        <guideline>
+            <gItem id="12.2" name="WCAG"/>
+            <gItem id="9" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Add a description to a FRAME if the TITLE does not describe its contents.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_52.1">
+        <guideline>
+            <gItem id="12.2" name="WCAG"/>
+            <gItem id="9" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Add a description to an IFRAME if the TITLE does not describe its contents.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_53.1">
+        <guideline>
+            <gItem id="12.3" name="WCAG"/>
+            <gItem id="7" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Consider grouping long lists of selections into a hierarchy by using OPTGROUP. (Over 10 items.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_54.0">
+        <guideline>
+            <gItem id="12.3" name="WCAG"/>
+            <gItem id="n" name="Section508"/>
+            <gItem techniques="H71" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H71" id="7.3.3.2" name="JIS"/>
+            <gItem id="7" name="IBMGuideline"/>
+            <gItem techniques="H71" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H71" id="3.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>If there are logical groupings of FORM controls, use FIELDSET for each group.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_54.1">
+        <guideline>
+            <gItem id="12.3" name="WCAG"/>
+            <gItem id="n" name="Section508"/>
+            <gItem techniques="H71" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H71" id="7.3.3.2" name="JIS"/>
+            <gItem id="7" name="IBMGuideline"/>
+            <gItem techniques="H71" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H71" id="3.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+            <mItem score="5" name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>If there are logical groupings of FORM controls, use FIELDSET with LEGEND for each group.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_55.0">
+        <guideline>
+            <gItem id="12.3" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Group related elements when possible.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_56.1">
+        <guideline>
+            <gItem id="13.1" name="WCAG"/>
+            <!-- moved into 600.14
+            <gItem techniques="G53,H77,H78,H79,H80,H81" id="7.2.4.4" name="JIS"/>
+            <gItem techniques="G53,H77,H78,H79,H80,H81" id="2.4.4" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that all link text make sense when read out of context.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_57.0">
+        <guideline>
+            <gItem id="13.1" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Add a descriptive title to links when needed.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_57.1">
+        <guideline>
+            <gItem id="13.1" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Link text and title seem too short.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_57.2">
+        <guideline>
+            <gItem id="13.1" name="WCAG"/>
+            <gItem techniques="H30" id="7.2.4.4" name="JIS"/>
+            <gItem techniques="H30" id="7.2.4.9" name="JIS"/>
+            <gItem techniques="H30" id="2.4.4" name="WCAG 2.0"/>
+            <gItem techniques="H30" id="2.4.9" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Operable"/>
+        </metrics>
+        <description>
+            <desc>This link is not accessible since there is no readable text.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_58.0">
+        <guideline>
+            <gItem id="13.1" name="WCAG"/>
+            <gItem techniques="G91" id="7.2.4.4" name="JIS"/>
+            <gItem techniques="G91" id="7.2.4.9" name="JIS"/>
+            <gItem techniques="G91" id="2.4.4" name="WCAG 2.0"/>
+            <gItem techniques="G91" id="2.4.9" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Do not use the same link text more than once when the links point to different URLs.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_59.1">
+        <guideline>
+            <gItem id="13.2" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>As appropriate, use Keywords and Description META elements in the header. (Use metadata to add computer-understandable information about the page.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_59.2">
+        <guideline>
+            <gItem id="13.2" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>As appropriate, use the ADDRESS element in the header. (Use metadata to add computer-understandable information about the page.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_59.3">
+        <guideline>
+            <gItem id="13.2" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>As appropriate, use RDF in the header. (Use metadata to add computer-understandable information about the page.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_6.0">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="a" name="Section508"/>
+            <gItem id="3" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this text block is ASCII art, consider replacing it with an accessible image.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_60.0">
+        <guideline>
+            <gItem id="13.2" name="WCAG"/>
+            <gItem techniques="H25,F25" id="7.2.4.2" name="JIS"/>
+            <gItem techniques="H25,F25" id="2.4.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Include a document TITLE.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_60.1">
+        <guideline>
+            <gItem techniques="H25,F25" id="7.2.4.2" name="JIS"/>
+            <gItem techniques="H25,F25" id="2.4.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Document title "{0}" may be inappropriate.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_61.0">
+        <guideline>
+            <gItem id="13.3" name="WCAG"/>
+            <gItem techniques="G63" id="7.2.4.8" name="JIS"/>
+            <gItem techniques="G63" id="2.4.8" name="WCAG 2.0"/>
+            <!-- moved into 500.3
+            <gItem techniques="G63,G64" id="7.2.4.5" name="JIS"/>
+            <gItem techniques="G63,G64" id="2.4.5" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Provide information about the general layout of a site (e.g., a site map or table of contents).</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_62.0">
+        <guideline>
+            <gItem id="13.4" name="WCAG"/>
+            <gItem techniques="G61" id="7.3.2.3" name="JIS"/>
+            <gItem techniques="G61" id="3.2.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Consider to use navigation mechanisms in a consistent manner.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_63.0">
+        <guideline>
+            <gItem id="13.5" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Consider to provide navigation bars to highlight and give access to the navigation mechanism. </desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_64.0">
+        <guideline>
+            <gItem id="13.6" name="WCAG"/>
+            <!-- moved into 600.11
+            <gItem techniques="H50" id="7.2.4.1" name="JIS"/>
+            <gItem techniques="H50" id="2.4.1" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If there are logical groups of links, have they been identified?</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_65.0">
+        <guideline>
+            <gItem id="13.6" name="WCAG"/>
+            <gItem id="8" name="IBMGuideline"/>
+            <!-- moved into 600.11
+            <gItem techniques="G123" id="7.2.4.1" name="JIS"/>
+            <gItem techniques="G123" id="2.4.1" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If you have grouped links, is there a link at the beginning to bypass the group?</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_66.0">
+        <guideline>
+            <gItem id="13.7" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If search functions are provided, provide different types of searches for different skill levels and preferences.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_67.0">
+        <guideline>
+            <gItem id="13.8" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Provide distinguishing information at the beginning of paragraphs, headings, lists, etc.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_68.0">
+        <guideline>
+            <gItem id="13.9" name="WCAG"/>
+            <gItem techniques="H59" id="7.2.4.8" name="JIS"/>
+            <gItem techniques="H59" id="2.4.8" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If this document is part of a collection, use REL or REV within LINK. (Or provide metadata, such as RDF or a bundled archive.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_68.1">
+        <guideline>
+            <gItem id="13.9" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If this document is part of a collection, provide metadata that identifies this document's location in the collection. (Use RDF in the header.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_69.0">
+        <guideline>
+            <gItem id="13.10" name="WCAG"/>
+            <gItem id="8" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If this text block is ASCII art, provide a means to skip over it.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_7.0">
+        <guideline>
+            <gItem id="1.5" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Client-side image map contains a link not presented elsewhere on the page.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_70.0">
+        <guideline>
+            <gItem id="14.1" name="WCAG"/>
+            <gItem id="7.3.1.5" techniques="G153" name="JIS"/>
+            <gItem id="3.1.5" techniques="G153" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Make the text easier to read.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_71.0">
+        <guideline>
+            <gItem id="14.2" name="WCAG"/>
+            <gItem techniques="G103" id="7.3.1.5" name="JIS"/>
+            <gItem techniques="G103" id="3.1.5" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Where appropriate, use icons or graphics to facilitate comprehension of the page. And, provide accessible alternative texts for them.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_72.0">
+        <guideline>
+            <gItem id="14.3" name="WCAG"/>
+            <gItem techniques="G197" id="7.3.2.4" name="JIS"/>
+            <gItem techniques="G197" id="3.2.4" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Is the style of presentation consistent for all pages?</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_73.0">
+        <guideline>
+            <gItem id="m" name="Section508"/>
+            <gItem id="6" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Make sure there is a link to download accessible plugins.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_74.0">
+        <guideline>
+            <gItem id="p" name="Section508"/>
+            <gItem id="14" name="IBMGuideline"/>
+            <!-- moved into 600.8
+            <gItem techniques="G133,SCR1,SCR16" id="7.2.2.1" name="JIS"/>
+            <gItem techniques="G133,SCR1,SCR16" id="2.2.1" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If a timed response is required, the user shall be alerted and given sufficient time to indicate more time is required. </desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_74.1">
+        <guideline>
+            <gItem id="p" name="Section508"/>
+            <gItem id="14" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Operable"/>
+        </metrics>
+        <description>
+            <desc>This page uses timed redirects or refreshes. Give the user a notification and a chance to extend the timeout.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_74.2">
+        <guideline>
+            <gItem id="p" name="Section508"/>
+            <gItem id="14" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If a timed response is required in processing FORMs, the user shall be alerted and given sufficient time to indicate more time is required. </desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_75.0">
+        <guideline>
+            <gItem id="5.1" name="WCAG"/>
+            <gItem id="g" name="Section508"/>
+            <gItem id="10" name="IBMGuideline"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this is a data table, provide headers (TH), summary, and caption for the table. For layout tables, use style sheets to control layout.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_76.0">
+        <guideline>
+            <gItem id="5.2" name="WCAG"/>
+            <gItem id="h" name="Section508"/>
+            <gItem techniques="H63" id="7.1.3.1" name="JIS"/>
+            <gItem id="10" name="IBMGuideline"/>
+            <gItem techniques="H63" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If a table has two or more rows or columns that serve as headers, use structural markup (e.g. AXIS and SCOPE) to identify their hierarchy and relationship.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_76.1">
+        <guideline>
+            <gItem id="5.2" name="WCAG"/>
+            <gItem id="h" name="Section508"/>
+            <gItem techniques="H63" id="7.1.3.1" name="JIS"/>
+            <gItem id="10" name="IBMGuideline"/>
+            <gItem techniques="H63" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>There are some combined table cells (COLSPAN/ROWSPAN). Use structural markup (e.g. AXIS and SCOPE) to identify their hierarchy and relationship. If possible, avoid using COLSPAN/ROWSPAN in data table.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_77.0">
+        <guideline>
+            <gItem id="6.1" name="WCAG"/>
+            <gItem techniques="C6" id="7.1.3.2" name="JIS"/>
+            <gItem techniques="G140" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="G140" id="7.1.4.5" name="JIS"/>
+            <gItem techniques="G140" id="7.1.4.9" name="JIS"/>
+            <gItem id="d" name="Section508"/>
+            <gItem id="11" name="IBMGuideline"/>
+            <gItem techniques="C6" id="1.3.2" name="WCAG 2.0"/>
+            <gItem techniques="G140" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="G140" id="1.4.5" name="WCAG 2.0"/>
+            <gItem techniques="G140" id="1.4.9" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>When an HTML document is rendered without associated style sheets, it must still be readable and usable.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_77.1">
+        <guideline>
+            <gItem id="6.1" name="WCAG"/>
+            <gItem id="d" name="Section508"/>
+            <gItem techniques="C6" id="7.1.3.2" name="JIS"/>
+            <gItem techniques="G140" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="G140" id="7.1.4.5" name="JIS"/>
+            <gItem techniques="G140" id="7.1.4.9" name="JIS"/>
+            <gItem id="11" name="IBMGuideline"/>
+            <gItem techniques="C6" id="1.3.2" name="WCAG 2.0"/>
+            <gItem techniques="G140" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="G140" id="1.4.5" name="WCAG 2.0"/>
+            <gItem techniques="G140" id="1.4.9" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>When an HTML document is rendered without associated style sheets, it must still be readable and usable.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_77.2">
+        <guideline>
+            <gItem id="6.1" name="WCAG"/>
+            <gItem id="d" name="Section508"/>
+            <gItem techniques="C6" id="7.2.4.1" name="JIS"/>
+            <gItem techniques="G140" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="G140" id="7.1.4.5" name="JIS"/>
+            <gItem techniques="G140" id="7.1.4.9" name="JIS"/>
+            <gItem id="11" name="IBMGuideline"/>
+            <gItem techniques="C6" id="2.4.1" name="WCAG 2.0"/>
+            <gItem techniques="G140" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="G140" id="1.4.5" name="WCAG 2.0"/>
+            <gItem techniques="G140" id="1.4.9" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>When an HTML document is rendered without associated style sheets, it must still be readable and usable.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_78.2">
+        <guideline>
+            <gItem id="10.2" name="WCAG"/>
+            <gItem id="n" name="Section508"/>
+            <gItem techniques="G184" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="G184" id="7.3.3.5" name="JIS"/>
+            <gItem id="7" name="IBMGuideline"/>
+            <gItem techniques="G184" id="3.3.2" name="WCAG 2.0"/>
+            <gItem techniques="G184" id="3.3.5" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that instruction (or sample) of edit box is placed before the edit box.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_79.0">
+        <guideline>
+            <gItem id="12.4" name="WCAG"/>
+            <gItem id="n" name="Section508"/>
+            <gItem techniques="H44" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="H44" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H44" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="H44" id="7.4.1.2" name="JIS"/>
+            <gItem id="7" name="IBMGuideline"/>
+            <gItem techniques="H44" id="1.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H44" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H44" id="3.3.2" name="WCAG 2.0"/>
+            <gItem techniques="H44" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+            <mItem score="2" name="Understandable"/>
+            <mItem score="2" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>There is no label element for the form control.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_79.1">
+        <guideline>
+            <gItem id="10.2" name="WCAG"/>
+            <gItem id="n" name="Section508"/>
+            <gItem techniques="G162" id="7.3.3.2" name="JIS"/>
+            <gItem id="7" name="IBMGuideline"/>
+            <gItem techniques="G162" id="3.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that LABEL of FORM control is properly placed.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_8.0">
+        <guideline>
+            <gItem id="2.1" name="WCAG"/>
+            <gItem id="c" name="Section508"/>
+            <gItem id="12" name="IBMGuideline"/>
+            <gItem techniques="G14,G122,G182" id="7.1.4.1" name="JIS"/>
+            <gItem techniques="G14,G122,G182" id="1.4.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If you use color to convey information, make sure the information is also represented another way.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_80.0">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem techniques="H45" id="7.1.1.1" name="JIS"/>
+            <gItem id="1" name="IBMGuideline"/>
+            <gItem techniques="H45" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>ALT text contains over 150 characters, consider providing a separate description.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_81.0">
+        <guideline/>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that links have enough size and are easily distinguishable.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_82.0">
+        <guideline>
+            <gItem techniques="G98,G155,G164,G99,G168,G155" id="7.3.3.4" name="JIS"/>
+            <gItem techniques="G98,G155,G164,G99,G168,G155" id="7.3.3.6" name="JIS"/>
+            <gItem techniques="G98,G155,G164,G99,G168,G155" id="3.3.4" name="WCAG 2.0"/>
+            <gItem techniques="G98,G155,G164,G99,G168,G155" id="3.3.6" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that users can return to previous step.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_83.0">
+        <guideline>
+            <gItem techniques="G96" id="7.1.3.3" name="JIS"/>
+            <gItem techniques="G96" id="1.3.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If you use content's shape or position to convey information, make sure the information is also represented another way.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_84.0">
+        <guideline/>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Confirm that fonts in the page are clear and easy-to-read (e.g. Gothic font).</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_85.0">
+        <guideline>
+            <gItem techniques="G171" id="7.1.4.2" name="JIS"/>
+            <gItem techniques="G171" id="1.4.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Do not play back sound automatically.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_86.0">
+        <guideline/>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If possible, provide controles (such as volume control) for multimedia contents.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_87.0">
+        <guideline/>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that the difficult Chinese characters have kana printed alongside.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_88.0">
+        <guideline/>
+        <metrics>
+            <mItem score="5" name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Identify the default charset of the document. (Use '&amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=xxx&quot; /&amp;gt;'.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_89.0">
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>This page has no readable text. Please provide some text information.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_89.1">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="a" name="Section508"/>
+            <gItem techniques="G94,G82" id="7.1.1.1" name="JIS"/>
+            <gItem id="1" name="IBMGuideline"/>
+            <gItem techniques="G94,G82" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>This page has several images, but there is very little readable text. Please consider providing more alternative text.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_89.2">
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>This page has very little readable text. Please consider providing more text information.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_90.0">
+        <guideline>
+            <gItem techniques="C22,F87" id="7.1.3.1" name="JIS"/>
+            <gItem id="1" name="IBMGuideline"/>
+            <gItem techniques="C22,F87" id="7.1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>:before pseudo-element is used to insert a content. Verify that the content is decorative.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_90.1">
+        <guideline>
+            <gItem techniques="C22,F87" id="7.1.3.1" name="JIS"/>
+            <gItem id="1" name="IBMGuideline"/>
+            <gItem techniques="C22,F87" id="7.1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>:after pseudo-element is used to insert a content. Verify that the content is decorative.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_9.0">
+        <guideline>
+            <gItem id="3.1" name="WCAG"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Where it's possible to mark up content (for example mathematical equations) instead of using images, use a markup language (such as MathML).</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_21.1">
+        <guideline>
+            <gItem id="4.3" name="WCAG"/>
+            <gItem techniques="H57" id="7.3.1.1" name="JIS"/>
+            <gItem techniques="H57" id="3.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that the value of the lang attribute conforms to BCP 47.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_21.2">
+        <guideline>
+            <gItem techniques="H57" id="7.3.1.1" name="JIS"/>
+            <gItem techniques="H57" id="3.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that value of the lang attribute reflects the primary language used by the Web page.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_51.2">
+        <guideline>
+            <gItem id="4.3" name="WCAG"/>
+            <gItem techniques="H64" id="7.2.4.1" name="JIS"/>
+            <gItem techniques="H64" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H64" id="2.4.1" name="WCAG 2.0"/>
+            <gItem techniques="H64" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Check manually if the title attribute of the frame element identifies the frame.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_51.3">
+        <guideline>
+            <gItem id="4.3" name="WCAG"/>
+            <gItem techniques="H64" id="7.2.4.1" name="JIS"/>
+            <gItem techniques="H64" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H64" id="2.4.1" name="WCAG 2.0"/>
+            <gItem techniques="H64" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Check manually if the title attribute of the iframe element identifies the iframe.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_421.0">
+        <guideline>
+            <gItem techniques="H75" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="H75" id="4.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Ensure that the Web page is well-formed.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_421.1">
+        <guideline>
+            <gItem techniques="H88" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Consider using {0}HTML according to spec if possible.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_51.4">
+        <guideline>
+            <gItem id="12.1" name="WCAG"/>
+            <gItem id="i" name="Section508"/>
+            <gItem techniques="H64" id="7.2.4.1" name="JIS"/>
+            <gItem techniques="H64" id="7.4.1.2" name="JIS"/>
+            <gItem id="9" name="IBMGuideline"/>
+            <gItem techniques="H64" id="2.4.1" name="WCAG 2.0"/>
+            <gItem techniques="H64" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Operable"/>
+            <mItem score="5" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>The title attribute of the frame element has only whitespace characters. Provide nonempty title attribute to the frame element that contains text that identifies the frame.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_51.5">
+        <guideline>
+            <gItem id="12.1" name="WCAG"/>
+            <gItem id="i" name="Section508"/>
+            <gItem techniques="H64" id="7.2.4.1" name="JIS"/>
+            <gItem techniques="H64" id="7.4.1.2" name="JIS"/>
+            <gItem id="9" name="IBMGuideline"/>
+            <gItem techniques="H64" id="2.4.1" name="WCAG 2.0"/>
+            <gItem techniques="H64" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Operable"/>
+            <mItem score="5" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>The title attribute of the iframe element has only whitespace characters. Provide nonempty title attribute to the iframe element that contains text that identifies the iframe.{0}</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_53.2">
+        <guideline>
+            <gItem techniques="H85" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H85" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Consider using optrgoup elements to group option elements inside the select element.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_54.2">
+        <guideline>
+            <gItem techniques="H71" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H71" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="H71" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H71" id="3.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Check that groups of logically related input elements are contained within a fieldset element.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_54.3">
+        <guideline>
+            <gItem techniques="H71" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H71" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="H71" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H71" id="3.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+            <mItem score="5" name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Make sure that any group of input elements of type=&quot;radio&quot; or type=&quot;checkbox&quot; with the same name attribute is contained within a fieldset element.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_54.4">
+        <guideline>
+            <gItem techniques="H71" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H71" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="H71" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H71" id="3.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Check that each legend element includes a description of that group.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_79.2">
+        <guideline>
+            <gItem techniques="H44,F68" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H44,F68" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H44,F68" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H44,F68" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+            <mItem score="5" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Make sure that LABEL of FORM control is properly placed.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_79.3">
+        <guideline>
+            <gItem techniques="H44" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="H44" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H44" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="H44" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H44" id="1.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H44" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H44" id="3.3.2" name="WCAG 2.0"/>
+            <gItem techniques="H44" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Understandable"/>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Check that labels are visible.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_79.4">
+        <guideline>
+            <gItem techniques="H65" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="H65" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H65" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="H65" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H65" id="1.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H65" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H65" id="3.3.2" name="WCAG 2.0"/>
+            <gItem techniques="H65" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Understandable"/>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Check that the title attribute identifies the purpose of the control.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_79.5">
+        <guideline>
+            <gItem techniques="H44" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="H44" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H44" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="H44" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H44" id="1.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H44" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H44" id="3.3.2" name="WCAG 2.0"/>
+            <gItem techniques="H44" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Understandable"/>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Check that the label element identifies the purpose of the control.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_79.6">
+        <guideline>
+            <gItem techniques="H65" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="H65" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H65" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="H65" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H65" id="1.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H65" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H65" id="3.3.2" name="WCAG 2.0"/>
+            <gItem techniques="H65" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+            <mItem score="5" name="Understandable"/>
+            <mItem score="5" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Use a title attribute or a label elementt to identify form controls.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_79.7">
+        <guideline>
+            <gItem techniques="H44,H65" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="H44,H65" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H44,H65" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="G167,H44,H65" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="H44,H65" id="1.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H44,H65" id="1.3.1" name="WCAG 2.0"/>
+            <gItem techniques="H44,H65" id="4.1.2" name="WCAG 2.0"/>
+            <gItem techniques="G167,H44,H65" id="3.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+            <mItem name="Understandable"/>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Adjacent text field and button</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_380.0">
+        <guideline>
+            <gItem techniques="H32" id="7.3.2.2" name="JIS"/>
+            <gItem techniques="H32" id="3.2.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Understandable"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_381.0">
+        <guideline>
+            <gItem techniques="H84" id="7.3.2.2" name="JIS"/>
+            <gItem techniques="H84" id="3.2.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_382.0">
+        <guideline>
+            <gItem techniques="G13" id="7.3.2.2" name="JIS"/>
+            <gItem techniques="G13" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="G13" id="3.2.2" name="WCAG 2.0"/>
+            <gItem techniques="G13" id="3.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_383.0">
+        <guideline>
+            <gItem techniques="G83" id="7.3.3.1" name="JIS"/>
+            <gItem techniques="G83" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="G83" id="7.3.3.3" name="JIS"/>
+            <gItem techniques="G83" id="3.3.1" name="WCAG 2.0"/>
+            <gItem techniques="G83" id="3.3.2" name="WCAG 2.0"/>
+            <gItem techniques="G83" id="3.3.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_384.0">
+        <guideline>
+            <gItem techniques="SCR18" id="7.3.3.1" name="JIS"/>
+            <gItem techniques="SCR18" id="7.3.3.3" name="JIS"/>
+            <gItem techniques="SCR18" id="7.3.3.4" name="JIS"/>
+            <gItem techniques="SCR18" id="3.3.1" name="WCAG 2.0"/>
+            <gItem techniques="SCR18" id="3.3.3" name="WCAG 2.0"/>
+            <gItem techniques="SCR18" id="3.3.4" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_385.0">
+        <guideline>
+            <gItem techniques="G84" id="7.3.3.1" name="JIS"/>
+            <gItem techniques="G84" id="7.3.3.3" name="JIS"/>
+            <gItem techniques="G84" id="3.3.1" name="WCAG 2.0"/>
+            <gItem techniques="G84" id="3.3.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_386.0">
+        <guideline>
+            <gItem techniques="G85" id="7.3.3.1" name="JIS"/>
+            <gItem techniques="G85" id="7.3.3.3" name="JIS"/>
+            <gItem techniques="G85" id="3.3.1" name="WCAG 2.0"/>
+            <gItem techniques="G85" id="3.3.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_387.0">
+        <guideline>
+            <gItem techniques="SCR32" id="7.3.3.1" name="JIS"/>
+            <gItem techniques="SCR32" id="7.3.3.3" name="JIS"/>
+            <gItem techniques="SCR32" id="3.3.1" name="WCAG 2.0"/>
+            <gItem techniques="SCR32" id="3.3.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_388.0">
+        <guideline>
+            <gItem techniques="G131" id="7.2.4.6" name="JIS"/>
+            <gItem techniques="G131" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="G131" id="2.4.6" name="WCAG 2.0"/>
+            <gItem techniques="G131" id="3.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_389.0">
+        <guideline>
+            <gItem techniques="G89" id="7.3.3.2" name="JIS"/>
+            <gItem techniques="G89" id="7.3.3.5" name="JIS"/>
+            <gItem techniques="G89" id="3.3.2" name="WCAG 2.0"/>
+            <gItem techniques="G89" id="3.3.5" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_320.0">
+        <guideline>
+        	<!-- moved into 600.18
+            <gItem techniques="G108" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="G108" id="4.1.2" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_321.0">
+        <guideline>
+            <gItem techniques="G135" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="G135" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_322.0">
+        <guideline>
+            <gItem techniques="G10" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="G10" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc></desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_23.1">
+        <guideline>
+            <gItem id="5.4" name="WCAG"/>
+            <gItem techniques="F46,G140,H39,H73" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="F46,G140,H39,H73" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this table is used for layout only, do not use th element, caption element, nor summary attribute.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_23.2">
+        <guideline>
+            <gItem id="5.4" name="WCAG"/>
+            <gItem techniques="F46,G140,H39,H73" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="F46,G140,H39,H73" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this table is used for layout only, do not use th element, caption element, nor summary attribute.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_25.3">
+        <guideline>
+            <gItem techniques="H39" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H39" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that the table is a data table and the caption element identifies the table.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_25.4">
+        <guideline>
+            <gItem techniques="H73" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H73" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that the table is a data table and the summary attribute describes the label's organaization or explains how to use the table.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_331.0">
+        <guideline>
+            <gItem techniques="H63" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H63" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Appropriately use the scope attribute to associate header cells and data cells in the data table.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_331.1">
+        <guideline>
+            <gItem techniques="H63" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H63" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Appropriately use the scope attribute to associate header cells and data cells in the data table.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_332.0">
+        <guideline>
+            <gItem techniques="H43" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H43" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Appropriately use id and headers attributes to associate data cells with header cells in the data tables.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_332.1">
+        <guideline>
+            <gItem techniques="H43" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H43" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>There is no header cell with the same id as one in headers attribute of a data cell. {0}</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_332.2">
+        <guideline>
+            <gItem techniques="H43" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="H43" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>There is no header cell with the same id as one in headers attribute of a data cell. {0}</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_6.1">
+        <guideline>
+            <gItem techniques="H86" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="H86" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If this text block is ASCII art, consider replacing it with an accessible image.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_57.3">
+        <guideline>
+            <gItem techniques="H33" id="7.2.4.4" name="JIS"/>
+            <gItem techniques="H33" id="7.2.4.9" name="JIS"/>
+            <gItem techniques="H33" id="2.4.4" name="WCAG 2.0"/>
+            <gItem techniques="H33" id="2.4.9" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Do not set the title attribute of the link to empty string nor string that contains only whitespace.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_57.4">
+        <guideline>
+            <gItem techniques="H33" id="7.2.4.4" name="JIS"/>
+            <gItem techniques="H33" id="7.2.4.9" name="JIS"/>
+            <gItem techniques="H33" id="2.4.4" name="WCAG 2.0"/>
+            <gItem techniques="H33" id="2.4.9" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Check that the title attribute together with the link text describes the purpose of the link.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_57.5">
+        <guideline>
+            <gItem techniques="H2,H30" id="7.2.4.4" name="JIS"/>
+            <gItem techniques="H2,H30" id="7.2.4.9" name="JIS"/>
+            <gItem techniques="H2,H30" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="H2,H30" id="1.1.1" name="WCAG 2.0"/>
+            <gItem techniques="H2,H30" id="2.4.4" name="WCAG 2.0"/>
+            <gItem techniques="H2,H30" id="2.4.9" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable" score="2"/>
+            <mItem name="Operable" score="2"/>
+        </metrics>
+        <description>
+            <desc>This link does not have any readable text, while the next or previous link has link to the same URL. If they are adjacent to each other, combining them. {0}</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_3.1">
+        <guideline>
+            <gItem techniques="H45" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="H45" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that the value of the longdesc attribute is a valid URI of an existing resource and that the content at the target of that URI contains a long description describing the original non-text content associated with it.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_500.0">
+        <guideline>
+            <gItem techniques="G9,G93,G87,SM11,SM12" id="7.1.2.4" name="JIS"/>
+            <gItem techniques="G9,G93,G87,SM11,SM12" id="1.2.4" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that captions are provided for all live audio content in synchronized media.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_500.1">
+        <guideline>
+            <gItem techniques="G78,G173,SM6,SM7,G8,SM1,SM2" id="7.1.2.5" name="JIS"/>
+            <gItem techniques="G78,G173,SM6,SM7,G8,SM1,SM2" id="1.2.5" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that audio description is provided for all prerecorded video content in synchronized media.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.2">
+        <guideline>
+            <gItem techniques="C22,C30,G140" id="7.1.4.5" name="JIS"/>
+            <gItem techniques="C22,C30,G140" id="1.4.5" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that if the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.3">
+        <guideline>
+            <gItem techniques="G125,G63,G64,G161,G126,G185" id="7.2.4.5" name="JIS"/>
+            <gItem techniques="G125,G63,G64,G161,G126,G185" id="2.4.5" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Check that more than one way is available to locate a Web page within a set of Web pages except where the Web Page is the result of, or a step in, a process.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.4">
+        <guideline>
+        	<!-- moved into C_15.0 C_388
+            <gItem techniques="G130,G131" id="7.2.4.6" name="JIS"/>
+            <gItem techniques="G130,G131" id="2.4.6" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Check that headings and labels describe topic or purpose.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.5">
+        <guideline>
+            <gItem techniques="G149,C15,G165,G195,SCR31,FLASH20" id="7.2.4.7" name="JIS"/>
+            <gItem techniques="G149,C15,G165,G195,SCR31,FLASH20" id="2.4.7" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Check that any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.6">
+        <guideline>
+            <gItem techniques="H58,FLASH13" id="7.3.1.2" name="JIS"/>
+            <gItem techniques="H58,FLASH13" id="3.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Check that the human language of each passage or phrase in the content can be programmatically determined except for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.7">
+        <guideline>
+            <gItem techniques="G61" id="7.3.2.3" name="JIS"/>
+            <gItem techniques="G61" id="3.2.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Check that navigational mechanisms that are repeated on multiple Web pages within a set of Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.8">
+        <guideline>
+            <gItem techniques="G197" id="7.3.2.4" name="JIS"/>
+            <gItem techniques="G197" id="3.2.4" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Check that components that have the same functionality within a set of Web pages are identified consistently.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.9">
+        <guideline>
+            <gItem techniques="G83,G85,G177,SCR18,SCR32,FLASH12,G84" id="7.3.3.3" name="JIS"/>
+            <gItem techniques="G83,G85,G177,SCR18,SCR32,FLASH12,G84" id="3.3.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Check that if an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.10">
+        <guideline>
+            <gItem techniques="G164,G98,G155,G99,G168" id="7.3.3.4" name="JIS"/>
+            <gItem techniques="G164,G98,G155,G99,G168" id="3.3.4" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Check that for Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true: Reversible, Checked, or Confirmed.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.11">
+        <guideline>
+            <gItem techniques="G18,G148,G174,G145" id="7.1.4.3" name="JIS"/>
+            <gItem techniques="G18,G148,G174,G145" id="1.4.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that the visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following: Large Text, Incidental, or Logotypes.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.12">
+        <guideline>
+            <gItem techniques="G142,C28,SCR34,G146,G178,G179" id="7.1.4.4" name="JIS"/>
+            <gItem techniques="G142,C28,SCR34,G146,G178,G179" id="1.4.4" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.13">
+        <guideline>
+        <!--
+            <gItem techniques="G18,G145" id="7.1.4.3" name="JIS"/>
+            <gItem techniques="G17,G18" id="7.1.4.6" name="JIS"/>
+            <gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0"/>
+            <gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.14">
+        <guideline>
+        <!--
+            <gItem techniques="G18,G145" id="7.1.4.3" name="JIS"/>
+            <gItem techniques="G17,G18" id="7.1.4.6" name="JIS"/>
+            <gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0"/>
+            <gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.15">
+        <guideline>
+        	<!--
+            <gItem techniques="C12,C13,C14" id="7.1.4.4" name="JIS"/>
+            <gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_500.16">
+        <guideline>
+        	<!--
+            <gItem techniques="G18,G145" id="7.1.4.3" name="JIS"/>
+            <gItem techniques="G17,G18" id="7.1.4.6" name="JIS"/>
+            <gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0"/>
+            <gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0"/>
+            -->
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_500.17">
+        <guideline>
+            <gItem techniques="F24,G18,G145" id="7.1.4.3" name="JIS"/>
+            <gItem techniques="F24,G17,G18" id="7.1.4.6" name="JIS"/>
+            <gItem techniques="G14,G122,G182" id="7.1.4.1" name="JIS"/>
+            <gItem techniques="G14,G122,G182" id="1.4.1" name="WCAG 2.0"/>
+            <gItem techniques="F24,G18,G145" id="1.4.3" name="WCAG 2.0"/>
+            <gItem techniques="F24,G17,G18" id="1.4.6" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Text color might be specified alone. Please specify appropriate background color together.</desc>
+        </description>
+    </checkitem>
+        <checkitem type="user" id="C_500.18">
+        <guideline>
+            <gItem techniques="F24,G18,G145" id="7.1.4.3" name="JIS"/>
+            <gItem techniques="F24,G17,G18" id="7.1.4.6" name="JIS"/>
+            <gItem techniques="G14,G122,G182" id="7.1.4.1" name="JIS"/>
+            <gItem techniques="G14,G122,G182" id="1.4.1" name="WCAG 2.0"/>
+            <gItem techniques="F24,G18,G145" id="1.4.3" name="WCAG 2.0"/>
+            <gItem techniques="F24,G17,G18" id="1.4.6" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Background color might be specified alone. Please specify appropriate text color together.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_500.19">
+        <guideline>
+            <gItem techniques="C12,C13,C14" id="7.1.4.4" name="JIS"/>
+            <gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable" score="2"/>
+        </metrics>
+        <description>
+            <desc>Use measurements that are relative to other measurements in the content for the font size.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_500.20">
+        <guideline>
+            <gItem techniques="C12,C13,C14" id="7.1.4.4" name="JIS"/>
+            <gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable" score="5"/>
+        </metrics>
+        <description>
+            <desc>Use measurements that are relative to other measurements in the content for the font size.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_300.0">
+        <guideline>
+            <gItem id="7" name="IBMGuideline"/>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem techniques="F30,G94" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="F30,G94" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>&quot;&quot; may be inappropriate as an alt attribute for an image button.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_300.1">
+        <guideline>
+            <gItem id="7" name="IBMGuideline"/>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem techniques="F30,G94" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="F30,G94" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>&quot;{0}&quot; may be inappropriate as an alt attribute for an area element.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_300.2">
+        <guideline>
+            <gItem id="7" name="IBMGuideline"/>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem techniques="F30,G94" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="F30,G94" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>&quot;{0}&quot; may be inappropriate as an alt attribute for an area element.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="warning" id="C_300.3">
+        <guideline>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem id="14.1" name="WCAG"/>
+            <gItem techniques="C8,F32" id="7.1.3.2" name="JIS"/>
+            <gItem id="7" name="IBMGuideline"/>
+            <gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="2" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>The alt attribute &quot;&quot; of the input element has inappropriate space within a word.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_300.4">
+        <guideline>
+            <gItem id="7" name="IBMGuideline"/>
+            <gItem id="1.1" name="WCAG"/>
+            <gItem techniques="F30,G94" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="F30,G94" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>A string containing only whitespace characters ("{0}") is inappropriate as an alt attribute of an image button.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_422.0">
+        <guideline>
+            <gItem techniques="F17,H88" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="F17,H88" id="4.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Perceivable"/>
+            <mItem score="5" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>There are accesskey values which are not unique within the document.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="error" id="C_423.0">
+        <guideline>
+            <gItem techniques="H88,H93" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="H88,H93" id="4.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem score="5" name="Robust"/>
+        </metrics>
+        <description>
+            <desc>The page has duplicate id values.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.0">
+        <guideline>
+            <gItem techniques="G196,G92,G74,G73,G68,G100,G143,G144,C9,G95" id="7.1.1.1" name="JIS"/>
+            <gItem techniques="G196,G92,G74,G73,G68,G100,G143,G144,C9,G95" id="1.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Test manually checked items for success criterion 1.1.1.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_600.1">
+        <guideline>
+            <gItem techniques="G158,G159,G166" id="7.1.2.1" name="JIS"/>
+            <gItem techniques="G158,G159,G166" id="1.2.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>prerecorded audio-only and prerecorded video-only media</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_600.2">
+        <guideline>
+            <gItem techniques="G58,G69,H53,G78,G173,SM6,SM7,G8,SM1,SM2" id="7.1.2.3" name="JIS"/>
+            <gItem techniques="G58,G69,H53,G78,G173,SM6,SM7,G8,SM1,SM2" id="1.2.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that an alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media. (Except when the media is a media alternative for text and is clearly labeled as such.)</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.3">
+        <guideline>
+            <gItem techniques="G115,G117,G138,G140,H48,H49,H51,SCR21" id="7.1.3.1" name="JIS"/>
+            <gItem techniques="G115,G117,G138,G140,H48,H49,H51,SCR21" id="1.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.4">
+        <guideline>
+            <gItem techniques="G57,C27,H34,H56" id="7.1.3.2" name="JIS"/>
+            <gItem techniques="G57,C27,H34,H56" id="1.3.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>When the sequence in which content is presented affects its meaning, check that a correct reading sequence can be programmatically determined.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.5">
+        <guideline>
+            <gItem techniques="G183" id="7.1.4.1" name="JIS"/>
+            <gItem techniques="G183" id="1.4.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that using a contrast ratio of 3:1 with surrounding text and providing additional visual cues on focus for links or controls where color alone is used to identify them.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_600.6">
+        <guideline>
+            <gItem techniques="G60,G170,G171" id="7.1.4.2" name="JIS"/>
+            <gItem techniques="G60,G170,G171" id="1.4.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If any audio on a Web page plays automatically for more than 3 seconds, check that either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system volume level.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_600.7">
+        <guideline>
+            <gItem techniques="G93,G87,SM11,SM12" id="7.1.2.2" name="JIS"/>
+            <gItem techniques="G93,G87,SM11,SM12" id="1.2.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>Check that captions are provided for all prerecorded audio content in synchronized media, except when the media is a media alternative for text and is clearly labeled as such.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.8">
+        <guideline>
+            <gItem techniques="G4,G133,G198,G180,SCR1,SCR16,SCR33,SCR36" id="7.2.2.1" name="JIS"/>
+            <gItem techniques="G4,G133,G198,G180,SCR1,SCR16,SCR33,SCR36" id="2.2.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If time limit is set by the content, check that the user is allowed to turn off, adjust, or extend the time limit. (Exceptions: real-time, essential, time limet is longer that 20 hours) </desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.9">
+        <guideline>
+            <gItem techniques="SCR33,SCR22,G4,G186,G191" id="7.2.2.2" name="JIS"/>
+            <gItem techniques="SCR33,SCR22,G4,G186,191" id="2.2.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>For moving, blinking, scrolling, or auto-updating information, check that there is a mechanism for the user to pause, stop, or hide it if necessary.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.10">
+        <guideline>
+            <gItem techniques="G19,G176,G15" id="7.2.3.1" name="JIS"/>
+            <gItem techniques="G19,G176,G15" id="2.3.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Check that this page does not contain anything that flashes more than three times in any one second period, or the flash is below the general flash and red flash thresholds.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.11">
+        <guideline>
+            <gItem techniques="G123,H50,H69,H70,SCR28" id="7.2.4.1" name="JIS"/>
+            <gItem techniques="G123,H50,H69,H70,SCR28" id="2.4.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Grouping blocks of repeated material in a way that can be skipped.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.12">
+        <guideline>
+            <gItem techniques="G88" id="7.2.4.2" name="JIS"/>
+            <gItem techniques="G88" id="2.4.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Check that the title is relevant to the content of the Web page and the Web page can be identified using the title.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.13">
+        <guideline>
+            <gItem techniques="G59,H4,C27,SCR26,SCR37,SCR27" id="7.2.4.3" name="JIS"/>
+            <gItem techniques="G59,H4,C27,SCR26,SCR37,SCR27" id="2.4.3" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, check that focusable components receive focus in an order that preserves meaning and operability.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.14">
+        <guideline>
+            <gItem techniques="G91,C7,H33,G189,SCR30,G53,H77,H78,H79,H80,H81" id="7.2.4.4" name="JIS"/>
+            <gItem techniques="G91,C7,H33,G189,SCR30,G53,H77,H78,H79,H80,H81" id="2.4.4" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Operable"/>
+        </metrics>
+        <description>
+            <desc>Check that the purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context. (Exception: The purpose of the link would be ambiguous to users in general.) </desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.15">
+        <guideline>
+            <gItem techniques="G107" id="7.3.2.1" name="JIS"/>
+            <gItem techniques="G107" id="3.2.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Check that any component does not initiate a change of context when it receives focus.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="user" id="C_600.16">
+        <guideline>
+            <gItem techniques="G80,FLASH4" id="7.3.2.2" name="JIS"/>
+            <gItem techniques="G80,FLASH4" id="3.2.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Understandable"/>
+        </metrics>
+        <description>
+            <desc>Check that a submit button is provided to initiate a change of context.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.17">
+        <guideline>
+            <gItem techniques="H74,H93,H94" id="7.4.1.1" name="JIS"/>
+            <gItem techniques="H74,H93,H94" id="4.1.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Ensuring that opening and closing tags are used according to specification, id attributes are unique on a Web page, and elements do not contain duplicate attributes.</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.18">
+        <guideline>
+        	<gItem techniques="H91" id="7.2.1.1" name="JIS"/>
+            <gItem techniques="G108,H88,H91,SCR21" id="7.4.1.2" name="JIS"/>
+            <gItem techniques="H91" id="2.1.1" name="WCAG 2.0"/>
+            <gItem techniques="G108,H88,H91,SCR21" id="4.1.2" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Robust"/>
+        </metrics>
+        <description>
+            <desc>Using markup features to expose the name and role, allow user-settable properties to be directly set, and provide notification of changes. (Example: Using a standard user interface component (such as HTML form) in a markup language (e.g., HTML))</desc>
+        </description>
+    </checkitem>
+    <checkitem type="info" id="C_600.19">
+        <guideline>
+            <gItem techniques="G111,G14" id="7.1.4.1" name="JIS"/>
+            <gItem techniques="G111,G14" id="1.4.1" name="WCAG 2.0"/>
+        </guideline>
+        <metrics>
+            <mItem name="Perceivable"/>
+        </metrics>
+        <description>
+            <desc>If color is used within an image to convey information, If you use color to convey information, make sure the information is also represented another way.</desc>
+        </description>
+    </checkitem>
+</checker-config>

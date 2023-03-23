@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="blindVisualizer" name="blind Visualizer" schema="schema/BlindVisualizer.exsd"/>
+  <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.actf.visualization.ui.views"
+            class="org.eclipse.actf.visualization.blind.ui.views.BlindView"
+            icon="icons/view16/visualize.gif"
+            id="org.eclipse.actf.visualization.blind.ui.views.BlindView"
+            name="%actf.blind.view.title"/>
+   </extension>
+         <extension
+            point="org.eclipse.ui.actionSets">
+         <actionSet
+               id="org.eclipse.actf.visualization.blind.actionSet"
+               label="%actf.action.visualize">
+            <menu
+            id="org.eclipse.actf.visualization.menu"
+         	label="%actf.visualization.menu">
+         	</menu>
+			<action
+         	class="org.eclipse.actf.visualization.blind.ui.actions.VisualizeAction"
+         	id="org.eclipse.actf.visualization.blind.ui.actions.VisualizeAction"
+         	definitionId="org.eclipse.actf.visualization.blind.ui.actions.VisualizeAction"
+         	label="%actf.action.visualize"
+         	menubarPath="org.eclipse.actf.visualization.menu/"
+         	toolbarPath="org.eclipse.actf.visualization.ui.actionSet/ACTFvisualization"
+         	icon="icons/etool16/visualize.png"
+         	style="push"/>
+         </actionSet>
+         </extension>
+</plugin>

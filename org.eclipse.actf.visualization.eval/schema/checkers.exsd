@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.actf.visualization.eval" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.eclipse.actf.visualization.eval" id="checkers" name="Accessibility Checkers"/>
+      </appInfo>
+      <documentation>
+         This extension point is used to add new accessibility checker implementation.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="checker" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="checker">
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the name of a class that implements &lt;samp&gt;org.eclipse.actf.visualization.eval.IChecker&lt;/samp&gt;.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.actf.visualization.eval.IChecker"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="infoprovider" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the name of a class that implements &lt;samp&gt;org.eclipse.actf.visualization.eval.ICheckerInfoProvider&lt;/samp&gt;.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.actf.visualization.eval.ICheckerInfoProvider"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         The following is an example of an extension definition:
+&lt;pre&gt;
+   &lt;extension
+         point=&quot;org.eclipse.actf.visualization.eval.checkers&quot;&gt;
+      &lt;checker
+            infoprovider=&quot;org.eclipse.actf.validation.html.HtmlCheckerInfoProvider&quot;
+            class=&quot;org.eclipse.actf.validation.html.Checker&quot;/&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         The contributor will add new accessibility checker by implementing &lt;samp&gt;IChecker&lt;/samp&gt;. &lt;samp&gt;ICheckerInfoProvider&lt;/samp&gt; is used to provide check item information, such as error descriptions, guideline information, check item mapping.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         ACTF provides two example implementations
+&lt;samp&gt;org.eclipse.actf.examples.adesigner.eval.html&lt;/samp&gt; and &lt;samp&gt;org.eclipse.actf.examples.adesigner.eval.odf&lt;/samp&gt;.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) 2007, 2008 IBM Corporation and others.&lt;br&gt;
+All rights reserved. This program and the accompanying materials are made
+available under the terms of the Eclipse Public License v1.0 which accompanies
+this distribution, and is available at &lt;a 
+href=&quot;http://www.eclipse.org/legal/epl-v10.html&quot;&gt;http://www.eclipse.org/legal/epl-v10.html&lt;/a&gt;
+      </documentation>
+   </annotation>
+
+</schema>

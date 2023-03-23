@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="ja">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=SHIFT_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) Ministry of Internal Affairs and Communications, IBM Corporation and others 2007, 2016. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>ロービジョンユーザのアクセシビリティやユーザビリティをチェックする</TITLE>
+<LINK href="miChecker.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>ロービジョンユーザのアクセシビリティやユーザビリティをチェックする</H1>
+<P>
+miChecker で HTML ファイルやウェブページを開いてシミュレーションを実行することにより、ロービジョンユーザー（ここでは弱視、色覚異常、白内障、あるいはそれらが組み合わせられた症状を持つユーザー）にとってのアクセシビリティおよびユーザビリティをチェックすることができます。
+</P>
+<P>
+チェックは、以下の手順で行います:
+</P>
+<OL class="space">
+<LI>下記のいずれかの方法でウェブページを読み込む:
+  <UL class="nospace">
+  <LI>「<B>ファイル</B>」 &gt; 「<B>開く</B>」 の順に選択し、URL を指定する、もしくは 「<B>参照</B>」 を選択してローカルファイルを開く。
+  <LI>アドレス入力バーに URL を入力し、「<B>現在の URL を開く</B>」 ボタンを選択する。
+  </UL>
+
+<LI><b>ブラウザ</b>にウェブページが表示されます。右上のパネルの上部にある 「<B>ロービジョン</B>」 タブを選択してロービジョンモードを選択する。
+
+<LI>（必要に応じて） 「<B>全画面</B>」 チェックボックスにチェックを入れてシミュレーションを行う範囲を指定する。<BR>
+<B>（注）</B>このチェックボックスにチェックが入っている場合は、現在<b>ブラウザ</b>に表示されている内容にかかわらず、ウェブページ全体が処理対象となります。
+（複数フレームから成るウェブページの場合は、全フレームのウェブページ全体が対象となります。）
+チェックが外れている場合は、現在<b>ブラウザ</b>に表示されている範囲のみが処理対象となります。
+
+<LI>下記のいずれかの方法で<A href="parametersLv.html">設定パネル（ロービジョン シミュレーション 設定）</A>を開く:
+  <UL class="nospace">
+  <LI>「<B>設定</B>」 ボタンを選択する。
+  <LI>「<B>ウィンドウ</B>」 &gt; 「<B>設定</B>」 &gt; 「ACTF」 &gt; 「<b>ロービジョン シミュレーション</b>」 の順に選択する。
+  </UL>
+  各項目の設定を行い、「<B>適用</B>」 または 「<B>OK</B>」 を選択する。
+
+<LI>下記のいずれかの方法で、ロービジョンシミュレーションとアクセシビリティ・ユーザビリティのチェックを行う:
+  <UL class="nospace">
+  <LI>「<B>ロービジョンシ ミュレーション</B>」 ボタンを選択する。
+    <LI>「<B>アクセシビリティ検証・視覚化</B>」メニュー &gt; 「<B>ロービジョンシ ミュレーション</B>」 の順に選択する。もしくは，ショートカットキー Ctrl+Shift+O を利用する。
+  </UL>
+
+<LI>（必要に応じて） 「<B>保存</B>」 ボタンを選択して、シミュレーション結果やチェック結果をファイルとして保存する。<BR>
+レポートファイルはHTML形式で、次の三つで構成されています。 (1) Problem Map、(2) <b>シミュレーション</b>ビュー、(3) 検出されたエラーの個別表示です。
+レポートファイル中のエラーの個別表示の中の1行を選択すると、それに対応する要素が<b>シミュレーション</b>ビュー上でハイライトされます。
+もしその要素が見えていなかった場合には、見えるようにスクロールされます。
+<b>シミュレーション</b>ビュー上でハイライトされた要素も選択可能で、選択することにより、対応するエラーの個別表示に戻ることができます。
+
+<LI>詳細レポートに表示されているエラーに対処する。<BR>
+詳しい内容は、<A href="lineViewLv.html">詳細レポートの個別表示（ロービジョン）</A>をご覧ください。
+エラーを解決した後に再度 miChecker でチェックすると、詳細レポートや総合評価の内容が改善されているはずです。
+</OL>
+
+<H1 class="related">関連項目</H1>
+<UL class="related">
+<LI><A href="workspace.html">miCheckerの構成</A>
+<LI><A href="problemsLv.html">「ロービジョンシミュレーション」 で検出されるアクセシビリティ、およびユーザビリティの問題点</A>
+<LI><A href="checkBlind.html">音声インターフェースユーザーのアクセシビリティやユーザビリティをチェックする</A>
+</UL>
+
+<P>
+<A href="index.html">インデックスに戻る</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.gif" alt=""></DIV>
+</P>
+
+
+</BODY>
+</HTML>

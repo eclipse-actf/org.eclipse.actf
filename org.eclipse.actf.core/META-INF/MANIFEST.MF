@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.actf.core;singleton:=true
+Bundle-Version: 1.5.1.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ com.ibm.icu
+Bundle-Activator: org.eclipse.actf.core.ActfCorePlugin
+Eclipse-LazyStart: true
+Bundle-ClassPath: .
+Export-Package: org.eclipse.actf.core,
+ org.eclipse.actf.util,
+ org.eclipse.actf.util.comparator,
+ org.eclipse.actf.util.dom,
+ org.eclipse.actf.util.logging,
+ org.eclipse.actf.util.xpath
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: org.eclipse.actf.core
+

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF UI Capabilities Plug-in
+Bundle-SymbolicName: org.eclipse.actf.ui.capabilities;singleton:=true
+Bundle-Version: 1.5.1.qualifier
+Bundle-Vendor: Eclipse ACTF Project
+Require-Bundle: org.eclipse.ui
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-17

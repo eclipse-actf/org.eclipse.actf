@@ -1,0 +1,1859 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+ Copyright (c) 2009, 2016 IBM Corporation and others.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+  IBM Corporation - initial API and implementation
+-->
+<guideline order="2" name="WCAG 2.0">
+<category>Accessibility</category>
+<description>W3C Web Content Accessibility Guidelines (WCAG) 2.0</description>
+<levels>
+ <level id="A">
+  <category>Accessibility</category>
+  <description>W3C Web Content Accessibility Guidelines (WCAG) 2.0 (A)</description>
+ </level>
+ <level id="AA">
+  <category>Accessibility</category>
+  <description>W3C Web Content Accessibility Guidelines (WCAG) 2.0 (AA)</description>
+ </level>
+ <level id="AAA">
+  <category>Accessibility</category>
+  <description>W3C Web Content Accessibility Guidelines (WCAG) 2.0 (AAA)</description>
+ </level>
+</levels>
+<mimetypes>
+ <mimetype>text/html</mimetype>
+ <mimetype>application/xhtml+xml</mimetype>
+</mimetypes>
+<items>
+ <gItem level="A" id="1.1.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#text-equiv-all</helpUrl>
+ </gItem>
+ <gItem level="A" id="1.2.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt</helpUrl>
+ </gItem>
+ <gItem level="A" id="1.2.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#media-equiv-captions</helpUrl>
+ </gItem>
+ <gItem level="A" id="1.2.3">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#media-equiv-audio-desc</helpUrl>
+ </gItem>
+ <gItem level="AA" id="1.2.4">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions</helpUrl>
+ </gItem>
+ <gItem level="AA" id="1.2.5">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="1.2.6">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#media-equiv-sign</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="1.2.7">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#media-equiv-extended-ad</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="1.2.8">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#media-equiv-text-doc</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="1.2.9">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#media-equiv-live-audio-only</helpUrl>
+ </gItem>
+ <gItem level="A" id="1.3.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic</helpUrl>
+ </gItem>
+ <gItem level="A" id="1.3.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#content-structure-separation-sequence</helpUrl>
+ </gItem>
+ <gItem level="A" id="1.3.3">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#content-structure-separation-understanding</helpUrl>
+ </gItem>
+ <gItem level="A" id="1.4.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color</helpUrl>
+ </gItem>
+ <gItem level="A" id="1.4.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio</helpUrl>
+ </gItem>
+ <gItem level="AA" id="1.4.3">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast</helpUrl>
+ </gItem>
+ <gItem level="AA" id="1.4.4">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale</helpUrl>
+ </gItem>
+ <gItem level="AA" id="1.4.5">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="1.4.6">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#visual-audio-contrast7</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="1.4.7">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#visual-audio-contrast-noaudio</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="1.4.8">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#visual-audio-contrast-visual-presentation</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="1.4.9">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-images</helpUrl>
+ </gItem>
+ <gItem level="A" id="2.1.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable</helpUrl>
+ </gItem>
+ <gItem level="A" id="2.1.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#keyboard-operation-trapping</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="2.1.3">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#keyboard-operation-all-funcs</helpUrl>
+ </gItem>
+ <gItem level="A" id="2.2.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#time-limits-required-behaviors</helpUrl>
+ </gItem>
+ <gItem level="A" id="2.2.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#time-limits-pause</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="2.2.3">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#time-limits-no-exceptions</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="2.2.4">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#time-limits-postponed</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="2.2.5">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#time-limits-server-timeout</helpUrl>
+ </gItem>
+ <gItem level="A" id="2.3.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#seizure-does-not-violate</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="2.3.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#seizure-three-times</helpUrl>
+ </gItem>
+ <gItem level="A" id="2.4.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip</helpUrl>
+ </gItem>
+ <gItem level="A" id="2.4.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#navigation-mechanisms-title</helpUrl>
+ </gItem>
+ <gItem level="A" id="2.4.3">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order</helpUrl>
+ </gItem>
+ <gItem level="A" id="2.4.4">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs</helpUrl>
+ </gItem>
+ <gItem level="AA" id="2.4.5">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc</helpUrl>
+ </gItem>
+ <gItem level="AA" id="2.4.6">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive</helpUrl>
+ </gItem>
+ <gItem level="AA" id="2.4.7">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="2.4.8">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#navigation-mechanisms-location</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="2.4.9">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#navigation-mechanisms-link</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="2.4.10">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#navigation-mechanisms-headings</helpUrl>
+ </gItem>
+ <gItem level="A" id="3.1.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id</helpUrl>
+ </gItem>
+ <gItem level="AA" id="3.1.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#meaning-other-lang-id</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="3.1.3">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#meaning-idioms</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="3.1.4">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#meaning-located</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="3.1.5">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#meaning-supplements</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="3.1.6">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#meaning-pronunciation</helpUrl>
+ </gItem>
+ <gItem level="A" id="3.2.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus</helpUrl>
+ </gItem>
+ <gItem level="A" id="3.2.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change</helpUrl>
+ </gItem>
+ <gItem level="AA" id="3.2.3">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations</helpUrl>
+ </gItem>
+ <gItem level="AA" id="3.2.4">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="3.2.5">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#consistent-behavior-no-extreme-changes-context</helpUrl>
+ </gItem>
+ <gItem level="A" id="3.3.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#minimize-error-identified</helpUrl>
+ </gItem>
+ <gItem level="A" id="3.3.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#minimize-error-cues</helpUrl>
+ </gItem>
+ <gItem level="AA" id="3.3.3">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#minimize-error-suggestions</helpUrl>
+ </gItem>
+ <gItem level="AA" id="3.3.4">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#minimize-error-reversible</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="3.3.5">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#minimize-error-context-help</helpUrl>
+ </gItem>
+ <gItem level="AAA" id="3.3.6">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#minimize-error-reversible-all</helpUrl>
+ </gItem>
+ <gItem level="A" id="4.1.1">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#ensure-compat-parses</helpUrl>
+ </gItem>
+ <gItem level="A" id="4.1.2">
+  <helpUrl>https://www.w3.org/TR/WCAG20/#ensure-compat-rsv</helpUrl>
+ </gItem>
+    </items>
+    <techniques>
+ <technique id="G1">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G1.html</helpUrl>
+ </technique>
+ <technique id="G2">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G2.html</helpUrl>
+ </technique>
+ <technique id="G3">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G3.html</helpUrl>
+ </technique>
+ <technique id="G4">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G4.html</helpUrl>
+ </technique>
+ <technique id="G5">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G5.html</helpUrl>
+ </technique>
+ <technique id="G6">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G6.html</helpUrl>
+ </technique>
+ <technique id="G7">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G7.html</helpUrl>
+ </technique>
+ <technique id="G8">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G8.html</helpUrl>
+ </technique>
+ <technique id="G9">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G9.html</helpUrl>
+ </technique>
+ <technique id="G10">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G10.html</helpUrl>
+ </technique>
+ <technique id="G11">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G11.html</helpUrl>
+ </technique>
+ <technique id="G12">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G12.html</helpUrl>
+ </technique>
+ <technique id="G13">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G13.html</helpUrl>
+ </technique>
+ <technique id="G14">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G14.html</helpUrl>
+ </technique>
+ <technique id="G15">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G15.html</helpUrl>
+ </technique>
+ <technique id="G16">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G16.html</helpUrl>
+ </technique>
+ <technique id="G17">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G17.html</helpUrl>
+ </technique>
+ <technique id="G18">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G18.html</helpUrl>
+ </technique>
+ <technique id="G19">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G19.html</helpUrl>
+ </technique>
+ <technique id="G20">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G20.html</helpUrl>
+ </technique>
+ <technique id="G21">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G21.html</helpUrl>
+ </technique>
+ <technique id="G22">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G22.html</helpUrl>
+ </technique>
+ <technique id="G23">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G23.html</helpUrl>
+ </technique>
+ <technique id="G24">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G24.html</helpUrl>
+ </technique>
+ <technique id="G25">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G25.html</helpUrl>
+ </technique>
+ <technique id="G26">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G26.html</helpUrl>
+ </technique>
+ <technique id="G27">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G27.html</helpUrl>
+ </technique>
+ <technique id="G28">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G28.html</helpUrl>
+ </technique>
+ <technique id="G29">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G29.html</helpUrl>
+ </technique>
+ <technique id="G30">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G30.html</helpUrl>
+ </technique>
+ <technique id="G31">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G31.html</helpUrl>
+ </technique>
+ <technique id="G32">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G32.html</helpUrl>
+ </technique>
+ <technique id="G33">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G33.html</helpUrl>
+ </technique>
+ <technique id="G34">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G34.html</helpUrl>
+ </technique>
+ <technique id="G35">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G35.html</helpUrl>
+ </technique>
+ <technique id="G36">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G36.html</helpUrl>
+ </technique>
+ <technique id="G37">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G37.html</helpUrl>
+ </technique>
+ <technique id="G38">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G38.html</helpUrl>
+ </technique>
+ <technique id="G39">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G39.html</helpUrl>
+ </technique>
+ <technique id="G40">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G40.html</helpUrl>
+ </technique>
+ <technique id="G41">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G41.html</helpUrl>
+ </technique>
+ <technique id="G42">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G42.html</helpUrl>
+ </technique>
+ <technique id="G43">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G43.html</helpUrl>
+ </technique>
+ <technique id="G44">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G44.html</helpUrl>
+ </technique>
+ <technique id="G45">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G45.html</helpUrl>
+ </technique>
+ <technique id="G46">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G46.html</helpUrl>
+ </technique>
+ <technique id="G47">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G47.html</helpUrl>
+ </technique>
+ <technique id="G48">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G48.html</helpUrl>
+ </technique>
+ <technique id="G49">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G49.html</helpUrl>
+ </technique>
+ <technique id="G50">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G50.html</helpUrl>
+ </technique>
+ <technique id="G51">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G51.html</helpUrl>
+ </technique>
+ <technique id="G52">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G52.html</helpUrl>
+ </technique>
+ <technique id="G53">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G53.html</helpUrl>
+ </technique>
+ <technique id="G54">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G54.html</helpUrl>
+ </technique>
+ <technique id="G55">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G55.html</helpUrl>
+ </technique>
+ <technique id="G56">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G56.html</helpUrl>
+ </technique>
+ <technique id="G57">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G57.html</helpUrl>
+ </technique>
+ <technique id="G58">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G58.html</helpUrl>
+ </technique>
+ <technique id="G59">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G59.html</helpUrl>
+ </technique>
+ <technique id="G60">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G60.html</helpUrl>
+ </technique>
+ <technique id="G61">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G61.html</helpUrl>
+ </technique>
+ <technique id="G62">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G62.html</helpUrl>
+ </technique>
+ <technique id="G63">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G63.html</helpUrl>
+ </technique>
+ <technique id="G64">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G64.html</helpUrl>
+ </technique>
+ <technique id="G65">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G65.html</helpUrl>
+ </technique>
+ <technique id="G66">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G66.html</helpUrl>
+ </technique>
+ <technique id="G67">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G67.html</helpUrl>
+ </technique>
+ <technique id="G68">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G68.html</helpUrl>
+ </technique>
+ <technique id="G69">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G69.html</helpUrl>
+ </technique>
+ <technique id="G70">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G70.html</helpUrl>
+ </technique>
+ <technique id="G71">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G71.html</helpUrl>
+ </technique>
+ <technique id="G72">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G72.html</helpUrl>
+ </technique>
+ <technique id="G73">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G73.html</helpUrl>
+ </technique>
+ <technique id="G74">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G74.html</helpUrl>
+ </technique>
+ <technique id="G75">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G75.html</helpUrl>
+ </technique>
+ <technique id="G76">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G76.html</helpUrl>
+ </technique>
+ <technique id="G77">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G77.html</helpUrl>
+ </technique>
+ <technique id="G78">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G78.html</helpUrl>
+ </technique>
+ <technique id="G79">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G79.html</helpUrl>
+ </technique>
+ <technique id="G80">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G80.html</helpUrl>
+ </technique>
+ <technique id="G81">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G81.html</helpUrl>
+ </technique>
+ <technique id="G82">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G82.html</helpUrl>
+ </technique>
+ <technique id="G83">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G83.html</helpUrl>
+ </technique>
+ <technique id="G84">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G84.html</helpUrl>
+ </technique>
+ <technique id="G85">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G85.html</helpUrl>
+ </technique>
+ <technique id="G86">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G86.html</helpUrl>
+ </technique>
+ <technique id="G87">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G87.html</helpUrl>
+ </technique>
+ <technique id="G88">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G88.html</helpUrl>
+ </technique>
+ <technique id="G89">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G89.html</helpUrl>
+ </technique>
+ <technique id="G90">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G90.html</helpUrl>
+ </technique>
+ <technique id="G91">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G91.html</helpUrl>
+ </technique>
+ <technique id="G92">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G92.html</helpUrl>
+ </technique>
+ <technique id="G93">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G93.html</helpUrl>
+ </technique>
+ <technique id="G94">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G94.html</helpUrl>
+ </technique>
+ <technique id="G95">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G95.html</helpUrl>
+ </technique>
+ <technique id="G96">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G96.html</helpUrl>
+ </technique>
+ <technique id="G97">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G97.html</helpUrl>
+ </technique>
+ <technique id="G98">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G98.html</helpUrl>
+ </technique>
+ <technique id="G99">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G99.html</helpUrl>
+ </technique>
+ <technique id="G100">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G100.html</helpUrl>
+ </technique>
+ <technique id="G101">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G101.html</helpUrl>
+ </technique>
+ <technique id="G102">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G102.html</helpUrl>
+ </technique>
+ <technique id="G103">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G103.html</helpUrl>
+ </technique>
+ <technique id="G104">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G104.html</helpUrl>
+ </technique>
+ <technique id="G105">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G105.html</helpUrl>
+ </technique>
+ <technique id="G106">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G106.html</helpUrl>
+ </technique>
+ <technique id="G107">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G107.html</helpUrl>
+ </technique>
+ <technique id="G108">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G108.html</helpUrl>
+ </technique>
+ <technique id="G109">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G109.html</helpUrl>
+ </technique>
+ <technique id="G110">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G110.html</helpUrl>
+ </technique>
+ <technique id="G111">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G111.html</helpUrl>
+ </technique>
+ <technique id="G112">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G112.html</helpUrl>
+ </technique>
+ <technique id="G113">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G113.html</helpUrl>
+ </technique>
+ <technique id="G114">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G114.html</helpUrl>
+ </technique>
+ <technique id="G115">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G115.html</helpUrl>
+ </technique>
+ <technique id="G116">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G116.html</helpUrl>
+ </technique>
+ <technique id="G117">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G117.html</helpUrl>
+ </technique>
+ <technique id="G118">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G118.html</helpUrl>
+ </technique>
+ <technique id="G119">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G119.html</helpUrl>
+ </technique>
+ <technique id="G120">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G120.html</helpUrl>
+ </technique>
+ <technique id="G121">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G121.html</helpUrl>
+ </technique>
+ <technique id="G122">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G122.html</helpUrl>
+ </technique>
+ <technique id="G123">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G123.html</helpUrl>
+ </technique>
+ <technique id="G124">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G124.html</helpUrl>
+ </technique>
+ <technique id="G125">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G125.html</helpUrl>
+ </technique>
+ <technique id="G126">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G126.html</helpUrl>
+ </technique>
+ <technique id="G127">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G127.html</helpUrl>
+ </technique>
+ <technique id="G128">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G128.html</helpUrl>
+ </technique>
+ <technique id="G129">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G129.html</helpUrl>
+ </technique>
+ <technique id="G130">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G130.html</helpUrl>
+ </technique>
+ <technique id="G131">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G131.html</helpUrl>
+ </technique>
+ <technique id="G132">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G132.html</helpUrl>
+ </technique>
+ <technique id="G133">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G133.html</helpUrl>
+ </technique>
+ <technique id="G134">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G134.html</helpUrl>
+ </technique>
+ <technique id="G135">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G135.html</helpUrl>
+ </technique>
+ <technique id="G136">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G136.html</helpUrl>
+ </technique>
+ <technique id="G137">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G137.html</helpUrl>
+ </technique>
+ <technique id="G138">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G138.html</helpUrl>
+ </technique>
+ <technique id="G139">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G139.html</helpUrl>
+ </technique>
+ <technique id="G140">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G140.html</helpUrl>
+ </technique>
+ <technique id="G141">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G141.html</helpUrl>
+ </technique>
+ <technique id="G142">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G142.html</helpUrl>
+ </technique>
+ <technique id="G143">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G143.html</helpUrl>
+ </technique>
+ <technique id="G144">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G144.html</helpUrl>
+ </technique>
+ <technique id="G145">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G145.html</helpUrl>
+ </technique>
+ <technique id="G146">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G146.html</helpUrl>
+ </technique>
+ <technique id="G147">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G147.html</helpUrl>
+ </technique>
+ <technique id="G148">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G148.html</helpUrl>
+ </technique>
+ <technique id="G149">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G149.html</helpUrl>
+ </technique>
+ <technique id="G150">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G150.html</helpUrl>
+ </technique>
+ <technique id="G151">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G151.html</helpUrl>
+ </technique>
+ <technique id="G152">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G152.html</helpUrl>
+ </technique>
+ <technique id="G153">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G153.html</helpUrl>
+ </technique>
+ <technique id="G154">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G154.html</helpUrl>
+ </technique>
+ <technique id="G155">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G155.html</helpUrl>
+ </technique>
+ <technique id="G156">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G156.html</helpUrl>
+ </technique>
+ <technique id="G157">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G157.html</helpUrl>
+ </technique>
+ <technique id="G158">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G158.html</helpUrl>
+ </technique>
+ <technique id="G159">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G159.html</helpUrl>
+ </technique>
+ <technique id="G160">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G160.html</helpUrl>
+ </technique>
+ <technique id="G161">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G161.html</helpUrl>
+ </technique>
+ <technique id="G162">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G162.html</helpUrl>
+ </technique>
+ <technique id="G163">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G163.html</helpUrl>
+ </technique>
+ <technique id="G164">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G164.html</helpUrl>
+ </technique>
+ <technique id="G165">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G165.html</helpUrl>
+ </technique>
+ <technique id="G166">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G166.html</helpUrl>
+ </technique>
+ <technique id="G167">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G167.html</helpUrl>
+ </technique>
+ <technique id="G168">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G168.html</helpUrl>
+ </technique>
+ <technique id="G169">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G169.html</helpUrl>
+ </technique>
+ <technique id="G170">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G170.html</helpUrl>
+ </technique>
+ <technique id="G171">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G171.html</helpUrl>
+ </technique>
+ <technique id="G172">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G172.html</helpUrl>
+ </technique>
+ <technique id="G173">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G173.html</helpUrl>
+ </technique>
+ <technique id="G174">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G174.html</helpUrl>
+ </technique>
+ <technique id="G175">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G175.html</helpUrl>
+ </technique>
+ <technique id="G176">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G176.html</helpUrl>
+ </technique>
+ <technique id="G177">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G177.html</helpUrl>
+ </technique>
+ <technique id="G178">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G178.html</helpUrl>
+ </technique>
+ <technique id="G179">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G179.html</helpUrl>
+ </technique>
+ <technique id="G180">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G180.html</helpUrl>
+ </technique>
+ <technique id="G181">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G181.html</helpUrl>
+ </technique>
+ <technique id="G182">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G182.html</helpUrl>
+ </technique>
+ <technique id="G183">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G183.html</helpUrl>
+ </technique>
+ <technique id="G184">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G184.html</helpUrl>
+ </technique>
+ <technique id="G185">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G185.html</helpUrl>
+ </technique>
+ <technique id="G186">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G186.html</helpUrl>
+ </technique>
+ <technique id="G187">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G187.html</helpUrl>
+ </technique>
+ <technique id="G188">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G188.html</helpUrl>
+ </technique>
+ <technique id="G189">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G189.html</helpUrl>
+ </technique>
+ <technique id="G190">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G190.html</helpUrl>
+ </technique>
+ <technique id="G191">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G191.html</helpUrl>
+ </technique>
+ <technique id="G192">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G192.html</helpUrl>
+ </technique>
+ <technique id="G193">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G193.html</helpUrl>
+ </technique>
+ <technique id="G194">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G194.html</helpUrl>
+ </technique>
+ <technique id="G195">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G195.html</helpUrl>
+ </technique>
+ <technique id="G196">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G196.html</helpUrl>
+ </technique>
+ <technique id="G197">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G197.html</helpUrl>
+ </technique>
+ <technique id="G198">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G198.html</helpUrl>
+ </technique>
+ <technique id="G199">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G199.html</helpUrl>
+ </technique>
+ <technique id="G200">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G200.html</helpUrl>
+ </technique>
+ <technique id="G201">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G201.html</helpUrl>
+ </technique>
+ <technique id="G202">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G202.html</helpUrl>
+ </technique>
+ <!-- 2016/02 start-->
+ <technique id="G203">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G203.html</helpUrl>
+ </technique>
+ <technique id="G204">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G204.html</helpUrl>
+ </technique>
+ <technique id="G205">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G205.html</helpUrl>
+ </technique>
+ <technique id="G206">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/G206.html</helpUrl>
+ </technique>
+ <!-- 2016/02 end  -->
+ <technique id="H1">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H1.html</helpUrl>
+ </technique>
+ <technique id="H2">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H2.html</helpUrl>
+ </technique>
+ <technique id="H3">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H3.html</helpUrl>
+ </technique>
+ <technique id="H4">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H4.html</helpUrl>
+ </technique>
+ <technique id="H5">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H5.html</helpUrl>
+ </technique>
+ <technique id="H6">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H6.html</helpUrl>
+ </technique>
+ <technique id="H7">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H7.html</helpUrl>
+ </technique>
+ <technique id="H8">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H8.html</helpUrl>
+ </technique>
+ <technique id="H9">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H9.html</helpUrl>
+ </technique>
+ <technique id="H10">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H10.html</helpUrl>
+ </technique>
+ <technique id="H11">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H11.html</helpUrl>
+ </technique>
+ <technique id="H12">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H12.html</helpUrl>
+ </technique>
+ <technique id="H13">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H13.html</helpUrl>
+ </technique>
+ <technique id="H14">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H14.html</helpUrl>
+ </technique>
+ <technique id="H15">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H15.html</helpUrl>
+ </technique>
+ <technique id="H16">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H16.html</helpUrl>
+ </technique>
+ <technique id="H17">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H17.html</helpUrl>
+ </technique>
+ <technique id="H18">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H18.html</helpUrl>
+ </technique>
+ <technique id="H19">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H19.html</helpUrl>
+ </technique>
+ <technique id="H20">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H20.html</helpUrl>
+ </technique>
+ <technique id="H21">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H21.html</helpUrl>
+ </technique>
+ <technique id="H22">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H22.html</helpUrl>
+ </technique>
+ <technique id="H23">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H23.html</helpUrl>
+ </technique>
+ <technique id="H24">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H24.html</helpUrl>
+ </technique>
+ <technique id="H25">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H25.html</helpUrl>
+ </technique>
+ <technique id="H26">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H26.html</helpUrl>
+ </technique>
+ <technique id="H27">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H27.html</helpUrl>
+ </technique>
+ <technique id="H28">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H28.html</helpUrl>
+ </technique>
+ <technique id="H29">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H29.html</helpUrl>
+ </technique>
+ <technique id="H30">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H30.html</helpUrl>
+ </technique>
+ <technique id="H31">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H31.html</helpUrl>
+ </technique>
+ <technique id="H32">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H32.html</helpUrl>
+ </technique>
+ <technique id="H33">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H33.html</helpUrl>
+ </technique>
+ <technique id="H34">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H34.html</helpUrl>
+ </technique>
+ <technique id="H35">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H35.html</helpUrl>
+ </technique>
+ <technique id="H36">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H36.html</helpUrl>
+ </technique>
+ <technique id="H37">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H37.html</helpUrl>
+ </technique>
+ <technique id="H38">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H38.html</helpUrl>
+ </technique>
+ <technique id="H39">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H39.html</helpUrl>
+ </technique>
+ <technique id="H40">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H40.html</helpUrl>
+ </technique>
+ <technique id="H41">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H41.html</helpUrl>
+ </technique>
+ <technique id="H42">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H42.html</helpUrl>
+ </technique>
+ <technique id="H43">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H43.html</helpUrl>
+ </technique>
+ <technique id="H44">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H44.html</helpUrl>
+ </technique>
+ <technique id="H45">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H45.html</helpUrl>
+ </technique>
+ <technique id="H46">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H46.html</helpUrl>
+ </technique>
+ <technique id="H47">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H47.html</helpUrl>
+ </technique>
+ <technique id="H48">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H48.html</helpUrl>
+ </technique>
+ <technique id="H49">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H49.html</helpUrl>
+ </technique>
+ <technique id="H50">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H50.html</helpUrl>
+ </technique>
+ <technique id="H51">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H51.html</helpUrl>
+ </technique>
+ <technique id="H52">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H52.html</helpUrl>
+ </technique>
+ <technique id="H53">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H53.html</helpUrl>
+ </technique>
+ <technique id="H54">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H54.html</helpUrl>
+ </technique>
+ <technique id="H55">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H55.html</helpUrl>
+ </technique>
+ <technique id="H56">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H56.html</helpUrl>
+ </technique>
+ <technique id="H57">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H57.html</helpUrl>
+ </technique>
+ <technique id="H58">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H58.html</helpUrl>
+ </technique>
+ <technique id="H59">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H59.html</helpUrl>
+ </technique>
+ <technique id="H60">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H60.html</helpUrl>
+ </technique>
+ <technique id="H61">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H61.html</helpUrl>
+ </technique>
+ <technique id="H62">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H62.html</helpUrl>
+ </technique>
+ <technique id="H63">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H63.html</helpUrl>
+ </technique>
+ <technique id="H64">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H64.html</helpUrl>
+ </technique>
+ <technique id="H65">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H65.html</helpUrl>
+ </technique>
+ <technique id="H66">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H66.html</helpUrl>
+ </technique>
+ <technique id="H67">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H67.html</helpUrl>
+ </technique>
+ <technique id="H68">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H68.html</helpUrl>
+ </technique>
+ <technique id="H69">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H69.html</helpUrl>
+ </technique>
+ <technique id="H70">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H70.html</helpUrl>
+ </technique>
+ <technique id="H71">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H71.html</helpUrl>
+ </technique>
+ <technique id="H72">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H72.html</helpUrl>
+ </technique>
+ <technique id="H73">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H73.html</helpUrl>
+ </technique>
+ <technique id="H74">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H74.html</helpUrl>
+ </technique>
+ <technique id="H75">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H75.html</helpUrl>
+ </technique>
+ <technique id="H76">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H76.html</helpUrl>
+ </technique>
+ <technique id="H77">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H77.html</helpUrl>
+ </technique>
+ <technique id="H78">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H78.html</helpUrl>
+ </technique>
+ <technique id="H79">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H79.html</helpUrl>
+ </technique>
+ <technique id="H80">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H80.html</helpUrl>
+ </technique>
+ <technique id="H81">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H81.html</helpUrl>
+ </technique>
+ <technique id="H82">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H82.html</helpUrl>
+ </technique>
+ <technique id="H83">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H83.html</helpUrl>
+ </technique>
+ <technique id="H84">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H84.html</helpUrl>
+ </technique>
+ <technique id="H85">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H85.html</helpUrl>
+ </technique>
+ <technique id="H86">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H86.html</helpUrl>
+ </technique>
+ <technique id="H87">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H87.html</helpUrl>
+ </technique>
+ <technique id="H88">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H88.html</helpUrl>
+ </technique>
+ <technique id="H89">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H89.html</helpUrl>
+ </technique>
+ <technique id="H90">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H90.html</helpUrl>
+ </technique>
+ <technique id="H91">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H91.html</helpUrl>
+ </technique>
+ <technique id="H92">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H92.html</helpUrl>
+ </technique>
+ <technique id="H93">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H93.html</helpUrl>
+ </technique>
+ <technique id="H94">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H94.html</helpUrl>
+ </technique>
+ <!-- 2016/02 start-->
+ <technique id="H95">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H95.html</helpUrl>
+ </technique>
+ <technique id="H96">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H96.html</helpUrl>
+ </technique>
+ <technique id="H97">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/H97.html</helpUrl>
+ </technique>
+ <!-- 2016/02 end  --> 
+ <technique id="C1">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C1.html</helpUrl>
+ </technique>
+ <technique id="C2">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C2.html</helpUrl>
+ </technique>
+ <technique id="C3">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C3.html</helpUrl>
+ </technique>
+ <technique id="C4">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C4.html</helpUrl>
+ </technique>
+ <technique id="C5">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C5.html</helpUrl>
+ </technique>
+ <technique id="C6">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C6.html</helpUrl>
+ </technique>
+ <technique id="C7">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C7.html</helpUrl>
+ </technique>
+ <technique id="C8">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C8.html</helpUrl>
+ </technique>
+ <technique id="C9">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C9.html</helpUrl>
+ </technique>
+ <technique id="C10">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C10.html</helpUrl>
+ </technique>
+ <technique id="C11">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C11.html</helpUrl>
+ </technique>
+ <technique id="C12">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C12.html</helpUrl>
+ </technique>
+ <technique id="C13">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C13.html</helpUrl>
+ </technique>
+ <technique id="C14">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C14.html</helpUrl>
+ </technique>
+ <technique id="C15">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C15.html</helpUrl>
+ </technique>
+ <technique id="C16">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C16.html</helpUrl>
+ </technique>
+ <technique id="C17">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C17.html</helpUrl>
+ </technique>
+ <technique id="C18">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C18.html</helpUrl>
+ </technique>
+ <technique id="C19">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C19.html</helpUrl>
+ </technique>
+ <technique id="C20">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C20.html</helpUrl>
+ </technique>
+ <technique id="C21">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C21.html</helpUrl>
+ </technique>
+ <technique id="C22">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C22.html</helpUrl>
+ </technique>
+ <technique id="C23">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C23.html</helpUrl>
+ </technique>
+ <technique id="C24">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C24.html</helpUrl>
+ </technique>
+ <technique id="C25">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C25.html</helpUrl>
+ </technique>
+ <technique id="C26">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C26.html</helpUrl>
+ </technique>
+ <technique id="C27">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C27.html</helpUrl>
+ </technique>
+ <technique id="C28">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C28.html</helpUrl>
+ </technique>
+ <technique id="C29">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C29.html</helpUrl>
+ </technique>
+ <technique id="C30">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/C30.html</helpUrl>
+ </technique>
+ <technique id="SCR1">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR1.html</helpUrl>
+ </technique>
+ <technique id="SCR2">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR2.html</helpUrl>
+ </technique>
+ <technique id="SCR3">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR3.html</helpUrl>
+ </technique>
+ <technique id="SCR4">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR4.html</helpUrl>
+ </technique>
+ <technique id="SCR5">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR5.html</helpUrl>
+ </technique>
+ <technique id="SCR6">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR6.html</helpUrl>
+ </technique>
+ <technique id="SCR7">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR7.html</helpUrl>
+ </technique>
+ <technique id="SCR8">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR8.html</helpUrl>
+ </technique>
+ <technique id="SCR9">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR9.html</helpUrl>
+ </technique>
+ <technique id="SCR10">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR10.html</helpUrl>
+ </technique>
+ <technique id="SCR11">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR11.html</helpUrl>
+ </technique>
+ <technique id="SCR12">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR12.html</helpUrl>
+ </technique>
+ <technique id="SCR13">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR13.html</helpUrl>
+ </technique>
+ <technique id="SCR14">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR14.html</helpUrl>
+ </technique>
+ <technique id="SCR15">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR15.html</helpUrl>
+ </technique>
+ <technique id="SCR16">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR16.html</helpUrl>
+ </technique>
+ <technique id="SCR17">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR17.html</helpUrl>
+ </technique>
+ <technique id="SCR18">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR18.html</helpUrl>
+ </technique>
+ <technique id="SCR19">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR19.html</helpUrl>
+ </technique>
+ <technique id="SCR20">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR20.html</helpUrl>
+ </technique>
+ <technique id="SCR21">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR21.html</helpUrl>
+ </technique>
+ <technique id="SCR22">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR22.html</helpUrl>
+ </technique>
+ <technique id="SCR23">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR23.html</helpUrl>
+ </technique>
+ <technique id="SCR24">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR24.html</helpUrl>
+ </technique>
+ <technique id="SCR25">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR25.html</helpUrl>
+ </technique>
+ <technique id="SCR26">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR26.html</helpUrl>
+ </technique>
+ <technique id="SCR27">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR27.html</helpUrl>
+ </technique>
+ <technique id="SCR28">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR28.html</helpUrl>
+ </technique>
+ <technique id="SCR29">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR29.html</helpUrl>
+ </technique>
+ <technique id="SCR30">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR30.html</helpUrl>
+ </technique>
+ <technique id="SCR31">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR31.html</helpUrl>
+ </technique>
+ <technique id="SCR32">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR32.html</helpUrl>
+ </technique>
+ <technique id="SCR33">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR33.html</helpUrl>
+ </technique>
+ <technique id="SCR34">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR34.html</helpUrl>
+ </technique>
+ <technique id="SCR35">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR35.html</helpUrl>
+ </technique>
+ <technique id="SCR36">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR36.html</helpUrl>
+ </technique>
+ <technique id="SCR37">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR37.html</helpUrl>
+ </technique>
+ <!-- 2016/02 start-->
+ <technique id="SCR38">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SCR38.html</helpUrl>
+ </technique>
+ <!-- 2016/02 end  -->  
+ <technique id="SVR1">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SVR1.html</helpUrl>
+ </technique>
+ <technique id="SVR2">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SVR2.html</helpUrl>
+ </technique>
+ <technique id="SVR3">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SVR3.html</helpUrl>
+ </technique>
+ <technique id="SVR4">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SVR4.html</helpUrl>
+ </technique>
+ <technique id="SVR5">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SVR5.html</helpUrl>
+ </technique>
+ <technique id="SM1">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM1.html</helpUrl>
+ </technique>
+ <technique id="SM2">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM2.html</helpUrl>
+ </technique>
+ <technique id="SM3">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM3.html</helpUrl>
+ </technique>
+ <technique id="SM4">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM4.html</helpUrl>
+ </technique>
+ <technique id="SM5">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM5.html</helpUrl>
+ </technique>
+ <technique id="SM6">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM6.html</helpUrl>
+ </technique>
+ <technique id="SM7">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM7.html</helpUrl>
+ </technique>
+ <technique id="SM8">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM8.html</helpUrl>
+ </technique>
+ <technique id="SM9">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM9.html</helpUrl>
+ </technique>
+ <technique id="SM10">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM10.html</helpUrl>
+ </technique>
+ <technique id="SM11">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM11.html</helpUrl>
+ </technique>
+ <technique id="SM12">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM12.html</helpUrl>
+ </technique>
+ <technique id="SM13">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM13.html</helpUrl>
+ </technique>
+ <technique id="SM14">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/SM14.html</helpUrl>
+ </technique>
+ <technique id="T1">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/T1.html</helpUrl>
+ </technique>
+ <technique id="T2">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/T2.html</helpUrl>
+ </technique>
+ <technique id="T3">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/T3.html</helpUrl>
+ </technique>
+ <technique id="ARIA1">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA1.html</helpUrl>
+ </technique>
+ <technique id="ARIA2">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA2.html</helpUrl>
+ </technique>
+ <technique id="ARIA3">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA3.html</helpUrl>
+ </technique>
+ <technique id="ARIA4">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA4.html</helpUrl>
+ </technique>
+ <!-- 2016/02 start-->
+ <technique id="ARIA5">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA5.html</helpUrl>
+ </technique>
+ <technique id="ARIA6">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA6.html</helpUrl>
+ </technique>
+ <technique id="ARIA7">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA7.html</helpUrl>
+ </technique>
+ <technique id="ARIA8">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA8.html</helpUrl>
+ </technique>
+ <technique id="ARIA9">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA9.html</helpUrl>
+ </technique>
+ <technique id="ARIA10">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA10.html</helpUrl>
+ </technique>
+ <technique id="ARIA11">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA11.html</helpUrl>
+ </technique>
+ <technique id="ARIA12">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA12.html</helpUrl>
+ </technique>
+ <technique id="ARIA13">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA13.html</helpUrl>
+ </technique>
+ <technique id="ARIA14">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA14.html</helpUrl>
+ </technique>
+ <technique id="ARIA15">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA15.html</helpUrl>
+ </technique>
+ <technique id="ARIA16">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA16.html</helpUrl>
+ </technique>
+ <technique id="ARIA17">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA17.html</helpUrl>
+ </technique>
+ <technique id="ARIA18">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA18.html</helpUrl>
+ </technique>
+ <technique id="ARIA19">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA19.html</helpUrl>
+ </technique>
+ <technique id="ARIA20">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA20.html</helpUrl>
+ </technique>
+ <technique id="ARIA21">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/ARIA21.html</helpUrl>
+ </technique>
+ <!-- 2016/02 end  --> 
+ <technique id="FLASH1">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH1.html</helpUrl>
+ </technique>
+ <technique id="FLASH2">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH2.html</helpUrl>
+ </technique>
+ <technique id="FLASH3">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH3.html</helpUrl>
+ </technique>
+ <technique id="FLASH4">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH4.html</helpUrl>
+ </technique>
+ <technique id="FLASH5">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH5.html</helpUrl>
+ </technique>
+ <technique id="FLASH6">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH6.html</helpUrl>
+ </technique>
+ <technique id="FLASH7">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH7.html</helpUrl>
+ </technique>
+ <technique id="FLASH8">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH8.html</helpUrl>
+ </technique>
+ <technique id="FLASH9">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH9.html</helpUrl>
+ </technique>
+ <technique id="FLASH10">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH10.html</helpUrl>
+ </technique>
+ <technique id="FLASH11">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH11.html</helpUrl>
+ </technique>
+ <technique id="FLASH12">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH12.html</helpUrl>
+ </technique>
+ <technique id="FLASH13">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH13.html</helpUrl>
+ </technique>
+ <technique id="FLASH14">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH14.html</helpUrl>
+ </technique>
+ <technique id="FLASH15">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH15.html</helpUrl>
+ </technique>
+ <technique id="FLASH16">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH16.html</helpUrl>
+ </technique>
+ <technique id="FLASH17">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH17.html</helpUrl>
+ </technique>
+ <technique id="FLASH18">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH18.html</helpUrl>
+ </technique>
+ <technique id="FLASH19">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH19.html</helpUrl>
+ </technique>
+ <technique id="FLASH20">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH20.html</helpUrl>
+ </technique>
+ <technique id="FLASH21">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH21.html</helpUrl>
+ </technique>
+ <technique id="FLASH22">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH22.html</helpUrl>
+ </technique>
+ <technique id="FLASH23">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH23.html</helpUrl>
+ </technique>
+ <technique id="FLASH24">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH24.html</helpUrl>
+ </technique>
+ <technique id="FLASH25">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH25.html</helpUrl>
+ </technique>
+ <technique id="FLASH26">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH26.html</helpUrl>
+ </technique>
+ <technique id="FLASH27">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH27.html</helpUrl>
+ </technique>
+ <technique id="FLASH28">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH28.html</helpUrl>
+ </technique>
+ <technique id="FLASH29">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH29.html</helpUrl>
+ </technique>
+ <technique id="FLASH30">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH30.html</helpUrl>
+ </technique>
+ <technique id="FLASH31">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH31.html</helpUrl>
+ </technique>
+ <technique id="FLASH32">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH32.html</helpUrl>
+ </technique>
+ <technique id="FLASH33">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH33.html</helpUrl>
+ </technique>
+ <technique id="FLASH34">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH34.html</helpUrl>
+ </technique>
+ <technique id="FLASH35">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH35.html</helpUrl>
+ </technique>
+ <technique id="FLASH36">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/FLASH36.html</helpUrl>
+ </technique>
+ <technique id="F1">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F1.html</helpUrl>
+ </technique>
+ <technique id="F2">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F2.html</helpUrl>
+ </technique>
+ <technique id="F3">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F3.html</helpUrl>
+ </technique>
+ <technique id="F4">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F4.html</helpUrl>
+ </technique>
+ <technique id="F5">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F5.html</helpUrl>
+ </technique>
+ <technique id="F6">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F6.html</helpUrl>
+ </technique>
+ <technique id="F7">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F7.html</helpUrl>
+ </technique>
+ <technique id="F8">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F8.html</helpUrl>
+ </technique>
+ <technique id="F9">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F9.html</helpUrl>
+ </technique>
+ <technique id="F10">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F10.html</helpUrl>
+ </technique>
+ <technique id="F11">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F11.html</helpUrl>
+ </technique>
+ <technique id="F12">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F12.html</helpUrl>
+ </technique>
+ <technique id="F13">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F13.html</helpUrl>
+ </technique>
+ <technique id="F14">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F14.html</helpUrl>
+ </technique>
+ <technique id="F15">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F15.html</helpUrl>
+ </technique>
+ <technique id="F16">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F16.html</helpUrl>
+ </technique>
+ <technique id="F17">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F17.html</helpUrl>
+ </technique>
+ <technique id="F18">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F18.html</helpUrl>
+ </technique>
+ <technique id="F19">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F19.html</helpUrl>
+ </technique>
+ <technique id="F20">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F20.html</helpUrl>
+ </technique>
+ <technique id="F21">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F21.html</helpUrl>
+ </technique>
+ <technique id="F22">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F22.html</helpUrl>
+ </technique>
+ <technique id="F23">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F23.html</helpUrl>
+ </technique>
+ <technique id="F24">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F24.html</helpUrl>
+ </technique>
+ <technique id="F25">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F25.html</helpUrl>
+ </technique>
+ <technique id="F26">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F26.html</helpUrl>
+ </technique>
+ <technique id="F27">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F27.html</helpUrl>
+ </technique>
+ <technique id="F28">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F28.html</helpUrl>
+ </technique>
+ <technique id="F29">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F29.html</helpUrl>
+ </technique>
+ <technique id="F30">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F30.html</helpUrl>
+ </technique>
+ <technique id="F31">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F31.html</helpUrl>
+ </technique>
+ <technique id="F32">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F32.html</helpUrl>
+ </technique>
+ <technique id="F33">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F33.html</helpUrl>
+ </technique>
+ <technique id="F34">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F34.html</helpUrl>
+ </technique>
+ <technique id="F35">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F35.html</helpUrl>
+ </technique>
+ <technique id="F36">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F36.html</helpUrl>
+ </technique>
+ <technique id="F37">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F37.html</helpUrl>
+ </technique>
+ <technique id="F38">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F38.html</helpUrl>
+ </technique>
+ <technique id="F39">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F39.html</helpUrl>
+ </technique>
+ <technique id="F40">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F40.html</helpUrl>
+ </technique>
+ <technique id="F41">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F41.html</helpUrl>
+ </technique>
+ <technique id="F42">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F42.html</helpUrl>
+ </technique>
+ <technique id="F43">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F43.html</helpUrl>
+ </technique>
+ <technique id="F44">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F44.html</helpUrl>
+ </technique>
+ <technique id="F45">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F45.html</helpUrl>
+ </technique>
+ <technique id="F46">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F46.html</helpUrl>
+ </technique>
+ <technique id="F47">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F47.html</helpUrl>
+ </technique>
+ <technique id="F48">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F48.html</helpUrl>
+ </technique>
+ <technique id="F49">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F49.html</helpUrl>
+ </technique>
+ <technique id="F50">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F50.html</helpUrl>
+ </technique>
+ <technique id="F51">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F51.html</helpUrl>
+ </technique>
+ <technique id="F52">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F52.html</helpUrl>
+ </technique>
+ <technique id="F53">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F53.html</helpUrl>
+ </technique>
+ <technique id="F54">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F54.html</helpUrl>
+ </technique>
+ <technique id="F55">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F55.html</helpUrl>
+ </technique>
+ <technique id="F56">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F56.html</helpUrl>
+ </technique>
+ <technique id="F57">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F57.html</helpUrl>
+ </technique>
+ <technique id="F58">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F58.html</helpUrl>
+ </technique>
+ <technique id="F59">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F59.html</helpUrl>
+ </technique>
+ <technique id="F60">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F60.html</helpUrl>
+ </technique>
+ <technique id="F61">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F61.html</helpUrl>
+ </technique>
+ <technique id="F62">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F62.html</helpUrl>
+ </technique>
+ <technique id="F63">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F63.html</helpUrl>
+ </technique>
+ <technique id="F64">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F64.html</helpUrl>
+ </technique>
+ <technique id="F65">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F65.html</helpUrl>
+ </technique>
+ <technique id="F66">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F66.html</helpUrl>
+ </technique>
+ <technique id="F67">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F67.html</helpUrl>
+ </technique>
+ <technique id="F68">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F68.html</helpUrl>
+ </technique>
+ <technique id="F69">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F69.html</helpUrl>
+ </technique>
+ <technique id="F70">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F70.html</helpUrl>
+ </technique>
+ <technique id="F71">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F71.html</helpUrl>
+ </technique>
+ <technique id="F72">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F72.html</helpUrl>
+ </technique>
+ <technique id="F73">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F73.html</helpUrl>
+ </technique>
+ <technique id="F74">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F74.html</helpUrl>
+ </technique>
+ <technique id="F75">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F75.html</helpUrl>
+ </technique>
+ <technique id="F76">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F76.html</helpUrl>
+ </technique>
+ <technique id="F77">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F77.html</helpUrl>
+ </technique>
+ <technique id="F78">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F78.html</helpUrl>
+ </technique>
+ <technique id="F79">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F79.html</helpUrl>
+ </technique>
+ <technique id="F80">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F80.html</helpUrl>
+ </technique>
+ <technique id="F81">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F81.html</helpUrl>
+ </technique>
+ <technique id="F82">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F82.html</helpUrl>
+ </technique>
+ <technique id="F83">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F83.html</helpUrl>
+ </technique>
+ <technique id="F84">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F84.html</helpUrl>
+ </technique>
+ <technique id="F85">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F85.html</helpUrl>
+ </technique>
+ <technique id="F86">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F86.html</helpUrl>
+ </technique>
+ <technique id="F87">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F87.html</helpUrl>
+ </technique>
+ <technique id="F88">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F88.html</helpUrl>
+ </technique>
+ <technique id="F89">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F89.html</helpUrl>
+ </technique>
+ <!-- 2016/02 start-->
+ <technique id="F90">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F90.html</helpUrl>
+ </technique>
+ <technique id="F91">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F91.html</helpUrl>
+ </technique>
+ <technique id="F92">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F92.html</helpUrl>
+ </technique>
+ <technique id="F93">
+  <helpUrl>http://www.w3.org/TR/WCAG20-TECHS/F93.html</helpUrl>
+ </technique>
+ <!-- 2016/02 end  --> 
+</techniques>
+</guideline>

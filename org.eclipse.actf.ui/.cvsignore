@@ -1,0 +1,7 @@
+*.jar
+*.args
+build.xml
+bin
+log.folder
+temp.folder
+@dot

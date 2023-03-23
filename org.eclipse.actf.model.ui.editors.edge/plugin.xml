@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+      <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.actf.model.ui.editors.edge.WebBrowserEditor"
+            contributorClass="org.eclipse.actf.model.internal.ui.editors.edge.WebBrowserEditorContributor"
+            extensions="html, htm, xhtml, mht"
+            icon="icons/view16/browser.gif"
+            id="org.eclipse.actf.model.ui.editors.edge.WebBrowserEditor"
+            name="%browser.edge.title"/>
+      </extension>
+      <extension
+            point="org.eclipse.ui.actionSets">
+         <actionSet
+               id="org.eclipse.actf.model.ui.editors.edge.actionSet"
+               label="%browser.edge.title">
+            <action
+                  class="org.eclipse.actf.model.internal.ui.editors.edge.actions.LaunchBrowserAction"
+                  id="org.eclipse.actf.model.ui.editors.edge.actions.launch"
+                  definitionId="org.eclipse.actf.model.ui.editors.edge.actions.launch"
+                  label="%browser.edge.launch"
+                  icon="icons/view16/browser.gif"
+                  toolbarPath="ACTFbrowser"
+                  style="push"/>
+         </actionSet>            
+      </extension>
+</plugin>

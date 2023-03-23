@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+    name="org.eclipse.actf.visualization.doc.isv"
+    default="build.jars"
+    basedir=".">
+
+    <target name="init">
+        <property
+            name="plugin"
+            value="org.eclipse.actf.visualization.doc.isv" />
+        <property
+            name="version.suffix"
+            value="1.5.1.qualifier" />
+        <property
+            name="full.name"
+            value="${plugin}_${version.suffix}" />
+        <property
+            name="temp.folder"
+            value="${basedir}/temp.folder" />
+        <property
+            name="plugin.destination"
+            value="${basedir}" />
+        <property
+            name="build.result.folder"
+            value="${basedir}" />
+    </target>
+
+    <target
+        name="build.update.jar"
+        depends="init"
+        description="Build the plug-in: org.eclipse.actf.visualization.doc.isv. for update site">
+        <delete dir="${temp.folder}" />
+        <mkdir dir="${temp.folder}" />
+        <antcall target="build.jars" />
+        <antcall target="gather.bin.parts">
+            <param
+                name="destination.temp.folder"
+                value="${temp.folder}/" />
+        </antcall>
+        <zip
+            zipfile="${plugin.destination}/${full.name}.jar"
+            basedir="${temp.folder}/${full.name}"
+            filesonly="false" />
+        <delete dir="${temp.folder}" />
+    </target>
+
+    <target
+        name="build.jars"
+        depends="init"
+        description="Build all the jars for the plug-in: org.eclipse.actf.visualization.doc.isv.">
+    </target>
+
+    <target
+        name="build.sources"
+        depends="init">
+    </target>
+
+    <target
+        name="gather.bin.parts"
+        depends="init"
+        if="destination.temp.folder">
+        <ant
+            antfile="javadoc.xml"
+            dir="${basedir}" />
+        <ant
+            antfile="buildExtDocs.xml"
+            dir="${basedir}" />
+        <mkdir dir="${destination.temp.folder}/${full.name}" />
+        <copy todir="${destination.temp.folder}/${full.name}">
+            <fileset
+                dir="${basedir}"
+                includes="plugin.xml,plugin.properties,about.html,META-INF/,html/,reference/,book.css,notices.html,toc.xml,topics_Reference.xml,topics_ExtPoint_Reference.xml,schema.css,javadoctoc.xml,toc_ACTF.xml" />
+        </copy>
+        <eclipse.versionReplacer
+            path="${destination.temp.folder}/${full.name}"
+            version="${version.suffix}" />
+    </target>
+
+    <target
+        name="build.zips"
+        depends="init">
+    </target>
+
+    <target
+        name="gather.sources"
+        depends="init"
+        if="destination.temp.folder">
+    </target>
+
+    <target
+        name="gather.logs"
+        depends="init"
+        if="destination.temp.folder">
+    </target>
+
+    <target
+        name="clean"
+        depends="init"
+        description="Clean the plug-in: org.eclipse.actf.visualization.doc.isv of all the zips, jars and logs created.">
+        <delete file="${plugin.destination}/${full.name}.jar" />
+        <delete file="${plugin.destination}/${full.name}.zip" />
+        <delete dir="${temp.folder}" />
+    </target>
+
+    <target
+        name="refresh"
+        depends="init"
+        if="eclipse.running"
+        description="Refresh this folder.">
+        <eclipse.refreshLocal
+            resource="${plugin}"
+            depth="infinite" />
+    </target>
+
+    <target
+        name="zip.plugin"
+        depends="init"
+        description="Create a zip containing all the elements for the plug-in: org.eclipse.actf.visualization.doc.isv.">
+        <delete dir="${temp.folder}" />
+        <mkdir dir="${temp.folder}" />
+        <antcall target="build.jars" />
+        <antcall target="build.sources" />
+        <antcall target="gather.bin.parts">
+            <param
+                name="destination.temp.folder"
+                value="${temp.folder}/" />
+        </antcall>
+        <antcall target="gather.sources">
+            <param
+                name="destination.temp.folder"
+                value="${temp.folder}/" />
+        </antcall>
+        <delete>
+            <fileset
+                dir="${temp.folder}"
+                includes="**/*.bin.log" />
+        </delete>
+        <zip
+            zipfile="${plugin.destination}/${full.name}.zip"
+            basedir="${temp.folder}"
+            filesonly="true" />
+        <delete dir="${temp.folder}" />
+    </target>
+
+</project>

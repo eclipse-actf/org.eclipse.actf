@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Line View pane (low vision)</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>Line View pane (low vision)</H1>
+
+
+<P>
+The Line View pane is a table that presents the problems for the selected categories line by line.</p> 
+<H2>Provided information</H2>
+<p>For each problem, the following information is given:
+</P>
+<UL>
+<LI>Type (Icon): a visual indicator for the problem.
+The icons used in the Line View pane in the low vision mode are as follows:
+  <UL class="icons">
+  <LI><IMG src="images/I_Star.gif" alt="Star.">: This icon appears with some other icon. The corresponding element can be highlighted in the Simulation View by selecting this line.
+  <LI><IMG src="images/I_Color.gif" alt="Rectangles.">: This problem is related to the colors of the corresponding element.
+  <LI><IMG src="images/I_Blur.gif" alt="Circle.">: This problem is related to the font size of the corresponding element.
+  </UL>
+<LI>Accessibility guidelines: The three accessibility guidelines and standards that are available for use appear to the right of the icon column. 
+In the <A href="parametersLv.html">Guideline Checker preference page</A> 
+(Opened by clicking <B>Window</B> &gt; <B>Preferences</B> &gt; <b>ACTF</b> &gt; <b>Guideline Checker</b>), the guidelines can be selected for the tool to use when it checks the accessibility and usability of webpages.
+  <UL>
+  <LI>WCAG 2.0: The number of the <A href="https://www.w3.org/TR/WCAG20/">corresponding checkpoint</A> defined in the Web Content Accessibility Guidelines, which are issued by the World Wide Web Consortium.
+  <LI>[Section] 508: The <A href="http://www.section508.gov/index.cfm?FuseAction=Content&ID=12#Web">corresponding rule</A> in Section 508 of the Rehabilitation Act &sect;1194.22.
+  <LI>JIS: The corresponding checkpoint of the Japanese Industrial Standard (JIS) X8341-3.
+  </UL>
+<LI>Problem Description: A description of the accessibility or usability problem that will prevent users with low vision from accessing the page.
+<LI>Severity: The seriousness of the problem, rated on a scale that ranges from 0 to 100.
+<LI>Foreground: The foreground color of the element. This information is used only for text color problems.
+<LI>Background: The background color of the element. This information is used only for text color problems.
+<LI>X: The x-coordinate of the upper left corner of the element.
+<LI>Y: The y-coordinate of the upper left corner of the element.
+<LI>Area: The area of a box surrounding the element. The surrounding box will appear when the problem is selected.
+</UL>
+
+<H2>Interaction</H2>
+<P>
+Left-click a line to highlight the element that corresponds to the problem in the Visualization View.
+Right-click a line or press Shift+F10 to open a context menu.
+<UL>
+<LI><B>Clear Selection</B>: Selecting this item clears (unselects) the currently selected problem (or problems) in the Line view.
+This is used to stop highlighting problems in the Simulation/Visualization view.
+<LI><B>View Success Criterion</B>: Selecting this item refers to the
+corresponding help pages of the success criterion, which appear in a separate browser window. 
+If there are no relevant checkpoints, this item is not available. 
+<LI><B>View Techniques</B>: Selecting this item refers to the
+corresponding help pages of the techniques, which appear in a separate browser window. If there are no relevant checkpoints in any guideline, this item is not available. 
+<LI><B>View Source HTML</B>: Selecting this item opens the HTML source viewer in which the corresponding HTML element is highlighted.
+<!--<LI><B>Copy</B>: Selecting this item copies the details of selected problem into clip-board in comma separated format. -->
+<LI><B>Properties</B>: Selecting this item (or double clicking target problem) opens a dialog box that shows the details of selected problem.
+</UL>
+</P>
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="workspace.html">Exploring the HTML Accessibility perspective</A>
+<LI><A href="checkLv.html">Checking the accessibility and usability of a document in the Low Vision View</A>
+<LI><A href="problemsLv.html">Accessibility and usability problems for users with low vision</A>
+<LI><A href="compliance.html">Compliance and accessibility guidelines for Web content</A>
+<LI><A href="menusIcons.html">User interface menus and icons</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+</BODY>
+</HTML>

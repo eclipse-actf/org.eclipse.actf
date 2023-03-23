@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Exploring the Flash Accessibility perspective</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>Exploring the Flash Accessibility perspective</H1>
+
+<ul>
+<li><a href="#overview">Overview</a>
+<li><a href="#flashdomView">Flash Outline view</a>
+<li><a href="#guiprop">Content in the GUI Properties View</a>
+<li><a href="#flashdomLogview">Flash Proxy Logs view</a>
+</ul>
+
+<H2 id="overview">Overview</H2>
+<P>
+In the Flash Accessibility perspective, 
+the <a href="workspaceGui.html#guiSummary">GUI Summary view</a>, 
+<a href="workspaceGui.html#guiOutline">GUI Outline view</a>, 
+<a href="workspaceGui.html#guiProperty">GUI Properties view</a>, 
+<a href="workspaceGui.html#guiEvent">GUI Event view</a>, 
+<a href="workspaceGui.html#guiReport">GUI Report view</a>, and  
+<a href="workspaceGui.html#guiList">GUI Siblings view</a> 
+are shown as in the GUI Accessibility perspective (Figure 1), but different information is shown in the <b>GUI 
+Properties</b> view. See the following sections for details.
+In this perspective, the <a href="workspace.html#browser_view">ACTF Browser Editor</a>, 
+the <a href="#flashdomView">Flash Outline view</a>, 
+and the <a href="#flashdomLogview">Flash Proxy Logs view</a> are also available.
+</P>
+
+<DIV class="figure">
+<IMG src="images/flash/ui.jpg" alt=""><BR>
+<SPAN>Figure 1. User interface of the Flash Accessibility perspective</SPAN>
+</DIV>
+
+<H2 id="flashdomView">Flash Outline view</H2>
+<P>
+The <b>Flash outline</b> view (Figure 2) is shown in the middle pane on the right side, 
+where the runtime and internal structure of the Flash content is shown.
+</p>
+
+<H3 id="proxy">Proxy mechanism to obtain Flash internal structure</H3>
+<P>
+Flash internally uses a script language called ActionScript to move, transform, and control the visibility of objects. 
+ActionScript is based on ECMAScript (aka JavaScript). 
+This view shows the object's tree structure from the ActionScript perspective. 
+Here are shown the properties of the objects such as type, value, and instance name provided by the developer, 
+along with parent-child relationships. 
+Flash developers can use this information to effectively modify their content and improve its accessibility.
+</P>
+
+<P>
+Although it is basically impossible for an external environment to access the internal structure of content unless 
+the content author explicitly permits it, the ACTF make this possible by obtaining the Flash content via an 
+internal proxy. 
+</P>
+
+<P id="typeof">
+Each row in this view is in the form of &quot;[text information] name(type)&quot;. 
+The name is an instance name provided by the developer, a field name, or a method name of an object, 
+which is used to point at the object or property in ActionScript. 
+The type is the return value of the ActionScript <code>typeof</code> operator applied to the object. 
+The possible type values appears in the following list. 
+See &quot;ActionScript Language Reference&quot;, one of the Flash manuals for details. 
+Icons also represent the types of the objects.
+<UL>
+<li>string
+<li>movieclip
+<li>object
+<li>number
+<li>boolean
+<li>function
+</UL>
+The text information of an object is shown enclosed with square brackets (&quot;[&quot; and &quot;]&quot;).
+</P>
+<p>
+Clicking on a row shows more details about the object in the <b>GUI Properties</b> view. 
+See the <a href="#guiprop">next section</a> for details.
+</p>
+<DIV class="figure">
+<IMG src="images/flash/flashdom.png" alt=""><BR>
+<SPAN>Figure 2. Flash Outline view</SPAN>
+</DIV>
+
+<H3 class="menudesc">Related functions</H3>
+
+<DL>
+<DT><IMG src="images/gui/refresh.gif" align="middle" alt="">&nbsp;Refresh (Shift+F10)</DT>
+<DD>Refresh the view to an up-to-date state.</DD>
+
+<DT>Filter Non-informative Items (Ctrl+F10)</DT>
+<DD>Hide invisible (i.e. the type of number, string, function or boolean) properties and methods. 
+Useful to display only the relationships between the displayed objects.</DD>
+
+<DT>Show Visual Structure (Ctrl+F10)</DT>
+<DD>Show the visual structure of a tree based on the inclusion relationships among the objects, 
+instead of the actual parent-child relationships when the objects were created.</DD>
+
+<DT>Scan Windowless Flash (Debug Mode) (Ctrl+F10)</DT>
+<DD>If embedded Flash content has the <b>wmode</b> property set to <b>transparent</b> or <b>opaque</b>
+rather than <b>window</b> (or without <b>wmode</b> property), then screen readers cannot access that content. 
+Turning this option &quot;on&quot; tries to find the Flash content even if <b>transparent</b> or <b>opaque</b> is specified.
+This scan sometimes takes a long time. Setting it to &quot;off&quot; shows the Flash content without scan.</DD>
+
+<DT>Show All Information (Debug Mode) (Ctrl+F10)</DT>
+<DD>All entities are shown, such as objects, properties, and methods and including the internal variables Flash uses. 
+In addition, apparent parent-child relationships are shown as specified, even if there are circular references. 
+<b>Warning:</b> Selecting <b>Expand All</b> with this option turned on will cause an infinite loop 
+if a circular reference exists.</DD>
+
+<DT>Flash Proxy preferences... (Ctrl+F10)</DT>
+<DD>Show the <a href="viewsFlash.html#flashdom">Flash Proxy preferences</a>.</DD>
+
+</DL>
+
+<H2 id="guiprop">Content in the GUI Properties View</H2>
+<P>
+When a row is selected in the <b>Flash Outline</b> view, the details for that object are shown in the 
+<b>GUI Properties</b> view (Figure 3) in the bottom-right corner, 
+but the content is different from that which is shown in the GUI Accessibility perspective. 
+The displayed properties depend on the kind of entry selected. 
+Important possible properties and their meanings include:
+</P>
+<DIV class="figure">
+<IMG src="images/flash/guiprop.png" alt=""><BR>
+<SPAN>Figure 3. GUI Properties view</SPAN>
+</DIV>
+
+<DL>
+
+<DT>wmode</DT>
+<DD>(Only for a top-level object.) The value of the <b>wmode</b> property was specified when the Flash content was 
+embedded into the webpage.</DD>
+
+<DT>type</DT>
+<DD>The type of the object is the value returned when the ActionScript <code>typeof</code> operator 
+is applied to the object. 
+See <a href="#typeof">the previous section</a> for possible values.</DD>
+
+<DT>className</DT>
+<DD>Only shown when the value of <b>type</b> is <b>object</b>, it presents the class the object belongs to. 
+Examples are <code>&quot;Button&quot;</code> for buttons, <code>&quot;TextField&quot;</code> for text fields, 
+and <code>&quot;Array&quot;</code> for arrays.</DD>
+
+<DT>objName</DT>
+<DD>Apparent full path for the object. 
+It may be different from the actual full path (<code>target</code> property value) due to the assignment 
+of a variable object, which results in creating references to objects. 
+Example: <code>_level0.button1.b1txt</code></DD>
+
+<DT>target</DT>
+<DD>Actual full path of the object, which is the value of the <code>target</code> property of the object. 
+This represents the order of the creation of this object from the root object. Example: 
+<code>_level0.button1.container.button</code></DD>
+
+<DT>depth</DT>
+<DD>The layer where the object is located, which is the return value of its <code>getDepth</code> method. 
+An object with a larger <b>depth</b> value is shown in front of objects with smaller <b>depth</b>s.</DD>
+
+<DT>currentFrame</DT>
+<DD>The index of the frame where the object is located.</DD>
+
+<DT>Location</DT>
+<DD>The coordinates and size of the object. The tool draws a highlight rectangle based on this value, 
+which may be displaced from the actual position for button objects 
+(objects whose <b>type</b> is <b>object</b> and <b>className</b> is <b>Button</b>).</DD>
+
+<DT>value</DT>
+<DD>The value of the object. Shown when the object is of type <b>number</b>, <b>string</b>, or <b>boolean</b>.</DD>
+
+<DT>isUIComponent</DT>
+<DD>A value of <code>true</code> means the object is a &quot;Component&quot;. See Flash manuals for details.</DD>
+
+<DT>isOpaqueObject</DT>
+<DD>A value of <code>true</code> means the object and its descendants can be treated as a single object. 
+The tool will not attempt to traverse its descendants when searching in the <b>Flash Outline view</b>.</DD>
+
+<DT>isInputable</DT>
+<DD>A value of <code>true</code> means users are able to input data to this object. 
+Example of inputable objects are text fields and check boxes.</DD>
+
+<DT>accInfo</DT>
+<DD>Accessibility information. The <code>_accProps</code> and <code>_accImpl</code> instances 
+which are children of the object are shown. 
+See Flash manuals for details about <code>_accProps</code>. 
+See source code (LabelAccImpl.as, etc.) that comes with the Flash 8 authoring environment for details about <code>_accImpl</code>. 
+Following are the child properties of <b>accInfo</b>:
+<DL>
+<DT>name</DT>
+<DD>Text information read out by screen readers</DD>
+<DT>description</DT>
+<DD>The detailed description of the object</DD>
+<DT>silent</DT>
+<DD>Set to <code>false</code> if the object is &quot;invisible&quot; to screen readers</DD>
+<DT>forceSimple</DT>
+<DD>Set to <code>true</code> if the object's descendants are invisible to screen readers</DD>
+<DT>shortcut</DT>
+<DD>The string for the shortcut key. Example: <code>Control+A</code></DD>
+<DT>role</DT>
+<DD>The string for the object's MSAA role. Example: <code>check box</code></DD>
+<DT>state</DT>
+<DD>The string for the object's MSAA state. Examples: <code>&quot;focused&quot;</code>, <code>&quot;focused,checked,focusable&quot;</code></DD>
+<DT>defaultAction</DT>
+<DD>The string for the object's MSAA default action. Example: <code>&quot;Uncheck&quot;</code></DD>
+</DL>
+</DD>
+</DL>
+<p>
+See <a href="workspaceGui.html#guiProperty">here</a> for other user interface elements.
+</p>
+
+<H2 id="flashdomLogview">Flash Proxy Logs view</H2>
+<P>
+The <b>Flash Proxy Logs</b> view is in the bottom-right pane (Figure 4).
+By default, the view is hidden, since the tab for <b>GUI Properties view</b> is selected. 
+As <a href="#proxy">described earlier</a>, to accesses the internal structure of Flash content, 
+ACTF uses its own internal proxy and obtains the Flash content via the proxy. 
+The log messages for the actions of the proxy are shown in this view.
+</P>
+
+<P>
+In this view, each row corresponds to one log message from the proxy. 
+Each entry has entries for <b>Message</b>, <b>ID</b>, <b>Source</b>, and <b>Time</b>.
+<DL>
+
+<DT>Message</DT>
+<DD>A log message output by the proxy</DD>
+
+<DT>ID</DT>
+<DD>The ID of the Flash content. 
+The proxy can process multiple Flash objects in parallel, so a unique ID for each Flash object is used to identify 
+the thread to which each log message belongs.
+The log messages for the general behaviors of the proxy do not have IDs.</DD>
+
+<DT>Source</DT>
+<DD>The Java&#8482; class name in the proxy that issued the message.</DD>
+
+<DT>Time</DT>
+<DD>The time when the log message was issued.</DD>
+</DL>
+</P>
+
+<p>
+There are four types of log messages; a <b>trace log</b> without an icon, 
+an <b>information log</b> with an <img src="images/gui/info_tsk.gif" align="middle" alt="alphabet I"> icon, 
+a <b>warning log</b> with a <img src="images/gui/warn_tsk.gif" align="middle" alt="exclamation mark"> icon, and 
+an <b>error log</b> with an <img src="images/gui/error_tsk.gif" align="middle" alt="bad mark"> icon. 
+The trace logs are not shown by default.
+</p>
+
+<DIV class="figure">
+<IMG src="images/flash/domlog.png" alt=""><BR>
+<SPAN>Figure 4. Flash Proxy Logs view</SPAN>
+</DIV>
+
+<H3 class="menudesc">Related functions</H3>
+
+<DL>
+
+<DT><IMG src="images/gui/clear.gif" align="middle" alt=""> Clear (Shift+F10)</DT>
+<DD>Clear all log messages.</DD>
+
+<DT><IMG src="images/gui/copy_edit.gif" align="middle" alt=""> Copy (Shift+F10)</DT>
+<DD>Copy whole lines into the clipboard.</DD>
+
+<DT>Show trace logs (Ctrl+F10)</DT>
+<DD>Show the trace logs which describe the detailed behavior of the proxy. 
+This is mainly used to debug the proxy.</DD>
+
+<DT>Preferences... (Ctrl+F10)</DT>
+<DD>Show the <a href="viewsFlash.html#flashdom">Flash Proxy preferences</a>.</DD>
+
+</DL>
+
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="workspace.html">Exploring the HTML Accessibility perspective</A>
+<LI><A href="workspaceGui.html">Exploring the GUI Accessibility perspective</A>
+<LI><A href="checkFlash.html">Checking the accessibility of a webpage containing Flash content in the 
+Flash Accessibility perspective</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+<p class="trademark">
+Java and all Java-based trademarks and logos are trademarks of Sun Microsystems, Inc. in the United States, other countries, or both.
+</p>
+
+</BODY>
+</HTML>

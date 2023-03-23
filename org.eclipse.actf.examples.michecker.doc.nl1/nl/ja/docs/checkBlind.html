@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="ja">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=SHIFT_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) Ministry of Internal Affairs and Communications, IBM Corporation and others 2007, 2016. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>音声インターフェースユーザーのアクセシビリティやユーザビリティをチェックする</TITLE>
+<LINK href="miChecker.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>音声インターフェースユーザーのアクセシビリティやユーザビリティをチェックする</H1>
+<P>
+miChecker で HTML ファイルやウェブページを開いてシミュレーションを実行することにより、音声インターフェースユーザーにとってのアクセシビリティおよびユーザビリティをチェックすることができます。
+</P>
+<P>
+チェックは、以下の手順で行います:
+</P>
+<OL class="space">
+<LI>下記のいずれかの方法でウェブページを読み込む:
+  <UL class="nospace">
+  <LI>「<B>ファイル</B>」 &gt; 「<B>開く</B>」 の順に選択し、URL を指定する、もしくは 「<B>参照</B>」 を選択してローカルファイルを開く。
+  <LI>アドレス入力バーに URL を入力し、「<B>現在の URL を開く</B>」 ボタンを選択する。
+  </UL>
+
+<LI><b>ブラウザ</b>にウェブページが表示される。右上のパネルの上部にある「<B>音声ユーザビリティ</B>」 タブを選択する。
+
+<LI>下記のいずれかの方法で<A href="parametersBlind.html">設定パネル（音声ユーザビリティ視覚化 設定）</A>を開く:
+  <UL class="nospace">
+  <LI>「<B>設定</B>」 ボタンを選択する。
+  <LI>「<B>ウィンドウ</B>」 &gt; 「<B>設定</B>」 &gt; 「ACTF」 &gt; 「<b>音声ユーザビリティ視覚化</b>」 の順に選択する。
+  </UL>
+  各項目の設定を行い、「<B>適用</B>」 または 「<B>OK</B>」 を選択する。
+
+<LI>下記のいずれかの方法で、音声ユーザビリティ視覚化とアクセシビリティ・ユーザビリティのチェックを行う:
+  <UL class="nospace">
+  <LI>「<B>アクセシビリティ検証・音声ユーザビリティ視覚化</B>」 ボタンを選択する。
+  <LI>「<B>アクセシビリティ検証・視覚化</B>」メニュー &gt; 「<B>アクセシビリティ検証・音声ユーザビリティ視覚化</B>」 の順に選択する。もしくは，ショートカットキー Ctrl+Shift+B を利用する。
+  </UL>
+
+<LI><A href="elementCss.html">「<B>ID/AccessKey/Class/CSS情報を開く</B>」</A> ボタンを選択して、HTML 要素の属性に関する情報を見る。
+
+<LI>（必要に応じて） 「<B>保存</B>」 ボタンを選択して、チェック結果や視覚化結果をファイルとして保存する。<BR>
+レポートファイルはCSV形式です。「HTML形式のレポートも保存」オプションを選択することで、HTML 形式のレポートも保存することが出来ます。HTML形式のレポートは次の三つで構成されています。
+(1) 総合評価、(2) <b>視覚化</b>ビュー、(3) 検出されたエラーの個別表示です。
+レポートファイル中のエラーの個別表示の中の1行を選択するとそれに対応する要素が<b>視覚化</b>ビュー上でハイライトされます。もしその要素が見えていなかった場合には、見えるように自動的にスクロールされます。
+
+<LI>詳細レポートに表示されているエラーに対処する。<BR>
+詳しい内容は、<A href="lineViewBlind.html">詳細レポートの個別表示（音声ユーザビリティ）</A>をご覧ください。
+エラーを解決した後、再度 miChecker でチェックすると、詳細レポートや総合評価の内容が改善されているはずです。
+</OL>
+
+<H1 class="related">関連項目</H1>
+<UL class="related">
+<LI><A href="workspace.html">miCheckerの構成</A>
+<LI><A href="problemsBlind.html">「アクセシビリティ検証・音声ユーザビリティ視覚化」 で検出されるアクセシビリティ、およびユーザビリティの問題点</A>
+<LI><A href="checkLv.html">ロービジョンユーザのアクセシビリティやユーザビリティをチェックする</A>
+</UL>
+
+<P>
+<A href="index.html">インデックスに戻る</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.gif" alt=""></DIV>
+</P>
+
+</BODY>
+</HTML>

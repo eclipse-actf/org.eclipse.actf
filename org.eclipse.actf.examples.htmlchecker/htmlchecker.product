@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="HtmlChecker" uid="ACTF HtmlChecker" id="org.eclipse.actf.examples.htmlchecker.HtmlChecker" application="org.eclipse.actf.examples.htmlchecker.HtmlChecker" version="1.5.1.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/org.eclipse.actf.examples.htmlchecker/about.gif"/>
+      <text>
+         %About.Text
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgs>-Xmx512m
+      </vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i32="/org.eclipse.actf.examples.htmlchecker/icons/excla_32.png"/>
+
+   <launcher name="htmlchecker">
+      <solaris/>
+      <win useIco="true">
+         <ico path="/org.eclipse.actf.examples.htmlchecker/icons/actf.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.actf.examples.htmlchecker"/>
+   </features>
+
+   <configurations>
+      <property name="org.eclipse.update.reconcile" value="false" />
+   </configurations>
+
+</product>

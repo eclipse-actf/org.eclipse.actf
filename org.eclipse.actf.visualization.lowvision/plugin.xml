@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  <extension
+        point="org.eclipse.ui.preferencePages">
+     <page
+           category="org.eclipse.actf.ui.preferences.RootPreferencePage"
+           class="org.eclipse.actf.visualization.lowvision.ui.preferences.LowVisionPreferencePage"
+           id="org.eclipse.actf.visualization.lowvision.ui.preferences.LowVisionPreferencePage"
+           name="%adesigner.preferences.lowvision.title"/>
+  </extension>
+  <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.actf.visualization.ui.views"
+            class="org.eclipse.actf.visualization.lowvision.ui.views.LowVisionView"
+            icon="icons/etool16/simulation.png"
+            id="org.eclipse.actf.visualization.lowvision.ui.views.LowVisionView"
+            name="%adesigner.lowvision.tab.title"/>
+   </extension>
+   <extension
+      point="org.eclipse.ui.actionSets">
+         <actionSet
+               id="org.eclipse.actf.visualization.lowvision.actionSet"
+               label="%actf.action.simulate">
+            <menu
+            id="org.eclipse.actf.visualization.menu"
+         	label="%actf.visualization.menu">
+         	</menu>
+			<action
+         	class="org.eclipse.actf.visualization.lowvision.ui.actions.SimulationAction"
+         	id="org.eclipse.actf.visualization.lowvision.ui.actions.SimulationAction"
+         	definitionId="org.eclipse.actf.visualization.lowvision.ui.actions.SimulationAction"
+         	label="%actf.action.simulate"
+         	menubarPath="org.eclipse.actf.visualization.menu/"
+         	toolbarPath="org.eclipse.actf.visualization.ui.actionSet/ACTFvisualization"
+         	icon="icons/etool16/simulation.png"
+         	style="push"/>
+         </actionSet>
+   </extension>
+</plugin>

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta
+  http-equiv="Content-Type"
+  content="text/html; charset=iso-8859-1">
+<title>How to extend/customize HTML checker</title>
+<link rel="stylesheet" type="text/css" href="../base.css">
+</head>
+<body>
+
+<h1>How to extend/customize HTML checker</h1>
+<h2 id="checker">Step 1. Develop IHtmlChecker implementation</h2>
+<ol>
+ <li>Receive IHtmlCheckTarget that contains target HTML information as HtmlEvalUtil
+  <ul class="nospace">
+   <li>getTarget(): returns target DOM selected in preference page</li>
+   <li>getSrcDom(): returns DOM based on original HTML source</li>
+   <li>getLiveDom(): returns Live-DOM snapshot of IE</li>
+   <li>provides other useful data for accessibility check, such as Array of 'href' values, image elements, anchor elements, table elements, etc.</li>
+  </ul>
+  (Please see <a href="../../reference/api/org/eclipse/actf/visualization/eval/html/HtmlEvalUtil.html">HtmlEvalUtil</a> for more details.)  
+ </li>
+ <li>Check accessibility of content by using DOM API and data from HtmlEvalUtil</li>
+ <li>Create and return IProblemItem for each accessibility issue
+  <pre>IProblemItem problem = new ProblemItemImpl("CheckItemID");</pre>
+ </li>
+ (Please see org.eclipse.actf.validation.html.internal.CheckEngine as reference implementation.)
+</ol>
+<p>
+
+</p>
+<h2>Step 2. Write XML and properties file for configurations</h2>
+<h3 id="guideline">Guideline XML</h3>
+<p>includes guideline item information, such as name, URL of help page, etc.<br/>
+</p>
+<a href="wcag20.xml">Reference implementation for WCAG 2.0</a>
+
+<h3>Check Item XML</h3>
+<p>defines mapping between <a href="#checker">implemented check items</a> and <a href="#guideline">guideline items</a>.<br/>
+It also defines corresponding criteria for each check item, such as Compliance, Listenability, My Company's guide, etc. <br/>
+</p>
+<a href="checkitem.xml">Reference implementation</a>
+
+<h3>Properties file for error messages</h3>
+<p>defines error messages for each <a href="#checker">implemented check items</a>. Use id defined in Check Item XML as key of the properties.
+</p>
+<a href="description.properties">Reference implementation</a>
+
+<h2>Step 3. Implement ICheckerInfoProvider and refer your XML/properties file</h2>
+<p>Example implementation
+<pre>
+public class MyCheckerInfoProvider implements ICheckerInfoProvider {
+  private static final String BUNDLE_NAME = 
+    "org.eclipse.myproject.description"; //$NON-NLS-1$
+
+  private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME);
+
+  public InputStream[] getCheckItemInputStreams() {
+    InputStream is = OdfChecker.class.getResourceAsStream("resources/checkitem.xml");
+    return new InputStream[] { is };
+  }
+
+  public InputStream[] getGuidelineInputStreams() {
+    InputStream is = OdfChecker.class.getResourceAsStream("resources/guideline.xml");
+    return new InputStream[] { is };
+  }
+
+  public ResourceBundle getDescriptionRB() {
+    return RESOURCE_BUNDLE;
+  }
+
+}
+</pre>
+
+<h2>Step 4. Register your checker as an extension</h2>
+<p>Register your checker implementation by using 
+<a href="../../reference/extension-points/common/org_eclipse_actf_visualization_eval_checkers.html">org.eclipse.actf.visualization.eval.checkers</a> Extension Points.
+<div class="figure"><img src="../img/checker_extension.gif" alt=""/></div>
+</p>
+</body>
+</html>

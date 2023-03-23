@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Checking the accessibility of an application in the GUI Accessibility perspective</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1 id="guiCheck">Checking the accessibility of an application in the GUI Accessibility perspective</H1>
+<P>
+The GUI Accessibility perspective can check the accessibility of any Windows&#174; application running on the computer.
+It can also check the accessibility of ActiveX controls embedded in a webpage, such as Flash ActiveX controls.
+</P>
+<P>
+The following steps will check the accessibility of an application using the GUI Accessibility perspective:
+</P>
+
+<OL class="space">
+<LI>Select a webpage or an application window to check its accessibility:
+  <BR>Select a target for checking by using the <B>Target Window</B> menu.
+  <UL>
+  <LI>Select an external browser window in the <B>External Browsers</B> submenu to check the accessibility of a webpage.
+  <LI>Select an external application window in the <B>External Windows</B> submenu to check the accessibility of a Windows&#174; application.
+  </UL>
+<LI>The accessibility check starts immediately, and may take a few moments to be completed.
+<LI>Analyzing the results of the automated accessibility check:
+<BR>The <B>GUI Report</B> view shows the accessibility problems. Please refer to <A href="#guiProblems">Problems reported in the GUI Accessibility perspective</A>.
+  <UL>
+  <LI>To change the type of problems reported (Error, Warning, or Information), use the View menu(Ctrl+F10) to change the display settings. The results displayed will change immediately.
+  <LI>When a line of the report is selected, the area with the problem is highlighted on the screen, and the object icon in the GUI Outline view is also selected.
+  The cause of the problem can then be verified. 
+  </UL>
+<LI>Accessibility verification with manual inspection:
+  <BR>First, the contents of the <B>GUI Summary</B> view and the screen of the application can be compared to verify that the important information on the application screen is available as appropriate text information.
+  If the text information is missing or inappropriate, then using the application operation with a screen reader will be difficult.
+  <BR>Next, the order of the text shown in the GUI Summary view should be checked to make sure it is appropriate.
+  The order of the text in this view corresponds to the reading order with a screen reader.
+  <UL>
+  <LI>Use the <B>Refresh</B> function when the application screen changes due to scrolling or some other operation.
+  <LI>Set <B>Show Off-Screen Items</B> on to show off-screen object information.
+  <LI>If necessary, use the <B>Read Entire Text</B> function to check the listenability using synthetic speech.
+  <LI>If additional diagnostic support is necessary, please refer to the <B>GUI Outline</B> view or the <B>GUI Property</B> view to analyze the cause of problem.
+  </UL>
+<LI>After fixing the accessibility problems the previous steps can be repeated to check the accessibility improvements.
+</OL>
+
+<H2 id="guiProblems">Problems reported in the GUI Accessibility perspective</H2>
+<P>
+The <B>GUI Report</B> view shows the accessibility problems found in the target application. The problems are categorized into Error, Warning, and Information.
+The severity of each problem is uniquely defined based on how a blind person would use a screen reader.
+</P>
+
+<H3 style="font-size: medium"><IMG src="images/gui/error_tsk.gif" align="middle" alt="">Error: Serious problems</H3>
+
+<ul class="space">
+<li><b>No ALT text for button:</b><br>
+Alternative text is not available for the button&#39;s meaning or action
+<li><b>No ALT text for form control:</b><br>
+Alternative text is not available for the form input control, such as specifying a combo-box
+<li><b>No text for hyperlink:</b><br>
+Text is not available for a link to another page or object
+<li><b>No ALT text for clickable item:</b><br>
+Alternative text is not available for some other clickable object
+</ul>
+
+<H3 style="font-size: medium"><IMG src="images/gui/warn_tsk.gif" align="middle" alt="">Warning: Less serious problems</H3>
+
+<ul class="space">
+<li><b>No ALT text for graphic:</b><br>
+Alternative text is not available for a non-clickable image object
+<li><b>No ALT text for non-clickable item:</b><br>
+Alternative text is not available for some other non-clickable object
+<li><b>No title for frame:</b><br>
+Text is not available for the title of a frame
+</ul>
+
+<H3 style="font-size: medium"><IMG src="images/gui/info_tsk.gif" align="middle" alt="">Information: For information only</H3>
+
+<ul class="space">
+<li><b>No caption for table:</b><br>
+Caption text is not available for a table
+</ul>
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="workspaceGui.html">Exploring the GUI Accessibility perspective</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+<P class="trademark">
+Microsoft, Windows, Windows NT, and the Windows logo are trademarks of Microsoft Corporation in the United States, other countries, or both. 
+</P>
+</BODY>
+</HTML>

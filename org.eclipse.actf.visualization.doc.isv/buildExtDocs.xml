@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Build Extension Point Documentation" default="createExtDocs" basedir=".">
+
+	<property file="buildExtDocs.properties"/>
+	<property name="outputDir" value="${basedir}${file.separator}reference${file.separator}extension-points"/>
+	<property name="commonOutputDir" value="${outputDir}${file.separator}common${file.separator}"/>
+
+	<target name="createExtDocs" depends="buildExtDocs, createDocListings"/>
+	
+	<target name="buildExtDocs" depends="buildCommonExtDocs"/>
+		
+ 	
+ 	<target name="buildCommonExtDocs">
+ 		<pde.convertSchemaToHTML manifest="../org.eclipse.actf.ai.voice/plugin.xml" destination="${commonOutputDir}" />
+ 		<pde.convertSchemaToHTML manifest="../org.eclipse.actf.model.dom.dombycom/plugin.xml" destination="${commonOutputDir}" />
+ 		<pde.convertSchemaToHTML manifest="../org.eclipse.actf.model.ui/plugin.xml" destination="${commonOutputDir}" />
+ 		<pde.convertSchemaToHTML manifest="../org.eclipse.actf.visualization.blind/plugin.xml" destination="${commonOutputDir}" />
+ 		<pde.convertSchemaToHTML manifest="../org.eclipse.actf.visualization.engines.blind.html/plugin.xml" destination="${commonOutputDir}" />
+ 		<pde.convertSchemaToHTML manifest="../org.eclipse.actf.visualization.eval/plugin.xml" destination="${commonOutputDir}" />
+ 		<pde.convertSchemaToHTML manifest="../org.eclipse.actf.visualization.gui/plugin.xml" destination="${commonOutputDir}" />
+ 		
+ 		<!-- Get the list of extension doc files. -->
+ 		<fileset dir="${commonOutputDir}" casesensitive="yes" id="ext-docs-list-common">
+ 			<include name="*.html"/>
+ 		</fileset>
+ 						
+ 		<!-- Convert the list to an XML representation. -->
+ 		<pathconvert property="ext-doc-common" refid="ext-docs-list-common" pathsep="&lt;/file&gt;&lt;file&gt;">
+ 			<map from="${commonOutputDir}" to=""/>
+ 		</pathconvert>
+ 		<echo file="commonextdocs.xml">&lt;files component="common"&gt;&lt;file&gt;${ext-doc-common}&lt;/file&gt;&lt;/files&gt;</echo>
+ 						
+ 	</target>
+ 		
+	
+	<target name="createDocListings">
+		<!-- Create the overview document. -->
+		<xslt basedir="${basedir}" in="extDocListings.xml" out="${outputDir}${file.separator}index.html" style="extDocOverview.xsl">
+  			<param name="title" expression="${title}"/>
+  			<param name="header" expression="${header}"/>
+  			<param name="overview" expression="${overview}"/>
+			<param name="listed-ext-points" expression="${listed-ext-points}"/>
+		</xslt>
+		
+		<!-- Create the extention point toc. -->
+		<xslt basedir="${basedir}" in="extDocListings.xml" out="topics_ExtPoint_Reference.xml" style="extDocToc.xsl">
+			<param name="listed-ext-points" expression="${listed-ext-points}"/>
+			<outputproperty name="method" value="xml"/>
+			<outputproperty name="indent" value="yes"/>
+		</xslt>
+		
+	</target>
+</project>

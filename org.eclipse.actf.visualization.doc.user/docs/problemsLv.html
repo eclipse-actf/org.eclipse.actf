@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Accessibility and usability problems for users with low vision</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>Accessibility and usability problems for users with low vision</H1>
+<P>
+Use the Low Vision View to simulate weak eyesight, color vision deficiencies, cataracts, and their arbitrary combinations.
+This simulation helps see how users with low vision experience a webpage.
+The first four sections that follow describe the low-vision-related problems that ACTF can detect and how to address these problems.
+(Problems are listed in the Problem pane. Clicking on the line that describes a problem highlights the corresponding element.)
+The final section describes the severity values of the problems appearing in the Line View pane of the low vision mode.
+</P>
+
+<H2>Fixed-size font problems</H2>
+<P>
+Text with fixed-size fonts that cannot be enlarged by browser options presents a problem for those with vision problems.
+This problem occurs when a webpage uses a fixed size value, such as &quot;8pt&quot; or &quot;5mm,&quot; as a font size.
+This problem can be addressed by using absolute-size keywords (for example, &quot;large&quot;), relative-size keywords (for example, &quot;larger&quot;), or percentage values as font sizes.
+(For information on how to set font sizes, see <A href="http://www.w3.org/TR/CSS21/fonts.html#font-size-props">15.7 Font size: The 'font-size' property</A>.)
+Another solution is to provide a menu option that allows readers to select their own font sizes.
+</P>
+
+<H2>Small character problems</H2>
+<P>
+For some people with weak eyesight, some characters may be too small to read even when browser options permit them to use the largest font size available.
+When that happens, the reader needs additional assistive technologies.
+Small characters should not be used for layout purposes.
+</P>
+
+<H2>Text color problems</H2>
+<P>
+People with color vision deficiencies and cataracts can see colors, but they perceive them differently than people with normal vision.
+People with color vision deficiencies may have difficulties in reading texts even if their foreground and background colors are different.
+Such problems can be addressed by choosing sharply contrasting colors for the foreground and background.
+</P>
+
+<H2>Image color problems</H2>
+<P>
+People with color vision deficiencies and cataracts can see colors, but they perceive them differently than people with normal vision.
+If color alone conveys certain information, people with color vision deficiencies and cataracts will not perceive the information.
+Any information conveyed with color must be available without colors.
+For example, in a line graph, not only colors but also types of lines, such as solid, dotted and wavy lines, should be used to distinguish among the quantities of different items.
+</P>
+
+<H2>Severity values</H2>
+<P>
+Each problem in the low vision mode has its own severity value, which indicates the seriousness of the problem and is rated on a scale that ranges from 0 to 100.
+The higher the value, the more serious the problem.
+</P>
+<P>
+The severity values of font-related problems (fixed-size font problems or small character problems) are 25.
+If an element has both a fixed-size font problem and a small character problem, these problems are combined and shown in one line in the Line View pane.
+In this case, the severity value becomes 50.
+</P>
+<P>
+The severity values of color-related problem are evaluated using the definition of
+<A href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef">&quot;relative luminance&quot;</A>.
+
+The severity values are computed as follows:
+<OL>
+<li>If the relative luminance between foreground color and background color is more than 7, the severity value is 0.</li>
+<li>If the relative luminance is less than 3, the severity value is 100.</li>
+<li>If the relative luminance between the threshold value, the severity value is the corresponding fraction between 0 and 100.</li>
+</OL>
+</P>
+
+<P>
+The severity values depend on the parameters you set.
+For a text element, ACTF tests its foreground and background colors in the Simulation View.
+For an image, ACTF tests colors of every combination of large connected components in the simulated image whose colors provide good color visibility in the original image.
+</P>
+<P>
+The overall rating of a webpage is based on the total of the severity values of all of the problems detected in the page.
+</P>
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="checkLv.html">Checking the accessibility and usability of a document in the Low Vision View</A>
+<LI><A href="problemsBlind.html">Accessibility and usability problems for blind users</A>
+<LI><A href="compliance.html">Compliance and accessibility guidelines for Web content</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+</BODY>
+</HTML>

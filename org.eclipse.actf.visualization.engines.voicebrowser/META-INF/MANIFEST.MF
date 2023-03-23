@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF Voice Browser Engine Plug-in
+Bundle-SymbolicName: org.eclipse.actf.visualization.engines.voicebrowser
+Bundle-Version: 1.5.1.qualifier
+Bundle-Vendor: Eclipse ACTF Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.actf.ai.voice
+Export-Package: org.eclipse.actf.visualization.engines.voicebrowser
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: org.eclipse.actf.visualization.engines.voicebrowser

@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Checking the accessibility of a webpage containing Flash content in the Flash Accessibility perspective</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>Checking the accessibility of a webpage containing Flash content in the Flash Accessibility perspective</H1>
+
+<ul>
+<li><a href="#flashGuideline">Accessibility Guidelines for Flash Content</a>
+<li><a href="#checkProcess">Checking Process for Each Check Items</a>
+<OL>
+<LI><a href="#textInfo">Provide Text Equivalents</a></LI>
+<LI><a href="#siteInfo">Provide Context</a></LI>
+<LI><a href="#voiceControl">Control Reading Order</a></LI>
+<LI><a href="#animationControl">Control Animation</a></LI>
+<LI><a href="#keyboardOP">Ensure Keyboard Access</a></LI>
+<LI><a href="#progDisc">Progressive Disclosure</a></LI>
+<LI><a href="#componentAcc">Enable Component Accessibility</a></LI>
+<LI><a href="#caption">Provide Captions</a></LI>
+<LI><a href="#controlAudio">Provide Control over Audio Playback</a></LI>
+<LI><a href="#color">Use Color Wisely</a></LI>
+<LI><a href="#color">Support Users with Low Vision</a></LI>
+</OL>
+</ul>
+
+<P>
+The ACTF simulates how webpages containing Flash content are read out by screen readers that visually 
+impaired people use, and modifies any accessibility problems.
+</P>
+
+<H2 id="flashGuideline">Accessibility Guidelines for Flash Content</H2>
+<P>
+There are no established and well-known accessibility guidelines for Flash content, 
+but Adobe&reg; has published a best practices document:
+<blockquote cite="http://download.macromedia.com/pub/solutions/downloads/accessibility/">
+<a href="http://download.macromedia.com/pub/solutions/downloads/accessibility/best_practices_acc_flash.pdf">Bob Regan, &quot;Best Practices for Accessible Flash Design&quot;, August 2005, Adobe Systems, Inc. (PDF file)</a>
+</blockquote>
+In this document the following 11 items are listed as best practices:
+</P>
+<OL>
+<LI>Provide Text Equivalents</LI>
+<LI>Provide Context</LI>
+<LI>Control Reading Order</LI>
+<LI>Control Animation</LI>
+<LI>Ensure Keyboard Access</LI>
+<LI>Progressive Disclosure</LI>
+<LI>Enable Component Accessibility</LI>
+<LI>Provide Captions</LI>
+<LI>Provide Control over Audio Playback</LI>
+<LI>Use Color Wisely</LI>
+<LI>Support Users with Low Vision</LI>
+</OL>
+<P>
+In this section how to check these items using ACTF's Flash Accessibility perspective is described. 
+Note that the Adobe document is only best practices and not guidelines. 
+That is because it is hard to automatically check these items, and they mostly call for checks by human beings. 
+However, the ACTF's Flash Accessibility perspective efficiently supports people in performing these checks.
+</P>
+
+<h2 id="checkProcess">Checking Process for Each Check Items</H3>
+<P>
+The following checks are performed in the Flash Accessibility perspective.
+Before starting check, the webpage to be checked should be displayed in the <b>Browser</b> view.
+</P>
+
+<H3 id="textInfo">Checking for &quot;1. Provide Text Equivalents&quot;</H3>
+<UL class="space">
+<LI>Accessibility checking automatically starts when the webpage is shown in the <b>Browser</b> view. 
+The checking process requires a short time to be completed.
+
+<LI>Analyzing automated accessibility checking result:
+<BR>The results of the tests are shown in the <B>GUI Report</b> view (Figure 1). 
+See <A href="checkGui.html#guiProblems">Problems reported in the GUI Accessibility perspective</A> 
+for the details of the problems. 
+Currently, all of the problems are related to some lack of text information.
+  <UL class="space">
+  <LI>The entire webpage is the target of the check. 
+  If you want to check just the Flash content in the page, select <b>Show Flash Items Only</b> in the <b>GUI Summary</b> view. 
+  <LI>To change the type of problems reported (Error, Warning, or Information), Use the view menu (Ctrl+F10) to change 
+  the display settings. The selected results are shown immediately. 
+  <LI>When you select a line of the report, the problematical area is highlighted in the <b>Browser</b> view, 
+  and the object icon in the <b>GUI Outline</b> view is also selected. Please verify the cause of the problem.
+  <LI>For example, a button without text information is shown as &quot;&lt;number&gt; Button&quot; in the 
+  <b>GUI Summary</b> view (Figure 2), which means the specified screen reader will read the button in this way. 
+  It is shown as &quot;Nameless (button)&quot; in the <b>GUI Outline</b> view (Figure 3).
+  </UL>
+</uL>
+<DIV class="figure">
+<IMG src="images/flash/checkreport.png" alt=""><BR>
+<SPAN>Figure 1. Automatic accessibility check results</SPAN>
+</DIV>
+<DIV class="figure">
+<img src="images/flash/check_noalt_summary.png" alt="" class="border"><BR>
+<SPAN>Figure 2. Buttons without text information (in GUI Summary view)</SPAN>
+</DIV>
+<DIV class="figure">
+<IMG src="images/flash/check_noalt_outline.png" alt="" class="border-nopad"><BR>
+<SPAN>Figure 3. Buttons without text information (in GUI Outline view)</SPAN>
+</DIV>
+
+
+<H3 id="siteInfo">Checking for &quot;2. Provide Context&quot;</H3>
+<ul class="space">
+<li>Verify that the content provides its own description and exposes its state in the <b>GUI Summary</b> and the 
+<b>GUI Outline</b> view.
+<LI>Use the <b>Refresh</b> function in either view when the application screen changes due to scrolling or some other operation.
+<LI>If necessary, use the <b>Read Entire Text</b> function in the <b>GUI Summary</b> view to check the listenability with synthetic speech.
+</ul>
+
+
+<H3 id="voiceControl">Checking for &quot;3. Control Reading Order&quot;</H3>
+<ul class="space">
+<li>Verify that reading order of the content is appropriate in the <b>GUI Summary</b> view, 
+where text content and order simulates the text that will be read aloud by MSAA-based screen readers.
+<LI>Use the <b>Refresh</b> function in either view when application screen changes due to scrolling or some other operation.
+<LI>If necessary, use the <b>Read Entire Text</b> function in the <b>GUI Summary</b> view to check the listenability using synthetic speech.
+</ul>
+
+
+<H3 id="animationControl">Checking for &quot;4. Control Animation&quot;</H3>
+<ul>
+<li>Verify that animated objects are invisible from the screen readers in the <b>GUI Summary</b> and the 
+<b>GUI Outline</b> view.
+<li>Perform a visual check in the <b>Browser</b> view for the visual check items such as blinking.
+</ul>
+
+<H3 id="keyboardOP">Checking for &quot;5. Ensure Keyboard Access&quot;</H3>
+<ul>
+<li>Verify that all operations can be performed by using the keyboard in the <b>Browser</b> view or in a standard browser.
+</ul>
+
+
+<H3 id="progDisc">Checking for &quot;6. Progressive Disclosure&quot;</H3>
+<ul class="space">
+   <li>Verify that user interface of the content offers a limited number of options at the top 
+and more as the user drills down, using the <b>GUI Summary</b> or the <b>GUI Outline</b> view.
+   <ul>
+      <LI>Use the <b>Refresh</b> function in either view when the application screen changes due to scrolling or some other operation.
+      <LI>If necessary, use the <b>Read Entire Text</b> function in the <b>GUI Summary</b> view to check the listenability using synthetic speech.
+   </ul>
+</ul>
+
+
+<H3 id="componentAcc">Checking for &quot;7. Enable Component Accessibility&quot;</H3>
+<ul class="space">
+  <li>Find the Component objects in the <b>Flash Outline</b> view: 
+  If you select a row in this view, the corresponding details are shown in the <B>GUI Properties</B> view. 
+  Component objects are those whose <code>isUIComponent</code> property value is <code>true</code> (Figure 4). 
+  The following hints will help in finding them:
+  <ul>
+    <li>If an instance name provided at authoring time is known, 
+    look for objects with that name in the <b>Flash Outline</b> view.
+    <li>If the instance name is not known, look for the objects in the highlighted rectangle in the <b>Browser</b> view when the entry is selected in the <b>Flash Outline</b> view.
+  </ul>
+  <li>Verify that an appropriate role is assigned to each Component: 
+  The Component type (class) should correspond to the <code>className</code> property value.  
+  In the example of Figure 4 the object belongs to <code>CheckBox</code> class. 
+  Verify that an <b>accInfo</b> property exists and that its <b>role</b> subproperty 
+  corresponds to the Component class in the <b>GUI Properties</B> view. 
+  Figure 4 also shows an example where the role is set properly. 
+  If a Component is not accessible, then its button icon appears and is marked with a red box as shown in Figure 5.
+  When the correct role is set, a separate icon (for each Component type) is shown in the <b>Flash Outline</b> view (Figure 6). 
+</ul>
+
+<DIV class="figure">
+<IMG src="images/flash/check_isui.png" alt=""><BR>
+<SPAN>Figure 4. GUI properties of a Component</SPAN>
+</DIV>
+<DIV class="figure">
+<IMG src="images/flash/check_component_bad.png" alt="" class="border"><BR>
+<SPAN>Figure 5. Components with accessibility not enabled (in the Flash Outline view)</SPAN>
+</DIV>
+<DIV class="figure">
+<IMG src="images/flash/check_component_good.png" alt="" class="border"><BR>
+<SPAN>Figure 6. Components with accessibility enabled (in the Flash Outline view)</SPAN>
+</DIV>
+
+<H3 id="caption">Checking for &quot;8. Provide Captions&quot;</H3>
+<ul>
+<li>Verify that captions are properly provided in the <b>Browser</b> view or in a standard browser.
+</ul>
+
+<H3 id="controlAudio">Checking for &quot;9. Provide Control over Audio Playback&quot;</H3>
+<ul>
+<li>Manually verify the sound can be controlled in the <b>Browser</b> view or in a standard browser.
+</ul>
+
+<H3 id="color">Checking for &quot;10. Use Color Wisely&quot; and &quot;11. Support Users with Low Vision&quot;</H3>
+<ul class="space">
+<li>This is the only check item that is performed in the <b>Low vision</b> view in the <b>HTML Accessibility perspective</b>. 
+See related topics for the Low Vision simulation.</li>
+<LI>Based on the results of the checks, verify that color is not the sole means of providing information and that 
+the content incorporates options that allow users to modify the text size of an application.
+<LI>Check the content again when the application screen changes due to scrolling or some other operation.
+</ul>
+
+
+
+
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="workspaceFlash.html">Exploring the Flash Accessibility perspective</A>
+<LI><A href="viewsFlash.html">Flash Accessibility perspective configurations</A>
+<LI><A href="checkLv.html">Checking the accessibility and usability of a document in Low Vision View</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+<p classname="trademark">
+Adobe, the Adobe logo, PostScript, and the PostScript logo are either registered trademarks or trademarks of Adobe Systems Incorporated in the United States, and/or other countries.
+</p>
+
+</BODY>
+</HTML>

@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF Visualization Developers Guide Plug-in
+Bundle-SymbolicName: org.eclipse.actf.visualization.doc.isv;singleton:=true
+Bundle-Version: 1.5.1.qualifier
+Bundle-Vendor: Eclipse ACTF Project

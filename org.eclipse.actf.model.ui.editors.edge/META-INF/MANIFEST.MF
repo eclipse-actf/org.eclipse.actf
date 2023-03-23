@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF Web Browser Edge Plug-in
+Bundle-SymbolicName: org.eclipse.actf.model.ui.editors.edge;singleton:=true
+Bundle-Version: 1.5.1.qualifier
+Bundle-Activator: org.eclipse.actf.model.internal.ui.editors.edge.BrowserEdge_Plugin
+Bundle-Vendor: Eclipse ACTF Project
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.ide;resolution:=optional,
+ org.eclipse.core.runtime,
+ org.eclipse.actf.core,
+ org.eclipse.actf.model.ui,
+ org.eclipse.actf.model.dom.html,
+ org.eclipse.actf.util.win32,
+ org.eclipse.actf.ui
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.actf.model.internal.ui.editors.edge,
+ org.eclipse.actf.model.ui.editors.edge
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: org.eclipse.actf.model.ui.editors.edge

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<!--
+ Copyright (c) 2006, 2016 Ministry of Internal Affairs and Communications, IBM Corporation and others.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     IBM Corporation - initial API and implementation
+     Ministry of Internal Affairs and Communications - update
+-->
+<toc label="miCheckerガイド" topic="docs/index.html">
+	<topic label="miCheckerについて" href="docs/about.html">
+    <topic href="docs/readme1st.html" label="miCheckerにようこそ">
+    </topic>
+		<topic label="miCheckerの構成" href="docs/workspace.html"/>
+		<topic label="二つの障害視覚化" href="docs/modes.html"/>
+	</topic>
+	
+	<topic label="miCheckerの使い方" href="docs/usingdesigner.html">
+		<topic label="音声インターフェースユーザーのアクセシビリティやユーザビリティをチェックする" href="docs/checkBlind.html"/>
+		<topic label="ロービジョンユーザのアクセシビリティやユーザビリティをチェックする" href="docs/checkLv.html"/>			
+	　	<topic label="「アクセシビリティ検証・音声ユーザビリティ視覚化」 で検出されるアクセシビリティ、およびユーザビリティの問題点" href="docs/problemsBlind.html"/>
+		<topic label="「ロービジョンシミュレーション」で検出されるアクセシビリティ、およびユーザビリティの問題点" href="docs/problemsLv.html"/>
+		<topic label="Web アクセシビリティ・ガイドラインへの準拠" href="docs/compliance.html"/>
+	</topic>
+	
+	<topic label="各部の詳細" href="docs/reference.html">
+		<topic label="メニュー、ボタン、チェックボックス、アイコンの説明" href="docs/menusIcons.html"/>
+		<topic label="詳細レポートの個別表示（音声ユーザビリティ）" href="docs/lineViewBlind.html"/>
+		<topic label="詳細レポートの個別表示（ロービジョン）" href="docs/lineViewLv.html"/>
+		<topic label="設定パネル（音声ユーザビリティ視覚化 設定）" href="docs/parametersBlind.html"/>
+		<topic label="設定パネル（ロービジョン シミュレーション 設定）" href="docs/parametersLv.html"/>
+		<topic label="ID/AccessKey/Class/CSS Inspector (確認) パネル" href="docs/elementCss.html"/>
+		<topic label="HTMLソース ウィンドウ" href="docs/sourceViewer.html"/>
+	</topic>
+	
+	<topic label="特記事項" href="notices.html" /> 
+	
+</toc>

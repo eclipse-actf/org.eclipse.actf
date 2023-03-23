@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<!-- ============================================================================= -->
+<!-- Define the top level topics                                                   -->
+<!-- ============================================================================= -->
+<toc label="ACTF Visualization SDK Developer Guide">
+
+	<topic label="Programmer's Guide" href="html/actf.html">
+		<link toc="toc_ACTF.xml" />
+	</topic>
+	<topic label="Reference">
+		<link toc="topics_Reference.xml" />
+	</topic>
+	<topic label="Legal" href="notices.html" />
+</toc>

@@ -1,0 +1,230 @@
+<!-- Compact HTML Document Type Definition -->
+
+<!--
+        Date: Tuesday November 25th 1997
+        Author: Tomihisa Kamada <tomy@access.co.jp>
+-->
+
+<!ENTITY % HTML.Version
+        "-//W3C//DTD Compact HTML 1.0 Draft//EN"
+        >
+
+<!--================== Deprecated Features Switch =========================-->
+
+<!ENTITY % HTML.Deprecated "INCLUDE">
+
+<!--================== Imported Names =====================================-->
+
+<!ENTITY % Content-Type "CDATA">
+
+<!ENTITY % HTTP-Method "GET | POST">
+
+<!ENTITY % URL "CDATA">
+
+<!-- Parameter Entities -->
+
+<!ENTITY % heading "H1|H2|H3|H4|H5|H6">
+
+<!ENTITY % list "UL | OL |  DIR | MENU">
+
+<!ENTITY % preformatted "PRE">
+
+<!--================ Character mnemonic entities ==========================-->
+
+<!ENTITY % ISOlat1 PUBLIC
+       "ISO 8879-1986//ENTITIES Added Latin 1//EN//HTML">
+
+%ISOlat1;
+
+<!--================ Entities for special symbols =========================-->
+
+<!ENTITY amp    CDATA "&"  -- ampersand    -->
+<!ENTITY gt     CDATA ">"  -- greater than -->
+<!ENTITY lt     CDATA "<"  -- less than    -->
+
+<!--=================== Text Markup =======================================-->
+
+<!ENTITY % phrase "DFN">
+
+<!ENTITY % special "A | IMG | BR ">
+
+<!ENTITY % form "INPUT | SELECT | TEXTAREA">
+
+<!ENTITY % text "#PCDATA | %phrase | %special | %form">
+
+<!ELEMENT (%phrase) - - (%text)*>
+
+<!ELEMENT BR    - O EMPTY>
+<!ATTLIST BR
+        clear (left|all|right|none) none 
+        >
+
+<!--================== HTML content models ================================-->
+
+<!ENTITY % block
+     "P | %list | %preformatted | DL | DIV | CENTER |
+      BLOCKQUOTE | FORM | HR ">
+
+<!ENTITY % flow "(%text | %block)*">
+
+<!--=================== Document Body =====================================-->
+
+<!ENTITY % body.content "(%heading | %text | %block )*">
+
+<!ELEMENT BODY O O %body.content>
+
+<!ELEMENT DIV - - %body.content>
+<!ATTLIST DIV
+        align   (left|center|right) #IMPLIED
+        >
+
+<!ELEMENT center - - %body.content>
+
+<!--================== The Anchor Element =================================-->
+
+<!ELEMENT A - - (%text)* -(A)>
+<!ATTLIST A
+        name    CDATA   #IMPLIED
+        href    %URL    #IMPLIED
+        >
+
+<!--=================== Images ============================================-->
+
+<!ENTITY % Length "CDATA">
+<!ENTITY % Pixels "NUMBER">
+
+<!ENTITY % IAlign "(top|middle|bottom|left|right)">
+
+<!ELEMENT IMG    - O EMPTY>
+<!ATTLIST IMG
+        src     %URL     #REQUIRED
+        align   %IAlign  #IMPLIED
+        width   %Pixels  #IMPLIED
+        height  %Pixels  #IMPLIED
+        hspace  %Pixels  #IMPLIED
+        vspace  %Pixels  #IMPLIED
+        alt     CDATA    #IMPLIED
+        border  %Pixels  #IMPLIED
+        >
+
+<!--=================== Horizontal Rule ===================================-->
+
+<!ELEMENT HR    - O EMPTY>
+<!ATTLIST HR
+        align (left|right|center) #IMPLIED
+        size  %Pixels #IMPLIED
+        width %Length #IMPLIED
+        noshade (noshade) #IMPLIED
+        >
+
+<!--=================== Paragraphs=========================================-->
+
+<!ELEMENT P     - O (%text)*>
+<!ATTLIST P
+        align  (left|center|right) #IMPLIED
+        >
+
+<!--=================== Headings ==========================================-->
+
+<!ELEMENT ( %heading )  - -  (%text;)*>
+<!ATTLIST ( %heading )
+        align  (left|center|right) #IMPLIED
+        >
+
+<!--=================== Preformatted Text =================================-->
+
+<!ENTITY % pre.exclusion "IMG">
+
+<!ELEMENT PRE - - (%text)* -(%pre.exclusion)>
+
+<!--=================== Block-like Quotes =================================-->
+
+<!ELEMENT BLOCKQUOTE - - %body.content>
+
+<!--=================== Lists =============================================-->
+
+<!ELEMENT DL - -  (DT|DD)+>
+<!ELEMENT DT - O  (%text)*>
+<!ELEMENT DD - O  %flow;>
+
+<!ELEMENT (OL|UL) - -  (LI)+>
+
+<!ELEMENT (DIR|MENU) - -  (LI)+ -(%block)>
+
+<!ELEMENT LI - O %flow>
+
+<!--================ Forms ===============================================-->
+
+<!ELEMENT FORM - - %body.content -(FORM)>
+<!ATTLIST FORM
+        action %URL #IMPLIED
+        method (%HTTP-Method) GET
+        enctype %Content-Type; "application/x-www-form-urlencoded"
+        >
+
+<!ENTITY % InputType
+        "(TEXT | PASSWORD | CHECKBOX | RADIO | HIDDEN 
+         | IMAGE | SUBMIT | RESET )">
+
+<!ELEMENT INPUT - O EMPTY>
+<!ATTLIST INPUT
+        type %InputType TEXT
+        name  CDATA   #IMPLIED
+        value CDATA   #IMPLIED
+        checked (checked) #IMPLIED
+        size CDATA    #IMPLIED
+        maxlength NUMBER #IMPLIED
+        src   %URL    #IMPLIED
+        align %IAlign #IMPLIED
+        >
+
+<!ELEMENT SELECT - - (OPTION+)>
+<!ATTLIST SELECT
+        name CDATA #REQUIRED
+        size NUMBER #IMPLIED
+        multiple (multiple) #IMPLIED
+        >
+
+<!ELEMENT OPTION - O (#PCDATA)*>
+<!ATTLIST OPTION
+        selected (selected) #IMPLIED
+        value  CDATA  #IMPLIED
+        >
+
+<!ELEMENT TEXTAREA - - (#PCDATA)*>
+<!ATTLIST TEXTAREA
+        name CDATA #REQUIRED
+        rows NUMBER #REQUIRED
+        cols NUMBER #REQUIRED
+        >
+
+<!--================ Document Head ========================================-->
+
+<!ENTITY % head.content "TITLE & ISINDEX? & BASE?">
+
+<!ELEMENT HEAD O O  (%head.content)>
+
+<!ELEMENT TITLE - -  (#PCDATA)*>
+
+<!ELEMENT BASE - O EMPTY>
+<!ATTLIST BASE
+        href %URL  #REQUIRED
+        >
+
+<!ELEMENT META - O EMPTY>
+<!ATTLIST META
+        http-equiv  NAME    #IMPLIED
+        >
+
+<!--================ Document Structure ===================================-->
+
+<!ENTITY % version.attr "VERSION CDATA #FIXED '%HTML.Version;'">
+
+<!ENTITY % html.content "HEAD, BODY">
+
+<!ELEMENT HTML O O  (%html.content)>
+<!ATTLIST HTML
+        %version.attr;
+        >
+
+<!--================ End of DTD ===========================================-->

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Flash Accessibility perspective configurations</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>Flash Accessibility perspective configurations</H1>
+
+<H2 id="flashdom">Flash Proxy preferences</h2>
+<P>
+Configure behavior of the internal proxy for the <b>Flash Outline</b> view (Figure 1).
+</P>
+
+<DIV class="figure">
+<IMG src="images/flash/pref_flashdom.png" alt=""><BR>
+<SPAN>Figure 1. Flash Proxy preferences</SPAN>
+</DIV>
+
+<h3>HTTP Proxy settings</h3>
+
+<DL>
+
+<DT>Use HTTP Proxy For:</DT>
+<DD>This option configures which HTTP connections the proxy mediates.
+<UL style="margin-top: 1em;">
+<LI><b>None</b>: The proxy does not mediate any HTTP connection. The <b>Flash Outline</b> view is disabled 
+if this option is set.
+<LI><b>This session only (default)</b>: The proxy mediates connections related to the application.
+<LI><b>System global</b>: The proxy mediates all HTTP connections, even for websites viewed with a standard browser.
+</UL>
+</DD>
+
+<DT>Timeout (seconds):</DT>
+<DD>Specify a non-negative integer. This controls the connection timeout when the proxy is used. 
+The default is 30 seconds.
+
+<DT>Minimum SWF version to be handled:</DT>
+<DD>Specify a non-negative integer. The proxy does not process Flash content if it is older than a version specified here.  
+Default is 5. <b>Note:</b> Since Flash content older than the version 5 has limited ActionScript functionality, 
+ACTF cannot obtain its internal structure.
+</DL>
+
+<h3>Internet Cache Clear</h3>
+<p>The Internet cache must be cleared before viewing webpages for the <b>Flash Outline</b> view to work correctly. 
+However, clearing the cache affects browser performance. 
+This setting controls what ACTF should do to the cache when the tool is started.
+<UL>
+<LI><b>Clear without confirming</b>: ACTF clears the cache without any confirmation dialog.
+<LI><b>Confirm before clear</b>: ACTF shows a confirmation dialog to ask whether or not to clear the cache (Figure 2).
+<LI><b>Never clear the cache</b>: ACTF does not clear cache at start-up. 
+The Internet cache must be cleared manually to use the <b>Flash Outline</b> view in one of the following ways.  
+  <UL>
+  <li>Select the <b>File &gt; Clear internet cache</b> menu.</li>
+  <li>Clear from the Internet Option menu. Here are the manual steps for Internet Explorer 6:</li>
+  <ol>
+  <LI>Select the <b>Tools &gt; Internet Options</b> menu in the Internet Explorer, or select <b>Internet Options</b> 
+from the Control Panel.
+  <LI>Select the <b>General</b> tab in the dialog box and select <b>Delete Files</b> under 
+<b>Temporary Internet Files</b>. 
+  <LI>When asked for confirmation select <b>OK</b> to clear the cache.
+  <LI>Select <b>OK</b> to close the <b>Internet Options</b> dialog.
+  </ol>
+  </UL>
+</UL>
+</p>
+
+<DIV class="figure">
+<IMG src="images/flash/cachedelete.png" alt=""><BR>
+<SPAN>Figure 2. Confirmation dialog for clearing the cache</SPAN>
+</DIV>
+
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="workspaceFlash.html">Exploring the Flash Accessibility perspective</A>
+<LI><A href="checkFlash.html">Checking the accessibility of a webpage containing Flash content 
+in the Flash Accessibility perspective</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+</BODY>
+</HTML>

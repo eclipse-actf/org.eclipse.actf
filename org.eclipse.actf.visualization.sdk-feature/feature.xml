@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.actf.visualization.sdk"
+      label="ACTF Visualization SDK Feature"
+      version="1.5.1.qualifier"
+      provider-name="Eclipse ACTF Project"
+      os="win32"
+      ws="win32"
+      arch="x86_64">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="license.html">
+      %license
+   </license>
+
+   <url>
+      <update label="Eclipse ACTF Update Site" url="http://download.eclipse.org/technology/actf/1.3/update-site/"/>
+   </url>
+
+   <includes
+         id="org.eclipse.actf.visualization.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.actf.visualization"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.actf.visualization.doc.isv"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.actf.visualization.sdk"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

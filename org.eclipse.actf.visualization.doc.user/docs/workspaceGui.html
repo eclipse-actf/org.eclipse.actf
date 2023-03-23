@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Exploring the GUI Accessibility perspective</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+
+<H1>Exploring the GUI Accessibility perspective</H1>
+
+<ul>
+<li><a href="#targetMenu">Target Window menu</a>
+<li><a href="#guiSummary">GUI Summary view</a>
+<li><a href="#guiReport">GUI Report view</a>
+<li><a href="#guiOutline">GUI Outline view</a>
+<li><a href="#guiProperty">GUI Properties view</a>
+<li><a href="#guiEvent">GUI Event view</a>
+<li><a href="#guiList">GUI List view</a>
+</ul>
+
+<H2 id="targetMenu">Target Window menu</H2>
+<P>
+You need to specify a target application window for the GUI accessibility check.
+</P>
+<DL>Target windows are classified into and shown in the following three menu categories.
+Please select a window for the GUI accessibility check.<DL>
+<DT>(Title of the ACTF Browser Editor)</DT>
+<DD>The title of the webpage currently opened in the ACTF Browser Editor is displayed.
+An accessibility check for this webpage will be performed if this item is selected.</DD>
+<DT>External Browsers</DT>
+<DD>Webpages currently open in external Web browsers (Microsoft&#174; Internet Explorer or Mozilla Firefox) are displayed.
+Any one of these webpages can be selected for an accessibility check.</DD>
+<DT>External Windows</DT>
+<DD>A list of other Windows&#174; applications (besides browsers) with checkable windows appears.
+Any one of these windows can be selected for the Accessibility check.</DD>
+</DL></DL>
+<DIV class="figure">
+<IMG src="images/gui/targetMenu.png" alt=""><BR>
+<SPAN>Figure 1. Target Window menu</SPAN>
+</DIV>
+<H3 style="font-size: medium">Related functions</H3>
+<DL><DL>
+<DT>Always on Top</DT>
+<DD>Show the tool on top of external applications.
+The window of the tool is visible even if another application window is being used.</DD>
+<DT>Hide Embedded Browser Automatically</DT>
+<DD>If the Hide Embedded Browser Automatically option is selected, then the tool will automatically hide itself when an external window is selected and in use.</DD>
+</DL></DL>
+<P>
+The GUI Accessibility views will start updating after a target window is selected.
+The GUI Summary view will be the last one to be updated. 
+</P>
+<DIV class="figure">
+<IMG src="images/gui/guiMode.png" alt="" width="800	"><BR>
+<SPAN>Figure 2. GUI Accessibility perspective</SPAN>
+</DIV>
+<P>
+After GUI Accessibility views are ready, the following views of the accessibility check of the application are available.
+</P>
+
+<H2 id="guiSummary">GUI Summary view</H2>
+<P>
+The GUI Summary view shows accessible objects in a simple text page.
+This view looks similar to the output of a screen reader.
+The listenability of the application can be checked with synthesized speech using this text.<BR>
+(Note: A Text-to-Speech engine supporting the Microsoft&#174; Speech API 5.0 is required.) 
+</P>
+<DIV class="figure">
+<IMG src="images/gui/guiSummary.png" alt=""><BR>
+<SPAN>Figure 3. GUI Summary view</SPAN>
+</DIV>
+<H3 style="font-size: medium">Related functions</H3>
+<DL><DL>
+<DT><IMG src="images/gui/refresh.gif" align="middle" alt=""> Refresh (Shift+F10)</DT>
+<DD>Refresh the view to an up-to-date state.</DD>
+<DT><IMG src="images/gui/speak.gif" align="middle" alt=""> Read Entire Text (Shift+F10)</DT>
+<DD>Read the entire page using speech synthesis.</DD>
+<DT><IMG src="images/gui/stop.gif" align="middle" alt=""> Stop Reading (Shift+F10)</DT>
+<DD>Stop reading the page.</DD>
+<DT>Show Off-Screen Items (Ctrl+F10)</DT>
+<DD>Show all items, including items that are not displayed on the screen.</DD>
+<DT>Show Flash Items Only (Ctrl+F10)</DT>
+<DD>Show only the items that are Flash applications.</DD>
+<DT>Preferences... (Ctrl+F10)</DT>
+<DD>Show <A href="viewsGui.html#guiSettings">GUI Accessibility preferences</A>.</DD>
+<DT>Read from Here (Shift+F10)</DT>
+<DD>Start reading from the current line.</DD>
+</DL></DL>
+
+<H2 id="guiReport">GUI Report view</H2>
+<P>
+This view automatically checks the accessibility problems of the application, and then shows a list of the problems.
+This view investigates accessibility of application by checking the properties of MSAA to see whether or not alterative texts are defined, and shows appropriate Error, Warning, or Information messages. 
+<BR>
+For details of the automatic checking, please refer to <A href="checkGui.html#guiProblems">Problems detected with GUI Accessibility perspective</A>.
+</P>
+<DIV class="figure">
+<IMG src="images/gui/guiReport.png" alt=""><BR>
+<SPAN>Figure 4. GUI Report view</SPAN>
+</DIV>
+<H3 style="font-size: medium">Related functions</H3>
+<DL><DL>
+<DT><IMG src="images/gui/refresh.gif" align="middle" alt=""> Refresh (Shift+F10)</DT>
+<DD>Refresh the view to an up-to-date state.</DD>
+<DT><IMG src="images/gui/overlay.gif" align="middle" alt=""> Show Report Icons on Screen</DT>
+<DD>Add error icons to the application screen.</DD>
+<DT>Show Error Report (Ctrl+F10)</DT>
+<DD>The error report is displayed in the view.</DD>
+<DT>Show Warning Report (Ctrl+F10)</DT>
+<DD>The warning  report is displayed in the view.</DD>
+<DT>Show Information Report (Ctrl+F10)</DT>
+<DD>The information  report is displayed on the view.</DD>
+</DL></DL>
+
+<H2 id="guiOutline">GUI Outline view</H2>
+<P>
+The GUI Outline view explores the structure of an MSAA object as a tree.
+Application developers can inspect MSAA objects by using this view.
+Selecting any tree item in this view highlights the actual position of the object. 
+</P>
+<DIV class="figure">
+<IMG src="images/gui/guiOutline.png" alt=""><BR>
+<SPAN>Figure 5. GUI Outline view</SPAN>
+</DIV>
+<H3 style="font-size: medium">Related functions</H3>
+<DL><DL>
+<DT><IMG src="images/gui/expandall.gif" align="middle" alt=""> Expand All</DT>
+<DD>Expand all items in the entire branch of the tree.
+This may take a few moments.</DD>
+<DT><IMG src="images/gui/collapseall.gif" align="middle" alt=""> Collapse All</DT>
+<DD>Collapse all items in that branch of the tree.</DD>
+<DT><IMG src="images/gui/refresh.gif" align="middle" alt=""> Refresh (Shift+F10)</DT>
+<DD>Refresh the view to an up-to-date state.</DD>
+<DT><IMG src="images/gui/checker.gif" align="middle" alt=""> Go to GUI Report (Shift+F10)</DT>
+<DD>Execute the GUI accessibility check and go to the GUI Report view.</DD>
+<DT><IMG src="images/gui/overlay.gif" align="middle" alt=""> Show Icons on Screen</DT>
+<DD>Add the tree icons for the current selection and its siblings to the application screen.</DD>
+<DT>Show Off-Screen Items (Ctrl+F10)</DT>
+<DD>Show all items, including the items that are not displayed on the screen.</DD>
+<DT>Show Flash Items Only (Ctrl+F10)</DT>
+<DD>Show only the items that are Flash applications.</DD>
+<DT>Expand All Children (Shift+F10)</DT>
+<DD>Expand all children under the current selection. This may take a few moments.</DD>
+</DL></DL>
+
+<H2 id="guiProperty">GUI Properties view</H2>
+<P>
+The GUI Properties view shows detailed information for the selected object in the GUI Outline view.
+The information for the IAccessible2 interface will be shown in addition to the MSAA(IAccessible) interface information.
+Application developers may analyze accessibility problems in detail by using this view.
+</P>
+<DL>The following properties are displayed in the GUI Properties view.<DL>
+<DT>IAccessible</DT>
+<DD>The properties of the MSAA interface are listed.</DD>
+<DT>IAccessible2</DT>
+<DD>The properties of the IAccessible2 interface are listed if the object supports an IAccessible2 interface.
+In addition, the properties for the following IAccessible2 interfaces will be listed.</DD>
+<UL>
+<LI>IAccessibleAction
+<LI>IAccessibleApplication
+<LI>IAccessibleComponent
+<LI>IAccessibleEditableText
+<LI>IAccessibleHyperlink
+<LI>IAccessibleHypertext
+<LI>IAccessibleImage
+<LI>IAccessibleTable
+<LI>IAccessibleText
+<LI>IAccessibleValue
+</UL>
+</DL></DL>
+<DIV class="figure">
+<IMG src="images/gui/guiProperty.png" alt=""><BR>
+<SPAN>Figure 6. GUI Properties view</SPAN>
+</DIV>
+<H3 style="font-size: medium">Related functions</H3>
+<DL><DL>
+<DT><IMG src="images/gui/refresh.gif" align="middle" alt=""> Refresh (Shift+F10)</DT>
+<DD>Refresh view up-to-date state.</DD>
+<DT>Show null Properties (Ctrl+F10)</DT>
+<DD>Show property even if value is null.</DD>
+<DT>Show Value Change with Color (Ctrl+F10)</DT>
+<DD>When property value is different from last value, property value is displayed with blue color text. </DD>
+<DT><IMG src="images/gui/copy_edit.gif" align="middle" alt=""> Copy (Shift+F10)</DT>
+<DD>Copy the text of selected line into the clipboard.</DD>
+<DT>Invoke Method (Shift+F10)</DT>
+<DD>Invoke some method. Parameter input dialog will be displayed as necessary.</DD>
+</DL></DL>
+
+<H2 id="guiEvent">GUI Event view</H2>
+<P>
+The GUI Event view displays the MSAA/IAccessible2 events that have been triggered by the application.
+<BR>When the <B>Read Event Messages</B> option is turned on, the text information for the event object will be spoken. 
+The listenability of the event can be verified using this function. 
+<BR>
+(Note: A Text-to-Speech engine supporting the Microsoft&#174; Speech API 5.0 is required.)
+</P>
+<DIV class="figure">
+<IMG src="images/gui/guiEvent.png" alt=""><BR>
+<SPAN>Figure 7. GUI Event view</SPAN>
+</DIV>
+<H3 style="font-size: medium">Related functions</H3>
+<DL><DL>
+<DT><IMG src="images/gui/clear.gif" align="middle" alt=""> Clear (Shift+F10)</DT>
+<DD>Clears the event log.</DD>
+<DT>Filter... (Ctrl+F10)</DT>
+<DD>Shows the <A href="viewsGui.html#eventFilter">GUI Event Filters dialog</A>.</DD>
+<DT>Read Event Messages (Ctrl+F10)</DT>
+<DD>Read the accessible text when the event is triggered.</DD>
+<DT>Preferences... (Ctrl+F10)</DT>
+<DD>Show the <A href="viewsGui.html#guiSettings">GUI Accessibility preferences</A>.</DD>
+</DL></DL>
+
+<H2 id="guiList">GUI List view</H2>
+<P>
+The GUI List view displays a list of the sibling objects currently selected in the GUI Outline view.
+</P>
+<DIV class="figure">
+<IMG src="images/gui/guiList.png" alt=""><BR>
+<SPAN>Figure 8. GUI List view</SPAN>
+</DIV>
+<H3 style="font-size: medium">Related functions</H3>
+<DL><DL>
+<DT><IMG src="images/gui/refresh.gif" align="middle" alt=""> Refresh (Shift+F10)</DT>
+<DD>Refresh the view to an up-to-date state.</DD>
+</DL></DL>
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="checkGui.html">Checking the accessibility of an application in the GUI Accessibility perspective</A>
+<LI><A href="viewsGui.html">GUI Accessibility perspective</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+<P class="trademark">
+Microsoft, Windows, Windows NT, and the Windows logo are trademarks of Microsoft Corporation in the United States, other countries, or both. 
+</P>
+</BODY>
+</HTML>

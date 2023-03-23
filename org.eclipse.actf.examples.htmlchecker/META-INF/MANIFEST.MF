@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF Examples HtmlChecker
+Bundle-SymbolicName: org.eclipse.actf.examples.htmlchecker;singleton:=true
+Bundle-Version: 1.5.1.qualifier
+Bundle-Activator: org.eclipse.actf.examples.htmlchecker.Activator
+Bundle-Vendor: Eclipse ACTF Project
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.actf.ui,
+ org.eclipse.actf.visualization,
+ org.eclipse.actf.visualization.blind,
+ org.eclipse.actf.visualization.engines.blind,
+ org.eclipse.actf.visualization.engines.blind.html,
+ org.eclipse.actf.visualization.eval
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: org.eclipse.actf.examples.htmlchecker

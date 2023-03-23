@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="HtmlChecker"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="org.eclipse.actf.examples.htmlchecker.HtmlChecker">
+         </run>
+      </application>
+   </extension>
+   <extension
+         id="HtmlChecker"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.actf.examples.htmlchecker.HtmlChecker"
+            name="HtmlChecker">
+         <property
+               name="windowImages"
+               value="icons/excla_32.png">
+         </property>
+         <property
+               name="aboutText"
+               value="%About.Text">
+         </property>
+         <property
+               name="aboutImage"
+               value="about.gif">
+         </property>
+         <property
+               name="appName"
+               value="HtmlChecker">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

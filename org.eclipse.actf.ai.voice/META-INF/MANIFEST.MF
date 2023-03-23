@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF Voice Toolkit
+Bundle-SymbolicName: org.eclipse.actf.ai.voice;singleton:=true
+Bundle-Version: 1.5.1.qualifier
+Bundle-Activator: org.eclipse.actf.ai.voice.internal.VoicePlugin
+Bundle-Vendor: Eclipse ACTF Project
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.actf.ai.tts,
+ org.eclipse.actf.ai.voice,
+ org.eclipse.actf.ai.voice.preferences.util
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: org.eclipse.actf.ai.voice

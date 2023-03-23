@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF Lowvision Vizualization Plug-in
+Bundle-SymbolicName: org.eclipse.actf.visualization.lowvision;singleton:=true
+Bundle-Version: 1.5.1.qualifier
+Bundle-Activator: org.eclipse.actf.visualization.lowvision.LowVisionVizPlugin
+Bundle-Vendor: Eclipse ACTF Project
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.actf.visualization,
+ org.eclipse.actf.visualization.engines.lowvision,
+ org.eclipse.actf.visualization.eval,
+ org.eclipse.actf.visualization.ui.report,
+ org.eclipse.actf.model.dom.html,
+ org.eclipse.actf.ui
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: org.eclipse.actf.visualization.lowvision

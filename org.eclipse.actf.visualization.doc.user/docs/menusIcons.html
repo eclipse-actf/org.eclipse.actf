@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>User interface menus and icons</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>User interface menus and icons</H1>
+
+<P>
+The ACTF Visualization Feature has three menus, which are described in the following paragraphs.
+<!--The text in parentheses provides the keyboard shortcut.-->
+</P>
+<H2>Toolbar menu</H2>
+
+<H3>View</H3>
+<UL>
+<li><b>Back</b>: Go back to the previous page in the <b>Browser</b> view.</li> 
+<li><b>Forward</b>: Go to the next page in the <b>Browser</b> view.</li> 
+<li><b>Refresh</b>: Reload the document in the <b>Browser</b> view. </li> 
+<li><b>Stop</b>: Stop loading the document in the <b>Browser</b> view.</li> 
+<LI><B>Font Size</B>: Select the relative font size to be used for the <b>Browser</b> view.
+Options range from <B>Largest</B> to <B>Smallest</B>.
+The default setting is <B>Medium</B>.
+</UL>
+
+<H3>Visualize</H3>
+<UL>
+<li><b>Visualize Blind Usability</b>: Starts the blind usability visualization function and 
+the problem detector for blind users.</li>
+<li><b>Simulate Low Vision </b>: Starts the low vision simulation function and 
+the problem detector for low vision users.</li>
+<li><b>Presentation Simulation (Auditorium) </b>:
+Simulates a slide show when the screen size is 10 feet located 100 feet from the audience.</li>
+<li><b>Presentation Simulation (Large Meeting room) </b>:
+Simulates a slide show when the screen size is 5 feet located 30 feet from the audience.</li>
+<li><b>Presentation Simulation (Small Meeting room) </b>: 
+Simulates a slide show when the screen size is 3 feet located 10 feet from the audience.</li>
+</UL>
+
+
+<H3><a name="favorites">Favorites</a></H3>
+<UL>
+<LI><B>Add to Favorites</B>: Adds the current page as a bookmark.
+<LI><B>Organize Favorites</B>: Opens a window to edit and organize the bookmarks.
+</UL>
+
+<H2>Interface components</H2>
+<H3>ACTF Browser Editor</H3>
+
+<table border=1>
+<tr>
+<td><B>Back</B> and <B>Forward</B></td>
+<td align="center"><IMG src="images/browser/back.gif" alt=""><br><IMG src="images/browser/forward.gif" alt=""></td>
+<td>Click these buttons to navigate among webpages. </td>
+</tr>
+<tr>
+<td><B>Refresh</B></td>
+<td align="center"><IMG src="images/browser/refresh.gif" alt=""></td>
+<td>Click this button to reload the current document.</td>
+</tr>
+<tr>
+<td><B>Stop</B></td>
+<td align="center"><IMG src="images/browser/stop.gif" alt=""></td>
+<td>Click this button to stop loading a document.</td>
+</tr>
+<tr>
+<td><B>Title bar</B></td>
+<td align="center"><IMG src="images/browser/titlebar.gif" alt=""></td>
+<td>Shows the title of the target page.</td>
+</tr>
+<tr>
+<td><B>Address bar</B></td>
+<td align="center"><IMG src="images/browser/addressbar.gif" alt=""></td>
+<td>Contains the URL or file name of the webpage being analyzed. By double-clicking inside the address bar or by pressing Alt+D, a new URL can be entered into the address bar. </td>
+</tr>
+<tr>
+<td><B>Go</B></td>
+<td align="center"><IMG src="images/browser/go.gif" alt=""></td>
+<td>Click this button to load the specified page. </td>
+</tr>
+</table>
+
+<H3>Visualization View</H3>
+<P>
+When the blind view is selected, the Visualization View is opened, which includes the following buttons, interactive elements, and icons.
+</P>
+
+<H4>Buttons</H4>
+<table border=1>
+<tr>
+<td><b>Visualize</b></td>
+<td><IMG src="images/I_Visualize.gif" alt=""></td>
+<td>Click this button to open the blind usability visualize function and the problem detector with the current settings.</td>
+</tr>
+<tr>
+<td><B>Settings</B></td>
+<td><IMG src="images/I_Setting.gif" alt=""></td>
+<td>Click this button to open the <A
+href="parametersBlind.html">Blind Usability Visualization preference page</A>, which controls the voice browser output mode and the layout mode (including reaching time, accessible tags, and table structure).</td>
+</tr>
+<tr>
+<td><B>Save</B></td>
+<td><IMG src="images/I_Save.gif" alt=""></td>
+<td>Click this button to open the Save as dialog box and save a report file.
+The report file is a CSV format. By selecting "Save HTML Report" option, an HTML document will be saved with CSV report.</td>
+</tr>
+<tr>
+<td><B>ID/CSS</B></td>
+<td><IMG src="images/I_IdCss.gif" alt=""></td>
+<td>Click this button to open the <A href="elementCss.html">ID/AccessKey/Class/CSS viewer panel</A>, which displays information on attributes (ID, AccessKey, and Class) of elements and information on the Cascading Style Sheets (CSS) applied to the target page.</td>
+</tr>
+</table>
+
+
+
+<H4>Interactive elements and icons</H4>
+<P>
+The balloon messages and icons follow the movement of the mouse pointer and show the exact reaching time for the indicated element. 
+When the mouse pointer is placed over an accessible tag, the balloon message also indicates the tag name.
+</P>
+<P>
+The balloon icon indicates acceptability of the reaching time.
+</P>
+<UL class="icons">
+<LI><IMG src="images/I_FaceSmile.gif" alt="Smiling face.">: The reaching time for the element is shorter than or equal to 30 seconds.
+<LI><IMG src="images/I_FaceUsual.gif" alt="Expressionless face.">: The reaching time for the element is longer than 30 seconds, but shorter than or equal to 90 seconds (the default maximum acceptable reaching time). 
+<LI><IMG src="images/I_FaceSad.gif" alt="Sad face.">: The reaching time for the element is longer than 90 seconds.
+</UL>
+<P>
+The balloon messages and icons have two modes.
+If you place the cursor in the Visualization View and click, the messages and icons remain at the position where the mouse click occurred (stationary mode).
+Click again in the Visualization View if you want the messages and icon to move and follow the mouse pointer (active mode).
+</P>
+<P>
+Intra-page link (<IMG src="images/I_LinkSource.gif" alt="Start of arrow.">) and intra-page link destination (<IMG src="images/I_LinkDestination.gif" alt="End of arrow.">) icons: When an intra-page link icon is clicked, an arrow, which is formed with red circles, appears between the source and the destination of the intra-page link.
+The arrow can be removed by clicking the icon again. 
+</P>
+<P>
+The balloon messages and icons and the arrows of the intra-page links can be controlled by using the icons on the Control panel.
+</P>
+<UL class="icons">
+<LI><B>Freeze Balloon (<IMG src="images/I_FreezeBalloon.gif" alt="">)</B>: Click this button to make the balloon stationary. 
+<LI><B>Active Balloon (<IMG src="images/I_ActiveBalloon.gif" alt="">)</B>: Click this button to make the balloon active (that is, it follows the mouse pointer).
+<LI><B>Clear All Links (<IMG src="images/I_ClearAllLinks.gif" alt="">)</B>: Click this button to hide the arrows that appear in the Visualization View.
+<LI><B>Refresh Links (<IMG src="images/I_RefreshAllLinks.gif" alt="">)</B>: Click this button to redraw the arrows that appear in the Visualization View.
+<LI><B>Draw All Links (<IMG src="images/I_DrawAllLinks.gif" alt="">)</B>: Click this button to show all of the arrows for intra-page links in the target page. 
+</UL>
+
+<H3>Simulation View</H3>
+<P>
+When the low vision view is selected, the Simulation View is opened next to the ACTF Browser Editor.
+It includes the following buttons and check boxes:
+</P>
+<table border=1>
+<tr>
+<td><B>Simulate</B></td>
+<td><IMG src="images/I_Simulate.gif" alt=""></td>
+<td>Click this button to start the low vision simulator and the problem detector with the current settings. The current settings status is displayed in the status bar.</td>
+</tr>
+<tr>
+<td><B>Settings</B></td>
+<td><IMG src="images/I_Setting.gif" alt=""></td>
+<td>Click this button to open the <A href="parametersLv.html">Low Vision Simulation preference page</A>, to set the eyesight, color vision deficiency, 
+and crystalline lens transparency parameters that ACTF Low Vision Simulation uses when checking webpages.</td>
+</tr>
+<tr>
+<td><B>Save</B></td>
+<td><IMG src="images/I_Save.gif" alt=""></td>
+<td>Click this button to open the "Save as" dialog box and save the report file.
+The report file is an HTML document and can be read by using a Web browser.</td>
+</tr>
+<tr>
+<td><B>Whole page</B> check box</td>
+<td><IMG src="images/Wholepage.gif" alt=""></td>
+<td>When this check box is selected, ACTF Low Vision Simulation checks the entire target webpage, even if only a portion of the page is visible in the browser and the page consists of multiple frames of HTML documents.
+If the check box is cleared, only the displayed portion of the page is checked.</td>
+</tr>
+</table>
+
+<H3>Line View pane</H3>
+<P>
+By default, the Line View pane appears in the Detailed Report View of the bottom row.
+The column heads differ slightly depending on the active tab.
+</P>
+
+<H4><a name="blindIcon">Blind tab</a></H4>
+<div style="margin-bottom:20px">
+<table border=1><tr><td>
+<IMG src="images/I_Star.gif" alt="Star icon"> </td><td>This icon appears with some other icon. The corresponding element can be highlighted in the Visualization View by selecting this line.
+</td></tr></table>
+</div>
+
+<div style="margin-bottom:20px">
+<table border=1>
+<tr><td><IMG src="images/Err.png" alt="Error"> </td>
+<td>This item is an accessibility problem automatically detected.</td></tr>
+<tr><td><IMG src="images/Warn.png" alt="Probably Error"> </td>
+<td>This item is probably accessibility problem.</td></tr>
+<tr><td><IMG src="images/Conf.png" alt="Need confirmation"> </td>
+<td>This item requires user confirmation.</td></tr>
+<tr><td><IMG src="images/Info.png" alt="Human check"> </td>
+<td>This item requires human check based on test procedure.</td></tr>
+</table>
+</div>
+
+
+<H4>Low vision View</H4>
+<UL class="icons">
+<LI><IMG src="images/I_Star.gif" alt="Star.">: This icon appears with some other icon.
+The corresponding element can be highlighted in the Simulation View by selecting this line.
+<LI><IMG src="images/I_Color.gif" alt="Rectangles.">: This problem is related to the colors of the corresponding element.
+<LI><IMG src="images/I_Blur.gif" alt="Circle.">: This problem is related to the font sizes of the corresponding element.
+</UL>
+
+<H3>Overall Rating pane</H3>
+<P>
+This area provides the target page's overall rating for accessibility and usability.
+</P>
+
+<H4>Blind Usability View</H4>
+<P>
+Page rating: The radar chart shows the target page's rating in terms
+of Perceivable, Operable, Understandable and Robust. 
+The overall rating is based on the number of problems found on the page.
+</P>
+
+<H4>Low Vision View</H4>
+<P>
+Problem map icon: Indicates the position of the problems on the page.
+The overall rating above the graphic is based on the number of problems and the severity values of the problems on the page.
+</P>
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="overview.html">Overview of ACTF HTML Accessibility Perspective</A>
+<LI><A href="workspace.html">Exploring the ACTF HTML Accessibility Perspective</A>
+<LI><A href="checkBlind.html">Checking the accessibility and usability of a document in the Blind Usability View</A>
+<LI><A href="checkLv.html">Checking the accessibility and usability of a document in the Low Vision View</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+</BODY>
+</HTML>

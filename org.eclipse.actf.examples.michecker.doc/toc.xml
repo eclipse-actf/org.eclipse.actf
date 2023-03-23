@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<!--
+ Copyright (c) 2006, 2011 Ministry of Internal Affairs and Communications, IBM Corporation and others.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     IBM Corporation - initial API and implementation
+     Ministry of Internal Affairs and Communications - update
+-->
+<toc label="miChecker Guide" topic="docs/index.html">
+	<topic label="About miChecker" href="docs/about.html">
+		<topic label="Overview of miChecker" href="docs/overview.html"/>
+		<topic label="Exploring miChecker" href="docs/workspace.html"/>
+		<topic label="Two types of visualization" href="docs/modes.html"/>
+	</topic>
+	
+	<topic label="Using miChecker" href="docs/usingdesigner.html">
+			<topic label="Checking the accessibility and usability of a document in the blind tab" href="docs/checkBlind.html"/>
+			<topic label="Checking the accessibility and usability of a document in the low vision tab" href="docs/checkLv.html"/>
+			<topic label="Accessibility and usability problems for blind users" href="docs/problemsBlind.html"/>			
+			<topic label="Accessibility and usability problems for users with low vision" href="docs/problemsLv.html"/>
+			<topic label="Compliance and accessibility guidelines for Web content" href="docs/compliance.html"/>
+	</topic>
+	
+	<topic label="Reference" href="docs/reference.html">
+		<topic label="User interface menus and icons" href="docs/menusIcons.html"/>
+		<topic label="Line View pane (Blind)" href="docs/lineViewBlind.html"/>
+		<topic label="Line View pane (Low Vision)" href="docs/lineViewLv.html"/>
+		<topic label="Set the Parameters dialog box (Blind Usability Visualization)" href="docs/parametersBlind.html"/>
+		<topic label="Set the Parameters dialog box (Low Vision Simulation)" href="docs/parametersLv.html"/>
+		<topic label="ID/AccessKey/Class/CSS Inspector Panel" href="docs/elementCss.html"/>
+		<topic label="HTML Source viewer" href="docs/sourceViewer.html"/>
+	</topic>
+	
+	<topic label="Legal" href="notices.html" />
+</toc>

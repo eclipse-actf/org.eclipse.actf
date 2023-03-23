@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.actf.visualization.ui.views"
+            class="org.eclipse.actf.visualization.ui.report.views.DetailedReportView"
+            icon="icons/view16/problems_view.gif"
+            id="org.eclipse.actf.visualization.ui.report.views.DetailedReportView"
+            name="%detailed.view.title"/>
+      <view
+            category="org.eclipse.actf.visualization.ui.views"
+            class="org.eclipse.actf.visualization.ui.report.views.SummaryReportView"
+            icon="icons/view16/summary.gif"
+            id="org.eclipse.actf.visualization.ui.report.views.SummaryReportView"
+            name="%summary.view.title"/>
+   </extension>
+</plugin>

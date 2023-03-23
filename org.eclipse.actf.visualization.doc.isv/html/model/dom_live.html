@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta
+  http-equiv="Content-Type"
+  content="text/html; charset=iso-8859-1">
+<title>Difference between LiveDocument and Document</title>
+<link rel="stylesheet" type="text/css" href="../base.css">
+</head>
+<body>
+
+<h1>Difference between LiveDocument and Document</h1>
+ <p>
+ACTF Editors provides access to model of content through <a href="../../reference/api/org/eclipse/actf/model/ui/IModelService.html">IModelService</a> interface. 
+Implementations will return the content model as W3C DOM (org.w3c.dom). 
+Typical IModelService implementations returns two types of Document (org.w3c.dom.Document), Live Document and Source Document.
+</p>
+
+<h2>Live Document</h2>
+<p>
+<pre>IModelService.getLiveDocument();</pre>
+will return Live Document by accessing current object model of the Editor.
+</p>
+
+<h2>Source Document</h2>
+<p>
+<pre>IModelService.getDocument();</pre>
+will return Document by parsing original source of content.
+In some cases, such as Web content with script, content will be changed in runtime, but this method always returns original DOM. 
+</p>
+
+<h1>In the case of ACTF Web Browser(IE)</h1>
+<h2>Live Document</h2>
+<p>
+getLiveDocument() method enables to access Live-DOM of Internet Explorer through ACTF 
+<a href="../../reference/api/org/eclipse/actf/model/dom/dombycom/package-summary.html">DOMByCOM (org.eclipse.actf.model.dom.dombycom)</a>.
+ <ul>
+  <li><b>org.w3c.dom.Node/Element</b> are implemented</li>
+  <li><b>org.w3c.dom.html.*</b> interfaces are partially implemented</li>
+  <li>can't clone node yet (planned to implement in future release)</li>
+  <li>can access to currentStyle information of the Live-DOM Element (through IElementEx interface)
+   <pre>if(element instanceof IElementEx) {
+  IStyle style = ((IElementEx)element).getStyle();
+  backgroundColor = (String) style.get("backgroundColor");
+  ....
+}
+</pre>
+  </li>
+  <li>two types of attribute value
+   <ul class="nospace">
+    <li>getAttribute(): returns only 'specified' attribute value</li>
+    <li>getCurrentAttribute(): returns 'actual' attribute value (automatically assigned value by IE)</li>
+   </ul>
+  </li>
+  <li>includes Flash Object Model as <a href="../../reference/api/org/eclipse/actf/model/dom/dombycom/IFlashNode.html">IFlashNode</a> in DOM tree</li>  
+ </ul>
+</p>
+
+<h2>Source Document</h2>
+<p>
+getDocument() method parses original HTML source by using <a href="htmlparser.html">ACTF HTML Parser</a> and returns the resulting DOM.
+ <ul>
+  <li><b>org.w3c.dom.html.*</b> interfaces are implemented</li>
+  <li>can clone nodes</li>
+ <ul>
+</p>
+
+<h1 class="related">Related topics</h1>
+<ul class="related">
+<li><a href="modelservice.html">ACTF Model Service</a></li>
+</ul> 
+</body>
+</html>

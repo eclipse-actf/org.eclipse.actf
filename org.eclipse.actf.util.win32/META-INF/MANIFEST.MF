@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF Win32 Toolkit
+Bundle-SymbolicName: org.eclipse.actf.util.win32
+Bundle-Version: 1.5.1.qualifier
+Bundle-Vendor: Eclipse ACTF Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Export-Package: org.eclipse.actf.util.win32
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: org.eclipse.actf.util.win32

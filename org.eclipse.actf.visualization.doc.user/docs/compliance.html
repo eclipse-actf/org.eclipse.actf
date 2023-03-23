@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Compliance and accessibility guidelines for Web content</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>Compliance and accessibility guidelines for Web content</H1>
+
+<P>
+ACTF can check the target page's compliance with the following four accessibility guidelines for Web content.
+</P>
+<UL>
+<LI><A href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines 2.0 (WCAG 2.0)</A>: 
+One of the most popular and latest standards used for Web accessibility.
+<LI><A
+href="http://www.section508.gov/index.cfm?FuseAction=Content&ID=12#Web">Section
+508 of the Rehabilitation Act &sect;1194.22 (Section 508)</A>: A list
+of the Section 508 standards that provides criteria specific to Web-based intranet and Internet information and applications.
+Section 508 requires that information technologies developed or purchased by the Federal Government be accessible to people with disabilities.
+<LI>Japanese Industrial Standard (JIS) X8341-3: Guidelines for information and communications equipment, software, and services for older people and people with disabilities issued by the Japanese Industrial Standards Committee.
+</UL>
+
+<H2>Choosing accessibility guidelines to check</H2>
+<P>
+To choose the accessibility guidelines to check:
+</P>
+<OL>
+<LI>Click <B>Window</B> &gt; <B>Preferences</B> &gt; <B>ACTF</B> &gt; <B>Guideline Checker</B>.
+<LI>Select the accessibility guidelines you want the tool to use in
+its accessibility and usability review.<BR>
+<LI>Select the evaluation metrics you want the tool to use in its
+accessibility and usability review.<BR>
+<LI><A name="lineNumber">Select <B>Line Number Information</B>
+check box if you want the tool to indicate the line on which a problem is detected in the blind mode. </A>
+Line numbers are presented in the <A href="lineViewBlind.html">line
+view</A> of the problem list.<BR>
+If you want the tool to evaluate the runtime Document Object Model of
+the target page, deselect this check box. (This is useful when checking certain
+JavaScript-based pages.)
+</OL>
+
+<H2>Working with the problem list</H2>
+<P>
+Two categories appear in the Tree View pane, Essential problems and User checks.
+They are classified according to whether or not they are automatically detected.
+</P>
+<P>
+Essential problems are automatically detected by the checker and must be addressed.
+The Essential problems category consists of both compliance problems and advanced problems detected by the checker.
+User checks are problems that should be reviewed individually, and the
+author must decide whether to resolve them or to postpone resolving
+them (or to ignore them).
+</P>
+<P>
+In the Line View pane, each line shows the corresponding checkpoints of the selected accessibility guidelines.
+The checkpoints of WCAG, Section 508, and JIS are specified in their own formats, with digits divided by a period (e.g. &quot;13.6&quot;), a letter (e.g. &quot;o&quot;), two digits and a letter divided by periods (e.g. &quot;5.1.a&quot;), or a digit (e.g. &quot;8&quot;), respectively.
+These formats and the corresponding descriptions and techniques you can use to address each problem are described at the websites of these guidelines.
+</P>
+<P>
+The help pages are available by right-clicking a line and
+selecting <B>View Help</B> from the context menu.
+The context menus are also available by pressing Shift+F10.
+</OL>
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="problemsBlind.html">Accessibility and usability problems for blind users</A>
+<LI><A href="problemsLv.html">Accessibility and usability problems for users with low vision</A>
+<li><a href="odf/guideline.html">ODF Accessibility Check list</a></li>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+
+</BODY>
+</HTML>

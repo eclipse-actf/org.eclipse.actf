@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="checkers" name="Accessibility Checkers" schema="schema/checkers.exsd"/>
+  <extension
+        point="org.eclipse.ui.preferencePages">
+     <page
+           category="org.eclipse.actf.ui.preferences.RootPreferencePage"
+           class="org.eclipse.actf.visualization.eval.preferences.GuidelinePreferencePage"
+           id="org.eclipse.actf.visualization.eval.preferences.GuidelinePreferencePage"
+           name="%preferences.guideline.title"/>
+  </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="org.eclipse.actf.visualization.eval.preferences.PreferenceInitializer"/>
+   </extension>
+</plugin>

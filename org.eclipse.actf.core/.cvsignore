@@ -1,0 +1,12 @@
+*.jar
+*.args
+build.xml
+bin
+log.folder
+temp.folder
+@dot
+
+bin
+log.folder
+${plugin.destination}
+com.ibm.haac.raven.accessibility_0.2.0.jar

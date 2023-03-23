@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML lang="en">
+<HEAD>
+<META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta name="copyright" content="Copyright (c) IBM Corporation and others 2007. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<TITLE>Two types of visualization</TITLE>
+<LINK href="base.css" rel="stylesheet" type="text/css" class="head">
+</HEAD>
+<BODY>
+<H1>Two types of visualization</H1>
+<P>
+The ACTF Visualization Feature tests the accessibility and usability of webpages for individuals who are blind or who have low vision.
+The tool has two types of visualization.
+In the Low Vision View, the tool simulates how users with weak eyesight, color vision deficiencies, cataracts, and combinations of impairments perceive webpages.
+In the Blind Usability View, the tool helps webpage designers understand how blind users who depend on voice browsers will experience the pages.
+Each mode looks at a different set of issues that reduce webpage accessibility or usability.
+These issues are described in the following sections.
+</P>
+
+<H2>Blind View</H2>
+<P>
+The ACTF Blind Visualization runs three types of tests on webpages: blind usability visualization, accessibility and usability checking, and compliance checking.
+The identification of problems within each type and category is determined by the selections made in the <A href="parametersBlind.html">Blind Usability Visualization preference page</A>.
+</P>
+
+<H3>Blind usability visualization</H3>
+<H4>Reaching time to each element</H4>
+<P>
+The blind view visualizes the time required by a voice browser to read from the top of the page to each element (referred to as the <I>reaching time</I>).
+The reaching time of an element is expressed by the background color of that element.
+The longer the time needed to reach an element, the darker its background color.
+Elements whose reaching times are longer than the maximum permissible time (90 seconds) are blacked out.
+Authors can easily grasp the usability of the target page by looking at the visualized reaching times for all of the elements of the page.
+</P>
+
+<H4>Accessible tags</H4>
+<P>
+Voice browsers can use several HTML tags as landmarks for Web navigation. The ACTF Blind Visualization recognizes the following four tags.
+</P>
+<UL>
+<LI>Table headers (&lt;TH&gt;) 
+<LI>Heading tags (&lt;H1&gt;, &lt;H2&gt;,...,&lt;H6&gt;) 
+<LI>Form elements (&lt;INPUT&gt;) 
+<LI>Label tags (&lt;LABEL&gt;) 
+</UL>
+
+<H4>Table structure</H4>
+<P>
+The &lt;TABLE&gt; tags are used to create both data tables and layout tables.
+In both cases, they may cause usability problems for blind individuals because the reading order of a voice browser is often different from the intuition of sighted people.
+The ACTF Blind Visualization has a function to draw borders for the table cells, thus allowing an author to check the table structure of the target page.
+</P>
+
+<H4>Voice browser output text</H4>
+<P>
+The ACTF Blind Visualization can show the output text from a voice browser.
+This function can be used to help experience the way blind people access webpages in a serialized format.
+For example, this form shows the amount of text that must be read before reaching the main content of a webpage.
+</P>
+
+<H3>Accessibility and usability checking</H3>
+<H4>Intra-page links</H4>
+<P>
+The ACTF checks for the existence of a &quot;skip-to-main-content link.&quot;
+Providing such a link in a webpage allows blind people to jump directly from the top to the main content of the page.
+The ACTF also detects intra-page links without destinations and intra-page links without readable text at their source locations.
+</P>
+
+<H4>Inappropriate ALT attributes</H4>
+<P>
+The ACTF detects inappropriate ALT attributes (alternate descriptions) of images.
+For example, &quot;spacer&quot; as the ALT attribute of a spacer image (an image used to create space for some layout purpose) is inappropriate, because such information is useless and irritating for blind people.
+</P>
+
+<H4>Redundant information</H4>
+<P>
+The ACTF detects redundant text information (for example, an icon whose ALT attribute is &quot;BluePages&quot; followed by the text string &quot;BluePages&quot;).
+</P>
+
+<H4>Document structure</H4>
+<P>
+The structure of the HTML document can be visualized by coloring accessible tags and by showing the table cell structure as described in the previous section.
+In addition, ACTF checks for nested tables and for the existence of heading tags.
+Nested tables make it difficult for the author to imagine how the page will be read by a voice browser.
+Authors are encouraged to make the document structure understandable for blind people.
+Heading tags help structure the webpages.
+</P>
+
+<H3>Compliance checking</H3>
+<P>
+The ACTF checks the target page's compliance with accessibility guidelines just as conventional accessibility checkers do.
+Refer to the topic <A href="compliance.html">Compliance and accessibility guidelines for Web content</A>.
+</P>
+
+<H2>Low Vision View</H2>
+<P>
+The ACTF Low Vision Simulation has two functions: low vision simulation and accessibility and usability checking.
+</P>
+
+<H3>Low vision simulation</H3>
+<P>
+The ACTF Low Vision Simulation simulates weak eyesight, color vision deficiencies, cataracts, and their combinations.
+See the <A href="parametersLv.html">Low Vision Simulation preference page</A> for more details.
+</P>
+
+<H3>Accessibility and usability checking</H3>
+<P>
+The ACTF Low Vision Simulation four types of accessibility and usability problems in the target page: 
+</P>
+<UL>
+<LI><B>Fixed-size font problems</B>: Text with fixed-size fonts that cannot be enlarged by browser options 
+<LI><B>Small character problems</B>: Characters that are difficult to read for people with the specified visual conditions 
+<LI><B>Text color problems</B>: Text whose foreground and background colors are too close to distinguish for people with color vision deficiencies and/or cataracts 
+<LI><B>Image color problems</B>: Images that have two or more components whose colors are difficult to distinguished from each other for people with color vision deficiencies or cataracts 
+</UL>
+<P>
+The identification of problems within each category is determined by the selections made in the <A href="parametersLv.html">Low Vision Simulation preference page</A>.
+</P>
+
+
+<H1 class="related">Related topics</H1>
+<UL class="related">
+<LI><A href="problemsBlind.html">Accessibility and usability problems for blind users</A>
+<LI><A href="problemsLv.html">Accessibility and usability problems for users with low vision</A>
+</UL>
+
+<P>
+<A href="index.html">Go to Index</A>
+<hr>
+<DIV class="logo"><IMG src="images/logo.jpg" alt=""></DIV>
+</P>
+
+
+</BODY>
+</HTML>

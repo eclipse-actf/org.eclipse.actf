@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.actf.visualization.ui.views"
+            class="org.eclipse.actf.visualization.presentation.ui.views.RoomView"
+            icon="icons/view16/presen.gif"
+            id="org.eclipse.actf.visualization.presentation.ui.views.RoomView"
+            name="%presentation.tab.title">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+         <actionSet
+               id="org.eclipse.actf.visualization.presentation.actionSet"
+               label="%actf.action.visualize">
+            <menu
+            id="org.eclipse.actf.visualization.menu"
+         	label="%actf.visualization.menu">
+         	</menu>
+			<action
+         	class="org.eclipse.actf.visualization.presentation.ui.actions.PresentationSimulationAction"
+         	id="org.eclipse.actf.visualization.presentation.ui.actions.PresentationSimulationAction"
+         	definitionId="org.eclipse.actf.visualization.presentation.ui.actions.PresentationSimulationAction"
+         	label="%actf.action.visualize"
+         	menubarPath="org.eclipse.actf.visualization.menu/"
+         	toolbarPath="org.eclipse.actf.visualization.ui.actionSet/ACTFvisualization"
+         	icon="icons/etool16/presen.gif"
+         	style="pulldown"/>
+         </actionSet>
+   </extension>
+
+</plugin>

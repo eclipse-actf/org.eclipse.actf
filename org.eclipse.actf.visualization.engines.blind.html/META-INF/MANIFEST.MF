@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ACTF HTML Blind Visualization Engine Plug-in
+Bundle-SymbolicName: org.eclipse.actf.visualization.engines.blind.html;singleton:=true
+Bundle-Version: 1.5.1.qualifier
+Bundle-Activator: org.eclipse.actf.visualization.internal.engines.blind.html.HtmlVizPlugin
+Bundle-Vendor: Eclipse ACTF Project
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.actf.visualization,
+ org.eclipse.actf.visualization.eval,
+ org.eclipse.actf.visualization.engines.blind,
+ org.eclipse.actf.visualization.engines.voicebrowser,
+ org.eclipse.actf.model.dom.html,
+ org.eclipse.actf.visualization.ui.report,
+ org.eclipse.actf.ui
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.actf.visualization.engines.blind.html,
+ org.eclipse.actf.visualization.engines.blind.html.ui.actions,
+ org.eclipse.actf.visualization.engines.blind.html.ui.elementViewer,
+ org.eclipse.actf.visualization.engines.blind.html.util
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: org.eclipse.actf.visualization.engines.blind.html

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<fragment>
+   <extension
+         point="org.eclipse.actf.visualization.blind.blindVisualizer">
+      <blindVisualizer
+            class="org.eclipse.actf.visualization.blind.html.BlindVisualizerHtml"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.eclipse.actf.visualization.internal.blind.html.ui.HTMLPerspective"
+            icon="icons/view16/html.png"
+            id="org.eclipse.actf.visualization.ui.perspectives.HTMLPerspective"
+            name="%actf.HTMLPerspective.name"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.actf.visualization.ui.perspectives.HTMLPerspective">
+         <perspectiveShortcut id="org.eclipse.actf.visualization.ui.perspectives.HTMLPerspective"/>
+         <perspectiveShortcut id="org.eclipse.actf.visualization.ui.perspectives.ODFPerspective"/>
+         <perspectiveShortcut id="org.eclipse.actf.visualization.ui.perspectives.FlashPerspective"/>
+         <perspectiveShortcut id="org.eclipse.actf.visualization.ui.perspectives.GUIPerspective"/>
+         <viewShortcut id="org.eclipse.ui.views.ResourceNavigator"/>
+         <viewShortcut id="org.eclipse.jdt.ui.PackageExplorer"/>
+         <actionSet id="org.eclipse.actf.model.ui.editors.edge.actionSet"/>
+         <actionSet id="org.eclipse.actf.visualization.blind.actionSet"/>
+         <actionSet id="org.eclipse.actf.visualization.lowvision.actionSet"/>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="org.eclipse.actf.visualization.internal.blind.html.Startup">
+      </startup>
+   </extension>
+</fragment>

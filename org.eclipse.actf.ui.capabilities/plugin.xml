@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.activities">
+      <activity
+            description="%accessibility.activity.desc"
+            id="org.eclipse.actf.activity"
+            name="%accessibility.activity.name">
+      </activity>
+      <activityPatternBinding
+            activityId="org.eclipse.actf.activity"
+            pattern="org\.eclipse\.actf\..*/.*">
+      </activityPatternBinding>
+   </extension>
+
+</plugin>

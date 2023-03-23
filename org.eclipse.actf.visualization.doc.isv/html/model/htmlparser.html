@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta
+  http-equiv="Content-Type"
+  content="text/html; charset=iso-8859-1">
+<title>ACTF HTML Parser Guide</title>
+<link rel="stylesheet" type="text/css" href="../base.css">
+</head>
+<body>
+
+<h1>How to use ACTF HTML Parser</h1>
+<h2>1. Preparation</h2>
+ <ul>
+  <li>Add org.eclipse.actf.mode.dom.html as required plug-in<br>
+	<div class="figure"><img src="../img/parser_dep_tab.gif" alt=""/><br>by using Dependencies tab or</div>
+	<div class="figure"><img src="../img/parser_mf.gif" alt=""/><br>by editing MANIFEST.MF directory</div>
+  </li>
+  <li>In the case of usual Java project, add jar file (org.eclipse.actf.model.dom.html_*.jar) into build path.
+	<div class="figure"><img src="../img/parser_path.gif" alt=""/></div>
+  </li>
+ </ul>
+<h2>2. Usage</h2>
+ <ol>
+  <li>Create HTML Parser<br>
+  	<pre>IHTMLParser parser = HTMLParserFactory.createHTMLParser();</pre>
+  </li>
+  <li>Parse target HTML as InputStream
+    <p/>
+  	<ul>
+  	 <li>Parse HTML by using default encoding
+	  	<pre>parser.parse(InputStream is);</pre>
+	 </li>
+  	 <li>Parse HTML by using specified encoding
+	  	<pre>parser.parse(InputStream is, String encoding);</pre>
+	 </li>
+  	 <li>Parse HTML by using charset information in META tag
+	  	<pre>parser.parseSwitchEnc(*);</pre>
+	 </li>
+  	</ul>
+  </li>
+  <li>Obtain resulting HTML Document
+  	<pre>Document doc = parser.getDocument();</pre>  
+  </li>
+ </ol>
+ <p>
+ The resulting HTML Document implements org.w3c.dom.html Interface.<br>
+ (See <a href="../../reference/api/org/eclipse/actf/model/dom/html/IHTMLParser.html">API document</a> for more details.)
+ </p>
+
+<h1>Additional resources</h1>
+<p> In org.eclipse.actf.core plugin, several DOM utilities are available
+<br>
+<table border="1">
+<tr><td>org.eclipse.actf.util.dom.DomPrintUtil</td><td>Utility to convert DOM into String</td></tr>
+<tr><td>org.eclipse.actf.util.dom.NodeIteratorImpl</td><td>DOM NodeIterator implementation</td></tr>
+<tr><td>org.eclipse.actf.util.dom.TreeWalkerImpl</td><td>DOM TreeWalker implementation</td></tr>
+<tr><td>org.eclipse.actf.util.xpath.XPathService</td><td>Utility for XPath evaluation<br>(Instance can be obtained from XPathServiceFactory)</td></tr>
+</table>
+</p>
+</body>
+</html>
