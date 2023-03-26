@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ Copyright (c) 2005, 2008 IBM Corporation and others.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     IBM Corporation - initial API and implementation
+-->
+<guideline name="ODF Guide" order="5">
+<category>Accessibility</category>
+<description>OASIS Open Document Format 1.1 Accessibility Guideline</description>
+<mimetypes>
+ <mimetype>application/vnd.oasis.opendocument.presentation</mimetype>
+ <mimetype>application/vnd.oasis.opendocument.formula</mimetype>
+ <mimetype>application/vnd.oasis.opendocument.text</mimetype>
+</mimetypes>
+<items>
+ <gItem id="not odfguide">
+ </gItem>
+ <gItem id="1.1">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#1.1</helpUrl> 
+ </gItem>
+ <gItem id="1.2">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#1.2</helpUrl>  
+ </gItem>
+ <gItem id="2.1">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#2.1</helpUrl> 
+ </gItem>
+ <gItem id="2.2">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#2.2</helpUrl>  
+ </gItem>
+ <gItem id="3.1">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#3.1</helpUrl>  
+ </gItem>
+ <gItem id="3.2">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#3.2</helpUrl>  
+ </gItem>
+ <gItem id="4.1">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#4.1</helpUrl>  
+ </gItem>
+ <gItem id="4.2">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#4.2</helpUrl>  
+ </gItem>
+ <gItem id="5.1">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#5.1</helpUrl>  
+ </gItem>
+ <gItem id="6.1">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#6.1</helpUrl>  
+ </gItem>
+ <gItem id="6.2">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#6.2</helpUrl>  
+ </gItem>
+ <gItem id="7.1">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#7.1</helpUrl>  
+ </gItem> 
+ <gItem id="8.1">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#8.1</helpUrl>  
+ </gItem> 
+ <gItem id="8.2">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#8.2</helpUrl>  
+ </gItem>
+ <gItem id="8.3">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#8.3</helpUrl>  
+ </gItem>
+ <gItem id="9.1">
+  <helpUrl>${org.eclipse.actf.examples.adesigner.doc}/docs/odf/guideline.html#9.1</helpUrl>  
+ </gItem>
+</items>
+</guideline>

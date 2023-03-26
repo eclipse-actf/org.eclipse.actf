@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ Copyright (c) 2007, 2023 IBM Corporation and others.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     IBM Corporation - initial API and implementation
+-->
+<checker-config>
+  <checkitem id="O_10101" type="error" >
+   <guideline>
+    <gItem name="ODF Guide" id="1.1" />
+   </guideline>
+   <metrics>
+    <mItem name="Compliance" score="5" />
+    <mItem name="Listenability" score="5" />
+   </metrics>
+   <description>
+    <desc>Please provide alternative text or caption for an image (If the image has no information to read out, please provide space character).</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_10102" type="info" >
+   <guideline>
+    <gItem name="ODF Guide" id="1.2" />
+   </guideline>
+   <metrics>
+    <mItem name="Listenability" />
+   </metrics>
+   <description>
+    <desc>If an image conveys important information beyond what is in its alternative text, provide a long description.</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_20101" type="warning" >
+   <guideline>
+    <gItem name="ODF Guide" id="2.1" />
+   </guideline>
+   <metrics>
+    <mItem name="Listenability" score="2" />
+    <mItem name="Navigability" score="2" />
+   </metrics>
+   <description>
+    <desc>If this is a data table (not used for layout only), provide headers.</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_20102" type="info" >
+   <guideline>
+    <gItem name="ODF Guide" id="2.2" />   
+   </guideline>
+   <metrics>
+    <mItem name="Listenability" />
+    <mItem name="Navigability" />
+   </metrics>
+   <description>
+    <desc>If this is a data table (not used for layout only), provide caption.</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_30101" type="error" >
+   <guideline>
+    <gItem name="ODF Guide" id="3.1" />
+   </guideline>
+   <metrics>
+    <mItem name="Compliance" score="5" />
+    <mItem name="Listenability" score="5" />
+   </metrics>
+   <description>
+    <desc>Please provide alternative text for an image map area.</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_30102" type="info" >
+   <guideline>
+    <gItem name="ODF Guide" id="3.2" />
+   </guideline>
+   <metrics>
+    <mItem name="Listenability" />
+   </metrics>
+   <description>
+    <desc>If an image map area conveys important information beyond what is in its alternative text, provide a long description.</desc>
+   </description>
+  </checkitem>  
+  <checkitem id="O_40101" type="error" >
+   <guideline>
+    <gItem name="ODF Guide" id="4.1" />
+   </guideline>
+   <metrics>
+    <mItem name="Compliance" score="5" />
+    <mItem name="Listenability" score="5" />
+   </metrics>
+   <description>
+    <desc>Please provide alternative text or caption for a drawing object (If the image has no information to read out, please provide space character).</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_40102" type="info" >
+   <guideline>
+    <gItem name="ODF Guide" id="4.2" />
+   </guideline>
+   <metrics>
+    <mItem name="Listenability" />
+   </metrics>
+   <description>
+    <desc>If a drawing object conveys important information beyond what is in its alternative text, provide a long description. </desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_50101" type="warning" >
+   <guideline>
+    <gItem name="ODF Guide" id="5.1" />
+   </guideline>
+   <metrics>
+    <mItem name="Listenability" score="2" />
+    <mItem name="Navigability" score="2" />
+   </metrics>
+   <description>
+    <desc>Add a hint text to links when needed.</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_60101" type="error" >
+   <guideline>
+    <gItem name="ODF Guide" id="6.1" />
+   </guideline>
+   <metrics>
+    <mItem name="Compliance" score="5" />
+    <mItem name="Listenability" score="5" />
+   </metrics>
+   <description>
+    <desc>Please provide alternative text or caption for an embedded object (If the embedded object has no information to read out, please provide space character).</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_60102" type="info" >
+   <guideline>
+    <gItem name="ODF Guide" id="6.2" />
+   </guideline>
+   <metrics>
+    <mItem name="Listenability" />
+   </metrics>
+   <description>
+    <desc>If an embedded object conveys important information beyond what is in its alternative text, provide a long description. </desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_70101" type="error" >
+   <guideline>
+    <gItem name="ODF Guide" id="7.1" />
+   </guideline>
+   <metrics>
+    <mItem name="Compliance" score="5" />
+    <mItem name="Listenability" score="5" />
+    <mItem name="Navigability" score="5" />
+   </metrics>
+   <description>
+    <desc>Make sure that label of form control is properly placed.</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_80101" type="info" >
+   <guideline>
+    <gItem name="ODF Guide" id="8.1" />
+   </guideline>
+   <metrics>
+    <mItem name="Navigability" />
+   </metrics>
+   <description>
+    <desc>Please confirm navigation order is properly set in each presentation slide.</desc>
+   </description>
+  </checkitem>  
+  <checkitem id="O_80102" type="info" >
+   <guideline>
+    <gItem name="ODF Guide" id="8.2" />
+   </guideline>
+   <metrics>
+    <mItem name="Navigability" />
+   </metrics>
+   <description>
+    <desc>Consider specifying a logical tab order among form controls.</desc>
+   </description>
+  </checkitem>  
+  <checkitem id="O_80103" type="info" >
+   <guideline>
+    <gItem name="ODF Guide" id="8.3" />
+   </guideline>
+   <metrics>
+    <mItem name="Navigability" />
+   </metrics>
+   <description>
+    <desc>Consider using the tab stop function of form control.</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_90101" type="warning" >
+   <guideline>
+    <gItem name="ODF Guide" id="9.1" />
+   </guideline>
+   <metrics>
+    <mItem name="Compliance" />   
+   </metrics>
+   <description>
+    <desc>This file uses ODF 1.1 functions, but the ODF version of this file is saved as 1.0. The ACTF checks the accessibility of this file for ODF 1.1.</desc>
+   </description>
+  </checkitem>
+  <checkitem id="O_999000001" type="error" >
+   <guideline>
+    <gItem name="ODF Guide" id="not odfguide" />
+   </guideline>
+   <metrics>
+    <mItem name="Compliance" score="100" />
+    <mItem name="Listenability" score="100" />
+    <mItem name="Navigability" score="100" />    
+   </metrics>
+   <description>
+    <desc>This file is not valid ODF file.</desc>
+   </description>
+  </checkitem>
+</checker-config>
