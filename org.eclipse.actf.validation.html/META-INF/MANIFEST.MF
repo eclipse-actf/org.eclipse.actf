@@ -12,4 +12,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.actf.model.dom.html,
  org.eclipse.actf.visualization.engines.blind
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Automatic-Module-Name: org.eclipse.actf.examples.adesigner.eval.html
+Automatic-Module-Name: org.eclipse.actf.validation.html

@@ -105,7 +105,7 @@
       </appInfo>
       <documentation>
          ACTF provides two example implementations
-&lt;samp&gt;org.eclipse.actf.examples.adesigner.eval.html&lt;/samp&gt; and &lt;samp&gt;org.eclipse.actf.examples.adesigner.eval.odf&lt;/samp&gt;.
+&lt;samp&gt;org.eclipse.actf.validation.html&lt;/samp&gt; and &lt;samp&gt;org.eclipse.actf.validation.odf&lt;/samp&gt;.
       </documentation>
    </annotation>
 
