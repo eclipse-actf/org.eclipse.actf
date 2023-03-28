@@ -3,7 +3,7 @@
 <HEAD>
 <META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
 <META http-equiv="Content-Style-Type" content="text/css">
-<meta name="copyright" content="Copyright (c) Ministry of Internal Affairs and Communications, IBM Corporation and others 2007, 2011. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<meta name="copyright" content="Copyright (c) Ministry of Internal Affairs and Communications, IBM Corporation and others 2007, 2023. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
 <TITLE>Compliance and accessibility guidelines for Web content</TITLE>
 <LINK href="miChecker.css" rel="stylesheet" type="text/css" class="head">
 </HEAD>
@@ -16,11 +16,6 @@ The miChecker can check the target page's compliance with the following four acc
 <UL>
 <LI><A href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines 2.0 (WCAG 2.0)</A>: 
 One of the most popular and latest standards used for Web accessibility.
-<LI><A
-href="http://www.section508.gov/index.cfm?FuseAction=Content&ID=12#Web">Section
-508 of the Rehabilitation Act &sect;1194.22 (Section 508)</A>: A list
-of the Section 508 standards that provides criteria specific to Web-based intranet and Internet information and applications.
-Section 508 requires that information technologies developed or purchased by the Federal Government be accessible to people with disabilities.
 <LI>Japanese Industrial Standard (JIS) X8341-3: Guidelines for information and communications equipment, software, and services for older people and people with disabilities issued by the Japanese Industrial Standards Committee.
 </UL>
 
@@ -34,13 +29,13 @@ To choose the accessibility guidelines to check:
 its accessibility and usability review.<BR>
 <LI>Select the evaluation metrics you want miChecker to use in its
 accessibility and usability review.<BR>
-<LI><A name="lineNumber">Select <B>Line Number Information</B>
-check box if you want miChecker to indicate the line on which a problem is detected in the blind mode. </A>
+<LI><A name="lineNumber">Select <B>Use HTML source file (with line number in error report)</B>
+radio button if you want miChecker to indicate the line on which a problem is detected in the blind mode. </A>
 Line numbers are presented in the <A href="lineViewBlind.html">line
 view</A> of the problem list.<BR>
 If you want miChecker to evaluate the runtime Document Object Model of
-the target page, deselect this check box. (This is useful when checking certain
-JavaScript-based pages.)
+the target page, select <B>Use parsed DOM in browser (without line number)</B> radio button. (This is useful when checking certain
+JavaScript-based pages, pages with login management, search result pages, etc.)
 </OL>
 
 <H2>Working with the problem list</H2>

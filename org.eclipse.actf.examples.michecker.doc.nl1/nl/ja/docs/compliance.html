@@ -3,7 +3,7 @@
 <HEAD>
 <META http-equiv="Content-Type" CONTENT="text/html; charset=SHIFT_JIS">
 <META http-equiv="Content-Style-Type" content="text/css">
-<meta name="copyright" content="Copyright (c) Ministry of Internal Affairs and Communications, IBM Corporation and others 2007, 2016. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<meta name="copyright" content="Copyright (c) Ministry of Internal Affairs and Communications, IBM Corporation and others 2007, 2023. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
 <TITLE>Web アクセシビリティ・ガイドラインへの準拠</TITLE>
 <LINK href="miChecker.css" rel="stylesheet" type="text/css" class="head">
 </HEAD>
@@ -24,8 +24,6 @@ miChecker は、ウェブページが以下の3つのアクセシビリティ・ガイドラインに準拠して�
 <li>日本工業規格 JIS X 8341-3: 「高齢者・障害者等配慮設計指針―情報通信における機器、ソフトウェア及びサービス－第3部：ウェブコンテンツ」</li>
 <li><A href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines 2.0 (WCAG 2.0)</A>: 
 最も有名なアクセシビリティ・ガイドラインの一つです。World Wide Web Consortium （W3C） のワーキンググループの一つである Web Accessibility Initiative （WAI）により発行されています。</li>
-<LI><A href="http://www.section508.gov/index.cfm?FuseAction=Content&ID=12#Web">Section 508 of the Rehabilitation Act §1194.22 (Section 508)</A>: 米国リハビリテーション法508条の中のウェブに関する標準の一つです。
-この法律によれば、連邦政府により開発・調達される情報技術は障害者にとってアクセシブルであることが求められています。</li>
 </UL>
 
 <H2 id="accGuidelineSelect">アクセシビリティ・ガイドラインを選択する</H2>
@@ -42,6 +40,9 @@ miChecker のチェックで使用したいアクセシビリティ・ガイドラインは、以下の手順で選
  miChecker は実行時の Document Object Model に基づいて視覚化お
 よびアクセシビリティ・チェックを行います（これは一部の JavaScript を利用したページを評価する際に有効です）。
 </OL>
+<p>
+miChecker内で用いられているブラウザの機能上の制限から、評価対象ページのURLとして指定したウェブページのHTMLファイルそのものを入手できず、miCheckerのブラウザで表示されている内容に相当するアクセシビリティ評価が実施できない場合があります（ログイン管理が行われている場合や、一部の検索、情報入力などのフォーム入力操作を行った結果のページなど）。その場合には、「ブラウザ内のDOM（行番号なし）」を評価する方式に切り替えてアクセシビリティ評価を実施してください。
+</p>
 
 <H2 id="detailReport">詳細レポートでの作業</H2>
 <P>
