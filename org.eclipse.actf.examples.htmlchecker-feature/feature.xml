@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.actf.examples.htmlchecker"
       label="ACTF Example HtmlChecker Feature"
-      version="1.5.1.qualifier"
+      version="2.0.0.qualifier"
       provider-name="Eclipse ACTF Project"
       plugin="org.eclipse.actf.examples.htmlchecker"
       os="win32"

@@ -10,7 +10,7 @@
             value="org.eclipse.actf.visualization.doc.isv" />
         <property
             name="version.suffix"
-            value="1.5.1.qualifier" />
+            value="2.0.0.qualifier" />
         <property
             name="full.name"
             value="${plugin}_${version.suffix}" />

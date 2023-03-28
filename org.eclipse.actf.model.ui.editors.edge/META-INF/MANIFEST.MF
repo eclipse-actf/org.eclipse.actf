@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ACTF Web Browser Edge Plug-in
 Bundle-SymbolicName: org.eclipse.actf.model.ui.editors.edge;singleton:=true
-Bundle-Version: 1.5.1.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.eclipse.actf.model.internal.ui.editors.edge.BrowserEdge_Plugin
 Bundle-Vendor: Eclipse ACTF Project
 Bundle-Localization: plugin

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="HtmlChecker" uid="ACTF HtmlChecker" id="org.eclipse.actf.examples.htmlchecker.HtmlChecker" application="org.eclipse.actf.examples.htmlchecker.HtmlChecker" version="1.5.1.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="HtmlChecker" uid="ACTF HtmlChecker" id="org.eclipse.actf.examples.htmlchecker.HtmlChecker" application="org.eclipse.actf.examples.htmlchecker.HtmlChecker" version="2.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.actf.examples.htmlchecker/about.gif"/>
