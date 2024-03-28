@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
- Copyright (c) 2005, 2023 IBM Corporation and others.
+ Copyright (c) 2005, 2024 IBM Corporation and others.
  All rights reserved. This program and the accompanying materials
  are made available under the terms of the Eclipse Public License v1.0
  which accompanies this distribution, and is available at
@@ -10,849 +10,992 @@
      IBM Corporation - initial API and implementation
 -->
 <checker-config>
-    <checkitem type="error" id="C_1000.0">
-        <guideline>
-            <gItem id="3.2" name="WCAG"/>
-            <gItem techniques="H88" id="4.1.1" name="JIS"/>
-            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Robust"/>
-        </metrics>
-        <description>
-            <desc>This page seems to have several BODY elements. Please correct html.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="C_1000.1">
-        <guideline>
-            <gItem id="3.2" name="WCAG"/>
-            <gItem techniques="H88" id="4.1.1" name="JIS"/>
-            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Robust"/>
-        </metrics>
-        <description>
-            <desc>This page seems to have HEAD element under BODY element. Please correct html.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="C_1000.2">
-        <guideline>
-            <gItem id="3.2" name="WCAG"/>
-            <gItem techniques="H88" id="4.1.1" name="JIS"/>
-            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Robust"/>
-        </metrics>
-        <description>
-            <desc>This page seems to have several HTML elements. Please correct html.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="C_1000.3">
-        <guideline>
-            <gItem id="3.2" name="WCAG"/>
-            <gItem techniques="H88" id="4.1.1" name="JIS"/>
-            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Robust"/>
-        </metrics>
-        <description>
-            <desc>BODY elements seems to be not properly placed. Please correct html.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="C_1000.4">
-        <guideline>
-            <gItem id="3.2" name="WCAG"/>
-            <gItem techniques="H88" id="4.1.1" name="JIS"/>
-            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Robust"/>
-        </metrics>
-        <description>
-            <desc>This page seems to have no BODY element, or position of BODY is wrong. Please correct html.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="C_1000.5">
-        <guideline>
-            <gItem id="3.2" name="WCAG"/>
-            <gItem techniques="H88" id="4.1.1" name="JIS"/>
-            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Robust"/>
-        </metrics>
-        <description>
-            <desc>This page seems to have no BODY (or HEAD) element, or position of BODY is wrong. Please correct html.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="C_1000.6">
-        <guideline>
-            <gItem id="3.2" name="WCAG"/>
-            <gItem techniques="H88" id="4.1.1" name="JIS"/>
-            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Robust"/>
-        </metrics>
-        <description>
-            <desc>Make sure to use a public text identifier in a &amp;lt;!DOCTYPE&amp;gt; statement.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="C_1000.7">
-        <guideline>
-            <gItem id="3.2" name="WCAG"/>
-            <gItem techniques="H88" id="4.1.1" name="JIS"/>
-            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Robust"/>
-        </metrics>
-        <description>
-            <desc>As no DOCTYPE declaration is found, validators may produce wrong results and conformance of the document is not able to be checked.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="C_1000.8">
-        <guideline>
-            <gItem id="3.2" name="WCAG"/>
-            <gItem techniques="H88" id="4.1.1" name="JIS"/>
-            <gItem techniques="H88" id="4.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Robust"/>
-        </metrics>
-        <description>
-            <desc>Byte-Order Mark (BOM) found in non HTML5 document. Consider to remove BOM to avoid unexpected error.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_0">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem id="a" name="Section508"/>
-            <gItem techniques="H37,H67,F38,F65" id="1.1.1" name="JIS"/>
-            <gItem id="1" name="IBMGuideline"/>
-            <gItem techniques="H37,H67,F38,F65" id="1.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>No alternative text for an image (If the image has no information to read out, please provide alt=&quot;&quot;.): src=&quot;&quot;.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_1">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem id="a" name="Section508"/>
-            <gItem id="n" name="Section508"/>
-            <gItem techniques="H36,F65" id="1.1.1" name="JIS"/>
-            <gItem id="7" name="IBMGuideline"/>
-            <gItem techniques="H36,F65" id="1.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>No alternative text for an image button.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_2">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem id="a" name="Section508"/>
-            <gItem techniques="H24,F65" id="1.1.1" name="JIS"/>
-            <gItem id="2" name="IBMGuideline"/>
-            <gItem techniques="H24,F65" id="1.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>No alternative text for an AREA: map name=&quot;&quot;.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_4">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem id="1" name="IBMGuideline"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>&quot;&quot; is not appropriate as an ALT attribute for an image.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_5">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem techniques="F30,G94" id="1.1.1" name="JIS"/>
-            <gItem id="7" name="IBMGuideline"/>
-            <gItem techniques="F30,G94" id="1.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>&quot;&quot; is not appropriate as an ALT attribute for an image button.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_6">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem techniques="F30,G94" id="1.1.1" name="JIS"/>
-            <gItem id="2" name="IBMGuideline"/>
-            <gItem techniques="F30,G94" id="1.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>&quot;&quot; is not appropriate as an ALT attribute for an AREA.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_8">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G123,G124" id="2.4.1" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G123,G124" id="2.4.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>This intra-page link is broken because of a missing destination anchor &quot;&quot;.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_9">
-        <guideline>
-            <gItem id="13.1" name="WCAG"/>
-            <gItem techniques="H2" id="1.1.1" name="JIS"/>
-            <gItem id="1" name="IBMGuideline"/>
-            <gItem id="2" name="IBMGuideline"/>
-            <gItem id="7" name="IBMGuideline"/>
-            <gItem techniques="H2" id="1.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Redundant text information (links for the same resource): .</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_10">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G1" id="2.4.1" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G1" id="2.4.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>Provide skip-links such as &quot;skip to main&quot;.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="info" id="B_12">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="H42" id="1.3.1" name="JIS"/>
-            <gItem techniques="G1, G123, G124, H69" id="2.4.1" name="JIS"/>
-            <gItem techniques="G141,ARIA12" id="2.4.10" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="H42" id="1.3.1" name="WCAG 2.0"/>
-            <gItem techniques="G1, G123, G124, H69" id="2.4.1" name="WCAG 2.0"/>
-            <gItem techniques="G141,ARIA12" id="2.4.10" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-            <mItem name="Operable"/>
-        </metrics>
-        <description>
-            <desc>Provide intra-page links or use headings. Because there are no effective intra-page links or headings, arrival time to some content is over 120 seconds.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_14">
-        <guideline>
-            <gItem id="13.1" name="WCAG"/>
-            <gItem techniques="H30" id="1.1.1" name="JIS"/>
-            <gItem techniques="H30" id="2.4.4" name="JIS"/>
-            <gItem techniques="H30" id="2.4.9" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="H30" id="1.1.1" name="WCAG 2.0"/>
-            <gItem techniques="H30" id="2.4.4" name="WCAG 2.0"/>
-            <gItem techniques="H30" id="2.4.9" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Perceivable"/>
-            <mItem score="5" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>This intra-page link, &quot;&quot;, is not accessible, since there is no readable text.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_15">
-        <guideline>
-            <gItem id="14.1" name="WCAG"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="JIS"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>&quot;&quot;, is inappropriate text.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_16">
-        <guideline>
-            <gItem id="10.2" name="WCAG"/>
-            <gItem id="12.4" name="WCAG"/>
-            <gItem id="n" name="Section508"/>
-            <gItem id="7" name="IBMGuideline"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>No ID attribute for an input element.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_17">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G1" id="2.4.1" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G1" id="2.4.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>seconds is too long to get to the &quot;skip to main&quot; link</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_18">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G1" id="2.4.1" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G1" id="2.4.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>This skip-link is broken because of a missing destination anchor &quot;&quot;.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_19">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G1" id="2.4.1" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G1" id="2.4.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>&quot;&quot; is not appropriate for a skip-link. It should start with &quot;skip to ...&quot; or &quot;jump to ...&quot;.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_20">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G1" id="2.4.1" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G1" id="2.4.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>Consider providing skip-links (such as &quot;skip to main&quot;).</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="B_21">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G1" id="2.4.1" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G1" id="2.4.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Operable"/>
-        </metrics>
-        <description>
-            <desc>There is no skip-link (such as &quot;skip to main&quot;) in this page, but the transit time is short, seconds. Make sure of the necessity of the skip-link.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="B_22">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G123,H69" id="2.4.1" name="JIS"/>
-            <gItem id="2.4.10" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G123,H69" id="2.4.1" name="WCAG 2.0"/>
-            <gItem id="2.4.10" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Operable"/>
-        </metrics>
-        <description>
-            <desc>Consider providing more intra-page links or using headings. Though there are some intra-page links, the arrival time to some content is over 120 seconds.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="B_23">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G123,H69" id="2.4.1" name="JIS"/>
-            <gItem id="2.4.10" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G123,H69" id="2.4.1" name="WCAG 2.0"/>
-            <gItem id="2.4.10" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Operable"/>
-        </metrics>
-        <description>
-            <desc>Consider providing more headings or using intra-page links. Though there are some headings, the arrival time to some content is over 120 seconds.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="B_24">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G123,H69" id="2.4.1" name="JIS"/>
-            <gItem id="2.4.10" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G123,H69" id="2.4.1" name="WCAG 2.0"/>
-            <gItem id="2.4.10" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Operable"/>
-        </metrics>
-        <description>
-            <desc>Consider using intra-page links or providing more headings. Though there are intra-page links and headings, the arrival time to some content is over 120 seconds.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_25">
-        <guideline>
-            <gItem id="13.1" name="WCAG"/>
-            <gItem techniques="H30" id="1.1.1" name="JIS"/>
-            <gItem techniques="H30" id="2.4.4" name="JIS"/>
-            <gItem techniques="H30" id="2.4.9" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="H30" id="1.1.1" name="WCAG 2.0"/>
-            <gItem techniques="H30" id="2.4.4" name="WCAG 2.0"/>
-            <gItem techniques="H30" id="2.4.9" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-            <mItem score="2" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>This intra-page link, &quot;&quot;, has only TITLE attribute to read out. Consider providing text in this link.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_26">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G1" id="2.4.1" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G1" id="2.4.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>&quot;&quot; is not appropriate TITLE attribute for a skip-link. It should start with &quot;skip to ...&quot; or &quot;jump to ...&quot;.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_27">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem id="a" name="Section508"/>
-            <gItem techniques="F30,G94" id="1.1.1" name="JIS"/>
-            <gItem id="1" name="IBMGuideline"/>
-            <gItem techniques="F30,G94" id="1.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>&quot;&quot; might contain inappropriate text for ALT. (If the image has no information to read out, please provide alt=&quot;&quot;.)</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="B_28">
-        <guideline>
-            <gItem techniques="H67" id="1.1.1" name="JIS"/>
-            <gItem id="1" name="IBMGuideline"/>
-            <gItem id="2" name="IBMGuideline"/>
-            <gItem id="7" name="IBMGuideline"/>
-            <gItem techniques="H67" id="1.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Redundant text information (not link): .</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_29">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem id="14.1" name="WCAG"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="JIS"/>
-            <gItem id="1" name="IBMGuideline"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>ALT attribute &quot;&quot; has inappropriate space within a word (IMAGE).</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_30">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem id="14.1" name="WCAG"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="JIS"/>
-            <gItem id="7" name="IBMGuideline"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>ALT attribute &quot;&quot; has inappropriate space within a word (INPUT).</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_31">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem id="14.1" name="WCAG"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="JIS"/>
-            <gItem id="2" name="IBMGuideline"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>ALT attribute &quot;&quot; has inappropriate space within a word (AREA).</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_33">
-        <guideline>
-            <gItem id="13.6" name="WCAG"/>
-            <gItem id="o" name="Section508"/>
-            <gItem techniques="G123,G124" id="2.4.1" name="JIS"/>
-            <gItem id="8" name="IBMGuideline"/>
-            <gItem techniques="G123,G124" id="2.4.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Operable"/>
-        </metrics>
-        <description>
-            <desc>This intra-page link does not have destination anchor &quot;&quot;. Please insert target anchor. (This link might work as intra-page link to page top.)</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_34">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="JIS"/>
-            <gItem id="1" name="IBMGuideline"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Please don't separate characters except when you want to spell out the word. (ALT attribute &quot; &quot;).</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_35">
-        <guideline>
-            <gItem techniques="G1,G123,G124" id="2.4.1" name="JIS"/>
-            <gItem techniques="G1,G123,G124" id="2.4.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>This intra-page link,   , might not be able to use. (Please use a small image with ALT instead of display:none or visibility:hidden)</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_36">
-        <metrics>
-            <mItem score="5" name="Perceivable"/>
-        </metrics>
-        <guideline/>
-        <description>
-            <desc>Please provide VALUE attribute for INPUT button.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="B_37">
-        <guideline>
-            <gItem id="14.1" name="WCAG"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="JIS"/>
-            <gItem id="7" name="IBMGuideline"/>
-            <gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>VALUE attribute &quot;&quot; has inappropriate space within a word (INPUT).</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="B_38">
-        <guideline>
-            <gItem id="1.1" name="WCAG"/>
-            <gItem techniques="F30,G94,H67" id="1.1.1" name="JIS"/>
-            <gItem id="1" name="IBMGuideline"/>
-            <gItem techniques="F30,G94,H67" id="1.1.1" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>&quot;&quot; is not appropriate as an ALT attribute for an image.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="error" id="L_1.0">
-        <guideline>
-            <gItem id="2.2" name="WCAG"/>
-            <gItem techniques="G18,G145" id="1.4.3" name="JIS"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="JIS"/>
-            <gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="5" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Foreground and background colors are too close.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="L_1.1">
-        <guideline>
-            <gItem id="2.2" name="WCAG"/>
-            <gItem techniques="G18" id="1.4.3" name="JIS"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="JIS"/>
-            <gItem techniques="G18" id="1.4.3" name="WCAG 2.0"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Foreground and background colors are too close.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="L_1.2">
-        <guideline>
-            <gItem id="2.2" name="WCAG"/>
-            <gItem techniques="G17" id="1.4.6" name="JIS"/>
-            <gItem techniques="G17" id="1.4.6" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Foreground and background colors are too close.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="warning" id="L_2">
-        <guideline>
-        </guideline>
-        <metrics>
-            <mItem score="2" name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>It is difficult for weak-sighted to read these characters. (blur)</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_3">
-        <guideline>
-            <gItem id="2.1" name="WCAG"/>
-            <gItem id="2.2" name="WCAG"/>
-            <gItem id="c" name="Section508"/>
-            <gItem techniques="G18,G145" id="1.4.3" name="JIS"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="JIS"/>
-            <gItem id="12" name="IBMGuideline"/>
-            <gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>This image has two or more components whose colors are too close.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_4">
-        <guideline>
-            <gItem id="3.4" name="WCAG"/>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="JIS"/>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Do not use fixed-size font.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_5">
-        <guideline/>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>This text is too small.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_6">
-        <guideline>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="JIS"/>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>This text is too small and its font size is fixed.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_10">
-        <guideline>
-            <gItem techniques="F3" id="1.1.1" name="JIS"/>
-            <gItem techniques="F83, G18, G145" id="1.4.3" name="JIS"/>
-            <gItem techniques="F83, G17, G18" id="1.4.6" name="JIS"/>
-            <gItem techniques="F3" id="1.1.1" name="WCAG 2.0"/>
-            <gItem techniques="F83, G18, G145" id="1.4.3" name="WCAG 2.0"/>
-            <gItem techniques="F83, G17, G18" id="1.4.6" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Background image.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_11">
-        <guideline>
-            <gItem id="3.4" name="WCAG"/>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="JIS"/>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Font size might be fixed. （unsupported font-size definitions, etc. This message is also shown in the case where font-size is unspecified.）</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_11.1">
-        <guideline>
-            <gItem id="3.4" name="WCAG"/>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="JIS"/>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Use measurements that are relative to other measurements in the content for the font size. (Please see evaluation results in Voice Usability mode for more details.)</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_11.2">
-        <guideline>
-            <gItem id="3.4" name="WCAG"/>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="JIS"/>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Use measurements that are relative to other measurements in the content for the font size. (Please see evaluation results in Voice Usability mode for more details.)</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_12">
-        <guideline>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="JIS"/>
-            <gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>This text is too small and its font size might be fixed. （unsupported font-size definitions, etc.）</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_13.0">
-        <guideline>
-            <gItem id="2.2" name="WCAG"/>
-            <gItem techniques="G18,G145" id="1.4.3" name="JIS"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="JIS"/>
-            <gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Font color is defined by using alpha (opacity). Please confirm color combination by using color check tool, etc.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_13.1">
-        <guideline>
-            <gItem id="2.2" name="WCAG"/>
-            <gItem techniques="G18,G145" id="1.4.3" name="JIS"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="JIS"/>
-            <gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Background color is defined by using alpha (opacity). Please confirm color combination by using color check tool, etc.</desc>
-        </description>
-    </checkitem>
-    <checkitem type="user" id="L_13.2">
-        <guideline>
-            <gItem id="2.2" name="WCAG"/>
-            <gItem techniques="G18,G145" id="1.4.3" name="JIS"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="JIS"/>
-            <gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0"/>
-            <gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0"/>
-        </guideline>
-        <metrics>
-            <mItem name="Perceivable"/>
-        </metrics>
-        <description>
-            <desc>Font color and background color are defined by using alpha (opacity). Please confirm color combination by using color check tool, etc.</desc>
-        </description>
-    </checkitem>
+	<checkitem type="error" id="C_1000.0">
+		<guideline>
+			<gItem id="3.2" name="WCAG" />
+			<gItem techniques="H88" id="4.1.1" name="JIS" />
+			<gItem techniques="H88" id="4.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Robust" />
+		</metrics>
+		<description>
+			<desc>This page seems to have several BODY elements. Please correct
+				html.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="C_1000.1">
+		<guideline>
+			<gItem id="3.2" name="WCAG" />
+			<gItem techniques="H88" id="4.1.1" name="JIS" />
+			<gItem techniques="H88" id="4.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Robust" />
+		</metrics>
+		<description>
+			<desc>This page seems to have HEAD element under BODY element. Please
+				correct html.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="C_1000.2">
+		<guideline>
+			<gItem id="3.2" name="WCAG" />
+			<gItem techniques="H88" id="4.1.1" name="JIS" />
+			<gItem techniques="H88" id="4.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Robust" />
+		</metrics>
+		<description>
+			<desc>This page seems to have several HTML elements. Please correct
+				html.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="C_1000.3">
+		<guideline>
+			<gItem id="3.2" name="WCAG" />
+			<gItem techniques="H88" id="4.1.1" name="JIS" />
+			<gItem techniques="H88" id="4.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Robust" />
+		</metrics>
+		<description>
+			<desc>BODY elements seems to be not properly placed. Please correct
+				html.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="C_1000.4">
+		<guideline>
+			<gItem id="3.2" name="WCAG" />
+			<gItem techniques="H88" id="4.1.1" name="JIS" />
+			<gItem techniques="H88" id="4.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Robust" />
+		</metrics>
+		<description>
+			<desc>This page seems to have no BODY element, or position of BODY is
+				wrong. Please correct html.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="C_1000.5">
+		<guideline>
+			<gItem id="3.2" name="WCAG" />
+			<gItem techniques="H88" id="4.1.1" name="JIS" />
+			<gItem techniques="H88" id="4.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Robust" />
+		</metrics>
+		<description>
+			<desc>This page seems to have no BODY (or HEAD) element, or position
+				of BODY is wrong. Please correct html.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_1000.6">
+		<guideline>
+			<gItem id="3.2" name="WCAG" />
+			<gItem techniques="H88" id="4.1.1" name="JIS" />
+			<gItem techniques="H88" id="4.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Robust" />
+		</metrics>
+		<description>
+			<desc>Make sure to use a public text identifier in a
+				&amp;lt;!DOCTYPE&amp;gt; statement.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="C_1000.7">
+		<guideline>
+			<gItem id="3.2" name="WCAG" />
+			<gItem techniques="H88" id="4.1.1" name="JIS" />
+			<gItem techniques="H88" id="4.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Robust" />
+		</metrics>
+		<description>
+			<desc>As no DOCTYPE declaration is found, validators may produce
+				wrong results and conformance of the document is not able to be
+				checked.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_1000.8">
+		<guideline>
+			<gItem id="3.2" name="WCAG" />
+			<gItem techniques="H88" id="4.1.1" name="JIS" />
+			<gItem techniques="H88" id="4.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Robust" />
+		</metrics>
+		<description>
+			<desc>Byte-Order Mark (BOM) found in non HTML5 document. Consider to
+				remove BOM to avoid unexpected error.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_0">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem id="a" name="Section508" />
+			<gItem techniques="H37,H67,ARIA6,ARIA10,F38,F65" id="1.1.1"
+				name="JIS" />
+			<gItem id="1" name="IBMGuideline" />
+			<gItem techniques="H37,H67,ARIA6,ARIA10,F38,F65" id="1.1.1"
+				name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>No alternative text for an image (If the image has no
+				information to read out, please provide alt=&quot;&quot;.):
+				src=&quot;&quot;.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_1">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem id="a" name="Section508" />
+			<gItem id="n" name="Section508" />
+			<gItem techniques="H36,ARIA6,ARIA9,ARIA10,ARIA16,F65"
+				id="1.1.1" name="JIS" />
+			<gItem id="7" name="IBMGuideline" />
+			<gItem techniques="H36,ARIA6,ARIA9,ARIA10,ARIA16,F65"
+				id="1.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>No alternative text for an image button.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_2">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem id="a" name="Section508" />
+			<gItem techniques="H24,ARIA6,ARIA9,ARIA10,F65" id="1.1.1"
+				name="JIS" />
+			<gItem id="2" name="IBMGuideline" />
+			<gItem techniques="H24,ARIA6,ARIA9,ARIA10,F65" id="1.1.1"
+				name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>No alternative text for an AREA: map name=&quot;&quot;.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_4">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem id="1" name="IBMGuideline" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>&quot;&quot; is not appropriate as an ALT attribute for an
+				image.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_5">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem techniques="F30,G94" id="1.1.1" name="JIS" />
+			<gItem id="7" name="IBMGuideline" />
+			<gItem techniques="F30,G94" id="1.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>&quot;&quot; is not appropriate as an ALT attribute for an
+				image button.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_6">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem techniques="F30,G94" id="1.1.1" name="JIS" />
+			<gItem id="2" name="IBMGuideline" />
+			<gItem techniques="F30,G94" id="1.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>&quot;&quot; is not appropriate as an ALT attribute for an
+				AREA.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_8">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G123,G124" id="2.4.1" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G123,G124" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Operable" />
+		</metrics>
+		<description>
+			<desc>This intra-page link is broken because of a missing destination
+				anchor &quot;&quot;.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_9">
+		<guideline>
+			<gItem id="13.1" name="WCAG" />
+			<gItem techniques="H2" id="1.1.1" name="JIS" />
+			<gItem id="1" name="IBMGuideline" />
+			<gItem id="2" name="IBMGuideline" />
+			<gItem id="7" name="IBMGuideline" />
+			<gItem techniques="H2" id="1.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Redundant text information (links for the same resource): .
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_10">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="JIS" />
+			<gItem techniques="G141,H69" id="2.4.10" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="WCAG 2.0" />
+			<gItem techniques="G141,H69" id="2.4.10" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Operable" />
+		</metrics>
+		<description>
+			<desc>Provide support to move to main content (skip-links such as
+				"skip to main" or main element) and markup content structure by
+				using landmark, headings and intra-page links. (Arrival time to some
+				content may be over 120 seconds.)
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="B_11">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1,H101,ARIA11" id="2.4.1" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1,H101,ARIA11" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>Provide support to move to main content (skip-links such as
+				"skip to main" or main element). (Transit time may be short ({0}
+				seconds))
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="B_12">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="JIS" />
+			<gItem techniques="G141,H69" id="2.4.10" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="WCAG 2.0" />
+			<gItem techniques="G141,H69" id="2.4.10" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>Consider to markup content structure by using landmark,
+				headings and intra-page links. (Arrival time to some content may be
+				over 120 seconds.)
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_14">
+		<guideline>
+			<gItem id="13.1" name="WCAG" />
+			<gItem techniques="H30" id="1.1.1" name="JIS" />
+			<gItem techniques="H30" id="2.4.4" name="JIS" />
+			<gItem techniques="H30" id="2.4.9" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="H30" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="H30" id="2.4.4" name="WCAG 2.0" />
+			<gItem techniques="H30" id="2.4.9" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Perceivable" />
+			<mItem score="5" name="Operable" />
+		</metrics>
+		<description>
+			<desc>This intra-page link, &quot;&quot;, is not accessible, since
+				there is no readable text.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_15">
+		<guideline>
+			<gItem id="14.1" name="WCAG" />
+			<gItem techniques="C8,F32" id="1.3.2" name="JIS" />
+			<gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>&quot;&quot;, is inappropriate text.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_16">
+		<guideline>
+			<gItem id="10.2" name="WCAG" />
+			<gItem id="12.4" name="WCAG" />
+			<gItem id="n" name="Section508" />
+			<gItem id="7" name="IBMGuideline" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Operable" />
+		</metrics>
+		<description>
+			<desc>No ID attribute for an input element.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_17">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1" id="2.4.1" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Operable" />
+		</metrics>
+		<description>
+			<desc>seconds is too long to get to the &quot;skip to main&quot; link
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_18">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1" id="2.4.1" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Operable" />
+		</metrics>
+		<description>
+			<desc>This skip-link is broken because of a missing destination
+				anchor &quot;&quot;.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_19">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1" id="2.4.1" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Operable" />
+		</metrics>
+		<description>
+			<desc>&quot;&quot; is not appropriate for a skip-link. It should
+				start with &quot;skip to ...&quot; or &quot;jump to ...&quot;.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_20">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="JIS" />
+			<gItem techniques="G141,H69" id="2.4.10" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="WCAG 2.0" />
+			<gItem techniques="G141,H69" id="2.4.10" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Operable" />
+		</metrics>
+		<description>
+			<desc>Provide support to move to main content (skip-links such as
+				"skip to main" or main element). (Transit time may be short ({0}
+				seconds). Consider to use landmark, headings and intra-page links,
+				too.)
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="B_21">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="JIS" />
+			<gItem techniques="G141,H69" id="2.4.10" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="WCAG 2.0" />
+			<gItem techniques="G141,H69" id="2.4.10" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>Consider to provide support to move to main content (skip-links
+				such as "skip to main" or main element) and to use landmark,
+				headings and intra-page links. (Transit time may be short ({0}
+				seconds) without these supports.)
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="B_22">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="JIS" />
+			<gItem techniques="G141,H69" id="2.4.10" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="WCAG 2.0" />
+			<gItem techniques="G141,H69" id="2.4.10" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>Consider providing more landmark, headings and intra-page
+				links. Though there are some intra-page links, the arrival time to
+				some content may be over 120 seconds.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="B_23">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="JIS" />
+			<gItem techniques="G141,H69" id="2.4.10" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="WCAG 2.0" />
+			<gItem techniques="G141,H69" id="2.4.10" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>Consider providing more landmark, headings and intra-page
+				links. Though there are some landmark and/or headings, the arrival
+				time to some content may be over 120 seconds.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="B_24">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="JIS" />
+			<gItem techniques="G141,H69" id="2.4.10" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1,G123,G124,H69,H101,ARIA11" id="2.4.1"
+				name="WCAG 2.0" />
+			<gItem techniques="G141,H69" id="2.4.10" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>Consider providing more landmark, headings and intra-page
+				links. Though there are intra-page links and lanrmark/headings, the
+				arrival time to some content may be over 120 seconds.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_25">
+		<guideline>
+			<gItem id="13.1" name="WCAG" />
+			<gItem techniques="H30" id="1.1.1" name="JIS" />
+			<gItem techniques="H30" id="2.4.4" name="JIS" />
+			<gItem techniques="H30" id="2.4.9" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="H30" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="H30" id="2.4.4" name="WCAG 2.0" />
+			<gItem techniques="H30" id="2.4.9" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+			<mItem score="2" name="Operable" />
+		</metrics>
+		<description>
+			<desc>This intra-page link, &quot;&quot;, has only TITLE attribute to
+				read out. Consider providing text in this link.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_26">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G1" id="2.4.1" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G1" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Operable" />
+		</metrics>
+		<description>
+			<desc>&quot;&quot; is not appropriate TITLE attribute for a
+				skip-link. It should start with &quot;skip to ...&quot; or
+				&quot;jump to ...&quot;.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_27">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem id="a" name="Section508" />
+			<gItem techniques="F30,G94" id="1.1.1" name="JIS" />
+			<gItem id="1" name="IBMGuideline" />
+			<gItem techniques="F30,G94" id="1.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>&quot;&quot; might contain inappropriate text for ALT. (If the
+				image has no information to read out, please provide
+				alt=&quot;&quot;.)</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="B_28">
+		<guideline>
+			<gItem techniques="H67" id="1.1.1" name="JIS" />
+			<gItem id="1" name="IBMGuideline" />
+			<gItem id="2" name="IBMGuideline" />
+			<gItem id="7" name="IBMGuideline" />
+			<gItem techniques="H67" id="1.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Redundant text information (not link): .</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_29">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem id="14.1" name="WCAG" />
+			<gItem techniques="C8,F32" id="1.3.2" name="JIS" />
+			<gItem id="1" name="IBMGuideline" />
+			<gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>ALT attribute &quot;&quot; has inappropriate space within a
+				word (IMAGE).
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_30">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem id="14.1" name="WCAG" />
+			<gItem techniques="C8,F32" id="1.3.2" name="JIS" />
+			<gItem id="7" name="IBMGuideline" />
+			<gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>ALT attribute &quot;&quot; has inappropriate space within a
+				word (INPUT).
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_31">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem id="14.1" name="WCAG" />
+			<gItem techniques="C8,F32" id="1.3.2" name="JIS" />
+			<gItem id="2" name="IBMGuideline" />
+			<gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>ALT attribute &quot;&quot; has inappropriate space within a
+				word (AREA).
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_33">
+		<guideline>
+			<gItem id="13.6" name="WCAG" />
+			<gItem id="o" name="Section508" />
+			<gItem techniques="G123,G124" id="2.4.1" name="JIS" />
+			<gItem id="8" name="IBMGuideline" />
+			<gItem techniques="G123,G124" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Operable" />
+		</metrics>
+		<description>
+			<desc>This intra-page link does not have destination anchor
+				&quot;&quot;. Please insert target anchor. (This link might work as
+				intra-page link to page top.)
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_34">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem techniques="C8,F32" id="1.3.2" name="JIS" />
+			<gItem id="1" name="IBMGuideline" />
+			<gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Please don't separate characters except when you want to spell
+				out the word. (ALT attribute &quot; &quot;).</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_35">
+		<guideline>
+			<gItem techniques="G1,G123,G124" id="2.4.1" name="JIS" />
+			<gItem techniques="G1,G123,G124" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>This intra-page link, , might not be able to use. (Please use a
+				small image with ALT instead of display:none or visibility:hidden)
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_36">
+		<metrics>
+			<mItem score="5" name="Perceivable" />
+		</metrics>
+		<guideline />
+		<description>
+			<desc>Please provide VALUE attribute for INPUT button.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="B_37">
+		<guideline>
+			<gItem id="14.1" name="WCAG" />
+			<gItem techniques="C8,F32" id="1.3.2" name="JIS" />
+			<gItem id="7" name="IBMGuideline" />
+			<gItem techniques="C8,F32" id="1.3.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>VALUE attribute &quot;&quot; has inappropriate space within a
+				word (INPUT).
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="B_38">
+		<guideline>
+			<gItem id="1.1" name="WCAG" />
+			<gItem techniques="F30,G94,H67" id="1.1.1" name="JIS" />
+			<gItem id="1" name="IBMGuideline" />
+			<gItem techniques="F30,G94,H67" id="1.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>&quot;&quot; is not appropriate as an ALT attribute for an
+				image.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="error" id="L_1.0">
+		<guideline>
+			<gItem id="2.2" name="WCAG" />
+			<gItem techniques="G18,G145" id="1.4.3" name="JIS" />
+			<gItem techniques="G17,G18" id="1.4.6" name="JIS" />
+			<gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0" />
+			<gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="5" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Foreground and background colors are too close.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="L_1.1">
+		<guideline>
+			<gItem id="2.2" name="WCAG" />
+			<gItem techniques="G18" id="1.4.3" name="JIS" />
+			<gItem techniques="G17,G18" id="1.4.6" name="JIS" />
+			<gItem techniques="G18" id="1.4.3" name="WCAG 2.0" />
+			<gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Foreground and background colors are too close.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="L_1.2">
+		<guideline>
+			<gItem id="2.2" name="WCAG" />
+			<gItem techniques="G17" id="1.4.6" name="JIS" />
+			<gItem techniques="G17" id="1.4.6" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Foreground and background colors are too close.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="L_2">
+		<guideline>
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>It is difficult for weak-sighted to read these characters.
+				(blur)
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_3">
+		<guideline>
+			<gItem id="2.1" name="WCAG" />
+			<gItem id="2.2" name="WCAG" />
+			<gItem id="c" name="Section508" />
+			<gItem techniques="G18,G145" id="1.4.3" name="JIS" />
+			<gItem techniques="G17,G18" id="1.4.6" name="JIS" />
+			<gItem id="12" name="IBMGuideline" />
+			<gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0" />
+			<gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>This image has two or more components whose colors are too
+				close.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_4">
+		<guideline>
+			<gItem id="3.4" name="WCAG" />
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="JIS" />
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Do not use fixed-size font.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_5">
+		<guideline />
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>This text is too small.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_6">
+		<guideline>
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="JIS" />
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>This text is too small and its font size is fixed.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_10">
+		<guideline>
+			<gItem techniques="F3" id="1.1.1" name="JIS" />
+			<gItem techniques="F83, G18, G145" id="1.4.3" name="JIS" />
+			<gItem techniques="F83, G17, G18" id="1.4.6" name="JIS" />
+			<gItem techniques="F3" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="F83, G18, G145" id="1.4.3" name="WCAG 2.0" />
+			<gItem techniques="F83, G17, G18" id="1.4.6" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Background image.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_11">
+		<guideline>
+			<gItem id="3.4" name="WCAG" />
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="JIS" />
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Font size might be fixed. （unsupported font-size definitions,
+				etc. This message is also shown in the case where font-size is
+				unspecified.）
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_11.1">
+		<guideline>
+			<gItem id="3.4" name="WCAG" />
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="JIS" />
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Use measurements that are relative to other measurements in the
+				content for the font size. (Please see evaluation results in Voice
+				Usability mode for more details.)
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_11.2">
+		<guideline>
+			<gItem id="3.4" name="WCAG" />
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="JIS" />
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Use measurements that are relative to other measurements in the
+				content for the font size. (Please see evaluation results in Voice
+				Usability mode for more details.)
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_12">
+		<guideline>
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="JIS" />
+			<gItem techniques="C12,C13,C14" id="1.4.4" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>This text is too small and its font size might be fixed.
+				（unsupported font-size definitions, etc.）
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_13.0">
+		<guideline>
+			<gItem id="2.2" name="WCAG" />
+			<gItem techniques="G18,G145" id="1.4.3" name="JIS" />
+			<gItem techniques="G17,G18" id="1.4.6" name="JIS" />
+			<gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0" />
+			<gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Font color is defined by using alpha (opacity). Please confirm
+				color combination by using color check tool, etc.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_13.1">
+		<guideline>
+			<gItem id="2.2" name="WCAG" />
+			<gItem techniques="G18,G145" id="1.4.3" name="JIS" />
+			<gItem techniques="G17,G18" id="1.4.6" name="JIS" />
+			<gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0" />
+			<gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Background color is defined by using alpha (opacity). Please
+				confirm color combination by using color check tool, etc.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="L_13.2">
+		<guideline>
+			<gItem id="2.2" name="WCAG" />
+			<gItem techniques="G18,G145" id="1.4.3" name="JIS" />
+			<gItem techniques="G17,G18" id="1.4.6" name="JIS" />
+			<gItem techniques="G18,G145" id="1.4.3" name="WCAG 2.0" />
+			<gItem techniques="G17,G18" id="1.4.6" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Font color and background color are defined by using alpha
+				(opacity). Please confirm color combination by using color check
+				tool, etc.
+			</desc>
+		</description>
+	</checkitem>
 </checker-config>

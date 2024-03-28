@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2023 IBM Corporation and Others
+ * Copyright (c) 2010, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,7 +24,31 @@ import org.w3c.dom.Node;
 
 class FieldsetManager {
 	private Map<String, List<Element>> ctrlMap = new HashMap<String, List<Element>>();
-	private Map<String, Set<Node>> fieldSetMap = new HashMap<String, Set<Node>>();
+
+	private Map<String, Set<Node>> groupingMap = new HashMap<String, Set<Node>>();
+
+	private List<Vector<Node>> multipleList = new ArrayList<Vector<Node>>();
+	private List<Vector<Node>> missingList = new ArrayList<Vector<Node>>();
+
+	public FieldsetManager(List<Element> radioAndCheckList) {
+		for (Element ctrl : radioAndCheckList) {
+			addEntry(ctrl.getAttribute("name"), ctrl);
+		}
+
+		for (String key : ctrlMap.keySet()) {
+
+			Set<Node> tmpSet = groupingMap.get(key);
+			int size = tmpSet.size();
+
+			if (size > 1) {
+				multipleList.add(new Vector<Node>(ctrlMap.get(key)));
+			} else if (size == 1 && !tmpSet.contains(null)) {
+			} else {
+				missingList.add(new Vector<Node>(ctrlMap.get(key)));
+			}
+		}
+
+	}
 
 	/**
 	 * Adds a form control with the specified name attribute.
@@ -34,33 +58,50 @@ class FieldsetManager {
 	 */
 	public void addEntry(String name, Element ctrl) {
 		List<Element> list;
-		Set<Node> set;
+		Set<Node> groupingSet;
 		if (ctrlMap.containsKey(name)) {
 			list = ctrlMap.get(name);
-			set = fieldSetMap.get(name);
+			groupingSet = groupingMap.get(name);
 		} else {
 			list = new ArrayList<Element>();
 			ctrlMap.put(name, list);
-			set = new HashSet<Node>();
-			fieldSetMap.put(name, set);
+			groupingSet = new HashSet<Node>();
+			groupingMap.put(name, groupingSet);
 		}
 		list.add(ctrl);
 
-		Node fieldset = HtmlTagUtil.getAncestor(ctrl, "fieldset");
-		set.add(fieldset);
+		groupingSet.add(getFirstAncestorGrouping(ctrl));
+
 	}
 
-	public List<Vector<Node>> getErrorList() {
-		List<Vector<Node>> returns = new ArrayList<Vector<Node>>();
-		for (String key : fieldSetMap.keySet()) {
-			//System.out.println(key + " : " + fieldSetMap.get(key).size());
-			int size = fieldSetMap.get(key).size();
-			if (size > 1) {
-				returns.add(new Vector<Node>(ctrlMap.get(key)));
-			} else if (size == 1 && null == fieldSetMap.get(key).toArray()[0]) {
-				returns.add(new Vector<Node>(ctrlMap.get(key)));
+	private Node getFirstAncestorGrouping(Node target) {
+		Node tmpNode = target;
+		while (tmpNode != null) {
+			if (tmpNode.getNodeName().equals("fieldset")) {
+				return tmpNode;
+			} else if (tmpNode instanceof Element) {
+				String role = ((Element) tmpNode).getAttribute("role");
+				if ("group".equals(role) || "radiogroup".equals(role)) {
+					return tmpNode;
+				}
 			}
+			tmpNode = tmpNode.getParentNode();
 		}
-		return returns;
+		return null;
 	}
+
+	/**
+	 * @return the multipleList
+	 */
+	public List<Vector<Node>> getMultipleList() {
+		return multipleList;
+	}
+
+	/**
+	 * @return the missingList
+	 */
+	public List<Vector<Node>> getMissingList() {
+		return missingList;
+	}
+
 }

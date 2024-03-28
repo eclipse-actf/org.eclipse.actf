@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2008 IBM Corporation and Others
+ * Copyright (c) 2004, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,10 +24,13 @@ import org.eclipse.actf.visualization.engines.blind.html.ui.elementViewer.Elemen
 import org.eclipse.actf.visualization.engines.blind.html.ui.elementViewer.IElementViewerManager;
 import org.eclipse.actf.visualization.engines.blind.ui.actions.BlindSettingAction;
 import org.eclipse.actf.visualization.engines.blind.ui.actions.BlindVisualizationBrowserModeAction;
+import org.eclipse.actf.visualization.eval.EvaluationUtil;
 import org.eclipse.actf.visualization.ui.IVisualizationView;
 import org.eclipse.actf.visualization.ui.VisualizationStatusLineContributionItem;
 import org.eclipse.actf.visualization.ui.report.table.ResultTableLabelProvider;
 import org.eclipse.actf.visualization.ui.report.table.ResultTableSorter;
+import org.eclipse.jface.action.ActionContributionItem;
+import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.Separator;
@@ -56,8 +59,14 @@ public class BlindView extends ViewPart implements IVisualizationView {
 	private PartControlBlind partRightBlind;
 
 	private HashSet<IWorkbenchPage> pageSet = new HashSet<IWorkbenchPage>();
-	
+
 	private BlindVisualizationBrowserModeAction browserVisualizaton;
+
+	private IToolBarManager toolbarManager;
+
+	private boolean isFirst = true;
+
+	private org.eclipse.jface.util.IPropertyChangeListener propChecngeListener;
 
 	public BlindView() {
 		super();
@@ -75,59 +84,51 @@ public class BlindView extends ViewPart implements IVisualizationView {
 		partRightBlind = new PartControlBlind(this, parent);
 
 		// TODO use mediator
-		getSite().getPage().addSelectionListener(
-				IVisualizationView.DETAILED_REPROT_VIEW_ID,
+		getSite().getPage().addSelectionListener(IVisualizationView.DETAILED_REPROT_VIEW_ID,
 				new SelectionListenerBlind(partRightBlind));
 
 		// for element viewer
 		elementViewerManager.setHighlightElementListener(partRightBlind);
 		addPartListener();
-		
-		//prepare actions
-		
+
+		// prepare actions
+
 		IActionBars bars = getViewSite().getActionBars();
 		// IMenuManager menuManager = bars.getMenuManager();
-		IToolBarManager toolbarManager = bars.getToolBarManager();
+		toolbarManager = bars.getToolBarManager();
 
 		browserVisualizaton = new BlindVisualizationBrowserModeAction();
-		
+
 		toolbarManager.add(new BlindVisualizationAction(partRightBlind));
-		toolbarManager.add(browserVisualizaton); 
+		toolbarManager.add(browserVisualizaton);
+		toolbarManager.add(new Separator("target"));
+		toolbarManager.add(new Separator("settings"));
 		toolbarManager.add(new BlindSettingAction());
 		toolbarManager.add(new BlindSaveAction(partRightBlind));
 		toolbarManager.add(new BlindOpenIdCssAction());
-		
-		toolbarManager
-				.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+
+		toolbarManager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
 	public void setFocus() {
 	}
 
 	public void setStatusMessage(String statusMessage) {
-		IContributionItem[] items = getViewSite().getActionBars()
-				.getStatusLineManager().getItems();
+		IContributionItem[] items = getViewSite().getActionBars().getStatusLineManager().getItems();
 		for (int i = 0; i < items.length; i++) {
-			if (null != items[i]
-					&& items[i].getId().equals(
-							VisualizationStatusLineContributionItem.ID
-									+ IVisualizationView.ID_BLINDVIEW)) {
-				((VisualizationStatusLineContributionItem) items[i])
-						.setStatusMessage(statusMessage);
+			if (null != items[i] && items[i].getId()
+					.equals(VisualizationStatusLineContributionItem.ID + IVisualizationView.ID_BLINDVIEW)) {
+				((VisualizationStatusLineContributionItem) items[i]).setStatusMessage(statusMessage);
 			}
 		}
 	}
 
 	public void setInfoMessage(String infoMessage) {
-		IContributionItem[] items = getViewSite().getActionBars()
-				.getStatusLineManager().getItems();
+		IContributionItem[] items = getViewSite().getActionBars().getStatusLineManager().getItems();
 		for (int i = 0; i < items.length; i++) {
-			if (null != items[i]
-					&& items[i].getId().equals(
-							VisualizationStatusLineContributionItem.ID
-									+ IVisualizationView.ID_BLINDVIEW)) {
-				((VisualizationStatusLineContributionItem) items[i])
-						.setInfoMessage(infoMessage);
+			if (null != items[i] && items[i].getId()
+					.equals(VisualizationStatusLineContributionItem.ID + IVisualizationView.ID_BLINDVIEW)) {
+				((VisualizationStatusLineContributionItem) items[i]).setInfoMessage(infoMessage);
 			}
 		}
 	}
@@ -142,6 +143,36 @@ public class BlindView extends ViewPart implements IVisualizationView {
 							elementViewerManager.activateElementViewer();
 						} else {
 							elementViewerManager.hideElementViewer();
+						}
+
+					}
+				}
+
+				@Override
+				public void partVisible(IWorkbenchPartReference partRef) {
+					IWorkbenchPart part = partRef.getPart(false);
+					if (part instanceof IVisualizationView) {
+						if (part.equals(BlindView.this)) {
+							elementViewerManager.activateElementViewer();
+							if (null != toolbarManager) {
+								IContributionItem items[] = toolbarManager.getItems();
+								for (IContributionItem tmpItem : items) {
+									if ("org.eclipse.actf.visualization.internal.eval.ui.actions.TargetDocumentChangeAction"
+											.equals(tmpItem.getId())) { // $NON-NLS-1$
+										try {
+											IAction tmpAction = ((ActionContributionItem) tmpItem).getAction();
+											if (null != tmpAction && isFirst) {
+												isFirst = false;
+												EvaluationUtil.updateAction(tmpAction);
+												propChecngeListener = EvaluationUtil
+														.addTargetDocumentChangeActionListner(tmpAction);
+											}
+										} catch (Exception e) {
+										}
+									}
+								}
+
+							}
 						}
 					}
 				}
@@ -173,9 +204,8 @@ public class BlindView extends ViewPart implements IVisualizationView {
 	}
 
 	private void setStatusLine() {
-		getViewSite().getActionBars().getStatusLineManager().add(
-				new VisualizationStatusLineContributionItem(
-						IVisualizationView.ID_BLINDVIEW));
+		getViewSite().getActionBars().getStatusLineManager()
+				.add(new VisualizationStatusLineContributionItem(IVisualizationView.ID_BLINDVIEW));
 	}
 
 	public IBaseLabelProvider getLabelProvider() {
@@ -198,10 +228,10 @@ public class BlindView extends ViewPart implements IVisualizationView {
 	}
 
 	public void modelserviceChanged(MediatorEvent event) {
-		if(partRightBlind.isBrowserModeSupported(event.getModelServiceHolder())){
+		if (partRightBlind.isBrowserModeSupported(event.getModelServiceHolder())) {
 			browserVisualizaton.setEnabled(true);
-		}else{
-			browserVisualizaton.setEnabled(false);			
+		} else {
+			browserVisualizaton.setEnabled(false);
 		}
 	}
 
@@ -219,6 +249,12 @@ public class BlindView extends ViewPart implements IVisualizationView {
 
 	public void setVisualizeMode(int mode) {
 		// do nothing
+	}
+
+	@Override
+	public void dispose() {
+		EvaluationUtil.removeTargetDocumentChangeActionListner(propChecngeListener);
+		super.dispose();
 	}
 
 }

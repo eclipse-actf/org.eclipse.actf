@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2008 IBM Corporation and Others
+ * Copyright (c) 2007, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -176,6 +176,33 @@ public class PlatformUIUtil {
 		return null;
 	}
 
+	/**
+	 * Create specified View if the View does not exist 
+	 * 
+	 * @param viewId
+	 *            target view ID to create
+	 * @return IViewPart, or null if not available
+	 */
+	public static IViewPart createView(String viewId) {
+		if (null != viewId) {
+			IWorkbenchPage page = PlatformUIUtil.getActivePage();
+			if (null != page) {
+				IViewPart result = page.findView(viewId);
+				//System.out.println(viewId+": " +result);
+				if(result != null) {
+					return result;
+				}
+				try {
+					return (page.showView(viewId,null,IWorkbenchPage.VIEW_CREATE));
+				} catch (PartInitException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
+	
+	
 	/**
 	 * Get global action handler
 	 * 

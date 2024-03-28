@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2005, 2023 IBM Corporation and Others
+ * Copyright (c) 2005, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -62,9 +62,20 @@ public class HtmlEvalUtil extends HtmlTagUtil {
 	public static final String[] EVENT_FOCUS = { ATTR_ONFOCUS, ATTR_ONBLUR, ATTR_ONSELECT };
 
 	private static final XPathService xpathService = XPathServiceFactory.newService();
+
 	private static final Object EXP1 = xpathService.compile(".//a[@href]"); //$NON-NLS-1$
 
 	private static final Object EXP2 = xpathService.compile("//h1|//h2|//h3|//h4|//h5|//h6"); //$NON-NLS-1$
+
+	private static final String[] ARIA_STATE_PROPERTIES = { "aria-activedescendant", "aria-atomic", "aria-autocomplete",
+			"aria-busy", "aria-checked", "aria-colcount", "aria-colindex", "aria-colspan", "aria-controls",
+			"aria-current", "aria-describedby", "aria-details", "aria-disabled", "aria-dropeffect", "aria-errormessage",
+			"aria-expanded", "aria-flowto", "aria-grabbed", "aria-haspopup", "aria-hidden", "aria-invalid",
+			"aria-keyshortcuts", "aria-label", "aria-labelledby", "aria-level", "aria-live", "aria-modal",
+			"aria-multiline", "aria-multiselectable", "aria-orientation", "aria-owns", "aria-placeholder",
+			"aria-posinset", "aria-pressed", "aria-readonly", "aria-relevant", "aria-required", "aria-roledescription",
+			"aria-rowcount", "aria-rowindex", "aria-rowspan", "aria-selected", "aria-setsize", "aria-sort",
+			"aria-valuemax", "aria-valuemin", "aria-valuenow", "aria-valuetext" };
 
 	private Document target;
 
@@ -171,6 +182,10 @@ public class HtmlEvalUtil extends HtmlTagUtil {
 	private List<Element> styleList;
 	private List<Element> styleElementList;
 	private List<Element> idElementList;
+
+	// for ARIA
+	private List<Element> ariaLabelledbyElementList, ariaLabelElementList, ariaDescribedbyElementList,
+			ariaRoleElementList, ariaAssertiveElementList, ariaStatePropertiesElementList;
 
 	/**
 	 * Constructor of the class.
@@ -426,6 +441,25 @@ public class HtmlEvalUtil extends HtmlTagUtil {
 		 */
 	}
 
+	/**
+	 * Utility function to evaluate XPath and returns a List instance instead of a
+	 * NodeList instance.
+	 * 
+	 * @param xpath   XPath expression
+	 * @param context context node for evaluation
+	 * @return {@link List} of elements (XPath evaluation results)
+	 */
+	public static List<Element> getElementsListByXPath(String xpath, Node context) {
+		NodeList tmpNL = xpathService.evalPathForNodeList(xpath, context);
+		int length = tmpNL.getLength();
+		List<Element> elements = new ArrayList<>();
+		for (int i = 0; i < length; i++) {
+//			System.out.println((Element) tmpNL.item(i));
+			elements.add((Element) tmpNL.item(i));
+		}
+		return elements;
+	}
+
 	private Element[] getElementsArray(Document target, String tagName) {
 		NodeList tmpNL = target.getElementsByTagName(tagName);
 		int length = tmpNL.getLength();
@@ -476,17 +510,6 @@ public class HtmlEvalUtil extends HtmlTagUtil {
 			result[i] = tmpE;
 		}
 		return result;
-	}
-
-	private List<Element> getElementsListByXPath(Document target, String xpath) {
-		NodeList tmpNL = xpathService.evalPathForNodeList(xpath, target);
-		int length = tmpNL.getLength();
-		// Element[] result = new Element[length];
-		List<Element> elements = new ArrayList<Element>();
-		for (int i = 0; i < length; i++) {
-			elements.add((Element) tmpNL.item(i));
-		}
-		return elements;
 	}
 
 	@SuppressWarnings("nls")
@@ -723,7 +746,7 @@ public class HtmlEvalUtil extends HtmlTagUtil {
 	 */
 	public List<Element> getAccessKeyElements() {
 		if (accessKeyList == null) {
-			accessKeyList = getElementsListByXPath(target, "//*[@accesskey]");
+			accessKeyList = getElementsListByXPath("//*[@accesskey]", target);
 		}
 		return accessKeyList;
 	}
@@ -735,7 +758,7 @@ public class HtmlEvalUtil extends HtmlTagUtil {
 	 */
 	public List<Element> getElementsWithStyle() {
 		if (styleList == null) {
-			styleList = getElementsListByXPath(target, "//*[@style]");
+			styleList = getElementsListByXPath("//*[@style]", target);
 		}
 		return styleList;
 	}
@@ -747,9 +770,90 @@ public class HtmlEvalUtil extends HtmlTagUtil {
 	 */
 	public List<Element> getElementsWithId() {
 		if (idElementList == null) {
-			idElementList = getElementsListByXPath(target, "//*[@id]");
+			// limit to elements under body
+			idElementList = getElementsListByXPath("//body/*[@id]", target);
 		}
 		return idElementList;
+	}
+
+	/**
+	 * Get all elements that have aria-labelledby attribute.
+	 * 
+	 * @return
+	 */
+	public List<Element> getElementsWithAriaLabelledBy() {
+		if (ariaLabelledbyElementList == null) {
+			ariaLabelledbyElementList = getElementsListByXPath("//*[@aria-labelledby]", target);
+		}
+		return ariaLabelledbyElementList;
+	}
+
+	/**
+	 * Get all elements that have aria-label attribute.
+	 * 
+	 * @return
+	 */
+	public List<Element> getElementsWithAriaLabel() {
+		if (ariaLabelElementList == null) {
+			ariaLabelElementList = getElementsListByXPath("//*[@aria-label]", target);
+		}
+		return ariaLabelElementList;
+	}
+
+	/**
+	 * Get all elements that have aria-describedby attribute.
+	 * 
+	 * @return
+	 */
+	public List<Element> getElementsWithAriaDescribedby() {
+		if (ariaDescribedbyElementList == null) {
+			ariaDescribedbyElementList = getElementsListByXPath("//*[@aria-describedby]", target);
+		}
+		return ariaDescribedbyElementList;
+	}
+
+	/**
+	 * Get all elements that have role (ARIA role) attribute.
+	 * 
+	 * @return
+	 */
+	public List<Element> getElementsWithAriaRole() {
+		if (ariaRoleElementList == null) {
+			ariaRoleElementList = getElementsListByXPath("//*[@role]", target);
+		}
+		return ariaRoleElementList;
+	}
+
+	/**
+	 * Get all elements that have (aria-live="assertive") attribute.
+	 * 
+	 * @return
+	 */
+	public List<Element> getElementsWithAriaLiveAssertive() {
+		if (ariaAssertiveElementList == null) {
+			ariaAssertiveElementList = getElementsListByXPath("//*[@aria-live='assertive']", target);
+		}
+		return ariaAssertiveElementList;
+	}
+
+	/**
+	 * Get all elements that have ARIA state and properties attribute.
+	 * 
+	 * @return
+	 */
+	public List<Element> getElementsWithARIAStateProperties() {
+		if (ariaStatePropertiesElementList == null) {
+			HashSet<Element> tmpSet = new HashSet<>();
+			for (String targetS : ARIA_STATE_PROPERTIES) {
+				tmpSet.addAll(getElementsListByXPath("//*[@" + targetS + "]", target));
+			}
+			ariaStatePropertiesElementList = new ArrayList<>(tmpSet);
+		}
+
+		// ariaStatePropertiesElementList = getElementsListByXPath("//*[@aria-*]",
+		// target);
+
+		return ariaStatePropertiesElementList;
 	}
 
 	/**

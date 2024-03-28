@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2003, 2023 IBM Corporation and Others
+ * Copyright (c) 2003, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,6 +34,7 @@ import org.eclipse.actf.visualization.engines.voicebrowser.VoiceBrowserControlle
 import org.eclipse.actf.visualization.eval.EvaluationUtil;
 import org.eclipse.actf.visualization.eval.IEvaluationItem;
 import org.eclipse.actf.visualization.eval.guideline.GuidelineHolder;
+import org.eclipse.actf.visualization.eval.html.HtmlEvalUtil;
 import org.eclipse.actf.visualization.eval.html.HtmlTagUtil;
 import org.eclipse.actf.visualization.eval.html.statistics.PageData;
 import org.eclipse.actf.visualization.eval.problem.IProblemItem;
@@ -260,10 +261,21 @@ public class VisualizeEngine {
 				}
 			}
 
+			ariaLabelledbyDescribedbyVisualization();
+
 			// calculate time and set color
 			VisualizeColorUtil colorUtil = new VisualizeColorUtil(result, mapData, curParamBlind, isHTML5);
 			colorUtil.setColorAll();
 			calMaxTime();
+
+			pageData.setMainContentNum(HtmlEvalUtil.getElementsListByXPath("//main|//*[@role='main']", orig).size());
+			int landmarkCount = HtmlEvalUtil.getElementsListByXPath("//aside|//footer|//main|//nav|//search", orig)
+					.size();
+			landmarkCount += HtmlEvalUtil.getElementsListByXPath(
+					"//*[@role='banner|//*[@role='navigation|//*[@role='main']|//*[@role='contentinfo']|//*[@role='complementary']|//*[@role='article']|//*[@role='search']|//*[@role='application']",
+					orig).size();
+
+			pageData.setLandmarkNum(landmarkCount);
 
 			problems.addAll(linkAnalyzer.skipLinkCheck(iMaxTime, iMaxTimeLeaf));
 
@@ -297,7 +309,7 @@ public class VisualizeEngine {
 
 			replacePicture(result);
 
-			replaceImgAndCheck(result, mapData, curParamBlind.oReplaceImage);
+			replaceImgAndCheck(result, orig, mapData, curParamBlind.oReplaceImage);
 
 			int errorCount = 0;
 			int missing = 0;
@@ -356,9 +368,9 @@ public class VisualizeEngine {
 
 			// TODO merge with visualizeError
 			Id2LineViaActfId id2line = null;
-			if (EvaluationUtil.isOriginalDOM()) {
-				id2line = new Id2LineViaActfId(mapData.getId2AccIdMap(), html2viewMapV);
-			}
+//			if (EvaluationUtil.isOriginalDOM()) {
+			id2line = new Id2LineViaActfId(mapData.getId2AccIdMap(), html2viewMapV);
+//			}
 
 			for (IProblemItem i : problems) {
 				BlindProblem tmpBP = (BlindProblem) i;
@@ -398,11 +410,63 @@ public class VisualizeEngine {
 				VisualizeViewUtil.returnTextView(result, allPc, baseUrl);
 				return;
 			} else {
+				VisualizeViewUtil.visualizeARIA(result, mapData, baseUrl, curParamBlind);
+
 				variantFile = VisualizeViewUtil.prepareActions(result, mapData, baseUrl, servletMode);
+
 				if (isHTML5) {
 					VisualizeViewUtil.visualizeLandmark(result, baseUrl);
 				}
 				return;
+			}
+		}
+	}
+
+	private void ariaLabelledbyDescribedbyVisualization() {
+		List<Element> labelledbyElements = HtmlEvalUtil.getElementsListByXPath(
+				"//input[@aria-labelledby]|//textarea[@aria-labelledby]|//select[@aria-labelledby]", result);
+		// TBD //button[@aria-labelledby]|
+
+		for (Element labelledbyElement : labelledbyElements) {
+			String target = labelledbyElement.getAttribute("aria-labelledby").trim();
+			if (target.length() > 0) {
+				String[] IDs = target.split(" ");
+				for (String id : IDs) {
+					Element labelElement = orig.getElementById(id);
+					if (null != labelElement) {
+						Node targetNode = mapData.getResultNode(labelElement);
+						if (null != targetNode) {
+							// System.out.println("aria-labelledby id: " + id + " " + targetNode);
+							VisualizationNodeInfo visInfo = mapData.getNodeInfo(targetNode);
+							if (visInfo != null) {
+								visInfo.setARIAlabel(true);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		List<Element> describedbyElements = HtmlEvalUtil.getElementsListByXPath(
+				"//input[@aria-describedby]|//textarea[@aria-describedby]|//button[@aria-describedby]|//select[@aria-describedby]",
+				result);
+		for (Element describedbyElement : describedbyElements) {
+			String target = describedbyElement.getAttribute("aria-describedby").trim();
+			if (target.length() > 0) {
+				String[] IDs = target.split(" ");
+				for (String id : IDs) {
+					Element descriptionElement = orig.getElementById(id);
+					if (null != descriptionElement) {
+						Node targetNode = mapData.getResultNode(descriptionElement);
+						if (null != targetNode) {
+							// System.out.println("aria-describedby id: " + id + " " + targetNode);
+							VisualizationNodeInfo visInfo = mapData.getNodeInfo(targetNode);
+							if (visInfo != null) {
+								visInfo.setARIAdescription(true);
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -539,9 +603,10 @@ public class VisualizeEngine {
 	}
 
 	@SuppressWarnings("nls")
-	private void replaceImgAndCheck(Document doc, VisualizeMapDataImpl mapData, boolean remove) {
+	private void replaceImgAndCheck(Document resultDoc, Document origDoc, VisualizeMapDataImpl mapData,
+			boolean remove) {
 
-		NodeList mapList = doc.getElementsByTagName("map");
+		NodeList mapList = resultDoc.getElementsByTagName("map");
 		Map<String, Element> mapMap = new HashMap<String, Element>();
 		int mapListsize = mapList.getLength();
 		for (int i = 0; i < mapListsize; i++) {
@@ -549,7 +614,7 @@ public class VisualizeEngine {
 			mapMap.put(mapEl.getAttribute("name"), mapEl);
 		}
 
-		NodeList nl = doc.getElementsByTagName("img");
+		NodeList nl = resultDoc.getElementsByTagName("img");
 		int size = nl.getLength();
 		Vector<IProblemItem> problemV = new Vector<IProblemItem>();
 
@@ -560,7 +625,7 @@ public class VisualizeEngine {
 
 			Element img = (Element) nl.item(i);
 			// replaceImgAndCheckForOneImg(img, mapMap, doc, remove, problemV);
-			imgChecker.checkAndReplaceImg(img, doc, remove);
+			imgChecker.checkAndReplaceImg(img, resultDoc, origDoc, remove);
 		}
 
 		size = problemV.size();
@@ -572,11 +637,11 @@ public class VisualizeEngine {
 
 		// TODO 0 char is Error?
 		// iframe
-		nl = doc.getElementsByTagName("iframe");
+		nl = resultDoc.getElementsByTagName("iframe");
 		size = nl.getLength();
 		for (int i = size - 1; i >= 0; i--) {
 			Element iframe = (Element) nl.item(i);
-			Element div = doc.createElement("div");
+			Element div = resultDoc.createElement("div");
 			// debug
 			div.setAttribute("comment", iframe.getAttribute("comment"));
 			div.setAttribute("id", iframe.getAttribute("id"));
@@ -604,10 +669,10 @@ public class VisualizeEngine {
 				div.setAttribute("width", iframe.getAttribute("width"));
 				div.setAttribute("height", iframe.getAttribute("height"));
 				if (error) {
-					div.appendChild(doc.createTextNode("[iframe: (without title)]"));
+					div.appendChild(resultDoc.createTextNode("[iframe: (without title)]"));
 					div.setAttribute("style", errorStyle);
 				} else {
-					div.appendChild(doc.createTextNode("[iframe: title=\"" + title + "\"]"));
+					div.appendChild(resultDoc.createTextNode("[iframe: title=\"" + title + "\"]"));
 					if (title.matches("^[\\s\u3000]*$")) {
 						div.setAttribute("style", errorStyle);
 					} else {
@@ -622,7 +687,7 @@ public class VisualizeEngine {
 		}
 
 		// image button
-		nl = doc.getElementsByTagName("input");
+		nl = resultDoc.getElementsByTagName("input");
 		size = nl.getLength();
 		Vector<IProblemItem> tmpV = new Vector<IProblemItem>();
 		for (int i = size - 1; i >= 0; i--) {

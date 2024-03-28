@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014 Ministry of Internal Affairs and Communications (MIC),
+ * Copyright (c) 2010, 2024 Ministry of Internal Affairs and Communications (MIC),
  * IBM Corporation and Others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -54,6 +54,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 
 	private IWorkbenchAction _closeAction;
 
+	private IWorkbenchAction _resetPerspectiveAction;
+
 	public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
 		super(configurer);
 	}
@@ -83,14 +85,15 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		this._quitAction = ActionFactory.QUIT.create(window);
 
 		this._closeAction = ActionFactory.CLOSE.create(window);
+
+		this._resetPerspectiveAction = ActionFactory.RESET_PERSPECTIVE.create(window);
 	}
 
 	@SuppressWarnings("nls")
 	protected void fillMenuBar(IMenuManager menuBar) {
 
 		// File
-		MenuManager fileMenu = new MenuManager(MiCheckerPlugin
-				.getResourceString("menu.file"),
+		MenuManager fileMenu = new MenuManager(MiCheckerPlugin.getResourceString("menu.file"),
 				IWorkbenchActionConstants.M_FILE);
 		fileMenu.add(new Separator("fileGroup"));
 		fileMenu.add(new Separator());
@@ -104,8 +107,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		menuBar.add(fileMenu);
 
 		// Tool
-		MenuManager toolMenu = new MenuManager(MiCheckerPlugin
-				.getResourceString("menu.viz"), "visualization");
+		MenuManager toolMenu = new MenuManager(MiCheckerPlugin.getResourceString("menu.viz"), "visualization");
 		menuBar.add(toolMenu);
 
 		// Favorite
@@ -115,12 +117,10 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		menuBar.add(new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS));
 
 		// Window
-		MenuManager windowMenu = new MenuManager(MiCheckerPlugin
-				.getResourceString("menu.window"),
+		MenuManager windowMenu = new MenuManager(MiCheckerPlugin.getResourceString("menu.window"),
 				IWorkbenchActionConstants.M_WINDOW);
 		windowMenu.add(new Separator());
-		MenuManager navigationMenu = new MenuManager(MiCheckerPlugin
-				.getResourceString("menu.navigation"),
+		MenuManager navigationMenu = new MenuManager(MiCheckerPlugin.getResourceString("menu.navigation"),
 				"navigationMenu");
 		windowMenu.add(navigationMenu);
 		navigationMenu.add(_showViewMenuAction);
@@ -135,11 +135,13 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		navigationMenu.add(_prevViewAction);
 
 		windowMenu.add(new Separator());
+		windowMenu.add(_resetPerspectiveAction);
+
+		windowMenu.add(new Separator());
 		windowMenu.add(_preferenceAction);
 		menuBar.add(windowMenu);
 
-		MenuManager helpMenu = new MenuManager(MiCheckerPlugin
-				.getResourceString("menu.help"),
+		MenuManager helpMenu = new MenuManager(MiCheckerPlugin.getResourceString("menu.help"),
 				IWorkbenchActionConstants.M_HELP);
 		helpMenu.add(new Separator(IWorkbenchActionConstants.HELP_START));
 		helpMenu.add(_helpAction);
@@ -168,17 +170,16 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	protected void fillStatusLine(IStatusLineManager statusLine) {
 		super.fillStatusLine(statusLine);
 
-		ProgressContribution pc = new ProgressContribution(
-				ProgressContribution.PROGRESS_CONTRIBUTION_ID);
+		ProgressContribution pc = new ProgressContribution(ProgressContribution.PROGRESS_CONTRIBUTION_ID);
 		pc.setVisible(false);
 		statusLine.add(pc);
 	}
-	
+
 	@Override
 	protected void fillCoolBar(ICoolBarManager coolBar) {
 		super.fillCoolBar(coolBar);
-		
-		//to place actions left side (Quick Access) 
+
+		// to place actions left side (Quick Access)
 		coolBar.add(new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 

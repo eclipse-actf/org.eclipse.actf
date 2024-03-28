@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2023 IBM Corporation and others.
+ * Copyright (c) 2004, 2024 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -36,7 +36,7 @@ var idNumber_Old=0;
 var refresh=false;
 //var HIGHLIGHT_BGCOLOR = "#ffdddd";
 var HIGHLIGHT_BGCOLOR = "rgb(255, 221, 221)";
-var MAX_PROBLEM_SELECTION = 30;
+var MAX_PROBLEM_SELECTION = 500;
 
 // call it like: setHighlight2(new Array(43,47,49), new Array(45,47,50));
 function setHighlight2(firstNodeArray, lastNodeArray) {	

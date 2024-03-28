@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2005, 2008 IBM Corporation and Others
+ * Copyright (c) 2005, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,49 +23,33 @@ import org.w3c.dom.Node;
 
 public class VisualizeMapDataImpl implements IVisualizeMapData {
 
-	private Map<Node, Node> orig2resultMap = new HashMap<Node, Node>(1024); // orig
-																			// node
-																			// <>
-																			// result
-																			// node
+	// orig node <> result node
+	private Map<Node, Node> orig2resultMap = new HashMap<Node, Node>(1024);
 
-	private Map<Node, Node> result2origMap = new HashMap<Node, Node>(1024); // result
-																			// node
-																			// <>
-																			// orig
-																			// node
+	// result node <> orig node
+	private Map<Node, Node> result2origMap = new HashMap<Node, Node>(1024);
 
-	private Map<Node, Integer> orig2idMap = new HashMap<Node, Integer>(1024); // orig
-																				// node
-																				// <>
-																				// result
-																				// node's
-																				// id
+	// orig node <> result node's id
+	private Map<Node, Integer> orig2idMap = new HashMap<Node, Integer>(1024);
 
-	private Map<Node, Integer> result2idMap = new HashMap<Node, Integer>(1024); // result
-																				// node
-																				// <>
-																				// result
-																				// node's
-																				// id
+	// result node <> result node's id
+	private Map<Node, Integer> result2idMap = new HashMap<Node, Integer>(1024);
 
 	private Map<Integer, Integer> accId2id = new HashMap<Integer, Integer>(1024);
 
 	private Map<Integer, Integer> id2accId = new HashMap<Integer, Integer>(1024);
 
-	private Map<Node, VisualizationNodeInfo> node2infoMap = new HashMap<Node, VisualizationNodeInfo>(
-			1024);
+	private Map<Node, VisualizationNodeInfo> node2infoMap = new HashMap<Node, VisualizationNodeInfo>(1024);
 
 	private Map<Node, Node> removedNodeMap = new HashMap<Node, Node>(512);
 
 	private Map<Node, Node> intraPageLinkMap = new HashMap<Node, Node>(256);
 
-	private List<VisualizationNodeInfo> nodeInfoList = new ArrayList<VisualizationNodeInfo>(
-			1024);
+	private List<VisualizationNodeInfo> nodeInfoList = new ArrayList<VisualizationNodeInfo>(1024);
 
 	/**
-     *  
-     */
+	 *  
+	 */
 	public VisualizeMapDataImpl() {
 
 	}
@@ -153,8 +137,7 @@ public class VisualizeMapDataImpl implements IVisualizeMapData {
 		orig2idMap.put(getOrigNode(result), id);
 	}
 
-	protected void addNodeInfoMapping(Node result,
-			VisualizationNodeInfo nodeInfo) {
+	protected void addNodeInfoMapping(Node result, VisualizationNodeInfo nodeInfo) {
 		node2infoMap.put(result, nodeInfo);
 	}
 
@@ -238,8 +221,7 @@ public class VisualizeMapDataImpl implements IVisualizeMapData {
 
 				if (tmpE.hasAttribute(targetIdS)) {
 					try {
-						Integer accId = new Integer(tmpE
-								.getAttribute(targetIdS));
+						Integer accId = Integer.parseInt(tmpE.getAttribute(targetIdS));
 						addOrigIdAccIdMapping(targetId, accId);
 					} catch (Exception e) {
 					}

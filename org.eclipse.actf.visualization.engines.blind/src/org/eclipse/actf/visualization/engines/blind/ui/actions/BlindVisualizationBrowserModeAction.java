@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010 IBM Corporation and Others
+ * Copyright (c) 2010, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -39,6 +39,10 @@ public class BlindVisualizationBrowserModeAction extends Action {
 		
 		IViewPart viewPart = PlatformUIUtil
 				.showView(IVisualizationView.ID_BLINDVIEW);
+		
+		PlatformUIUtil.createView(IVisualizationView.SUMMARY_REPORT_VIEW_ID);
+		PlatformUIUtil.createView(IVisualizationView.DETAILED_REPROT_VIEW_ID);								
+
 		if (viewPart instanceof IVisualizationView) {
 			((IVisualizationView) viewPart).doVisualize();
 		}
