@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2023 IBM Corporation and Others
+ * Copyright (c) 2008, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -122,13 +122,19 @@ public class BlindVisualizerHtml extends BlindVisualizerBase implements IBlindVi
 				html2ViewMapV = Html2ViewMapMaker.makeMap(ORIG_HTML_FILE, MAPPED_HTML_FILE_PRE + frameId + ".html", //$NON-NLS-1$
 						tmpDirS);
 				// decode miss
-				if (html2ViewMapV.size() == 0) {
-					isIEhtml = true;
-				}
+//				if (html2ViewMapV.size() == 0) {
+//					isIEhtml = true;
+//				}
 				if (PERFORMANCE_DEBUG)
 					System.out.println("map finish\t" + (new Date()).getTime()); //$NON-NLS-1$
 			} else {
 				isIEhtml = true;
+
+				html2ViewMapV = Html2ViewMapMaker.makeMap(IE_HTML_FILE, MAPPED_HTML_FILE_PRE + frameId + ".html", //$NON-NLS-1$
+						tmpDirS);
+
+				if (PERFORMANCE_DEBUG)
+					System.out.println("map finish\t" + (new Date()).getTime()); //$NON-NLS-1$
 			}
 
 			// for line<>id mapping
@@ -142,7 +148,7 @@ public class BlindVisualizerHtml extends BlindVisualizerBase implements IBlindVi
 
 				// TODO replace with DomByCom (need clone/write support)
 				IHTMLParser tmpHtmlParser = HTMLParserFactory.createHTMLParser();
-				tmpHtmlParser.parse(new FileInputStream(tmpDirS + IE_HTML_FILE));
+				tmpHtmlParser.parse(new FileInputStream(targetFileName));
 				document = tmpHtmlParser.getDocument();
 
 				tmpHtmlParser.parse(new FileInputStream(tmpDirS + ORIG_HTML_FILE));
@@ -226,7 +232,11 @@ public class BlindVisualizerHtml extends BlindVisualizerBase implements IBlindVi
 			IVisualizeMapData mapData = engine.getVisualizeMapData();
 
 			// TODO
-			checkResult.setSourceFile(new File(tmpDirS + HTML_SOURCE_FILE));
+			if (isIEhtml) {
+				checkResult.setSourceFile(new File(tmpDirS + IE_HTML_FILE));
+			} else {
+				checkResult.setSourceFile(new File(tmpDirS + HTML_SOURCE_FILE));
+			}
 
 			boolean isDBCS = false;
 			if (ParamBlind.getInstance().iLanguage == ParamBlind.JP) {
@@ -288,9 +298,9 @@ public class BlindVisualizerHtml extends BlindVisualizerBase implements IBlindVi
 					if (tmpItem.getHighlightTargetIds().length == 0) {
 						tmpItem.setHighlightTargetIds(nodeInfo.getHighlightTargetIds(mapData.getOrig2idMap()));
 					}
-					if (EvaluationUtil.isOriginalDOM()) {
-						tmpItem.setHighlightTargetSourceInfo(nodeInfo.getHighlightTargetSourceInfo(html2ViewMapV));
-					}
+//					if (EvaluationUtil.isOriginalDOM()) {
+					tmpItem.setHighlightTargetSourceInfo(nodeInfo.getHighlightTargetSourceInfo(html2ViewMapV));
+//					}
 				}
 				if (hasBOM && tmpItem.getId().equals("C_88.1")) { //$NON-NLS-1$
 					hasBOM = false; // do not check from here

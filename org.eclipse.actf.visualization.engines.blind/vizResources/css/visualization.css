@@ -17,3 +17,11 @@ aside,*[role="complementary"],*[role="search"] {
 section,*[role="region"] {
 	border: 1px blue dotted; padding: 1px; margin: 1px;
 }
+
+*[role="alertdialog"],*[role="alert"],*[aria-live="assertive"] {
+	border: 2px red solid; padding: 1px; margin: 1px;
+}
+
+*[aria-invalid="true"] {
+	border: 2px red dotted; padding: 1px; margin: 1px;
+}

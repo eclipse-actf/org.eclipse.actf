@@ -1,5 +1,6 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2011 Ministry of Internal Affairs and Communications (MIC).
+ * Copyright (c) 2010, 2024 Ministry of Internal Affairs and Communications (MIC),
+ * IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +12,7 @@
 
 package org.eclipse.actf.examples.michecker.ui.actions;
 
+import org.eclipse.actf.ui.util.PlatformUIUtil;
 import org.eclipse.actf.visualization.ui.IVisualizationView;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -34,6 +36,10 @@ public class VisualizeAction implements IWorkbenchWindowActionDelegate {
 		try {
 			IViewPart viewPart = this._window.getActivePage().showView(
 					IVisualizationView.ID_BLINDVIEW);
+			
+			PlatformUIUtil.createView(IVisualizationView.SUMMARY_REPORT_VIEW_ID);
+			PlatformUIUtil.createView(IVisualizationView.DETAILED_REPROT_VIEW_ID);								
+
 			if (viewPart != null) {
 				((IVisualizationView) viewPart).doVisualize();
 			}

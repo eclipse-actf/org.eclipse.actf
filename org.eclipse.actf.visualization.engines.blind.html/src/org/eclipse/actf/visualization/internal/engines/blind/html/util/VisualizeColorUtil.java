@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2016 IBM Corporation and Others
+ * Copyright (c) 2004, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -84,6 +84,11 @@ public class VisualizeColorUtil {
 	private void setColor() {
 
 		String strRGB = "#000000";
+		int r = param.labelTagsColor.red + 80;
+		int g = param.labelTagsColor.green + 80;
+		int b = param.labelTagsColor.blue + 80;
+		RGB ariaLabelColor = new RGB(r > 255 ? 255 : r, g > 255 ? 255 : g, b > 255 ? 255 : b);
+		RGB descriptionColor = new RGB(r > 255 ? 255 : r, g > 255 ? 255 : g, b > 255 ? 255 : b);
 
 		if (param.bVisualizeTable) {
 			NodeList nl = result.getElementsByTagName("head");
@@ -112,20 +117,29 @@ public class VisualizeColorUtil {
 				el = (Element) node;
 			} else if (node.getNodeType() == Node.TEXT_NODE) {
 				/*
-				 * System.out.println( "VisualizeEngine: 709: parent of span: "
-				 * + node.getParentNode().getNodeName());
+				 * System.out.println( "VisualizeEngine: 709: parent of span: " +
+				 * node.getParentNode().getNodeName());
 				 */
-
-				if (node.getParentNode().getNodeName().equals("textarea")) {
+				Node parent = node.getParentNode();
+				if (parent.getNodeName().equals("textarea")) {
 					continue;
 				}
 				el = result.createElement("span");
-				node.getParentNode().insertBefore(el, node);
+				parent.insertBefore(el, node);
 				if (info.isInvisible()) {
 					// System.out.println("invisible:"+node);
-					node.getParentNode().removeChild(node);
+					parent.removeChild(node);
 				} else {
 					el.appendChild(node);
+					VisualizationNodeInfo tmpInfo = mapData.getNodeInfo(parent);
+					if (null != tmpInfo) {
+						if (tmpInfo.isARIAlabel() || tmpInfo.isARIAdescription()) {
+							try {
+								el.setAttribute("style", ((Element) parent).getAttribute("style"));
+							} catch (Exception e) {
+							}
+						}
+					}
 				}
 				Integer idObj = mapData.getIdOfNode(node);
 				if (idObj != null) {
@@ -142,9 +156,10 @@ public class VisualizeColorUtil {
 			String labelRGB = getRGBString(param.labelTagsColor, "#FFFF00");
 			String inputRGB = getRGBString(param.inputTagsColor, "#FF9900");
 			String captionRGB = getRGBString(param.captionColor, "#FFFF80");
+			String ariaLabelRGB = getRGBString(ariaLabelColor, "#FFFF50");
+			String descriptionRGB = getRGBString(descriptionColor, "#FFFF50");
 
-			if (param.bColorizeTags && (info.isHeading() || info.isTableHeader() || info.isLabel()
-					|| info.isIdRequiredInput() || info.isCaption())) {
+			if (param.bColorizeTags && (info.isColorVisualizationTarget())) {
 				if (info.isHeading()) {
 					strRGB = headingRGB;
 				} else if (info.isTableHeader()) {
@@ -153,6 +168,10 @@ public class VisualizeColorUtil {
 					strRGB = inputRGB;
 				} else if (info.isLabel()) {
 					strRGB = labelRGB;
+				} else if (info.isARIAlabel()) {
+					strRGB = ariaLabelRGB;
+				} else if (info.isARIAdescription()) {
+					strRGB = descriptionRGB;
 				} else if (info.isCaption()) {
 					strRGB = captionRGB;
 				}
@@ -179,7 +198,7 @@ public class VisualizeColorUtil {
 				if (param.bVisualizeTime == true) {
 					if ("mark".equals(el.getTagName()) || HtmlTagUtil.hasAncestor(el, "mark")) {
 						el.setAttribute("style", "color: black; background-image: none;");
-					} else {
+					} else if (!el.hasAttribute("style")) {
 						el.setAttribute("style", "color: black; background-image: none; background-color: #"
 								+ calcColor(time, param.maxTimeColor, param.iMaxTime));
 					}
@@ -191,9 +210,9 @@ public class VisualizeColorUtil {
 				 * else { }
 				 */
 			/*
-			 * el.setAttribute( "comment", info.getPacketId() + "," +
-			 * info.getId() + "," + info.getTotalWords() + "," + info.getWords()
-			 * + "," + info.getTotalLines() + "," + info.getLines());
+			 * el.setAttribute( "comment", info.getPacketId() + "," + info.getId() + "," +
+			 * info.getTotalWords() + "," + info.getWords() + "," + info.getTotalLines() +
+			 * "," + info.getLines());
 			 */
 		}
 	}

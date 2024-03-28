@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2016 IBM Corporation and Others
+ * Copyright (c) 2004, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -368,16 +368,6 @@ public class TextChecker {
 				return TextCheckResult.NG_WORD;
 		}
 
-		if (src != null) {
-			Matcher m = Pattern.compile(".*?([^/]+)").matcher(src.toLowerCase());
-			if (m.matches()) {
-				String fileName = m.group(1);
-				if (alt.equals(fileName)) {
-					return TextCheckResult.SAME_AS_SRC;
-				}
-			}
-		}
-
 		if (isEndWithImageExt(alt))
 			return TextCheckResult.IMG_EXT;
 
@@ -412,6 +402,17 @@ public class TextChecker {
 		else if ((double) wordCountNG / (double) wordCountAll > 0.3) {
 			return TextCheckResult.INCLUDING_NG_WORD; // case 1
 		}
+		
+		if (src != null) {
+			Matcher m = Pattern.compile(".*?([^/]+)").matcher(src.toLowerCase());
+			if (m.matches()) {
+				String fileName = m.group(1);
+				if (alt.equals(fileName)) {
+					return TextCheckResult.SAME_AS_SRC;
+				}
+			}
+		}
+
 
 		return TextCheckResult.OK;
 	}

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2015 IBM Corporation and Others
+ * Copyright (c) 2004, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -45,10 +45,9 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 
 	public static final String FLASH_PLUGINSPAGE = "http://www.macromedia.com/go/getflashplayer";
 
-	private static final String[] BLOCK_ELEMENT = { "address", "blockquote",
-			"center", "dir", "div", "dl", "fieldset", "form", "h1", "h2", "h3",
-			"h4", "h5", "h6", "hr", "isindex", "menu", "noframes", "noscript",
-			"ol", "p", "pre", "table", "ul", "dd",
+	private static final String[] BLOCK_ELEMENT = { "address", "blockquote", "center", "dir", "div", "dl", "fieldset",
+			"form", "h1", "h2", "h3", "h4", "h5", "h6", "hr", "isindex", "menu", "noframes", "noscript", "ol", "p",
+			"pre", "table", "ul", "dd",
 			// inline? "dt",
 			"frameset", "li", "tbody", "td", "tfoot", "th", "thead", "tr" };
 
@@ -69,10 +68,8 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 	 * Check if target {@link Node} has ancestor whose name is specified target
 	 * name.
 	 * 
-	 * @param target
-	 *            target {@link Node}
-	 * @param ancestorName
-	 *            target ancestor tag name
+	 * @param target       target {@link Node}
+	 * @param ancestorName target ancestor tag name
 	 * @return true if target {@link Node} has target ancestor
 	 */
 	public static boolean hasAncestor(Node target, String ancestorName) {
@@ -91,10 +88,8 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 	/**
 	 * Get ancestor node whose name is specified target name
 	 * 
-	 * @param target
-	 *            target {@link Node}
-	 * @param ancestorName
-	 *            target ancestor tag name
+	 * @param target       target {@link Node}
+	 * @param ancestorName target ancestor tag name
 	 * @return target ancestor {@link Node} or null
 	 */
 	public static Node getAncestor(Node target, String ancestorName) {
@@ -109,10 +104,27 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 	}
 
 	/**
+	 * Get ancestor node that has specified attribute
+	 * 
+	 * @param target        target {@link Node}
+	 * @param attributeName target attribute name
+	 * @return target ancestor {@link Node} or null
+	 */
+	public static Node getAncestorWithAttribute(Node target, String attributeName, String attributeValue) {
+		Node tmpNode = target;
+		while (tmpNode != null) {
+			if (tmpNode instanceof Element && attributeValue.equals(((Element) tmpNode).getAttribute(attributeName))) {
+				return tmpNode;
+			}
+			tmpNode = tmpNode.getParentNode();
+		}
+		return null;
+	}
+
+	/**
 	 * Get <i>noscript</i> text of the {@link Node}
 	 * 
-	 * @param target
-	 *            target {@link Node}
+	 * @param target target {@link Node}
 	 * @return <i>noscript</i> text
 	 */
 	public static String getNoScriptText(Node target) {
@@ -134,8 +146,7 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 	 * Gather text and alternative text from descendant nodes and return it as
 	 * String.
 	 * 
-	 * @param target
-	 *            target {@link Node}
+	 * @param target target {@link Node}
 	 * @return gathered text and alternative text
 	 */
 	public static String getTextAltDescendant(Node target) {
@@ -146,8 +157,7 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 			if (curNode.getNodeType() == Node.TEXT_NODE) {
 				strBuf.append(curNode.getNodeValue().trim() + " ");
 			} else if (curNode.getNodeName().equalsIgnoreCase("img")) { //$NON-NLS-1$
-				strBuf.append(((Element) curNode).getAttribute(ATTR_ALT).trim()
-						+ " "); //$NON-NLS-1$
+				strBuf.append(((Element) curNode).getAttribute(ATTR_ALT).trim() + " "); //$NON-NLS-1$
 			}
 
 			if (curNode.hasChildNodes()) {
@@ -170,8 +180,7 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 	/**
 	 * Gather text from descendant nodes and return it as String.
 	 * 
-	 * @param target
-	 *            target {@link Node}
+	 * @param target target {@link Node}
 	 * @return gathered text
 	 */
 	public static String getTextDescendant(Node target) {
@@ -203,8 +212,7 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 	/**
 	 * Check if target {@link Node} has text descendant
 	 * 
-	 * @param target
-	 *            target {@link Node}
+	 * @param target target {@link Node}
 	 * @return true if target {@link Node} has text descendant
 	 */
 	public static boolean hasTextDescendant(Node target) {
@@ -231,12 +239,11 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 		return (false);
 	}
 
-	public static List<Element> getImgElementsFromMap(Document target,
-			Element map) {
+	public static List<Element> getImgElementsFromMap(Document target, Element map) {
 		List<Element> result = new ArrayList<Element>();
 		String mapName = map.getAttribute("name");
-		NodeList images = XPathServiceFactory.newService().evalPathForNodeList(
-				"//img[@usemap='#" + mapName + "']", target);
+		NodeList images = XPathServiceFactory.newService().evalPathForNodeList("//img[@usemap='#" + mapName + "']",
+				target);
 		for (int i = 0; i < images.getLength(); i++) {
 			Element image = (Element) images.item(i);
 			result.add(image);
@@ -246,16 +253,15 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 
 	public static boolean isTextControl(Element ctrl) {
 		String tagName = ctrl.getTagName().toLowerCase();
-		return (tagName.equals("textarea") || (tagName.equals("input") && ctrl
-				.getAttribute("type").toLowerCase().matches("|text|password")));
+		return (tagName.equals("textarea")
+				|| (tagName.equals("input") && ctrl.getAttribute("type").toLowerCase().matches("|text|password")));
 	}
 
 	public static boolean isButtonControl(Element ctrl) {
 		String tagName = ctrl.getTagName().toLowerCase();
-		return ((tagName.equals("button") && ctrl.getAttribute("type")
-				.toLowerCase().matches("submit|reset|button")) || (tagName
-				.equals("input") && ctrl.getAttribute("type").toLowerCase()
-				.matches("submit|reset|button|image")));
+		return ((tagName.equals("button") && ctrl.getAttribute("type").toLowerCase().matches("submit|reset|button"))
+				|| (tagName.equals("input")
+						&& ctrl.getAttribute("type").toLowerCase().matches("submit|reset|button|image")));
 	}
 
 	public static boolean isBlankString(String str) {

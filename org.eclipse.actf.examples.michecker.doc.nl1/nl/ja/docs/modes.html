@@ -3,7 +3,7 @@
 <HEAD>
 <META http-equiv="Content-Type" CONTENT="text/html; charset=SHIFT_JIS">
 <META http-equiv="Content-Style-Type" content="text/css">
-<meta name="copyright" content="Copyright (c) Ministry of Internal Affairs and Communications, IBM Corporation and others 2007, 2016. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<meta name="copyright" content="Copyright (c) Ministry of Internal Affairs and Communications, IBM Corporation and others 2007, 2024. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
 <TITLE>二つの障害視覚化</TITLE>
 <LINK href="miChecker.css" rel="stylesheet" type="text/css" class="head">
 </HEAD>
@@ -63,6 +63,20 @@ miChecker は以下の4種類のタグを認識し、色をつけて表示します。
 <LI>キャプション要素 (&lt;caption&gt;, &lt;figcaption&gt;)
 </UL>
 
+<H4>ランドマーク関連タグ</H4>
+<P>
+最新の HTML では、ランドマークを表すタグが追加され、これらのタグもナビゲーションの目印として利用することができます。
+miChecker は以下のタグおよび関連するWAI-ARIAのrole属性などを認識し、アイコンと枠囲みなどを用いて表示します。
+</P>
+<UL>
+<LI>ヘッダー (&lt;header&gt;) 
+<LI>ナビゲーション(&lt;nav&gt;) 
+<LI>メイン (&lt;main&gt;) 
+<LI>セクション (&lt;section&gt;) 
+<LI>アサイド (&lt;aside&gt;)
+<LI>フッター (&lt;fotter&gt;)
+</UL>
+
 <H4>テーブル構造</H4>
 <P>
 &lt;table&gt;タグは表（データテーブル）を作るのにも、レイアウトを整える目的（レイアウトテーブル）にも利用されています。
@@ -107,6 +121,15 @@ miChecker は冗長なテキストの情報を検出します。
 さらに、miChecker は入れ子になったテーブルや、見出し要素の有無を検出します。
 </P>
 
+<H4>WAI-ARIAへの対応</H4>
+<P>
+miChecker v3.1以降では、WAI-ARIAのroleやaria-label, aria-labelledby, aria-describedbyなどを用いて指定されたテキストラベルなど情報の一部について視覚化や評価支援を行います。
+主な対象はHTMLの標準的な要素に対して指定されたテキストラベルや、aria-required, aria-invalidなど、フォーム・コントロールの状態を表すための情報などです。
+</P>
+<P>
+WAI-ARIAのroleおよびステート、プロパティを用いてカスタム・ウィジェットを作成されている場合には、対象となるブラウザおよびスクリーン・リーダーなどを用いて意図した通りの挙動となっているか確認してください。
+</P>
+
 <H3 id="accguidelineCheck">アクセシビリティ・ガイドラインへの準拠度のチェック</H3>
 <P>
 miChecker は、従来のアクセシビリティ・チェッカーと同様に、ウェブページのアクセシビリティ・ガイドラインへの準拠度もチェックします。
@@ -139,11 +162,11 @@ miChecker のロービジョンシミュレーション時には、以下の4種類のチェックを行います�
 画像の中に、色覚異常ユーザーまたは白内障ユーザーにとって区別しづらい色が含まれていないかどうか。
 </UL>
 <P>
-どのような症状（障害）についてシミュレーションを行うかは、「<A href="parametersLv.html"設定パネル（ロービジョン シミュレーション 設定）</A>」 で指定することができます。
+どのような症状（障害）についてシミュレーションを行うかは、「<A href="parametersLv.html">設定パネル（ロービジョン シミュレーション 設定）</A>」 で指定することができます。
 </P>
 
 
-<H1 class="related">関連項目</H1>
+<H2 class="related">関連項目</H2>
 <UL class="related">
 <LI><A href="problemsBlind.html">「アクセシビリティ検証・音声ユーザビリティ視覚化」 で検出されるアクセシビリティ、およびユーザビリティの問題点</A>
 <LI><A href="problemsLv.html">「ロービジョンシミュレーション」 で検出されるアクセシビリティ、およびユーザビリティの問題点</A>
@@ -151,9 +174,9 @@ miChecker のロービジョンシミュレーション時には、以下の4種類のチェックを行います�
 
 <P>
 <A href="index.html">インデックスに戻る</A>
+</P>
 <hr>
 <DIV class="logo"><IMG src="images/logo.gif" alt=""></DIV>
-</P>
 
 
 </BODY>

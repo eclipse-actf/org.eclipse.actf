@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2008 IBM Corporation and Others
+ * Copyright (c) 2007, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,9 +10,14 @@
  *******************************************************************************/
 package org.eclipse.actf.visualization.internal.eval;
 
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+
 import org.eclipse.actf.visualization.eval.EvaluationUtil;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -22,7 +27,9 @@ public class EvaluationPlugin extends AbstractUIPlugin {
 
 	// The shared instance
 	private static EvaluationPlugin plugin;
-	
+
+	private ResourceBundle _resourceBundle;
+
 	/**
 	 * The constructor
 	 */
@@ -32,7 +39,9 @@ public class EvaluationPlugin extends AbstractUIPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+	 * 
+	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.
+	 * BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
@@ -40,7 +49,9 @@ public class EvaluationPlugin extends AbstractUIPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+	 * 
+	 * @see
+	 * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
@@ -56,14 +67,41 @@ public class EvaluationPlugin extends AbstractUIPlugin {
 		return plugin;
 	}
 
-    /**
-     * Returns an image descriptor for the image file at the given
-     * plug-in relative path.
-     *
-     * @param path the path
-     * @return the image descriptor
-     */
-    public static ImageDescriptor getImageDescriptor(String path) {
-        return AbstractUIPlugin.imageDescriptorFromPlugin(EvaluationUtil.PLUGIN_ID, path);
-    }
+	/**
+	 * Returns an image descriptor for the image file at the given plug-in relative
+	 * path.
+	 *
+	 * @param path the path
+	 * @return the image descriptor
+	 */
+	public static ImageDescriptor getImageDescriptor(String path) {
+		return AbstractUIPlugin.imageDescriptorFromPlugin(EvaluationUtil.PLUGIN_ID, path);
+	}
+
+	/**
+	 * Returns a resource string at the given plug-in.
+	 * 
+	 * @param key
+	 * @return the resource string
+	 */
+	public static String getResourceString(String key) {
+		ResourceBundle bundle = EvaluationPlugin.getDefault().getResourceBundle();
+		try {
+			return (null != bundle) ? bundle.getString(key) : key;
+		} catch (MissingResourceException mre) {
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	private ResourceBundle getResourceBundle() {
+		if (null == _resourceBundle) {
+			Bundle bundle = getBundle();
+			if (null != bundle) {
+				_resourceBundle = Platform.getResourceBundle(bundle);
+			}
+		}
+
+		return _resourceBundle;
+	}
+
 }

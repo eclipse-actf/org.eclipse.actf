@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!-- Copyright (c) 2005, 2023 IBM Corporation and others. All rights reserved. 
-	This program and the accompanying materials are made available under the 
-	terms of the Eclipse Public License v1.0 which accompanies this distribution, 
-	and is available at http://www.eclipse.org/legal/epl-v10.html Contributors: 
-	IBM Corporation - initial API and implementation -->
+<!--
+ Copyright (c) 2005, 2024 IBM Corporation and others.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+
+ Contributors:
+     IBM Corporation - initial API and implementation
+-->
 <checker-config>
 	<checkitem type="error" id="C_0.0">
 		<guideline>
 			<gItem id="1.1" name="WCAG" />
 			<gItem id="a" name="Section508" />
-			<gItem techniques="H35,F38,F65" id="1.1.1" name="JIS" />
+			<gItem techniques="H35,ARIA6,ARIA10,F38,F65" id="1.1.1"
+				name="JIS" />
 			<gItem id="6" name="IBMGuideline" />
-			<gItem techniques="H35,F38,F65" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="H35,ARIA6,ARIA10,F38,F65" id="1.1.1"
+				name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem score="5" name="Perceivable" />
@@ -24,9 +31,9 @@
 		<guideline>
 			<gItem id="1.1" name="WCAG" />
 			<gItem id="a" name="Section508" />
-			<gItem techniques="H35" id="1.1.1" name="JIS" />
+			<gItem techniques="H35,ARIA6,ARIA10" id="1.1.1" name="JIS" />
 			<gItem id="6" name="IBMGuideline" />
-			<gItem techniques="H35" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="H35,ARIA6,ARIA10" id="1.1.1" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Perceivable" />
@@ -56,9 +63,9 @@
 		<guideline>
 			<gItem id="1.1" name="WCAG" />
 			<gItem id="a" name="Section508" />
-			<gItem techniques="H53" id="1.1.1" name="JIS" />
+			<gItem techniques="H53,ARIA6,ARIA10" id="1.1.1" name="JIS" />
 			<gItem id="6" name="IBMGuideline" />
-			<gItem techniques="H53" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="H53,ARIA6,ARIA10" id="1.1.1" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem score="5" name="Perceivable" />
@@ -139,8 +146,8 @@
 	<checkitem type="error" id="C_14.0">
 		<guideline>
 			<gItem id="3.5" name="WCAG" />
-			<gItem techniques="G141,ARIA12" id="2.4.10" name="JIS" />
-			<gItem techniques="G141,ARIA12" id="2.4.10" name="WCAG 2.0" />
+			<gItem techniques="G141" id="2.4.10" name="JIS" />
+			<gItem techniques="G141" id="2.4.10" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem score="5" name="Operable" />
@@ -442,8 +449,10 @@
 	<checkitem type="user" id="C_25.1">
 		<guideline>
 			<gItem id="5.5" name="WCAG" />
-			<gItem techniques="H39" id="1.3.1" name="JIS" />
-			<gItem techniques="H39" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="H39,ARIA16" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA14,ARIA16" id="4.1.2" name="JIS" />
+			<gItem techniques="H39,ARIA16" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA14,ARIA16" id="4.1.2" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Perceivable" />
@@ -786,7 +795,8 @@
 			<gItem id="a" name="Section508" />
 			<gItem techniques="ARIA15,G73,G74,G92" id="1.1.1" name="JIS" />
 			<gItem id="3" name="IBMGuideline" />
-			<gItem techniques="ARIA15,G73,G74,G92" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA15,G73,G74,G92" id="1.1.1"
+				name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Perceivable" />
@@ -1237,11 +1247,11 @@
 		<guideline>
 			<gItem id="12.3" name="WCAG" />
 			<gItem id="n" name="Section508" />
-			<gItem techniques="H71" id="1.3.1" name="JIS" />
-			<gItem techniques="H71" id="3.3.2" name="JIS" />
+			<gItem techniques="H71,ARIA17" id="1.3.1" name="JIS" />
+			<gItem techniques="H71,ARIA17" id="3.3.2" name="JIS" />
 			<gItem id="7" name="IBMGuideline" />
-			<gItem techniques="H71" id="1.3.1" name="WCAG 2.0" />
-			<gItem techniques="H71" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="H71,ARIA17" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="H71,ARIA17" id="3.3.2" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Perceivable" />
@@ -1249,7 +1259,7 @@
 		</metrics>
 		<description>
 			<desc>If there are logical groupings of FORM controls, use FIELDSET
-				for each group.
+				or grouping role for each group.
 			</desc>
 		</description>
 	</checkitem>
@@ -1861,7 +1871,8 @@
 			<gItem id="1.1" name="WCAG" />
 			<gItem techniques="ARIA15,G73,G74,G92" id="1.1.1" name="JIS" />
 			<gItem id="1" name="IBMGuideline" />
-			<gItem techniques="ARIA15,G73,G74,G92" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA15,G73,G74,G92" id="1.1.1"
+				name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem score="2" name="Perceivable" />
@@ -2023,9 +2034,9 @@
 	</checkitem>
 	<checkitem type="warning" id="C_90.0">
 		<guideline>
-			<gItem techniques="C22,F87" id="1.3.1" name="JIS" />
+			<gItem techniques="C22,F87,ARIA24" id="1.3.1" name="JIS" />
 			<gItem id="1" name="IBMGuideline" />
-			<gItem techniques="C22,F87" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="C22,F87,ARIA24" id="1.3.1" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem score="2" name="Perceivable" />
@@ -2038,9 +2049,9 @@
 	</checkitem>
 	<checkitem type="warning" id="C_90.1">
 		<guideline>
-			<gItem techniques="C22,F87" id="1.3.1" name="JIS" />
+			<gItem techniques="C22,F87,ARIA24" id="1.3.1" name="JIS" />
 			<gItem id="1" name="IBMGuideline" />
-			<gItem techniques="C22,F87" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="C22,F87,ARIA24" id="1.3.1" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem score="2" name="Perceivable" />
@@ -2259,19 +2270,20 @@
 	</checkitem>
 	<checkitem type="error" id="C_54.3">
 		<guideline>
-			<gItem techniques="H71" id="1.3.1" name="JIS" />
-			<gItem techniques="H71" id="3.3.2" name="JIS" />
-			<gItem techniques="H71" id="1.3.1" name="WCAG 2.0" />
-			<gItem techniques="H71" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="H71,ARIA17" id="1.3.1" name="JIS" />
+			<gItem techniques="H71,ARIA17" id="3.3.2" name="JIS" />
+			<gItem techniques="H71,ARIA17" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="H71,ARIA17" id="3.3.2" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem score="5" name="Perceivable" />
 			<mItem score="5" name="Understandable" />
 		</metrics>
 		<description>
-			<desc>Make sure that any group of input elements of
+			<desc>(have multiple ancestor grouping) Make sure that any group of input elements of
 				type=&quot;radio&quot; or type=&quot;checkbox&quot; with the same
-				name attribute is contained within a fieldset element.
+				name attribute is contained within a fieldset element or an element
+				that has grouping role.
 			</desc>
 		</description>
 	</checkitem>
@@ -2292,19 +2304,57 @@
 			</desc>
 		</description>
 	</checkitem>
+	<checkitem type="warning" id="C_54.5">
+		<guideline>
+			<gItem techniques="H71,ARIA17" id="1.3.1" name="JIS" />
+			<gItem techniques="H71,ARIA17" id="3.3.2" name="JIS" />
+			<gItem techniques="H71,ARIA17" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="H71,ARIA17" id="3.3.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+			<mItem score="2" name="Understandable" />
+		</metrics>
+		<description>
+			<desc>(have multiple groups of inputs w/o ancestor grouping) Make sure that any group of input elements of
+				type=&quot;radio&quot; or type=&quot;checkbox&quot; with the same
+				name attribute is contained within a fieldset element or an element
+				that has grouping role.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_54.6">
+		<guideline>
+			<gItem techniques="H71,ARIA17" id="1.3.1" name="JIS" />
+			<gItem techniques="H71,ARIA17" id="3.3.2" name="JIS" />
+			<gItem techniques="H71,ARIA17" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="H71,ARIA17" id="3.3.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+			<mItem name="Understandable" />
+		</metrics>
+		<description>
+			<desc>(have a group of inputs w/o ancestor grouping) Make sure that any group of input elements of
+				type=&quot;radio&quot; or type=&quot;checkbox&quot; with the same
+				name attribute is contained within a fieldset element or an element
+				that has grouping role.
+			</desc>
+		</description>
+	</checkitem>
 	<checkitem type="error" id="C_79.0">
 		<guideline>
 			<gItem id="12.4" name="WCAG" />
 			<gItem id="n" name="Section508" />
-			<gItem techniques="H44" id="1.1.1" name="JIS" />
-			<gItem techniques="H44" id="1.3.1" name="JIS" />
-			<gItem techniques="H44" id="3.3.2" name="JIS" />
-			<gItem techniques="H44" id="4.1.2" name="JIS" />
+			<gItem techniques="H44,ARIA9" id="1.1.1" name="JIS" />
+			<gItem techniques="H44,ARIA16" id="1.3.1" name="JIS" />
+			<gItem techniques="H44,ARIA9" id="3.3.2" name="JIS" />
+			<gItem techniques="H44,ARIA14,ARIA16" id="4.1.2" name="JIS" />
 			<gItem id="7" name="IBMGuideline" />
-			<gItem techniques="H44" id="1.1.1" name="WCAG 2.0" />
-			<gItem techniques="H44" id="1.3.1" name="WCAG 2.0" />
-			<gItem techniques="H44" id="3.3.2" name="WCAG 2.0" />
-			<gItem techniques="H44" id="4.1.2" name="WCAG 2.0" />
+			<gItem techniques="H44,ARIA9" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="H44,ARIA16" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="H44,ARIA9" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="H44,ARIA14,ARIA16" id="4.1.2" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem score="5" name="Perceivable" />
@@ -2396,14 +2446,14 @@
 	</checkitem>
 	<checkitem type="error" id="C_79.6">
 		<guideline>
-			<gItem techniques="H44,H65" id="1.1.1" name="JIS" />
-			<gItem techniques="H44,H65" id="1.3.1" name="JIS" />
-			<gItem techniques="H44,H65" id="3.3.2" name="JIS" />
-			<gItem techniques="H44,H65" id="4.1.2" name="JIS" />
-			<gItem techniques="H44,H65" id="1.1.1" name="WCAG 2.0" />
-			<gItem techniques="H44,H65" id="1.3.1" name="WCAG 2.0" />
-			<gItem techniques="H44,H65" id="3.3.2" name="WCAG 2.0" />
-			<gItem techniques="H44,H65" id="4.1.2" name="WCAG 2.0" />
+			<gItem techniques="H44,H65,ARIA9" id="1.1.1" name="JIS" />
+			<gItem techniques="H44,H65,ARIA16" id="1.3.1" name="JIS" />
+			<gItem techniques="H44,H65,ARIA9" id="3.3.2" name="JIS" />
+			<gItem techniques="H44,H65,ARIA14,ARIA16" id="4.1.2" name="JIS" />
+			<gItem techniques="H44,H65,ARIA9" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="H44,H65,ARIA16" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="H44,H65,ARIA9" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="H44,H65,ARIA14,ARIA16" id="4.1.2" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem score="5" name="Perceivable" />
@@ -2438,14 +2488,14 @@
 	</checkitem>
 	<checkitem type="user" id="C_79.8">
 		<guideline>
-			<gItem techniques="H44,H65" id="1.1.1" name="JIS" />
-			<gItem techniques="H44,H65" id="1.3.1" name="JIS" />
-			<gItem techniques="H44,H65" id="3.3.2" name="JIS" />
-			<gItem techniques="H44,H65" id="4.1.2" name="JIS" />
-			<gItem techniques="H44,H65" id="1.1.1" name="WCAG 2.0" />
-			<gItem techniques="H44,H65" id="1.3.1" name="WCAG 2.0" />
-			<gItem techniques="H44,H65" id="3.3.2" name="WCAG 2.0" />
-			<gItem techniques="H44,H65" id="4.1.2" name="WCAG 2.0" />
+			<gItem techniques="H44,H65,ARIA9" id="1.1.1" name="JIS" />
+			<gItem techniques="H44,H65,ARIA16" id="1.3.1" name="JIS" />
+			<gItem techniques="H44,H65,ARIA9" id="3.3.2" name="JIS" />
+			<gItem techniques="H44,H65,ARIA14,ARIA16" id="4.1.2" name="JIS" />
+			<gItem techniques="H44,H65,ARIA9" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="H44,H65,ARIA16" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="H44,H65,ARIA9" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="H44,H65,ARIA14,ARIA16" id="4.1.2" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Perceivable" />
@@ -2462,15 +2512,15 @@
 		<guideline>
 			<gItem id="12.4" name="WCAG" />
 			<gItem id="n" name="Section508" />
-			<gItem techniques="H44" id="1.1.1" name="JIS" />
-			<gItem techniques="H44" id="1.3.1" name="JIS" />
-			<gItem techniques="H44" id="3.3.2" name="JIS" />
-			<gItem techniques="H44" id="4.1.2" name="JIS" />
 			<gItem id="7" name="IBMGuideline" />
-			<gItem techniques="H44" id="1.1.1" name="WCAG 2.0" />
-			<gItem techniques="H44" id="1.3.1" name="WCAG 2.0" />
-			<gItem techniques="H44" id="3.3.2" name="WCAG 2.0" />
-			<gItem techniques="H44" id="4.1.2" name="WCAG 2.0" />
+			<gItem techniques="H44,ARIA9" id="1.1.1" name="JIS" />
+			<gItem techniques="H44,ARIA16" id="1.3.1" name="JIS" />
+			<gItem techniques="H44,ARIA9" id="3.3.2" name="JIS" />
+			<gItem techniques="H44,ARIA14,ARIA16" id="4.1.2" name="JIS" />
+			<gItem techniques="H44,ARIA9" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="H44,ARIA16" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="H44,ARIA9" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="H44,ARIA14,ARIA16" id="4.1.2" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Perceivable" />
@@ -2523,12 +2573,14 @@
 	</checkitem>
 	<checkitem type="user" id="C_383.0">
 		<guideline>
+			<gItem techniques="ARIA2" id="1.3.1" name="JIS" />
 			<gItem techniques="G83" id="3.3.1" name="JIS" />
 			<gItem techniques="G83" id="3.3.2" name="JIS" />
-			<gItem techniques="G83" id="3.3.3" name="JIS" />
+			<gItem techniques="G83,ARIA2" id="3.3.3" name="JIS" />
+			<gItem techniques="ARIA2" id="1.3.1" name="WCAG 2.0" />
 			<gItem techniques="G83" id="3.3.1" name="WCAG 2.0" />
 			<gItem techniques="G83" id="3.3.2" name="WCAG 2.0" />
-			<gItem techniques="G83" id="3.3.3" name="WCAG 2.0" />
+			<gItem techniques="G83,ARIA2" id="3.3.3" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Understandable" />
@@ -2541,11 +2593,13 @@
 	</checkitem>
 	<checkitem type="user" id="C_384.0">
 		<guideline>
-			<gItem techniques="SCR18" id="3.3.1" name="JIS" />
-			<gItem techniques="SCR18" id="3.3.3" name="JIS" />
+			<gItem techniques="SCR18,ARIA18,ARIA19,ARIA21" id="3.3.1"
+				name="JIS" />
+			<gItem techniques="SCR18,ARIA18" id="3.3.3" name="JIS" />
 			<gItem techniques="SCR18" id="3.3.4" name="JIS" />
-			<gItem techniques="SCR18" id="3.3.1" name="WCAG 2.0" />
-			<gItem techniques="SCR18" id="3.3.3" name="WCAG 2.0" />
+			<gItem techniques="SCR18,ARIA18,ARIA19,ARIA21" id="3.3.1"
+				name="WCAG 2.0" />
+			<gItem techniques="SCR18,ARIA18" id="3.3.3" name="WCAG 2.0" />
 			<gItem techniques="SCR18" id="3.3.4" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
@@ -2557,10 +2611,12 @@
 	</checkitem>
 	<checkitem type="user" id="C_385.0">
 		<guideline>
-			<gItem techniques="G84" id="3.3.1" name="JIS" />
-			<gItem techniques="G84" id="3.3.3" name="JIS" />
-			<gItem techniques="G84" id="3.3.1" name="WCAG 2.0" />
-			<gItem techniques="G84" id="3.3.3" name="WCAG 2.0" />
+			<gItem techniques="G84,ARIA18,ARIA19,ARIA21" id="3.3.1"
+				name="JIS" />
+			<gItem techniques="G84,ARIA18" id="3.3.3" name="JIS" />
+			<gItem techniques="G84,ARIA18,ARIA19,ARIA21" id="3.3.1"
+				name="WCAG 2.0" />
+			<gItem techniques="G84,ARIA18" id="3.3.3" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Understandable" />
@@ -2573,10 +2629,12 @@
 	</checkitem>
 	<checkitem type="user" id="C_386.0">
 		<guideline>
-			<gItem techniques="G85" id="3.3.1" name="JIS" />
-			<gItem techniques="G85" id="3.3.3" name="JIS" />
-			<gItem techniques="G85" id="3.3.1" name="WCAG 2.0" />
-			<gItem techniques="G85" id="3.3.3" name="WCAG 2.0" />
+			<gItem techniques="G85,ARIA18,ARIA19,ARIA21" id="3.3.1"
+				name="JIS" />
+			<gItem techniques="G85,ARIA18" id="3.3.3" name="JIS" />
+			<gItem techniques="G85,ARIA18,ARIA19,ARIA21" id="3.3.1"
+				name="WCAG 2.0" />
+			<gItem techniques="G85,ARIA18" id="3.3.3" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Understandable" />
@@ -2589,10 +2647,12 @@
 	</checkitem>
 	<checkitem type="user" id="C_387.0">
 		<guideline>
-			<gItem techniques="SCR32" id="3.3.1" name="JIS" />
-			<gItem techniques="SCR32" id="3.3.3" name="JIS" />
-			<gItem techniques="SCR32" id="3.3.1" name="WCAG 2.0" />
-			<gItem techniques="SCR32" id="3.3.3" name="WCAG 2.0" />
+			<gItem techniques="SCR32,ARIA18,ARIA19,ARIA21" id="3.3.1"
+				name="JIS" />
+			<gItem techniques="SCR32,ARIA18" id="3.3.3" name="JIS" />
+			<gItem techniques="SCR32,ARIA18,ARIA19,ARIA21" id="3.3.1"
+				name="WCAG 2.0" />
+			<gItem techniques="SCR32,ARIA18" id="3.3.3" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Understandable" />
@@ -2620,9 +2680,9 @@
 	</checkitem>
 	<checkitem type="user" id="C_389.0">
 		<guideline>
-			<gItem techniques="G89" id="3.3.2" name="JIS" />
+			<gItem techniques="G89,ARIA1" id="3.3.2" name="JIS" />
 			<gItem techniques="G89" id="3.3.5" name="JIS" />
-			<gItem techniques="G89" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="G89,ARIA1" id="3.3.2" name="WCAG 2.0" />
 			<gItem techniques="G89" id="3.3.5" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
@@ -2781,7 +2841,8 @@
 			<mItem score="2" name="Perceivable" />
 		</metrics>
 		<description>
-			<desc>Top Left td element of simple table has some text. Please consider to remove text or change to th.
+			<desc>Top Left td element of simple table has some text. Please
+				consider to remove text or change to th.
 			</desc>
 		</description>
 	</checkitem>
@@ -3051,9 +3112,9 @@
 	</checkitem>
 	<checkitem type="info" id="C_500.9">
 		<guideline>
-			<gItem techniques="G83,G85,G177,SCR18,SCR32,FLASH12,G84"
+			<gItem techniques="G83,G85,G177,SCR18,SCR32,FLASH12,G84,ARIA18"
 				id="3.3.3" name="JIS" />
-			<gItem techniques="G83,G85,G177,SCR18,SCR32,FLASH12,G84"
+			<gItem techniques="G83,G85,G177,SCR18,SCR32,FLASH12,G84,ARIA18"
 				id="3.3.3" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
@@ -3243,6 +3304,35 @@
 		<description>
 			<desc>Use measurements that are relative to other measurements in the
 				content for the font size.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_500.21">
+		<guideline>
+			<gItem techniques="F94,C12,C13,C14,G179" id="1.4.4" name="JIS" />
+			<gItem techniques="F94,C12,C13,C14,G179" id="1.4.4"
+				name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>Viewport unit is used for font size. Check that the text can be
+				resized to at least 200% of the default.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="info" id="C_500.22">
+		<guideline>
+			<gItem techniques="C40,G149,G195" id="2.4.7" name="JIS" />
+			<gItem techniques="C40,G149,G195" id="2.4.7" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>Consider to create a two-color focus indicator to ensure
+				sufficient contrast with all components
 			</desc>
 		</description>
 	</checkitem>
@@ -3544,9 +3634,9 @@
 	</checkitem>
 	<checkitem type="info" id="C_600.11">
 		<guideline>
-			<gItem techniques="G123,H50,H69,H70,SCR28" id="2.4.1"
+			<gItem techniques="G123,H50,H69,H70,SCR28,H101,ARIA11" id="2.4.1"
 				name="JIS" />
-			<gItem techniques="G123,H50,H69,H70,SCR28" id="2.4.1"
+			<gItem techniques="G123,H50,H69,H70,SCR28,H101,ARIA11" id="2.4.1"
 				name="WCAG 2.0" />
 		</guideline>
 		<metrics>
@@ -3593,10 +3683,10 @@
 	<checkitem type="info" id="C_600.14">
 		<guideline>
 			<gItem
-				techniques="G91,C7,H33,G189,SCR30,G53,H77,H78,H79,H80,H81"
+				techniques="G91,C7,H33,G189,SCR30,G53,H77,H78,H79,H80,H81,ARIA7,ARIA8"
 				id="2.4.4" name="JIS" />
 			<gItem
-				techniques="G91,C7,H33,G189,SCR30,G53,H77,H78,H79,H80,H81"
+				techniques="G91,C7,H33,G189,SCR30,G53,H77,H78,H79,H80,H81,ARIA7,ARIA8"
 				id="2.4.4" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
@@ -3688,8 +3778,10 @@
 	</checkitem>
 	<checkitem type="user" id="C_600.20">
 		<guideline>
-			<gItem techniques="G10,G108,G135" id="4.1.2" name="JIS" />
-			<gItem techniques="G10,G108,G135" id="4.1.2" name="WCAG 2.0" />
+			<gItem techniques="G10,G108,G135,H91,ARIA4,ARIA5" id="4.1.2"
+				name="JIS" />
+			<gItem techniques="G10,G108,G135,H91,ARIA4,ARIA5" id="4.1.2"
+				name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Robust" />
@@ -3714,15 +3806,349 @@
 	</checkitem>
 	<checkitem type="info" id="C_600.22">
 		<guideline>
-			<gItem techniques="G108" id="4.1.2" name="JIS" />
-			<gItem techniques="G108" id="4.1.2" name="WCAG 2.0" />
+			<gItem techniques="G108,H91,ARIA4,ARIA5" id="4.1.2" name="JIS" />
+			<gItem techniques="G108,H91,ARIA4,ARIA5" id="4.1.2" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
 			<mItem name="Robust" />
 		</metrics>
 		<description>
 			<desc>Ensuring that custom elements are correctly rendered in browser
-				and expose the name, role, and state correctly.</desc>
+				and expose the name, role, and state correctly.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="C_700.0">
+		<guideline>
+			<gItem techniques="ARIA7" id="2.4.4" name="JIS" />
+			<gItem techniques="ARIA9,ARIA10" id="1.1.1" name="JIS" />
+			<gItem techniques="ARIA9" id="3.3.2" name="JIS" />
+			<gItem techniques="ARIA13,ARIA16" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA16" id="4.1.2" name="JIS" />
+			<gItem techniques="ARIA7" id="2.4.4" name="WCAG 2.0" />
+			<gItem techniques="ARIA9,ARIA10" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA9" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="ARIA13,ARIA16" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA16" id="4.1.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="1" name="Perceivable" />
+			<mItem score="1" name="Operable" />
+			<mItem score="1" name="Understandable" />
+			<mItem score="1" name="Robust" />
+		</metrics>
+		<description>
+			<desc>aria-labelledby has no value or empty value.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="C_700.1">
+		<guideline>
+			<gItem techniques="ARIA7" id="2.4.4" name="JIS" />
+			<gItem techniques="ARIA9,ARIA10" id="1.1.1" name="JIS" />
+			<gItem techniques="ARIA9" id="3.3.2" name="JIS" />
+			<gItem techniques="ARIA13,ARIA16" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA16" id="4.1.2" name="JIS" />
+			<gItem techniques="ARIA7" id="2.4.4" name="WCAG 2.0" />
+			<gItem techniques="ARIA9,ARIA10" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA9" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="ARIA13,ARIA16" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA16" id="4.1.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="1" name="Perceivable" />
+			<mItem score="1" name="Operable" />
+			<mItem score="1" name="Understandable" />
+			<mItem score="1" name="Robust" />
+		</metrics>
+		<description>
+			<desc>aria-labelledby contains ID(s) that do not exist.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_700.2">
+		<guideline>
+			<gItem techniques="ARIA7" id="2.4.4" name="JIS" />
+			<gItem techniques="ARIA9,ARIA10" id="1.1.1" name="JIS" />
+			<gItem techniques="ARIA9" id="3.3.2" name="JIS" />
+			<gItem techniques="ARIA13,ARIA16" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA16" id="4.1.2" name="JIS" />
+			<gItem techniques="ARIA7" id="2.4.4" name="WCAG 2.0" />
+			<gItem techniques="ARIA9,ARIA10" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA9" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="ARIA13,ARIA16" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA16" id="4.1.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+			<mItem name="Operable" />
+			<mItem name="Understandable" />
+			<mItem name="Robust" />
+		</metrics>
+		<description>
+			<desc>aria-labelledby is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_701.0">
+		<guideline>
+			<gItem techniques="ARIA6" id="1.1.1" name="JIS" />
+			<gItem techniques="ARIA8" id="2.4.4" name="JIS" />
+			<gItem techniques="ARIA8" id="2.4.9" name="JIS" />
+			<gItem techniques="ARIA14" id="4.1.2" name="JIS" />
+			<gItem techniques="ARIA6" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA8" id="2.4.4" name="WCAG 2.0" />
+			<gItem techniques="ARIA8" id="2.4.9" name="WCAG 2.0" />
+			<gItem techniques="ARIA14" id="4.1.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+			<mItem name="Operable" />
+			<mItem name="Robust" />
+		</metrics>
+		<description>
+			<desc>aria-label is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="C_702.0">
+		<guideline>
+			<gItem techniques="ARIA1" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA1" id="3.3.2" name="JIS" />
+			<gItem techniques="ARIA15" id="1.1.1" name="JIS" />
+			<gItem techniques="ARIA1" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA1" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="ARIA15" id="1.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="1" name="Perceivable" />
+			<mItem score="1" name="Understandable" />
+		</metrics>
+		<description>
+			<desc>aria-describedby has no value or empty value.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="C_702.1">
+		<guideline>
+			<gItem techniques="ARIA1" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA1" id="3.3.2" name="JIS" />
+			<gItem techniques="ARIA15" id="1.1.1" name="JIS" />
+			<gItem techniques="ARIA1" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA1" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="ARIA15" id="1.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="1" name="Perceivable" />
+			<mItem score="1" name="Understandable" />
+		</metrics>
+		<description>
+			<desc>aria-describedby contains ID(s) that do not exist.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_702.2">
+		<guideline>
+			<gItem techniques="ARIA1" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA1" id="3.3.2" name="JIS" />
+			<gItem techniques="ARIA15" id="1.1.1" name="JIS" />
+			<gItem techniques="ARIA1" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA1" id="3.3.2" name="WCAG 2.0" />
+			<gItem techniques="ARIA15" id="1.1.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+			<mItem name="Understandable" />
+		</metrics>
+		<description>
+			<desc>aria-describedby is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_703.0">
+		<guideline>
+			<gItem techniques="ARIA4" id="4.1.2" name="JIS" />
+			<gItem techniques="ARIA4" id="4.1.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Robust" />
+		</metrics>
+		<description>
+			<desc>role is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_703.1">
+		<guideline>
+			<gItem techniques="ARIA11,H101" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA11" id="2.4.1" name="JIS" />
+			<gItem techniques="ARIA11,H101" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA11" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>landmark role is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_703.2">
+		<guideline>
+			<gItem techniques="ARIA11" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA11" id="2.4.1" name="JIS" />
+			<gItem techniques="ARIA11" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA11" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>landmark role (banner) is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_703.3">
+		<guideline>
+			<gItem techniques="ARIA11" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA11" id="2.4.1" name="JIS" />
+			<gItem techniques="ARIA11" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA11" id="2.4.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>landmark role (application) is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_703.4">
+		<guideline>
+			<gItem techniques="ARIA13,ARIA20,H101" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA13,ARIA20,H101" id="1.3.1"
+				name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>region role is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="C_703.5">
+		<guideline>
+			<gItem techniques="ARIA13,ARIA20,H101" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA13,ARIA20,H101" id="1.3.1"
+				name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>region role is used, but without name specified by
+				aria-label/aria-labelledby.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_703.6">
+		<guideline>
+			<gItem techniques="ARIA12,H42" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA12,H42" id="1.3.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>heading role is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="C_703.7">
+		<guideline>
+			<gItem techniques="ARIA12,H42" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA12,H42" id="1.3.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>heading role is used, but without aria-level.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_703.8">
+		<guideline>
+			<gItem techniques="ARIA17,H71" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA17,H71" id="3.3.2" name="JIS" />
+			<gItem techniques="ARIA17,H71" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA17,H71" id="3.3.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+			<mItem name="Understandable" />
+		</metrics>
+		<description>
+			<desc>grouping role is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="warning" id="C_703.9">
+		<guideline>
+			<gItem techniques="ARIA17,H71" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA17,H71" id="3.3.2" name="JIS" />
+			<gItem techniques="ARIA17,H71" id="1.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA17,H71" id="3.3.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Perceivable" />
+			<mItem score="2" name="Understandable" />
+		</metrics>
+		<description>
+			<desc>grouping role is used, but without name specified by
+				aria-label/aria-labelledby.
+			</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_703.10">
+		<guideline>
+			<gItem techniques="ARIA19" id="3.3.1" name="JIS" />
+			<gItem techniques="ARIA19" id="3.3.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Understandable" />
+		</metrics>
+		<description>
+			<desc>role="alert" or aria-live="assertive" is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_703.11">
+		<guideline>
+			<gItem techniques="ARIA18" id="3.3.1" name="JIS" />
+			<gItem techniques="ARIA18" id="3.3.3" name="JIS" />
+			<gItem techniques="ARIA18" id="3.3.1" name="WCAG 2.0" />
+			<gItem techniques="ARIA18" id="3.3.3" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Understandable" />
+		</metrics>
+		<description>
+			<desc>role="alertdialog" is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_703.12">
+		<guideline>
+			<gItem techniques="ARIA24" id="1.3.1" name="JIS" />
+			<gItem techniques="ARIA24" id="1.3.1" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+		</metrics>
+		<description>
+			<desc>role="img" is used.</desc>
+		</description>
+	</checkitem>
+	<checkitem type="user" id="C_704.0">
+		<guideline>
+			<gItem techniques="ARIA5" id="4.1.2" name="JIS" />
+			<gItem techniques="ARIA5" id="4.1.2" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem score="2" name="Robust" />
+		</metrics>
+		<description>
+			<desc>ARIA state and properties are used.</desc>
 		</description>
 	</checkitem>
 </checker-config>

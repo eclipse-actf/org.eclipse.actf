@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2005, 2008 IBM Corporation and Others
+ * Copyright (c) 2005, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -57,6 +57,10 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 
 	private int skipMainNum = 0;
 
+	private int mainContentNum = 0;
+
+	private int landmarkNum = 0;
+
 	private int totalImageNumber = 0;
 
 	private int totalLinkNum = 0;
@@ -64,16 +68,15 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	private int wrongAltNum = 0;
 
 	private boolean hasJavascript = false;
-	
+
 	private boolean hasFrame = false;
-	
+
 	private boolean isError = false;
 
 	/**
 	 * Add flash content information
 	 * 
-	 * @param flashData
-	 *            target {@link FlashData}
+	 * @param flashData target {@link FlashData}
 	 */
 	public void addFlashData(FlashData flashData) {
 		flashV.add(flashData);
@@ -129,8 +132,8 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	}
 
 	/**
-	 * @return invalid link ratio of the page. (target URL number under
-	 *         invisible link/all target URL number)
+	 * @return invalid link ratio of the page. (target URL number under invisible
+	 *         link/all target URL number)
 	 */
 	public double getInvalidLinkRatio() {
 		return invalidLinkRatio;
@@ -158,37 +161,31 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	@SuppressWarnings("nls")
 	public String getReportFragment() {
 		StringBuffer tmpSB = new StringBuffer();
-		tmpSB.append("<" + IMAGES + " " + TOTAL + "=\"" + totalImageNumber
-				+ "\" " + ERROR + "=\"" + imageAltErrorNum + "\" " + MISSING
-				+ "=\"" + missingAltNum + "\" " + WRONG + "=\"" + wrongAltNum
-				+ "\" " + ">" + FileUtils.LINE_SEP);
+		tmpSB.append("<" + IMAGES + " " + TOTAL + "=\"" + totalImageNumber + "\" " + ERROR + "=\"" + imageAltErrorNum
+				+ "\" " + MISSING + "=\"" + missingAltNum + "\" " + WRONG + "=\"" + wrongAltNum + "\" " + ">"
+				+ FileUtils.LINE_SEP);
 		for (ImageStatData imageData : imageDataV) {
 			tmpSB.append(imageData.getItemXML() + FileUtils.LINE_SEP);
 		}
 		tmpSB.append("</" + IMAGES + ">");
 
-		tmpSB.append("<" + SKIPMAIN + " " + VALID + "=\"" + skipMainNum + "\" "
-				+ ERROR + "=\"" + brokenSkipMainNum + "\" />"
-				+ FileUtils.LINE_SEP);
-		tmpSB.append("<" + REACHINGTIME + " " + MAX + "=\"" + maxTime + "\" "
-				+ ORG_MAX + "=\"" + orgMaxTime + "\" />");
+		tmpSB.append("<" + SKIPMAIN + " " + VALID + "=\"" + skipMainNum + "\" " + ERROR + "=\"" + brokenSkipMainNum
+				+ "\" />" + FileUtils.LINE_SEP);
+		tmpSB.append("<" + REACHINGTIME + " " + MAX + "=\"" + maxTime + "\" " + ORG_MAX + "=\"" + orgMaxTime + "\" />");
 
 		if (flashV.size() > 0) {
-			tmpSB.append("<" + FLASH_INFO + " " + TOTAL + "=\"" + flashV.size()
-					+ "\">" + FileUtils.LINE_SEP);
+			tmpSB.append("<" + FLASH_INFO + " " + TOTAL + "=\"" + flashV.size() + "\">" + FileUtils.LINE_SEP);
 			for (FlashData flashData : flashV) {
 				tmpSB.append(flashData.getItemXML() + FileUtils.LINE_SEP);
 			}
 			tmpSB.append("</" + FLASH_INFO + ">" + FileUtils.LINE_SEP);
 		}
-		tmpSB.append("<" + HEADINGS + " " + TOTAL + "=\"" + headingsV.size()
-				+ "\">" + FileUtils.LINE_SEP);
+		tmpSB.append("<" + HEADINGS + " " + TOTAL + "=\"" + headingsV.size() + "\">" + FileUtils.LINE_SEP);
 		for (HeadingsData headingsData : headingsV) {
 			tmpSB.append(headingsData.getItemXML() + FileUtils.LINE_SEP);
 		}
 		tmpSB.append("</" + HEADINGS + ">" + FileUtils.LINE_SEP);
-		tmpSB.append("<" + JAVASCRIPT + " " + getAttr(EXISTENCE, hasJavascript)
-				+ "/>");
+		tmpSB.append("<" + JAVASCRIPT + " " + getAttr(EXISTENCE, hasJavascript) + "/>");
 		return (tmpSB.toString());
 	}
 
@@ -231,8 +228,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set image information data
 	 * 
-	 * @param imageDataV
-	 *            Vector of target {@link ImageStatData}
+	 * @param imageDataV Vector of target {@link ImageStatData}
 	 */
 	public void setImageData(Vector<ImageStatData> imageDataV) {
 		this.imageDataV = imageDataV;
@@ -261,8 +257,8 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	}
 
 	/**
-	 * @return map contains ancestor anchor {@link Element} of image link and
-	 *         image information pair
+	 * @return map contains ancestor anchor {@link Element} of image link and image
+	 *         information pair
 	 */
 	public Map<Element, ImageStatData> getLinkImageDataMap() {
 		return linkImageDataMap;
@@ -278,8 +274,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set if page uses JavaScript
 	 * 
-	 * @param hasJavascript
-	 *            true if page uses JavaScript
+	 * @param hasJavascript true if page uses JavaScript
 	 */
 	public void setHasJavascript(boolean hasJavascript) {
 		this.hasJavascript = hasJavascript;
@@ -289,8 +284,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	 * Set map contains ancestor anchor {@link Element} of image link and image
 	 * information pair
 	 * 
-	 * @param linkImageDataMap
-	 *            target map
+	 * @param linkImageDataMap target map
 	 */
 	public void setLinkImageDataMap(Map<Element, ImageStatData> linkImageDataMap) {
 		this.linkImageDataMap = linkImageDataMap;
@@ -299,20 +293,17 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set map contains {@link HTMLImageElement} and it's information pair
 	 * 
-	 * @param imageDataMap
-	 *            target map
+	 * @param imageDataMap target map
 	 */
-	public void setImageDataMap(
-			Map<HTMLImageElement, ImageStatData> imageDataMap) {
+	public void setImageDataMap(Map<HTMLImageElement, ImageStatData> imageDataMap) {
 		this.imageDataMap = imageDataMap;
 	}
 
 	/**
-	 * Set original reaching time (without consideration of headings, skip
-	 * links, etc.)
+	 * Set original reaching time (without consideration of headings, skip links,
+	 * etc.)
 	 * 
-	 * @param orgMaxTime
-	 *            original reaching time of the page
+	 * @param orgMaxTime original reaching time of the page
 	 */
 	public void setOrgMaxTime(int orgMaxTime) {
 		this.orgMaxTime = orgMaxTime;
@@ -321,8 +312,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set broken intra page link number
 	 * 
-	 * @param brokenIntraPageLinkNum
-	 *            broken intra page link number
+	 * @param brokenIntraPageLinkNum broken intra page link number
 	 */
 	public void setBrokenIntraPageLinkNum(int brokenIntraPageLinkNum) {
 		this.brokenIntraPageLinkNum = brokenIntraPageLinkNum;
@@ -331,8 +321,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set broken skip to main content link number
 	 * 
-	 * @param brokenSkipMainNum
-	 *            broken skip to main content link number
+	 * @param brokenSkipMainNum broken skip to main content link number
 	 */
 	public void setBrokenSkipMainNum(int brokenSkipMainNum) {
 		this.brokenSkipMainNum = brokenSkipMainNum;
@@ -341,8 +330,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set flash information of the page
 	 * 
-	 * @param flashV
-	 *            Vector of flash information of the page
+	 * @param flashV Vector of flash information of the page
 	 */
 	public void setFlashData(Vector<FlashData> flashV) {
 		this.flashV = flashV;
@@ -351,8 +339,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set number of forward intra page link
 	 * 
-	 * @param forwardIntraPageLinkNum
-	 *            number of forward intra page link
+	 * @param forwardIntraPageLinkNum number of forward intra page link
 	 */
 	public void setForwardIntraPageLinkNum(int forwardIntraPageLinkNum) {
 		this.forwardIntraPageLinkNum = forwardIntraPageLinkNum;
@@ -361,8 +348,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set headings information of the page
 	 * 
-	 * @param headings
-	 *            Vector of headings information of the page
+	 * @param headings Vector of headings information of the page
 	 */
 	public void setHeadingsData(Vector<HeadingsData> headings) {
 		this.headingsV = headings;
@@ -371,8 +357,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set error number of alternative text for image
 	 * 
-	 * @param imageAltErrorNum
-	 *            errors number of alternative text for image
+	 * @param imageAltErrorNum errors number of alternative text for image
 	 */
 	public void setImageAltErrorNum(int imageAltErrorNum) {
 		this.imageAltErrorNum = imageAltErrorNum;
@@ -382,8 +367,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	 * Set invalid link ratio of the page. (target URL number under invisible
 	 * link/all target URL number)
 	 * 
-	 * @param invalidLinkRatio
-	 *            invalid link ratio
+	 * @param invalidLinkRatio invalid link ratio
 	 */
 	public void setInvalidLinkRatio(double invalidLinkRatio) {
 		this.invalidLinkRatio = invalidLinkRatio;
@@ -392,8 +376,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set maximum reaching time of the page
 	 * 
-	 * @param maxTime
-	 *            maximum reaching time of the page
+	 * @param maxTime maximum reaching time of the page
 	 */
 	public void setMaxTime(int maxTime) {
 		this.maxTime = maxTime;
@@ -402,8 +385,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set number of missing alt attribute for image
 	 * 
-	 * @param missingAltNum
-	 *            number of missing alt attribute for image
+	 * @param missingAltNum number of missing alt attribute for image
 	 */
 	public void setMissingAltNum(int missingAltNum) {
 		this.missingAltNum = missingAltNum;
@@ -412,8 +394,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set valid skip to main content link number
 	 * 
-	 * @param skipMainNum
-	 *            valid skip to main content link number
+	 * @param skipMainNum valid skip to main content link number
 	 */
 	public void setSkipMainNum(int skipMainNum) {
 		this.skipMainNum = skipMainNum;
@@ -422,8 +403,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set total number of image in the page
 	 * 
-	 * @param totalImageNumber
-	 *            total number of image
+	 * @param totalImageNumber total number of image
 	 */
 	public void setTotalImageNumber(int totalImageNumber) {
 		this.totalImageNumber = totalImageNumber;
@@ -441,8 +421,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	/**
 	 * Set number of inappropriate alternative text in the page
 	 * 
-	 * @param wrongAltNum
-	 *            number of inappropriate alternative text
+	 * @param wrongAltNum number of inappropriate alternative text
 	 */
 	public void setWrongAltNum(int wrongAltNum) {
 		this.wrongAltNum = wrongAltNum;
@@ -457,6 +436,7 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 
 	/**
 	 * Set if page has child frame or not
+	 * 
 	 * @param hasFrame
 	 */
 	public void setHasFrame(boolean hasFrame) {
@@ -464,8 +444,8 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 	}
 
 	/**
-	 * Set if page is error page
-	 * @return
+	 * 
+	 * @return true if page is error page
 	 */
 	public boolean isError() {
 		return isError;
@@ -478,12 +458,42 @@ public class PageData implements IPageStatisticsTag, IProblemItemVisitor {
 		this.isError = isError;
 	}
 
-	
+	/**
+	 * @return number of main content (main tag or role=main)
+	 */
+	public int getMainContentNum() {
+		return mainContentNum;
+	}
+
+	/**
+	 * Set number of main content (main tag or role=main) in the page
+	 * 
+	 * @param mainContentNum
+	 */
+	public void setMainContentNum(int mainContentNum) {
+		this.mainContentNum = mainContentNum;
+	}
+
+	/**
+	 * @return number of landmark elements
+	 */
+	public int getLandmarkNum() {
+		return landmarkNum;
+	}
+
+	/**
+	 * Set number of landmark elements
+	 * 
+	 * @param landmarkNum
+	 */
+	public void setLandmarkNum(int landmarkNum) {
+		this.landmarkNum = landmarkNum;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * org.eclipse.actf.visualization.eval.problem.IProblemItemVisitor#visit
+	 * @see org.eclipse.actf.visualization.eval.problem.IProblemItemVisitor#visit
 	 * (org.eclipse.actf.visualization.eval.problem.IProblemItem)
 	 */
 	public void visit(IProblemItem item) {

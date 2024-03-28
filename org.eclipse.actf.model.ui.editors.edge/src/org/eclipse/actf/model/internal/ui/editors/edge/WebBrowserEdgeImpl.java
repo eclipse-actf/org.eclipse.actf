@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2023 IBM Corporation and Others
+ * Copyright (c) 2007, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -57,6 +57,11 @@ import org.w3c.dom.Node;
 public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 	private static double initial_zoomFactor = 1;
+	
+	private static boolean isFreeSize = true;
+	private static int browserWidth = -1;
+	private static int browserHeight = -1;
+	
 
 	private WebBrowserToolbar toolbar;
 
@@ -95,6 +100,8 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 	private String errorUrl = null;
 //	private int tmpErrorCode = 0;
 
+	private Composite compositeForBrowserSize;
+
 	public WebBrowserEdgeImpl(IModelServiceHolder holder, Composite parent, String startURL) {
 		this._holder = holder;
 
@@ -105,8 +112,8 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 		gridLayout.marginWidth = 0;
 		parent.setLayout(gridLayout);
 
-		// dummySwtBrowser to use Edge component
-		// To avoid conflict, we embed dummy SWT browser to control registry.
+		toolbar = new WebBrowserToolbar(this, parent, SWT.NONE);
+
 		Composite dummyComp = new Composite(parent, SWT.NONE);
 		gridLayout = new GridLayout();
 		gridLayout.marginBottom = 0;
@@ -116,15 +123,21 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 		gridLayout.horizontalSpacing = 0;
 		gridLayout.numColumns = 1;
 		dummyComp.setLayout(gridLayout);
-		dummyComp.setSize(0, 0);
-		dummyComp.redraw();
-		dummyComp.setVisible(false);
-		dummyComp.setLayoutData(new GridData(0, 0));
-//		Browser browser = new Browser(dummyComp, SWT.NONE);
-//		browser.setVisible(false);
+		dummyComp.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-		toolbar = new WebBrowserToolbar(this, parent, SWT.NONE);
-		browserComposite = new WebBrowserEdgeComposite(parent, SWT.NONE);
+		compositeForBrowserSize = new Composite(dummyComp, SWT.NONE);
+		gridLayout = new GridLayout();
+		gridLayout.verticalSpacing = 0;
+		gridLayout.marginBottom = 0;
+		gridLayout.marginWidth = 0;
+		gridLayout.marginHeight = 0;
+		gridLayout.horizontalSpacing = 0;
+		gridLayout.numColumns = 1;
+		compositeForBrowserSize.setLayout(gridLayout);
+		adjustBrowserComposizeSize();
+
+//		browserComposite = new WebBrowserEdgeComposite(parent, SWT.NONE);
+		browserComposite = new WebBrowserEdgeComposite(compositeForBrowserSize, SWT.NONE);
 		GridLayout layout = new GridLayout();
 		layout.verticalSpacing = 0;
 		layout.horizontalSpacing = 0;
@@ -150,6 +163,31 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 //		domByCom = new DomByCom(getBrowserAddress());
 
 		navigate(startURL);
+	}
+
+	/**
+	 * Set target Browser Size
+	 * 
+	 * @param zoomFactor target zoomFactor
+	 */
+	public void setBrowserSize(boolean isFree, int width, int height) {
+		isFreeSize = isFree;
+		browserWidth= width;
+		browserHeight = height;
+	}
+
+	private void adjustBrowserComposizeSize() {
+		GridData tmpData = new GridData(GridData.FILL_BOTH);
+		if (isFreeSize) {
+			compositeForBrowserSize.setLayoutData(tmpData);
+		} else if (browserWidth > 0 && browserHeight > 0) {
+			tmpData = new GridData(SWT.CENTER, SWT.TOP, false, false);
+			tmpData.minimumWidth = browserWidth;
+			tmpData.widthHint = browserWidth;
+			tmpData.minimumHeight = browserHeight;
+			tmpData.heightHint = browserHeight;
+			compositeForBrowserSize.setLayoutData(tmpData);
+		}
 	}
 
 	public void setFocusAddressText(boolean selectAll) {
@@ -540,9 +578,9 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 			}
 
 			String orgHtmlS = browserComposite.getOriginalDocument();
-			//System.out.println(orgHtmlS);
-			//JapaneseEncodingDetector jed = new JapaneseEncodingDetector(inputStream);
-			
+			// System.out.println(orgHtmlS);
+			// JapaneseEncodingDetector jed = new JapaneseEncodingDetector(inputStream);
+
 			try (FileWriter fw = new FileWriter(file)) {
 				fw.write("about:blank".equals(curURL) ? "<html></html>" : orgHtmlS);
 				return new File(file);

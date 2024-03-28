@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2008 IBM Corporation and Others
+ * Copyright (c) 2004, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,6 +18,7 @@ import org.eclipse.actf.visualization.engines.blind.TextCheckResult;
 import org.eclipse.actf.visualization.engines.blind.TextChecker;
 import org.eclipse.actf.visualization.engines.blind.html.IBlindProblem;
 import org.eclipse.actf.visualization.engines.blind.html.VisualizeEngine;
+import org.eclipse.actf.visualization.engines.voicebrowser.AriaUtil;
 import org.eclipse.actf.visualization.eval.problem.IProblemItem;
 import org.eclipse.actf.visualization.internal.engines.blind.html.BlindProblem;
 import org.w3c.dom.Document;
@@ -62,8 +63,7 @@ public class ImgChecker {
 	 * @param baseUrl
 	 * @param checkItems
 	 */
-	public ImgChecker(VisualizeMapDataImpl mapData,
-			Map<String, Element> mapMap, TextChecker textChecker,
+	public ImgChecker(VisualizeMapDataImpl mapData, Map<String, Element> mapMap, TextChecker textChecker,
 			Vector<IProblemItem> problemV, String baseUrl, boolean[] checkItems) {
 
 		this.mapData = mapData;
@@ -75,7 +75,7 @@ public class ImgChecker {
 	}
 
 	@SuppressWarnings("nls")
-	public boolean checkAndReplaceImg(Element img, Document doc, boolean remove) {
+	public boolean checkAndReplaceImg(Element img, Document resultDoc, Document origDoc, boolean remove) {
 
 		Element mapEl = null;
 		NodeList areaNL = null;
@@ -92,12 +92,13 @@ public class ImgChecker {
 			}
 		}
 
-		String imgText = checkAlt(img);
+		String imgText = checkAlt(img, origDoc);
+		//String description = AriaUtil.getAriaDescribedBy(img, origDoc);
 
 		if (remove) {
 			Node parent = img.getParentNode();
 
-			Element spanEl = doc.createElement("span");
+			Element spanEl = resultDoc.createElement("span");
 			spanEl.setAttribute("width", img.getAttribute("width"));
 			spanEl.setAttribute("height", img.getAttribute("height"));
 			spanEl.setAttribute("id", img.getAttribute("id"));
@@ -110,8 +111,14 @@ public class ImgChecker {
 			}
 			img.removeAttribute("id");
 
-			if (imgText.length() > 0 && isVisible) {
-				spanEl.appendChild(doc.createTextNode(imgText));
+			String tmpS = imgText;
+			/*
+			 * for future use (to visualize description specified by aria-describedby at the image position)
+			 * if (null != description) { tmpS = tmpS+" (("+description+"))"; }
+			 */
+
+			if (tmpS.length() > 0 && isVisible) {
+				spanEl.appendChild(resultDoc.createTextNode(tmpS));
 			}
 			parent.insertBefore(spanEl, img);
 
@@ -119,23 +126,20 @@ public class ImgChecker {
 			if (areaNL != null) {
 				int size = areaNL.getLength();
 				for (int i = 0; i < size; i++) {
-					Element areaEl = doc.createElement("span");
+					Element areaEl = resultDoc.createElement("span");
 					areaEl.setAttribute("style", img.getAttribute("style"));
 					spanEl.appendChild(areaEl);
 
 					Element areaE = (Element) areaNL.item(i);
 					BlindProblem prob = null;
 					Integer idObj = null;
-					
-					areaEl.setAttribute("id", areaE.getAttribute("id")+"-span");
-					
+
+					areaEl.setAttribute("id", areaE.getAttribute("id") + "-span");
+
 					if (!areaE.hasAttribute(ALT)) {
 						if (areaE.hasAttribute("href")) {
-							prob = new BlindProblem(IBlindProblem.NO_ALT_AREA,
-									"map name=\"" + mapEl.getAttribute("name")
-											+ "\", href=\""
-											+ areaE.getAttribute("href")
-											+ "\".");
+							prob = new BlindProblem(IBlindProblem.NO_ALT_AREA, "map name=\""
+									+ mapEl.getAttribute("name") + "\", href=\"" + areaE.getAttribute("href") + "\".");
 							prob.setTargetNode(mapData.getOrigNode(areaE));
 						}
 					} else {
@@ -145,16 +149,13 @@ public class ImgChecker {
 						// blank and inappropriate are moved to C_300.1
 
 						if (result.equals(TextCheckResult.SPACE_SEPARATED)
-								|| result
-										.equals(TextCheckResult.SPACE_SEPARATED_JP)) {
-							prob = new BlindProblem(
-									IBlindProblem.SEPARATE_DBCS_ALT_AREA, alt);
+								|| result.equals(TextCheckResult.SPACE_SEPARATED_JP)) {
+							prob = new BlindProblem(IBlindProblem.SEPARATE_DBCS_ALT_AREA, alt);
 						}
 						if (prob != null) {
 							prob.setTargetNode(mapData.getOrigNode(areaE));
 						}
-						areaEl.appendChild(doc
-								.createTextNode("[" + alt + ".] "));
+						areaEl.appendChild(resultDoc.createTextNode("[" + alt + ".] "));
 					}
 
 					if (prob != null) {
@@ -169,16 +170,13 @@ public class ImgChecker {
 						idObj = mapData.getIdOfNode(areaE);
 
 						if (checkItems[prob.getSubType()]) {
-							Element errorImg = doc.createElement("img");
+							Element errorImg = resultDoc.createElement("img");
 							errorImg.setAttribute(ALT, "error icon");
-							errorImg.setAttribute("title",
-									prob.getDescription());
+							errorImg.setAttribute("title", prob.getDescription());
 							if (idObj != null) {
-								errorImg.setAttribute("onmouseover",
-										"updateBaloon('id" + idObj + "');");
+								errorImg.setAttribute("onmouseover", "updateBaloon('id" + idObj + "');");
 							}
-							errorImg.setAttribute(SRC, baseUrl + "img/"
-									+ VisualizeEngine.ERROR_ICON_NAME);
+							errorImg.setAttribute(SRC, baseUrl + "img/" + VisualizeEngine.ERROR_ICON_NAME);
 							areaEl.appendChild(errorImg);
 						}
 					}
@@ -192,36 +190,35 @@ public class ImgChecker {
 		return true;
 	}
 
-	private String checkAlt(Element img) {
+	private String checkAlt(Element img, Document origDoc) {
 		// check_H67(img); // For new JIS
 
 		boolean noAltError = false;
-		String altS = ""; //$NON-NLS-1$
+//		String altS = ""; //$NON-NLS-1$
+
+		String altS = AriaUtil.getAlternativeText(img, origDoc);
 
 		BlindProblem prob = null;
 
-		if (!img.hasAttribute(ALT)) {
-			prob = new BlindProblem(IBlindProblem.NO_ALT_IMG,
-					img.getAttribute(SRC));
+//		if (!img.hasAttribute(ALT)) {
+		if (null == altS) {
+			prob = new BlindProblem(IBlindProblem.NO_ALT_IMG, img.getAttribute(SRC));
 			noAltError = true;
 		} else {
-			altS = img.getAttribute(ALT);
+			// altS = img.getAttribute(ALT);
+
 			if (altS.length() > 0) {
-				TextCheckResult result = textChecker.checkAlt(altS,
-						img.getAttribute(SRC));
-				if (result.equals(TextCheckResult.NG_WORD)
-						|| result.equals(TextCheckResult.IMG_EXT)) {
+				TextCheckResult result = textChecker.checkAlt(altS, img.getAttribute(SRC));
+				if (result.equals(TextCheckResult.NG_WORD) || result.equals(TextCheckResult.IMG_EXT)) {
 					// prob = new BlindProblem(IBlindProblem.WRONG_ALT_IMG,
 					// altS);
 					prob = new BlindProblem(IBlindProblem.ALERT_WRONG_ALT, altS);
 				} else if (result.equals(TextCheckResult.SPACE_SEPARATED_JP)) {
-					prob = new BlindProblem(
-							IBlindProblem.SEPARATE_DBCS_ALT_IMG, altS);
+					prob = new BlindProblem(IBlindProblem.SEPARATE_DBCS_ALT_IMG, altS);
 				} else if (result.equals(TextCheckResult.SPACE_SEPARATED)) {
 					prob = new BlindProblem(IBlindProblem.ALERT_SPELL_OUT, altS);
 				} else if (result.equals(TextCheckResult.BLANK_NBSP)) {
-					prob = new BlindProblem(IBlindProblem.WRONG_NBSP_ALT_IMG,
-							altS);
+					prob = new BlindProblem(IBlindProblem.WRONG_NBSP_ALT_IMG, altS);
 				} else if (!result.equals(TextCheckResult.OK)) {
 					// includes ASCII_ART, BLANK, SAME_AS_SRC etc.
 					prob = new BlindProblem(IBlindProblem.ALERT_WRONG_ALT, altS);

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2023 IBM Corporation and Others
+ * Copyright (c) 2004, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -25,6 +25,7 @@ import org.eclipse.actf.util.logging.DebugPrintUtil;
 import org.eclipse.actf.util.xpath.XPathService;
 import org.eclipse.actf.util.xpath.XPathServiceFactory;
 import org.eclipse.actf.visualization.engines.blind.BlindVizResourceUtil;
+import org.eclipse.actf.visualization.engines.blind.ParamBlind;
 import org.eclipse.actf.visualization.engines.blind.html.IBlindProblem;
 import org.eclipse.actf.visualization.engines.blind.html.VisualizeEngine;
 import org.eclipse.actf.visualization.engines.voicebrowser.IPacket;
@@ -33,6 +34,7 @@ import org.eclipse.actf.visualization.eval.html.HtmlTagUtil;
 import org.eclipse.actf.visualization.eval.problem.HighlightTargetId;
 import org.eclipse.actf.visualization.eval.problem.IProblemItem;
 import org.eclipse.actf.visualization.internal.engines.blind.html.BlindProblem;
+import org.eclipse.swt.graphics.RGB;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -158,6 +160,21 @@ public class VisualizeViewUtil {
 		}
 	}
 
+	private static void addVisualizeImg(Document doc, Element target, String iconPath, String message) {
+		Element imgEl = doc.createElement(IMG);
+		imgEl.setAttribute(ALT, message);
+		// imgel1.setAttribute(TITLE, name);
+		imgEl.setAttribute(SRC, iconPath);
+
+		if (target.getTagName().matches("input|textarea|select")) {
+			target.getParentNode().insertBefore(imgEl, target);
+		} else if (target.hasChildNodes()) {
+			target.insertBefore(imgEl, target.getFirstChild());
+		} else {
+			target.appendChild(imgEl);
+		}
+	}
+
 	private static void addLandmarkImg(Document doc, Element target, String baseUrl) {
 		Element imgel1 = doc.createElement(IMG);
 		String name = target.getTagName().toLowerCase();
@@ -258,12 +275,11 @@ public class VisualizeViewUtil {
 		for (int i = 0; i < tmpNl.getLength(); i++) {
 			addLandmarkImg(doc, (Element) tmpNl.item(i), baseUrl, "application");
 		}
-		
+
 		tmpNl = xpathService.evalPathForNodeList("//*[@role='search']", doc);
 		for (int i = 0; i < tmpNl.getLength(); i++) {
 			addLandmarkImg(doc, (Element) tmpNl.item(i), baseUrl, "search");
 		}
-
 
 		NodeList nl = doc.getElementsByTagName("head");
 		if (nl.getLength() > 0) {
@@ -423,6 +439,124 @@ public class VisualizeViewUtil {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static void visualizeARIA(Document doc, VisualizeMapDataImpl mapData, String baseUrl, ParamBlind param) {
+
+		NodeList tmpNl = xpathService.evalPathForNodeList("//*[@role='alertdialog']", doc);
+		for (int i = 0; i < tmpNl.getLength(); i++) {
+			addVisualizeImg(doc, (Element) tmpNl.item(i), baseUrl + "img/alert.png", "role: alertdialog");
+			VisualizationNodeInfo info = mapData.getNodeInfo(tmpNl.item(i));
+			if (null != info) {
+				info.appendComment("role=\"alertdialog\"");
+			}
+		}
+
+		tmpNl = xpathService.evalPathForNodeList("//*[@role='alert']", doc);
+		for (int i = 0; i < tmpNl.getLength(); i++) {
+			addVisualizeImg(doc, (Element) tmpNl.item(i), baseUrl + "img/alert.png", "role: alert");
+			VisualizationNodeInfo info = mapData.getNodeInfo(tmpNl.item(i));
+			if (null != info) {
+				info.appendComment("role=\"alert\"");
+			}
+		}
+
+		tmpNl = xpathService.evalPathForNodeList("//*[@aria-live='assertive']", doc);
+		for (int i = 0; i < tmpNl.getLength(); i++) {
+			addVisualizeImg(doc, (Element) tmpNl.item(i), baseUrl + "img/alert.png", "aria-live: assertive");
+			VisualizationNodeInfo info = mapData.getNodeInfo(tmpNl.item(i));
+			if (null != info) {
+				info.appendComment("aria-live=\"assertive\"");
+			}
+		}
+
+		tmpNl = xpathService.evalPathForNodeList("//*[@aria-invalid='true']", doc);
+		for (int i = 0; i < tmpNl.getLength(); i++) {
+			addVisualizeImg(doc, (Element) tmpNl.item(i), baseUrl + "img/alert.png", "aria-invalid: true");
+			VisualizationNodeInfo info = mapData.getNodeInfo(tmpNl.item(i));
+			if (null != info) {
+				info.appendComment("aria-invalid=\"true\"");
+			}
+		}
+
+		tmpNl = xpathService.evalPathForNodeList("//*[@aria-required='true']", doc);
+		for (int i = 0; i < tmpNl.getLength(); i++) {
+			addVisualizeImg(doc, (Element) tmpNl.item(i), baseUrl + "img/required.png", "aria-required: true");
+			VisualizationNodeInfo info = mapData.getNodeInfo(tmpNl.item(i));
+			if (null != info) {
+				info.appendComment("aria-reqiured=\"true\"");
+			}
+		}
+
+		tmpNl = xpathService.evalPathForNodeList("//*[@role='img']", doc);
+		for (int i = 0; i < tmpNl.getLength(); i++) {
+			addVisualizeImg(doc, (Element) tmpNl.item(i), baseUrl + "img/img.png", "role: img");
+			VisualizationNodeInfo info = mapData.getNodeInfo(tmpNl.item(i));
+			if (null != info) {
+				info.appendComment("role=\"img\"");
+			}
+		}
+
+		int r = param.labelTagsColor.red + 80;
+		int g = param.labelTagsColor.green + 80;
+		int b = param.labelTagsColor.blue + 80;
+		RGB rgb = new RGB(r > 255 ? 255 : r, g > 255 ? 255 : g, b > 255 ? 255 : b);
+		String ariaLabelRGB = "rgb(" + rgb.red + "," + rgb.green + "," + rgb.blue + ")";
+		rgb = param.captionColor;
+		String captionRGB = "rgb(" + rgb.red + "," + rgb.green + "," + rgb.blue + ")";
+
+		tmpNl = xpathService.evalPathForNodeList("//*[@aria-label]", doc);
+		// org "//input[@aria-label]|//textarea[@aria-label]|//select[@aria-label]"
+		// TBD //button[@aria-labelledby]|
+
+		for (int i = 0; i < tmpNl.getLength(); i++) {
+			Element ariaLabelElement = (Element) tmpNl.item(i);
+			String tagName = ariaLabelElement.getTagName();
+			if ("img".equals(tagName)) {
+				// already visualized
+				continue;
+			}
+
+			String target = ariaLabelElement.getAttribute("aria-label");
+			VisualizationNodeInfo visInfo = mapData.getNodeInfo(ariaLabelElement);
+			if (visInfo != null) {
+				visInfo.appendComment("aria-label: " + target);
+			}
+
+			if (tagName.matches("input|textarea|select")) {
+				Element tmpDiv = doc.createElement("div");
+				tmpDiv.setAttribute("id", ariaLabelElement.getAttribute("id"));
+				ariaLabelElement.removeAttribute("id");
+				
+				addVisualizeImg(doc, tmpDiv, baseUrl + "img/aria-label.png", "aria-label");
+				Element tmpSpan = doc.createElement("span");
+				tmpSpan.appendChild(doc.createTextNode(target));
+				tmpSpan.setAttribute("style", "color: black; background-image: none; background-color:" + ariaLabelRGB);
+				tmpDiv.appendChild(tmpSpan);
+
+				ariaLabelElement.getParentNode().insertBefore(tmpDiv, ariaLabelElement);
+				if (tagName.equals("input") && ariaLabelElement.getAttribute("type").matches("radio|checkbox")) {
+					tmpDiv.insertBefore(ariaLabelElement, tmpDiv.getFirstChild());
+				} else {
+					tmpDiv.appendChild(ariaLabelElement);
+				}
+			}
+
+			if (tagName.equals("table")) {
+				Element tmpDiv = doc.createElement("div");
+				addVisualizeImg(doc, tmpDiv, baseUrl + "img/aria-label.png", "aria-label");
+				Element tmpSpan = doc.createElement("span");
+				tmpSpan.appendChild(doc.createTextNode(target));
+				tmpSpan.setAttribute("style", "color: black; background-image: none; background-color:" + captionRGB);
+				tmpDiv.appendChild(tmpSpan);
+
+				ariaLabelElement.getParentNode().insertBefore(tmpDiv, ariaLabelElement);
+				tmpDiv.insertBefore(ariaLabelElement, tmpDiv.getFirstChild());
+				tmpDiv.appendChild(ariaLabelElement);
+			}
+
+		}
+
 	}
 
 	public static void visualizeError(Document doc, List<IProblemItem> problems, VisualizeMapDataImpl mapData,
@@ -592,9 +726,8 @@ public class VisualizeViewUtil {
 				if (p.getContext().isLineDelimiter()) {
 					if (brFlag) {
 						/*
-						 * Element spanEl = result.createElement("span");
-						 * spanEl.appendChild( result.createTextNode(" SKIPPED
-						 * ")); bodyEl.appendChild(spanEl);
+						 * Element spanEl = result.createElement("span"); spanEl.appendChild(
+						 * result.createTextNode(" SKIPPED ")); bodyEl.appendChild(spanEl);
 						 */
 					} else {
 						Element br = result.createElement("br");

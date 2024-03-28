@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2016 IBM Corporation and Others
+ * Copyright (c) 2004, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,330 +15,324 @@ package org.eclipse.actf.visualization.internal.engines.blind.html.util;
 import org.eclipse.actf.visualization.engines.voicebrowser.IPacket;
 import org.w3c.dom.Node;
 
-
 /**
  * @author kentarou
  *
  */
 public class VisualizationNodeInfo {
 
-	//separated from VisualizeEngine
-	
-    private int orgTotalWords;
+	// separated from VisualizeEngine
 
-    private int orgTotalLines;
+	private int orgTotalWords;
 
-    private int orgTime = 0;
+	private int orgTotalLines;
 
-    private int totalWords;
+	private int orgTime = 0;
 
-    private int totalLines;
+	private int totalWords;
 
-    private int words;
+	private int totalLines;
 
-    private int lines;
+	private int words;
 
-    private int id;
+	private int lines;
 
-    private int packetId;
+	private int id;
 
-    private IPacket packet = null;
+	private int packetId;
 
-    private Node node = null; // only when packet is null
+	private IPacket packet = null;
 
-    private boolean isHeading = false;
-    
-    private boolean isLandmark = false; //for html5
-    
-    private boolean isCaption = false; //caption/figcaption
+	private Node node = null; // only when packet is null
 
-	private boolean tableHeader = false;
+	private boolean isHeading = false;
 
-    private boolean isLabel = false;
+	private boolean isLandmark = false; // for html5
 
-    private boolean isIdRequiredInput = false;
+	private boolean isCaption = false; // caption/figcaption
 
-    private boolean isSequence = false;
+	private boolean isTableHeader = false;
 
-    private boolean isBlockElement = false;
+	private boolean isLabel = false;
 
-    private boolean isInvisible = false;
+	private boolean isIdRequiredInput = false;
 
-    private int time = 0;
+	private boolean isSequence = false;
 
-    private String comment = ""; //$NON-NLS-1$
+	private boolean isBlockElement = false;
 
-    VisualizationNodeInfo() {
-        //node = null;
-        totalWords = 0;
-        totalLines = 0;
-        words = 0;
-        lines = 0;
+	private boolean isInvisible = false;
 
-        //
-        id = 0;
-        packetId = 0;
-        packet = null;
-        node = null;
-    }
+	private boolean isARIAlabel = false; // aria-label, aria-labelledby
 
-    VisualizationNodeInfo(VisualizationNodeInfo info) {
-        if (info != null) {
-            totalWords = info.getTotalWords();
-            totalLines = info.getTotalLines();
-            words = info.getWords();
-            lines = info.getLines();
+	private boolean isARIAdescription = false; // aria-describedby
 
-            packet = info.getPacket();
-            packetId = info.getPacketId();
+	private int time = 0;
 
-            if (packet == null) {
-                node = info.getNode();
-            }
+	private String comment = ""; //$NON-NLS-1$
 
-            //TODO if parent, use comment
-            //comment = info.comment;
-            comment = ""; //$NON-NLS-1$
+	VisualizationNodeInfo() {
+		// node = null;
+		totalWords = 0;
+		totalLines = 0;
+		words = 0;
+		lines = 0;
 
-            //
-            id = 0;
+		//
+		id = 0;
+		packetId = 0;
+		packet = null;
+		node = null;
+	}
 
-            if ((packet == null) && (node != null)) {
-            	//TODO
-                //System.out.println("115: to be fixed");
-            }
-        } else {
-            //node = null;
-            totalWords = 0;
-            totalLines = 0;
-            words = 0;
-            lines = 0;
+	VisualizationNodeInfo(VisualizationNodeInfo info) {
+		if (info != null) {
+			totalWords = info.getTotalWords();
+			totalLines = info.getTotalLines();
+			words = info.getWords();
+			lines = info.getLines();
 
-            //
-            id = 0;
-            packetId = 0;
-            packet = null;
-            node = null;
-            comment = ""; //$NON-NLS-1$
-        }
-    }
+			packet = info.getPacket();
+			packetId = info.getPacketId();
 
-    /**
-     * Returns the node.
-     * 
-     * @return Node
-     */
-    public Node getNode() {
-        //return node;
-        if (packet != null) {
-            return packet.getNode();
-        } else {
-            if (node == null) {
-            	//TODO
-                //System.err.println("VisualizationNodeInfo.getNode: to be fixed");
-            }
-            return node;
-        }
-    }
+			if (packet == null) {
+				node = info.getNode();
+			}
 
-    /**
-     * Returns the totalWords.
-     * 
-     * @return int
-     */
-    public int getTotalWords() {
-        return totalWords;
-    }
+			// TODO if parent, use comment
+			// comment = info.comment;
+			comment = ""; //$NON-NLS-1$
 
-    /**
-     * Sets the node.
-     * 
-     * @param node
-     *            The node to set
-     */
-    public void setNode(Node node) {
+			//
+			id = 0;
 
-        /*
-         * original code
-         * 1. NodeInfoMap.get(targetNode)  (get nodeinfo)
-         * 2-a. nodeinfo != null -> setPacket(nodeinfo.getPacket()) 
-         * 2-b. nodeinfo == null -? setPacket(Null) & setNode(targetNode)
-         *  
-         */
+			if ((packet == null) && (node != null)) {
+				// TODO
+				// System.out.println("115: to be fixed");
+			}
+		} else {
+			// node = null;
+			totalWords = 0;
+			totalLines = 0;
+			words = 0;
+			lines = 0;
 
-        packet = null;//important!  //TODO modify getNode?
-        this.node = node;
-    }
+			//
+			id = 0;
+			packetId = 0;
+			packet = null;
+			node = null;
+			comment = ""; //$NON-NLS-1$
+		}
+	}
 
-    /**
-     * Sets the totalWords.
-     * 
-     * @param totalWords
-     *            The totalWords to set
-     */
-    public void setTotalWords(int totalWords) {
-        this.totalWords = totalWords;
-    }
+	/**
+	 * Returns the node.
+	 * 
+	 * @return Node
+	 */
+	public Node getNode() {
+		// return node;
+		if (packet != null) {
+			return packet.getNode();
+		} else {
+			if (node == null) {
+				// TODO
+				// System.err.println("VisualizationNodeInfo.getNode: to be fixed");
+			}
+			return node;
+		}
+	}
 
-    /**
-     * Returns the lines.
-     * 
-     * @return int
-     */
-    public int getLines() {
-        return lines;
-    }
+	/**
+	 * Returns the totalWords.
+	 * 
+	 * @return int
+	 */
+	public int getTotalWords() {
+		return totalWords;
+	}
 
-    /**
-     * Returns the totalLines.
-     * 
-     * @return int
-     */
-    public int getTotalLines() {
-        return totalLines;
-    }
+	/**
+	 * Sets the node.
+	 * 
+	 * @param node The node to set
+	 */
+	public void setNode(Node node) {
 
-    /**
-     * Returns the words.
-     * 
-     * @return int
-     */
-    public int getWords() {
-        return words;
-    }
+		/*
+		 * original code 1. NodeInfoMap.get(targetNode) (get nodeinfo) 2-a. nodeinfo !=
+		 * null -> setPacket(nodeinfo.getPacket()) 2-b. nodeinfo == null -?
+		 * setPacket(Null) & setNode(targetNode)
+		 * 
+		 */
 
-    /**
-     * Sets the lines.
-     * 
-     * @param lines
-     *            The lines to set
-     */
-    public void setLines(int lines) {
-        this.lines = lines;
-    }
+		packet = null;// important! //TODO modify getNode?
+		this.node = node;
+	}
 
-    /**
-     * Sets the totalLines.
-     * 
-     * @param totalLines
-     *            The totalLines to set
-     */
-    public void setTotalLines(int totalLines) {
-        this.totalLines = totalLines;
-    }
+	/**
+	 * Sets the totalWords.
+	 * 
+	 * @param totalWords The totalWords to set
+	 */
+	public void setTotalWords(int totalWords) {
+		this.totalWords = totalWords;
+	}
 
-    /**
-     * Sets the words.
-     * 
-     * @param words
-     *            The words to set
-     */
-    public void setWords(int words) {
-        this.words = words;
-    }
+	/**
+	 * Returns the lines.
+	 * 
+	 * @return int
+	 */
+	public int getLines() {
+		return lines;
+	}
 
-    /**
-     * Returns the id.
-     * 
-     * @return int
-     */
-    public int getId() {
-        return id;
-    }
+	/**
+	 * Returns the totalLines.
+	 * 
+	 * @return int
+	 */
+	public int getTotalLines() {
+		return totalLines;
+	}
 
-    /**
-     * Sets the id.
-     * 
-     * @param id
-     *            The id to set
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
+	/**
+	 * Returns the words.
+	 * 
+	 * @return int
+	 */
+	public int getWords() {
+		return words;
+	}
 
-    /**
-     * Returns the packetId.
-     * 
-     * @return int
-     */
-    public int getPacketId() {
-        return packetId;
-    }
+	/**
+	 * Sets the lines.
+	 * 
+	 * @param lines The lines to set
+	 */
+	public void setLines(int lines) {
+		this.lines = lines;
+	}
 
-    /**
-     * Sets the packetId.
-     * 
-     * @param packetId
-     *            The packetId to set
-     */
-    public void setPacketId(int packetId) {
-        this.packetId = packetId;
-    }
+	/**
+	 * Sets the totalLines.
+	 * 
+	 * @param totalLines The totalLines to set
+	 */
+	public void setTotalLines(int totalLines) {
+		this.totalLines = totalLines;
+	}
 
-    /**
-     * @see java.lang.Object#toString()
-     */
-    @SuppressWarnings("nls")
+	/**
+	 * Sets the words.
+	 * 
+	 * @param words The words to set
+	 */
+	public void setWords(int words) {
+		this.words = words;
+	}
+
+	/**
+	 * Returns the id.
+	 * 
+	 * @return int
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * Sets the id.
+	 * 
+	 * @param id The id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * Returns the packetId.
+	 * 
+	 * @return int
+	 */
+	public int getPacketId() {
+		return packetId;
+	}
+
+	/**
+	 * Sets the packetId.
+	 * 
+	 * @param packetId The packetId to set
+	 */
+	public void setPacketId(int packetId) {
+		this.packetId = packetId;
+	}
+
+	/**
+	 * @see java.lang.Object#toString()
+	 */
+	@SuppressWarnings("nls")
 	public String toString() {
-        StringBuffer sb = new StringBuffer();
+		StringBuffer sb = new StringBuffer();
 
-        sb.append(" Info=");
-        sb.append(this.getTime() + " : ");
-        sb.append(this.getTotalWords());
-        sb.append(",");
-        sb.append(this.getWords());
-        sb.append(",");
-        sb.append(this.getTotalLines());
-        sb.append(",");
-        sb.append(this.getLines());
-        sb.append(",");
-        sb.append(this.getNode());
-        return sb.toString();
-    }
+		sb.append(" Info=");
+		sb.append(this.getTime() + " : ");
+		sb.append(this.getTotalWords());
+		sb.append(",");
+		sb.append(this.getWords());
+		sb.append(",");
+		sb.append(this.getTotalLines());
+		sb.append(",");
+		sb.append(this.getLines());
+		sb.append(",");
+		sb.append(this.getNode());
+		return sb.toString();
+	}
 
-    /**
-     * Returns the packet.
-     * 
-     * @return Packet
-     */
-    public IPacket getPacket() {
-        return packet;
-    }
+	/**
+	 * Returns the packet.
+	 * 
+	 * @return Packet
+	 */
+	public IPacket getPacket() {
+		return packet;
+	}
 
-    /**
-     * Sets the packet.
-     * 
-     * @param packet
-     *            The packet to set
-     */
-    public void setPacket(IPacket packet) {
-        this.packet = packet;
-    }
+	/**
+	 * Sets the packet.
+	 * 
+	 * @param packet The packet to set
+	 */
+	public void setPacket(IPacket packet) {
+		this.packet = packet;
+	}
 
-    /**
-     * Returns the heading.
-     * 
-     * @return boolean
-     */
-    public boolean isHeading() {
-        return isHeading;
-    }
+	/**
+	 * Returns the heading.
+	 * 
+	 * @return boolean
+	 */
+	public boolean isHeading() {
+		return isHeading;
+	}
 
-    /**
-     * Sets the heading.
-     * 
-     * @param heading
-     *            The heading to set
-     */
-    public void setHeading(boolean heading) {
-        this.isHeading = heading;
-    }
+	/**
+	 * Sets the heading.
+	 * 
+	 * @param heading The heading to set
+	 */
+	public void setHeading(boolean heading) {
+		this.isHeading = heading;
+	}
 
-    /**
-     * Returns true if the node is landmark
-     * @return boolean
-     */
-    public boolean isLandmark() {
+	/**
+	 * Returns true if the node is landmark
+	 * 
+	 * @return boolean
+	 */
+	public boolean isLandmark() {
 		return isLandmark;
 	}
 
@@ -357,160 +351,193 @@ public class VisualizationNodeInfo {
 		this.isLandmark = isLandmark;
 	}
 
-    
-    /**
-     * Returns the time.
-     * 
-     * @return int
-     */
-    public int getTime() {
-        return time;
-    }
+	/**
+	 * Returns the time.
+	 * 
+	 * @return int
+	 */
+	public int getTime() {
+		return time;
+	}
 
-    /**
-     * Sets the time.
-     * 
-     * @param time
-     *            The time to set
-     */
-    public void setTime(int time) {
-        this.time = time;
-    }
+	/**
+	 * Sets the time.
+	 * 
+	 * @param time The time to set
+	 */
+	public void setTime(int time) {
+		this.time = time;
+	}
 
-    /**
-     * @return
-     */
-    public String getComment() {
-        return comment;
-    }
+	/**
+	 * @return
+	 */
+	public String getComment() {
+		return comment;
+	}
 
-    /**
-     * @param string
-     */
-    public void appendComment(String string) {
+	/**
+	 * @param string
+	 */
+	public void appendComment(String string) {
 
-        //TODO duplicate check
-        if (comment.length() != 0) {
-            //			System.out.println("appendComment: " +comment+" + "+string);
-            comment = comment + " " + string; //$NON-NLS-1$
-        } else {
-            comment = string;
-        }
-    }
+		// TODO duplicate check
+		if (comment.length() != 0) {
+			// System.out.println("appendComment: " +comment+" + "+string);
+			comment = comment + " " + string; //$NON-NLS-1$
+		} else {
+			comment = string;
+		}
+	}
 
-    /**
-     * @return
-     */
-    public boolean isTableHeader() {
-        return tableHeader;
-    }
+	/**
+	 * @return
+	 */
+	public boolean isTableHeader() {
+		return isTableHeader;
+	}
 
-    /**
-     * @param b
-     */
-    public void setTableHeader(boolean b) {
-        tableHeader = b;
-    }
+	/**
+	 * @param b
+	 */
+	public void setTableHeader(boolean b) {
+		isTableHeader = b;
+	}
 
-    /**
-     * @return
-     */
-    public boolean isLabel() {
-        return isLabel;
-    }
+	/**
+	 * @return
+	 */
+	public boolean isLabel() {
+		return isLabel;
+	}
 
-    /**
-     * @param b
-     */
-    public void setLabel(boolean b) {
-        isLabel = b;
-    }
+	/**
+	 * @param b
+	 */
+	public void setLabel(boolean b) {
+		isLabel = b;
+	}
 
-    /**
-     * @return
-     */
-    public boolean isIdRequiredInput() {
-        return isIdRequiredInput;
-    }
+	/**
+	 * @return the isARIAlabel
+	 */
+	public boolean isARIAlabel() {
+		return isARIAlabel;
+	}
 
-    /**
-     * @param b
-     */
-    public void setIdRequiredInput(boolean b) {
-        isIdRequiredInput = b;
-    }
+	/**
+	 * @param isARIAlabel the isARIAlabel to set
+	 */
+	public void setARIAlabel(boolean isARIAlabel) {
+		this.isARIAlabel = isARIAlabel;
+	}
 
-    /**
-     * @param hasAccesskey
-     */
-    public void setAccesskey(boolean hasAccesskey) {
-    }
+	/**
+	 * @return the isDescription
+	 */
+	public boolean isARIAdescription() {
+		return isARIAdescription;
+	}
 
-    /**
-     * @return
-     */
-    public boolean isSequence() {
-        return isSequence;
-    }
+	/**
+	 * @param isDescription the isDescription to set
+	 */
+	public void setARIAdescription(boolean isDescription) {
+		this.isARIAdescription = isDescription;
+	}
 
-    /**
-     * @param b
-     */
-    public void setSequence(boolean b) {
-        isSequence = b;
-    }
+	/**
+	 * @return true if the node is color visualization target
+	 */
+	public boolean isColorVisualizationTarget() {
+		return (isHeading || isTableHeader || isLabel || isIdRequiredInput || isCaption || isARIAlabel
+				|| isARIAdescription);
+	}
 
-    /**
-     * @return
-     */
-    public boolean isBlockElement() {
-        return isBlockElement;
-    }
+	/**
+	 * @return
+	 */
+	public boolean isIdRequiredInput() {
+		return isIdRequiredInput;
+	}
 
-    /**
-     * @param b
-     */
-    public void setBlockElement(boolean b) {
-        isBlockElement = b;
-    }
+	/**
+	 * @param b
+	 */
+	public void setIdRequiredInput(boolean b) {
+		isIdRequiredInput = b;
+	}
 
-    /**
-     * @return Returns the isInvisible.
-     */
-    public boolean isInvisible() {
-        return isInvisible;
-    }
+	/**
+	 * @param hasAccesskey
+	 */
+	public void setAccesskey(boolean hasAccesskey) {
+	}
 
-    /**
-     * @param isInvisible
-     *            The isInvisible to set.
-     */
-    public void setInvisible(boolean isInvisible) {
-        this.isInvisible = isInvisible;
-    }
+	/**
+	 * @return
+	 */
+	public boolean isSequence() {
+		return isSequence;
+	}
 
-    public int getOrgTime() {
-        return orgTime;
-    }
+	/**
+	 * @param b
+	 */
+	public void setSequence(boolean b) {
+		isSequence = b;
+	}
 
-    public int getOrgTotalLines() {
-        return orgTotalLines;
-    }
+	/**
+	 * @return
+	 */
+	public boolean isBlockElement() {
+		return isBlockElement;
+	}
 
-    public int getOrgTotalWords() {
-        return orgTotalWords;
-    }
+	/**
+	 * @param b
+	 */
+	public void setBlockElement(boolean b) {
+		isBlockElement = b;
+	}
 
-    public void setOrgTime(int orgTime) {
-        this.orgTime = orgTime;
-    }
+	/**
+	 * @return Returns the isInvisible.
+	 */
+	public boolean isInvisible() {
+		return isInvisible;
+	}
 
-    public void setOrgTotalLines(int orgTotalLines) {
-        this.orgTotalLines = orgTotalLines;
-    }
+	/**
+	 * @param isInvisible The isInvisible to set.
+	 */
+	public void setInvisible(boolean isInvisible) {
+		this.isInvisible = isInvisible;
+	}
 
-    public void setOrgTotalWords(int orgTotalWords) {
-        this.orgTotalWords = orgTotalWords;
-    }
+	public int getOrgTime() {
+		return orgTime;
+	}
+
+	public int getOrgTotalLines() {
+		return orgTotalLines;
+	}
+
+	public int getOrgTotalWords() {
+		return orgTotalWords;
+	}
+
+	public void setOrgTime(int orgTime) {
+		this.orgTime = orgTime;
+	}
+
+	public void setOrgTotalLines(int orgTotalLines) {
+		this.orgTotalLines = orgTotalLines;
+	}
+
+	public void setOrgTotalWords(int orgTotalWords) {
+		this.orgTotalWords = orgTotalWords;
+	}
 
 }

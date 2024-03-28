@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2005, 2023 IBM Corporation and Others
+ * Copyright (c) 2005, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,6 +22,7 @@ import org.eclipse.actf.visualization.engines.blind.TextChecker;
 import org.eclipse.actf.visualization.engines.blind.html.IBlindProblem;
 import org.eclipse.actf.visualization.engines.voicebrowser.IPacket;
 import org.eclipse.actf.visualization.engines.voicebrowser.IPacketCollection;
+import org.eclipse.actf.visualization.eval.html.HtmlEvalUtil;
 import org.eclipse.actf.visualization.eval.html.HtmlTagUtil;
 import org.eclipse.actf.visualization.eval.problem.IProblemItem;
 import org.eclipse.actf.visualization.internal.engines.blind.html.BlindProblem;
@@ -36,11 +37,11 @@ public class NodeInfoCreator {
 
 	private static final String LIST_TAGS = "ul|ol|dl"; //$NON-NLS-1$
 
-	private static final String LANDMARK_TAGS = "nav|main|article|aside"; //$NON-NLS-1$
+	private static final String LANDMARK_TAGS = "nav|main|article|aside|search"; //$NON-NLS-1$
 
 	private static final String HEADER_FOOTER_TAGS = "header|footer"; //$NON-NLS-1$
 
-	private static final String LANDMARK_ROLES = "banner|navigation|main|contentinfor|complementary|article|search|application";
+	private static final String LANDMARK_ROLES = "banner|navigation|main|contentinfo|complementary|article|search|application";
 	// TBD form (not supported in some env)
 
 	private static final Set<String> BLOCK_TAG_SET = HtmlTagUtil.getBlockElementSet();
@@ -178,6 +179,8 @@ public class NodeInfoCreator {
 				Node curNode = p.getNode();
 				while (curNode != null) {
 					boolean hasHeadingRole = false;
+					boolean hasLevel = false;
+					String levelS = "";
 					String nodeName = curNode.getNodeName();
 					if (curNode.getNodeType() == Node.ELEMENT_NODE) {
 						Element tmpE = (Element) curNode;
@@ -191,6 +194,16 @@ public class NodeInfoCreator {
 						}
 						if (tmpE.hasAttribute("role") && "heading".equalsIgnoreCase(tmpE.getAttribute("role"))) {
 							hasHeadingRole = true;
+
+							levelS = tmpE.getAttribute("aria-level");
+							try {
+								int level = Integer.parseInt(levelS);
+								if (level > 0) {
+									hasLevel = true;
+								}
+							} catch (Exception e) {
+								// ToDo add error
+							}
 						}
 					}
 
@@ -212,7 +225,12 @@ public class NodeInfoCreator {
 
 					if (hasHeadingRole && !info.isHeading()) {
 						info.setHeading(true);
-						info.appendComment("Heading: " + nodeName + " (role=\"heading\").");
+						if (hasLevel) {
+							info.appendComment(
+									"Heading: " + nodeName + " (role=\"heading\" aria-level=\"" + levelS + "\").");
+						} else {
+							info.appendComment("Heading: " + nodeName + " (role=\"heading\").");
+						}
 					}
 
 					if (nodeName.equals("body")) {
@@ -277,7 +295,6 @@ public class NodeInfoCreator {
 			return;
 		}
 
-
 		if (textChecker.isRedundantText(prevText, curText)) {
 			if (!HtmlTagUtil.hasAncestor(curNode, "noscript") && !HtmlTagUtil.hasAncestor(prevNode, "noscript")) {
 				// remove "." from error (comment from JIM)
@@ -291,7 +308,7 @@ public class NodeInfoCreator {
 					try {
 						URL contextUrl = new URL(targetUrl);
 						isSame = new URL(contextUrl, curHref).equals(new URL(contextUrl, prevHref));
-						System.out.println(isSame);
+						//System.out.println(isSame);
 					} catch (Exception e) {
 					}
 					if (!isSame) {
@@ -351,7 +368,7 @@ public class NodeInfoCreator {
 				Node curNode = bodyEl.getFirstChild();
 				VisualizationNodeInfo lastInfo = null;
 				int counter = 0;
-				// int tableCount = 0;
+				int tableCount = 0;
 				int listCount = 0;
 
 				while ((curNode != null) && (stack.size() > 0)) {
@@ -440,7 +457,7 @@ public class NodeInfoCreator {
 						origTotalWords = origTotalWords + curInfo.getWords();
 						origTotalLines = origTotalLines + curInfo.getLines();
 
-						if (listCount > 0) {
+						if (listCount > 0 || tableCount > 0) {
 							curInfo.setSequence(true);
 						}
 						if (BLOCK_TAG_SET.contains(curNodeName)) {
@@ -461,9 +478,10 @@ public class NodeInfoCreator {
 
 					boolean isListTag = curNodeName.matches(LIST_TAGS);
 					if (curNode.hasChildNodes()) {
-						// if (curNodeName.equals("table")) {
-						// tableCount++;
-						// }
+						if (curNodeName.equals("table")
+								&& !HtmlEvalUtil.getElementsListByXPath("descendant::th", curNode).isEmpty()) {
+							tableCount++;
+						}
 						if (isListTag) {
 							listCount++;
 						}
@@ -471,36 +489,25 @@ public class NodeInfoCreator {
 						stack.push(curNode);
 						curNode = curNode.getFirstChild();
 					} else if (curNode.getNextSibling() != null) {
-						// if (curNodeName.equals("table")) {
-						// tableCount--;
-						// }
-						if (isListTag) {
-							listCount--;
-						}
 						curNode = curNode.getNextSibling();
 					} else {
-						// if (curNodeName.equals("table")) {
-						// tableCount--;
-						// }
-						if (isListTag) {
-							listCount--;
-						}
-
 						curNode = null;
 						while ((curNode == null) && (stack.size() > 0)) {
 							curNode = stack.pop();
 							curNodeName = curNode.getNodeName();
-							// if (curNodeName.equals("table")) {
-							// tableCount--;
-							// }
-							if (isListTag) {
+
+							if (curNodeName.equals("table")
+									&& !HtmlEvalUtil.getElementsListByXPath("descendant::th", curNode).isEmpty()) {
+								tableCount--;
+							}
+
+							if (curNodeName.matches(LIST_TAGS)) {
 								listCount--;
 							}
 							curNode = curNode.getNextSibling();
 						}
 					}
 				}
-				// System.out.println(tableCount);
 			}
 		}
 	}

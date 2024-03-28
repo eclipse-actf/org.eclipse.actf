@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2023 IBM Corporation and Others
+ * Copyright (c) 2007, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,12 +11,12 @@
 
 package org.eclipse.actf.model.internal.ui.editors.edge;
 
+import org.eclipse.actf.model.internal.ui.editors.edge.actions.BrowserSizeMenu;
 import org.eclipse.actf.model.ui.editor.actions.DisableDebugMessageAction;
 import org.eclipse.actf.model.ui.editor.actions.GoBackAction;
 import org.eclipse.actf.model.ui.editor.actions.GoForwardAction;
 import org.eclipse.actf.model.ui.editor.actions.RefreshAction;
 import org.eclipse.actf.model.ui.editor.actions.StopAction;
-import org.eclipse.actf.model.ui.editor.actions.TextSizeMenu;
 import org.eclipse.actf.model.ui.editor.actions.ZoomFactorMenu;
 import org.eclipse.actf.ui.util.Messages;
 import org.eclipse.core.runtime.Platform;
@@ -63,12 +63,11 @@ public class WebBrowserEditorContributor extends EditorActionBarContributor {
 	}
 
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
-		/* moved to editor area toolbar 
-		toolBarManager.add(new GoBackAction());
-		toolBarManager.add(new GoForwardAction());
-		toolBarManager.add(new RefreshAction());
-		toolBarManager.add(new StopAction());
-		*/
+		/*
+		 * moved to editor area toolbar toolBarManager.add(new GoBackAction());
+		 * toolBarManager.add(new GoForwardAction()); toolBarManager.add(new
+		 * RefreshAction()); toolBarManager.add(new StopAction());
+		 */
 		if (Platform.inDebugMode()) {
 			toolBarManager.add(silentAction);
 		}
@@ -80,8 +79,7 @@ public class WebBrowserEditorContributor extends EditorActionBarContributor {
 		// FavoritesMenu(PlatformUI.getWorkbench().getActiveWorkbenchWindow()));
 		// Display TODO only for Browser
 		// TODO
-		MenuManager displayMenu = new MenuManager(
-				Messages.MenuConst__Display_1, "displayMenu"); //$NON-NLS-1$
+		MenuManager displayMenu = new MenuManager(Messages.MenuConst__Display_1, "displayMenu"); //$NON-NLS-1$
 		displayMenu.add(new Separator("navigate")); //$NON-NLS-1$
 		displayMenu.add(new GoBackAction(false));
 		displayMenu.add(new GoForwardAction(false));
@@ -91,10 +89,12 @@ public class WebBrowserEditorContributor extends EditorActionBarContributor {
 			displayMenu.add(silentAction2);
 		}
 
-		displayMenu.add(new Separator());
 		displayMenu.add(new Separator("view")); //$NON-NLS-1$
-		displayMenu.add(new ZoomFactorMenu(PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow()));
+		displayMenu.add(new ZoomFactorMenu(PlatformUI.getWorkbench().getActiveWorkbenchWindow()));
+
+		displayMenu.add(new Separator());
+		displayMenu.add(new BrowserSizeMenu(PlatformUI.getWorkbench().getActiveWorkbenchWindow()));
+
 		menuManager.insertAfter(IWorkbenchActionConstants.M_FILE, displayMenu);
 
 	}

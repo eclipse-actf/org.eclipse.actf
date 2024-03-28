@@ -27,6 +27,7 @@ public interface IBlindProblem extends IProblemItem {
 	public static final int NO_DEST_LINK = 8;
 	public static final int REDUNDANT_ALT = 9;
 	public static final int NO_SKIPTOMAIN_LINK = 10;// without structure
+	public static final int ALERT_NO_SKIPTOMAIN_WITH_STRUCTURE = 11;
 	public static final int TOO_LESS_STRUCTURE = 12;
 	public static final int NO_TEXT_INTRAPAGELINK = 14;
 	public static final int WRONG_TEXT = 15;

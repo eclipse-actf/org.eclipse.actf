@@ -3,7 +3,7 @@
 <HEAD>
 <META http-equiv="Content-Type" CONTENT="text/html; charset=SHIFT_JIS">
 <META http-equiv="Content-Style-Type" content="text/css">
-<meta name="copyright" content="Copyright (c) Ministry of Internal Affairs and Communications, IBM Corporation and others 2007, 2016. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
+<meta name="copyright" content="Copyright (c) Ministry of Internal Affairs and Communications, IBM Corporation and others 2007, 2024. This page is made available under license. For full details see the LEGAL in the documentation book that contains this page." >
 <TITLE>メニュー、ボタン、チェックボックス、アイコンの説明</TITLE>
 <LINK href="miChecker.css" rel="stylesheet" type="text/css" class="head">
 </HEAD>
@@ -32,7 +32,7 @@ miChecker の上部には6つのメニューがあります。
 <LI><B>開く</B> (Ctrl+O): URL を指定してウェブページを読み込むためのダイアログボックスを開きます。ローカルにあるファイルを開く場合は、「<B>参照</B>」 ボタンを選択します。
 <LI><B>閉じる</B> (Ctrl+W): 今開いている<b>ブラウザ</b>ビューを閉じます。 </LI>
 <li><B>字幕（SMIL形式）を開く</B> : SMIL形式で記述された字幕のデータを読み込み、一覧表示します。</li>
-</LI><LI><B>終了</B> (Alt+F, X): miChecker を終了します。<B>（注）</B>チェック結果は保存されませんので、必要に応じて<b>シミュレーション／視覚化</b>ビューの 「<B>保存</B>」 ボタンを選択してチェック結果を保存してください。
+<LI><B>終了</B> (Alt+F, X): miChecker を終了します。<B>（注）</B>チェック結果は保存されませんので、必要に応じて<b>シミュレーション／視覚化</b>ビューの 「<B>保存</B>」 ボタンを選択してチェック結果を保存してください。</LI>
 </UL>
 
 <H3>表示 (Alt+V)</H3>
@@ -41,9 +41,12 @@ miChecker の上部には6つのメニューがあります。
 <LI><B>進む</B>: <b>ブラウザ</b>ビューで次の画面に進みます。
 <LI><B>最新の情報に更新</B>: <b>ブラウザ</b>ビューに表示されているウェブページを、再度読み込んで更新します。
 <LI><B>停止</B>: <b>ブラウザ</b>ビューの読み込みを中止します。
-<LI><B>文字のサイズ</B>: <b>ブラウザ</b>ビューに表示させるウェブページの文字サイズを指定します。
-指定可能な範囲は、<B>最大</B>から<B>最小</B>までの5段階です。
-初期設定は<B>中</B>です。
+<LI><B>ズーム</B>: <b>ブラウザ</b>ビューに表示させるウェブページのズームを指定します。
+指定可能な範囲は、<B>200%</B>から<B>50%</B>までの5段階です。
+初期設定は<B>100%</B>です。
+<LI><B>ブラウザのサイズ</B>: <b>ブラウザ</b>ビューで用いるウェブページのサイズを指定します。
+スマートフォンやタブレットを対象にしたページや、レスポンシブデザインを用いているページの評価などに利用できます。
+初期設定は<B>指定なし（フリーサイズ）</B>です。
 </UL>
 
 <H3>アクセシビリティ検証・視覚化 (Alt+Z)</H3>
@@ -83,12 +86,12 @@ miChecker の上部には6つのメニューがあります。
 </tr>
 <tr>
 <td>「<B>更新</B>」</td>
-<td align="center"><IMG src="images/browser/refresh.gif" alt=""></td>
+<td align="center"><IMG src="images/browser/reload.png" alt=""></td>
 <td>表示されているウェブページを、再度読み込んで更新します。 </td>
 </tr>
 <tr>
 <td>「<B>停止</B>」</td>
-<td align="center"><IMG src="images/browser/stop.gif" alt=""></td>
+<td align="center"><IMG src="images/browser/stop.png" alt=""></td>
 <td>ウェブページの読み込みを中止します。</td>
 </tr>
 <tr>
@@ -103,7 +106,7 @@ miChecker の上部には6つのメニューがあります。
 </tr>
 <tr>
 <td>「<B>現在の URL を開く</B>」</td>
-<td align="center"><IMG src="images/browser/go.gif" alt=""></td>
+<td align="center"><IMG src="images/browser/go.png" alt=""></td>
 <td>アドレス入力バーに入力された URL に移動します。 </td>
 </tr>
 
@@ -120,7 +123,7 @@ miChecker の上部には6つのメニューがあります。
 <table border=1>
 <tr>
 <td>「<B>アクセシビリティ検証・音声ユーザビリティ視覚化</B>」</td>
-<td><IMG src="images/I_Visualize.gif" alt=""></td>
+<td><IMG src="images/visualize.png" alt=""></td>
 <td>音声ユーザビリティの視覚化を行い、音声ブラウザユーザーにとってのアクセシビリティとユーザビリティのチェックを開始します。</td>
 </tr>
 <tr>
@@ -129,19 +132,30 @@ miChecker の上部には6つのメニューがあります。
 <td>音声ブラウザの出力をシミュレートした結果を表示すると共に、音声ブラウザユーザーにとってのアクセシビリティとユーザビリティのチェックを開始します。</td>
 </tr>
 <tr>
+<td>「<B>チェック対象（HTMLファイル）</B>」(トグル)</td>
+<td><IMG src="images/html.png" alt=""></td>
+<td>音声ユーザビリティ視覚化およびアクセシビリティ検証の対象としてHTMLファイルを利用します。</td>
+</tr>
+<tr>
+<td>「<B>チェック対象（ブラウザ内のDOM）</B>」(トグル)</td>
+<td><IMG src="images/dom.png" alt=""></td>
+<td>音声ユーザビリティ視覚化およびアクセシビリティ検証の対象として、ブラウザ内で解釈された文書構造(DOM)を利用します。
+認証などの関係でHTMLファイルを対象に出来ない場合や、JavaScriptを用いて動的に変化するページを評価する際などに活用してください。</td>
+</tr>
+<tr>
 <td>「<B>設定</B>」</td>
-<td><IMG src="images/I_Setting.gif" alt=""></td>
+<td><IMG src="images/setting.png" alt=""></td>
 <td><A href="parametersBlind.html">設定パネル（音声ユーザビリティ視覚化 設定）</A>を開きます。</td>
 </tr>
 <tr>
 <td>「<B>保存</B>」</td>
-<td><IMG src="images/I_Save.gif" alt=""></td>
+<td><IMG src="images/ButtonSave.png" alt=""></td>
 <td>チェック結果をレポートファイルに保存します。
 レポートファイルはCSV形式ですので、各種アプリケーションを用いた問題点管理に利用できます。また、「HTML形式のレポートも保存」オプションを選択することで、HTML 形式のレポートも保存することが出来ます。HTML形式のレポートは、コンテンツの製作者などと情報を共有する際にも利用できます。</td>
 </tr>
 <tr>
 <td>「<B>ID/AccessKey/Class/CSS情報を開く</B>」</td>
-<td><IMG src="images/I_IdCss.gif" alt=""></td>
+<td><IMG src="images/ButtonIdCss.png" alt=""></td>
 <td><A href="elementCss.html">ID/AccessKey/Class/CSS Inspector (確認) パネル</A>を開きます。
 このパネルを使って、対象ウェブページの要素の属性情報 (ID, AccessKey, CLASS) とスタイルシート(CSS)の情報を調べることができます。</td>
 </tr>
@@ -156,10 +170,11 @@ miChecker の上部には6つのメニューがあります。
 <H4>対話的要素とアイコン</H4>
 
 <H5>バルーンメッセージ</H5>
+<p>
 視覚化結果が表示された画面内では、バルーンメッセージがマウスカーソルとともに動きます。
 バルーンメッセージ内には、マウスカーソルが指している要素への正確な到達時間（秒単位）が表示されます。
 マウスカーソルが指している要素がアクセシビリティ関連タグである場合には、そのタグ名も表示されます。
-</P>
+</p>
 <P>
 バルーンメッセージ内に表示される顔アイコンは到達時間によって表情が変わります。
 </P>
@@ -180,13 +195,13 @@ miChecker の上部には6つのメニューがあります。
 </tr>
 </table>
 </div>
-
+<p>
 バルーンメッセージは 「<B>移動</B>」 と 「<B>固定</B>」 の二つのモードのどちらかを選ぶことができます。
 初期設定では、バルーンメッセージはマウスカーソルと一緒に動きます（移動モード）。
 移動モード中に、画面内のどこかで左クリックを行うと、バルーンメッセージはその場で止まります（固定モード）。
 固定モードを利用すると、特定の要素がバルーンメッセージに隠されるのを防ぎつつ、各要素への到達時間を調べることができます。
 画面内のどこかで再度左クリックを行うと移動モードに戻ります。
-</P>
+</p>
 
 <H5>ページ内リンクアイコン</H5>
 
@@ -203,15 +218,16 @@ miChecker の上部には6つのメニューがあります。
 </tr>
 </table>
 
-W矢印は赤い円のつながりとして表現されます。
+<p>
+矢印は赤い円のつながりとして表現されます。
 矢印が描画された状態で再度これらのアイコンを選択すると、矢印は消えます。
-</P>
+</p>
 
 <H5>コントロールパネル</H5>
-
+<p>
 バルーンメッセージやページ内リンクを表す矢印は、コントロールパネルによって操作することができます。
 コントロールパネルは常に<b>視覚化</b>ビューの右下に表示されます。
-</P>
+</p>
 
 <table border=1>
 <tr>
@@ -250,17 +266,17 @@ W矢印は赤い円のつながりとして表現されます。
 <table border=1>
 <tr>
 <td><B>シミュレーション</B></td>
-<td><IMG src="images/I_Simulate.gif" alt=""></td>
+<td><IMG src="images/simulation.png" alt=""></td>
 <td>ロービジョンシミュレーションを行い、ロービジョンユーザーにとってのアクセシビリティとユーザビリティのチェックを開始します。</td>
 </tr>
 <tr>
 <td><B>設定</B></td>
-<td><IMG src="images/I_Setting.gif" alt=""></td>
+<td><IMG src="images/setting.png" alt=""></td>
 <td><A href="parametersLv.html">設定パネル（ロービジョン シミュレーション 設定）</A>を開きます。</td>
 </tr>
 <tr>
 <td><B>保存</B></td>
-<td><IMG src="images/I_Save.gif" alt=""></td>
+<td><IMG src="images/ButtonSave.png" alt=""></td>
 <td>チェック結果をレポートファイルに保存します。
 レポートファイルは HTML 形式ですので、通常のウェブブラウザで表示することができます。</td>
 </tr>
@@ -306,6 +322,7 @@ W矢印は赤い円のつながりとして表現されます。
 <td><IMG src="images/I_Star.gif" alt="Star."> </td><td>このアイコンは他のアイコンと併用されます。
 このアイコンが表示されている行を選択すると、その問題点に対応する要素が<b>シミュレーション</b>ビュー上で矩形枠に囲まれて表示されます。</td>
 </tr>
+<tr>
 <td><IMG src="images/I_Color.gif" alt="Rectangles."> </td><td>色に関する問題点を表します。</td>
 </tr>
 <tr>
@@ -321,6 +338,7 @@ W矢印は赤い円のつながりとして表現されます。
 <H4>音声ユーザビリティ</H4>
 <P>
 <B>レーダーチャート:</B> 次の4項目から成るレーダーチャートです。
+</P>
 <UL>
 <LI>知覚可能: 利用者が知覚できるかどうかに対する評価。</li>
 <LI>操作可能: 利用者が操作できるかどうかに対する評価。</li>
@@ -328,7 +346,6 @@ W矢印は赤い円のつながりとして表現されます。
 <LI>堅ろう（牢）: 支援技術を含めた様々なユーザーエージェントが解釈可能かどうかに対する評価。</li>
 </UL>
 総合評価は、これらの4分野の評価に基づいて判定されます。
-</P>
 
 <H4>ロービジョン</H4>
 <P>
@@ -337,7 +354,7 @@ W矢印は赤い円のつながりとして表現されます。
 総合評価は、ページ内で検出された問題の深刻度の合計に基づいて判定されます。
 </P>
 
-<H1 class="related">関連項目</H1>
+<H2 class="related">関連項目</H2>
 <UL class="related">
 <LI><A href="workspace.html">miCheckerの構成</A>
 <LI><A href="checkBlind.html">音声インターフェースユーザーのアクセシビリティやユーザビリティをチェックする</A>
@@ -346,9 +363,9 @@ W矢印は赤い円のつながりとして表現されます。
 
 <P>
 <A href="index.html">インデックスに戻る</A>
+</P>
 <hr>
 <DIV class="logo"><IMG src="images/logo.gif" alt=""></DIV>
-</P>
 
 </BODY>
 </HTML>
