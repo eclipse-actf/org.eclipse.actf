@@ -57,11 +57,10 @@ import org.w3c.dom.Node;
 public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 	private static double initial_zoomFactor = 1;
-	
+
 	private static boolean isFreeSize = true;
 	private static int browserWidth = -1;
 	private static int browserHeight = -1;
-	
 
 	private WebBrowserToolbar toolbar;
 
@@ -172,7 +171,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 	 */
 	public void setBrowserSize(boolean isFree, int width, int height) {
 		isFreeSize = isFree;
-		browserWidth= width;
+		browserWidth = width;
 		browserHeight = height;
 	}
 
@@ -305,11 +304,11 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 			return READYSTATE_UNINITIALIZED;
 
 		switch (browserComposite.getReadyState()) {
-		case "loading":
+		case "loading": //$NON-NLS-1$
 			return READYSTATE_LOADING;
-		case "interactive":
+		case "interactive": //$NON-NLS-1$
 			return READYSTATE_INTERACTIVE;
-		case "complete":
+		case "complete": //$NON-NLS-1$
 			return READYSTATE_COMPLETE;
 		default:
 			return READYSTATE_UNINITIALIZED;
@@ -429,12 +428,12 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 	@Deprecated
 	RGB getAnchorColor() {
-		return getRGB("0,0,255");
+		return getRGB("0,0,255"); //$NON-NLS-1$
 	}
 
 	@Deprecated
 	RGB getVisitedAnchorColor() {
-		return getRGB("128,0,128");
+		return getRGB("128,0,128"); //$NON-NLS-1$
 	}
 
 	HashMap<String, ICurrentStyles> getCurrentStyles() {
@@ -454,7 +453,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 				try {
 					target = href != null ? new URL(href) : null;
 				} catch (Exception e) {
-					System.err.println(e.getMessage() + " href=" + href);
+					System.err.println(e.getMessage() + " href=" + href); //$NON-NLS-1$
 				}
 				int[] r = Stream.of((Object[]) elm[4]).mapToInt(n -> ((Number) n).intValue()).toArray();
 				Map<String, String> styles = Stream.of((Object[]) elm[5])
@@ -486,7 +485,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 	@Deprecated
 	public long getBrowserAddress() {
-		System.err.println("ERROR: getBrowserAddress() is not supported");
+		System.err.println("ERROR: getBrowserAddress() is not supported"); //$NON-NLS-1$
 		return 0L;
 	}
 
@@ -512,7 +511,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 	@SuppressWarnings("nls")
 	public Document getDocument() {
 		try {
-			File tmpF = BrowserEdge_Plugin.getDefault().createTempFile("actf", "html");
+			File tmpF = BrowserEdge_Plugin.getDefault().createTempFile("actf", "html"); //$NON-NLS-1$ //$NON-NLS-2$
 			saveOriginalDocument(tmpF.getAbsolutePath());
 			IHTMLParser parser = HTMLParserFactory.createHTMLParser();
 			parser.parse(new FileInputStream(tmpF));
@@ -529,7 +528,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 //		System.err.println("ERROR: getLiveDocument() is not supported");
 //		return domByCom.getDocument();
 		try {
-			File tmpF = BrowserEdge_Plugin.getDefault().createTempFile("actf-live-", "html");
+			File tmpF = BrowserEdge_Plugin.getDefault().createTempFile("actf-live-", "html"); //$NON-NLS-1$ //$NON-NLS-2$
 			saveDocumentAsHTMLFile(tmpF.getAbsolutePath());
 			IHTMLParser parser = HTMLParserFactory.createHTMLParser();
 			parser.parse(new FileInputStream(tmpF));
@@ -568,7 +567,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 		if (null != file) {
 			String curURL = getURL();
-			if (curURL.startsWith("file:///")) {
+			if (curURL.startsWith("file:///")) { //$NON-NLS-1$
 				try {
 					if (FileUtils.copyFile(new File(new URI(curURL)), file, true)) {
 						return new File(file);
@@ -582,7 +581,11 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 			// JapaneseEncodingDetector jed = new JapaneseEncodingDetector(inputStream);
 
 			try (FileWriter fw = new FileWriter(file)) {
-				fw.write("about:blank".equals(curURL) ? "<html></html>" : orgHtmlS);
+				if ("about:blank".equals(curURL)) {
+					fw.write("<!DOCTYPE html><html lang=\"en\"><head><title>about:blank</title></head><body></body></html>"); //$NON-NLS-1$
+				} else {
+					fw.write(orgHtmlS == null ? Messages.WebBrowserEdgeImpl_HTMLforLocalFileError : orgHtmlS); //$NON-NLS-1$
+				}
 				return new File(file);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -617,7 +620,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 			@Override
 			public void changed(LocationEvent event) {
-				System.out.println(String.format("Location changed %s", event.location));
+				System.out.println(String.format("Location changed %s", event.location)); //$NON-NLS-1$
 				toolbar.setAddressTextString(browserComposite.getLocationURL());
 			}
 		});
@@ -625,19 +628,19 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 			@Override
 			public void completed(ProgressEvent event) {
-				System.out.println("Progress completed");
+				System.out.println("Progress completed"); //$NON-NLS-1$
 			}
 
 			@Override
 			public void changed(ProgressEvent event) {
-				System.out.println("Progress changed");
+				System.out.println("Progress changed"); //$NON-NLS-1$
 			}
 		});
 		browser.addOpenWindowListener(new OpenWindowListener() {
 
 			@Override
 			public void open(WindowEvent event) {
-				System.out.println("Window open");
+				System.out.println("Window open"); //$NON-NLS-1$
 				if (_openWindowListener != null) {
 					_openWindowListener.open(event);
 				} else {
@@ -649,7 +652,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 			@Override
 			public void close(WindowEvent event) {
-				System.out.println("Window close");
+				System.out.println("Window close"); //$NON-NLS-1$
 				if (_closeWindowListener != null) {
 					_closeWindowListener.close(event);
 				}
@@ -659,7 +662,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 			@Override
 			public void changed(TitleEvent event) {
-				System.out.println(String.format("Title changed %s", event.title));
+				System.out.println(String.format("Title changed %s", event.title)); //$NON-NLS-1$
 				_holder.setEditorTitle(event.title);
 			}
 		});
@@ -667,12 +670,12 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 			@Override
 			public void show(WindowEvent event) {
-				System.out.println("Window show");
+				System.out.println("Window show"); //$NON-NLS-1$
 			}
 
 			@Override
 			public void hide(WindowEvent event) {
-				System.out.println("Window hide");
+				System.out.println("Window hide"); //$NON-NLS-1$
 			}
 		});
 	}
@@ -908,7 +911,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 	private boolean isDisposed() {
 		if (browserComposite.isDisposed()) {
-			System.err.println("browserComposite is disposed");
+			System.err.println("browserComposite is disposed"); //$NON-NLS-1$
 			return true;
 		}
 		return false;
@@ -933,14 +936,14 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 		if (isDisposed())
 			return;
 
-		browserComposite.setCssText(handle, "border: 4px inset yellow;", true);
+		browserComposite.setCssText(handle, "border: 4px inset yellow;", true); //$NON-NLS-1$
 	}
 
 	public void unhighlight(int handle) {
 		if (isDisposed())
 			return;
 
-		browserComposite.setCssText(handle, "border: 4px inset yellow;", false);
+		browserComposite.setCssText(handle, "border: 4px inset yellow;", false); //$NON-NLS-1$
 	}
 
 	public IStyleSheets getStyleSheets() {
@@ -954,17 +957,17 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 	 * for debug
 	 */
 	private void test() {
-		System.out.println("getBrowserSize: " + getStyleInfo().getSizeInfo(true));
-		System.out.println("getReadyState: " + getReadyState());
-		System.out.println("isDisposed: " + getTargetComposite().isDisposed());
+		System.out.println("getBrowserSize: " + getStyleInfo().getSizeInfo(true)); //$NON-NLS-1$
+		System.out.println("getReadyState: " + getReadyState()); //$NON-NLS-1$
+		System.out.println("isDisposed: " + getTargetComposite().isDisposed()); //$NON-NLS-1$
 
 		for (ImagePositionInfo info : getAllImagePosition()) {
 			((EdgeElementImpl) info.getElement()).highlight();
 		}
 		Map<String, ICurrentStyles> styles = getStyleInfo().getCurrentStyles();
 		styles.forEach((k, v) -> {
-			System.out.println(k + ": " + v.getTagName());
-			if ("SPAN".equals(v.getTagName())) {
+			System.out.println(k + ": " + v.getTagName()); //$NON-NLS-1$
+			if ("SPAN".equals(v.getTagName())) { //$NON-NLS-1$
 				((EdgeElementImpl) v.getElement()).highlight();
 			}
 		});
@@ -973,26 +976,26 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 			void dumpCssText(IStyleSheets styleSheets) {
 				for (int i = 0; i < styleSheets.getLength(); i++) {
 					IStyleSheet styleSheet = styleSheets.item(i);
-					System.out.println("-------- Style Sheet#" + (i + 1));
-					System.out.println("title: " + styleSheet.getTitle());
-					System.out.println("href: " + styleSheet.getHref());
+					System.out.println("-------- Style Sheet#" + (i + 1)); //$NON-NLS-1$
+					System.out.println("title: " + styleSheet.getTitle()); //$NON-NLS-1$
+					System.out.println("href: " + styleSheet.getHref()); //$NON-NLS-1$
 					try {
 						String cssText = styleSheet.getCssText();
-						System.out.println("---- cssText begin ----");
+						System.out.println("---- cssText begin ----"); //$NON-NLS-1$
 						System.out.println(cssText);
-						System.out.println("---- cssText end ----");
+						System.out.println("---- cssText end ----"); //$NON-NLS-1$
 					} catch (Exception e) {
-						System.out.println("ERROR cssText: " + e.getMessage());
+						System.out.println("ERROR cssText: " + e.getMessage()); //$NON-NLS-1$
 					}
 					try {
 						IStyleSheets imports = styleSheet.getImports();
 						if (imports.getLength() > 0) {
-							System.out.println("---- imports begin ----");
+							System.out.println("---- imports begin ----"); //$NON-NLS-1$
 							new Dumper().dumpCssText(imports);
-							System.out.println("---- imports end ----");
+							System.out.println("---- imports end ----"); //$NON-NLS-1$
 						}
 					} catch (Exception e) {
-						System.out.println("ERROR imports: " + e.getMessage());
+						System.out.println("ERROR imports: " + e.getMessage()); //$NON-NLS-1$
 					}
 				}
 			}

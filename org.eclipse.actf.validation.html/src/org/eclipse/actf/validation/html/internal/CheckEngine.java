@@ -365,7 +365,7 @@ public class CheckEngine extends HtmlTagUtil {
 		// System.out.println(docTypeS + " : " + isXHTML + " : " + isHTML5);
 
 		checker = TextChecker.getInstance();
-		
+
 		// System.out.println(GuidelineHolder.getInstance().toString());
 	}
 
@@ -2192,11 +2192,19 @@ public class CheckEngine extends HtmlTagUtil {
 		int length = aWithHref_elements.length;
 		Vector<Node> item57V = new Vector<Node>();
 		Vector<Node> linkTitle = new Vector<Node>();
+		HashMap<String, Vector<Node>> emptyMap = new HashMap<>();
 
 		for (int i = 0; i < length; i++) {
 			el = aWithHref_elements[i];
 
 			String strTxt = aWithHref_strings[i];
+			if (strTxt.trim().length() == 0) {
+				// consider aria-label, aria-labelledby (TBD handling order)
+				String tmpS = getNameByAria(el);
+				if (null != tmpS) {
+					strTxt = tmpS.trim();
+				}
+			}
 
 			if (el.hasAttribute(ATTR_TITLE)) {
 				if (hasBlankTitle(el))
@@ -2217,9 +2225,17 @@ public class CheckEngine extends HtmlTagUtil {
 
 							String noScriptText = getNoScriptText(el);
 
-							if ((!el.hasChildNodes() || el.getElementsByTagName("img").getLength() == 0)) { //$NON-NLS-1$
+							if ((!el.hasChildNodes() && el.getElementsByTagName("img").getLength() == 0)) { //$NON-NLS-1$
+								//ToDo check conditions (duplication)
 								exceptCount++;
-								// alert
+								if (emptyMap.containsKey(aWithHref_hrefs[i])) {
+									emptyMap.get(aWithHref_hrefs[i]).add(el);
+								} else {
+									Vector<Node> tmpEmptyV = new Vector<>();
+									tmpEmptyV.add(el);
+									emptyMap.put(aWithHref_hrefs[i], tmpEmptyV);
+								}
+
 							} else if (noScriptText.length() > 0) {
 								// script + noscript(Text)
 								exceptCount++;
@@ -2285,6 +2301,10 @@ public class CheckEngine extends HtmlTagUtil {
 			addCheckerProblem("C_57.4", ((Element) link).getAttribute(ATTR_TITLE), (Element) link);
 		}
 
+		for(String hrefS : emptyMap.keySet()) {
+			addCheckerProblem("C_57.6", hrefS, emptyMap.get(hrefS));
+		}
+			
 		// need URL check
 
 		length = length - exceptCount;
@@ -3774,16 +3794,18 @@ public class CheckEngine extends HtmlTagUtil {
 				StringBuffer tmpSB = new StringBuffer();
 				String[] IDs = targetS.split(" ");
 				Document doc = target.getOwnerDocument();
-				for (String id : IDs) {
-					Element tmpE = doc.getElementById(id);
-					if (null != tmpE) {
-						String tmpS = getTextAltDescendant(tmpE).trim();
-						if (tmpS.length() > 0) {
-							tmpSB.append(tmpS + " ");
+				if (null != doc) {
+					for (String id : IDs) {
+						Element tmpE = doc.getElementById(id);
+						if (null != tmpE) {
+							String tmpS = getTextAltDescendant(tmpE).trim();
+							if (tmpS.length() > 0) {
+								tmpSB.append(tmpS + " ");
+							}
 						}
-					}
-					if (tmpSB.length() > 0) {
-						result = tmpSB.substring(0, tmpSB.length() - 1);
+						if (tmpSB.length() > 0) {
+							result = tmpSB.substring(0, tmpSB.length() - 1);
+						}
 					}
 				}
 			}

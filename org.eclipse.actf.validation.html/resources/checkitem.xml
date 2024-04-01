@@ -2954,6 +2954,24 @@
 			</desc>
 		</description>
 	</checkitem>
+	<checkitem type="user" id="C_57.6">
+		<guideline>
+			<gItem techniques="H30" id="2.4.4" name="JIS" />
+			<gItem techniques="H30" id="2.4.9" name="JIS" />
+			<gItem techniques="H30" id="1.1.1" name="JIS" />
+			<gItem techniques="H30" id="1.1.1" name="WCAG 2.0" />
+			<gItem techniques="H30" id="2.4.4" name="WCAG 2.0" />
+			<gItem techniques="H30" id="2.4.9" name="WCAG 2.0" />
+		</guideline>
+		<metrics>
+			<mItem name="Perceivable" />
+			<mItem name="Operable" />
+		</metrics>
+		<description>
+			<desc>This link has no child content or text. Consider to add appropriate content in the link or remove the link.(href={0})
+			</desc>
+		</description>
+	</checkitem>
 	<checkitem type="user" id="C_3.1">
 		<guideline>
 			<gItem techniques="H45" id="1.1.1" name="JIS" />

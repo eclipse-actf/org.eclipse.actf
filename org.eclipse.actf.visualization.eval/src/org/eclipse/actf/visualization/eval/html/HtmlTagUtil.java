@@ -156,8 +156,21 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 		while (curNode != null) {
 			if (curNode.getNodeType() == Node.TEXT_NODE) {
 				strBuf.append(curNode.getNodeValue().trim() + " ");
-			} else if (curNode.getNodeName().equalsIgnoreCase("img")) { //$NON-NLS-1$
-				strBuf.append(((Element) curNode).getAttribute(ATTR_ALT).trim() + " "); //$NON-NLS-1$
+			} else if (curNode instanceof Element) {
+				Element tmpE = (Element) curNode;
+				if (tmpE.getTagName().equalsIgnoreCase("img")) { //$NON-NLS-1$
+					// strBuf.append(((Element) curNode).getAttribute(ATTR_ALT).trim() + " ");
+					// //$NON-NLS-1$
+					String tmpS = getNameByAria((Element) curNode, ATTR_ALT);
+					if (null != tmpS && tmpS.trim().length() > 0) {
+						strBuf.append(tmpS.trim() + " ");
+					}
+				}else if(tmpE.getAttribute("role").equalsIgnoreCase("img")) {
+					String tmpS = getNameByAria((Element) curNode, null);
+					if (null != tmpS && tmpS.trim().length() > 0) {
+						strBuf.append(tmpS.trim() + " ");
+					}					
+				}
 			}
 
 			if (curNode.hasChildNodes()) {
@@ -175,6 +188,58 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 		}
 
 		return strBuf.toString();
+	}
+
+	private static String getNameByAria(Element target, String attrForAlt) {
+		String result = null;
+		if (target.hasAttribute("aria-labelledby")) {
+			String targetS = target.getAttribute("aria-labelledby").trim();
+			if (targetS.length() > 0) {
+				StringBuffer tmpSB = new StringBuffer();
+				String[] IDs = targetS.split(" ");
+				Document doc = target.getOwnerDocument();
+				if (null != doc) {
+					for (String id : IDs) {
+						Element tmpE = doc.getElementById(id);
+						if (null != tmpE) {
+							String tmpS = getTextAltDescendant(tmpE).trim();
+							if (tmpS.length() > 0) {
+								tmpSB.append(tmpS + " ");
+							}
+						}
+						if (tmpSB.length() > 0) {
+							result = tmpSB.substring(0, tmpSB.length() - 1);
+						}
+					}
+				}
+			}
+		}
+		if (null != result) {
+			return result;
+		}
+
+		boolean flagForAlt = (null != attrForAlt && attrForAlt.trim().length() > 0);
+
+		if (target.hasAttribute("aria-label")) {
+			result = target.getAttribute("aria-label");
+
+			if (flagForAlt && null != result && result.trim().length() == 0) {
+				// if empty, override by alt, etc. (actual behavior of browser + screenreader)
+				if (target.hasAttribute(attrForAlt)) {
+					result = target.getAttribute(attrForAlt);
+				}
+			}
+		}
+
+		if (null != result) {
+			return result;
+		}
+
+		if (flagForAlt && target.hasAttribute(attrForAlt)) {
+			result = target.getAttribute(attrForAlt);
+		}
+
+		return result;
 	}
 
 	/**

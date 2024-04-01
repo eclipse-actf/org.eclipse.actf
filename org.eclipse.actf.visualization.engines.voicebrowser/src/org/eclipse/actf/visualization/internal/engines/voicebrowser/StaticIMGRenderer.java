@@ -30,7 +30,7 @@ public class StaticIMGRenderer implements IElementRenderer {
 
 		// get alt attribute
 		NamedNodeMap attrs = element.getAttributes();
-		Node altNode = attrs.getNamedItem("alt"); //$NON-NLS-1$
+		//Node altNode = attrs.getNamedItem("alt"); //$NON-NLS-1$
 		String altstr = null;
 
 		/*
@@ -42,7 +42,7 @@ public class StaticIMGRenderer implements IElementRenderer {
 		altstr = TextUtil.trim(altstr);
 		*/
 		
-		altstr = AriaUtil.getAlternativeText(element, element.getOwnerDocument());
+		altstr = AriaUtil.getAlternativeText(element);
 		//System.out.println(altstr);
 		
 		if(altstr == null) {

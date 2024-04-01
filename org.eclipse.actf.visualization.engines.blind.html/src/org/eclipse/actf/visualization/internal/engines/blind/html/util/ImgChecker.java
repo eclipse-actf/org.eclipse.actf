@@ -194,9 +194,15 @@ public class ImgChecker {
 		// check_H67(img); // For new JIS
 
 		boolean noAltError = false;
-//		String altS = ""; //$NON-NLS-1$
-
-		String altS = AriaUtil.getAlternativeText(img, origDoc);
+		String altS = ""; //$NON-NLS-1$
+		
+		//use original document to resolve aria-labelledby
+		Node originalImgNode = mapData.getOrigNode(img);		
+		if(originalImgNode instanceof Element) {
+			altS = AriaUtil.getAlternativeText((Element)originalImgNode);
+		}else {
+			AriaUtil.getAlternativeText(img);
+		}
 
 		BlindProblem prob = null;
 
