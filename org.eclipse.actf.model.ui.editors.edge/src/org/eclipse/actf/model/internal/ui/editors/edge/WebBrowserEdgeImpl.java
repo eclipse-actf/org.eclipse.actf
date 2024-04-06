@@ -70,10 +70,6 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 	private boolean _inReload = false;
 
-	private boolean _inStop = false;
-
-	private boolean _inJavascript = false;
-
 	// TODO back,forw,stop,replace,etc.
 	private boolean _urlExist;
 
@@ -96,7 +92,6 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 	private OpenWindowListener _openWindowListener = null;
 	private CloseWindowListener _closeWindowListener = null;
 
-	private String errorUrl = null;
 //	private int tmpErrorCode = 0;
 
 	private Composite compositeForBrowserSize;
@@ -167,7 +162,6 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 	/**
 	 * Set target Browser Size
 	 * 
-	 * @param zoomFactor target zoomFactor
 	 */
 	public void setBrowserSize(boolean isFree, int width, int height) {
 		isFreeSize = isFree;
@@ -207,7 +201,6 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 		toolbar.setAddressTextString(url);
 
-		errorUrl = null;
 		this._urlExist = true;
 		this._navigateErrorCode = 200;
 
@@ -223,7 +216,6 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 			return;
 
 		// TODO rename?
-		errorUrl = null;
 		browserComposite.goBack();
 	}
 
@@ -231,7 +223,6 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 		if (isDisposed())
 			return;
 
-		errorUrl = null;
 		browserComposite.goForward();
 	}
 
@@ -240,12 +231,9 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 			return;
 
 		if (_inNavigation || _inReload) {
-			_inStop = true;
 			_inNavigation = false;
 			_inReload = false;
-			_inJavascript = false;
 		}
-		errorUrl = null;
 		browserComposite.stop();
 	}
 
@@ -255,10 +243,8 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 		if (!_inReload) {
 			_inReload = true;
-			_inJavascript = false;
 			WebBrowserEventUtil.refreshStart(WebBrowserEdgeImpl.this);
 		}
-		errorUrl = null;
 		browserComposite.refresh();
 	}
 
@@ -272,17 +258,25 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 		int[] size = new int[] { 1, 1, 1, 1 };
 
-//		System.out.println("getBrowserSize: "+ browserComposite.getWidth() + ", " + browserComposite.getHeight() + ", "
-//				+ browserComposite.getWholeSize()[0] + ", " + browserComposite.getWholeSize()[1]);
-
 		int width = browserComposite.getClientWidth();
 		int height = browserComposite.getClientHeight();
+		int[] tmpSize = browserComposite.getWholeSize();
+
+		// use browser composite's size
+		if (!isFreeSize) {
+			int tmpHeight = (int) (browserComposite.getParent().getParent().getClientArea().height
+					* ((double) width / browserWidth));
+
+			if (height > tmpHeight) {
+				height = tmpHeight;
+			}
+		}
+
 		size[0] = width;
 		size[1] = height;
 		size[2] = width;
 		size[3] = height;
 		if (isWhole) {
-			int[] tmpSize = browserComposite.getWholeSize();
 			if (tmpSize.length == 2 && tmpSize[0] > -1 && tmpSize[1] > -1) {
 				size[2] = tmpSize[0];
 				size[3] = tmpSize[1];
@@ -582,9 +576,10 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 
 			try (FileWriter fw = new FileWriter(file)) {
 				if ("about:blank".equals(curURL)) {
-					fw.write("<!DOCTYPE html><html lang=\"en\"><head><title>about:blank</title></head><body></body></html>"); //$NON-NLS-1$
+					fw.write(
+							"<!DOCTYPE html><html lang=\"en\"><head><title>about:blank</title></head><body></body></html>"); //$NON-NLS-1$
 				} else {
-					fw.write(orgHtmlS == null ? Messages.WebBrowserEdgeImpl_HTMLforLocalFileError : orgHtmlS); //$NON-NLS-1$
+					fw.write(orgHtmlS == null ? Messages.WebBrowserEdgeImpl_HTMLforLocalFileError : orgHtmlS); // $NON-NLS-1$
 				}
 				return new File(file);
 			} catch (Exception e) {
@@ -956,6 +951,7 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 	/*
 	 * for debug
 	 */
+	@SuppressWarnings("unused")
 	private void test() {
 		System.out.println("getBrowserSize: " + getStyleInfo().getSizeInfo(true)); //$NON-NLS-1$
 		System.out.println("getReadyState: " + getReadyState()); //$NON-NLS-1$

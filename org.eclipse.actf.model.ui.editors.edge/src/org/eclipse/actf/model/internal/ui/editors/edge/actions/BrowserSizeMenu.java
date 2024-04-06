@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.actf.model.internal.ui.editors.edge.actions;
 
+import org.eclipse.actf.model.internal.ui.editors.edge.Messages;
 import org.eclipse.actf.model.ui.util.ModelServiceMessages;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -20,7 +21,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 public class BrowserSizeMenu extends MenuManager {
 
 	private static final String[] MENUTEXTS = { ModelServiceMessages.MenuConst_BrowserFreeSize, "360 * 760",
-			"375 * 667", "412 * 915", "768 * 1024", "810 * 1080" };
+			"375 * 667", "412 * 915", "768 * 1024", "810 * 1080", Messages.BrowserSizeMenu_custom };
 
 	/**
 	 * Constructor of the class
@@ -30,11 +31,10 @@ public class BrowserSizeMenu extends MenuManager {
 	public BrowserSizeMenu(IWorkbenchWindow window) {
 		super(ModelServiceMessages.MenuConst_BrowserSize);
 
-		BrowserSizeAction.isFirst = true;
-
-		int menuNum = 6;//7
+		int menuNum = 7;// 7
 		BrowserSizeAction[] browserSizeAction = new BrowserSizeAction[menuNum];
-		int width, height;
+		int width = -1;
+		int height = -1;
 		boolean free = true;
 
 		for (int i = 0; i < menuNum; i++) {
@@ -67,16 +67,17 @@ public class BrowserSizeMenu extends MenuManager {
 				width = 810;
 				height = 1080;
 			}
-			// ToDo case6
+			case 6 -> {
+				browserSizeAction[i].setBrowserSizeToCustom();
+			}
 			default -> {
-				free = true;
-				width = -1;
-				height = -1;
 			}
 			}
 
-			browserSizeAction[i].setBrowserSize(free, width, height);
-			//System.out.println(i + ": " + free + " " + width + " " + height);
+			if (i != 6) {
+				browserSizeAction[i].setBrowserSize(free, width, height);
+			}
+			// System.out.println(i + ": " + free + " " + width + " " + height);
 		}
 	}
 

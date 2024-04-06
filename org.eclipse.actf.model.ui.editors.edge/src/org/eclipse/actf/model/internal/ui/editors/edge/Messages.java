@@ -15,7 +15,14 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS {
 	private static final String BUNDLE_NAME = Messages.class.getPackageName() + ".messages"; //$NON-NLS-1$
+	
 	public static String WebBrowserEdgeImpl_HTMLforLocalFileError;
+	public static String BrowserSizeMenu_custom;
+	public static String CustomSizeDialog_title;
+	public static String CustomSizeDialog_info;
+	public static String CustomSizeDialog_width;
+	public static String CustomSizeDialog_height;
+	
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

@@ -11,7 +11,9 @@
 package org.eclipse.actf.model.internal.ui.editors.edge.actions;
 
 import org.eclipse.actf.model.internal.ui.editors.edge.WebBrowserEdgeImpl;
+import org.eclipse.actf.model.internal.ui.editors.edge.dialog.CustomSizeDialog;
 import org.eclipse.actf.model.ui.IModelService;
+import org.eclipse.actf.model.ui.editor.browser.IWebBrowserACTF;
 import org.eclipse.actf.model.ui.util.ModelServiceUtils;
 import org.eclipse.jface.action.Action;
 import org.eclipse.ui.IEditorPart;
@@ -22,18 +24,13 @@ import org.eclipse.ui.PlatformUI;
  * Action to invoke setBrowserSize method of the current active
  * {@link IWebBrowserACTF}
  */
-/**
- * @author KentarouFukuda
- *
- */
 public class BrowserSizeAction extends Action {
 
 	public static final String ID = BrowserSizeAction.class.getName();
 
-	protected static boolean isFirst = true;
-	private static boolean prevIsFree = true;
-	private static int prevWidth = -1;
-	private static int prevHeight = -1;
+	private IWorkbenchWindow window;
+
+	private boolean isCustom = false;
 
 	private boolean isFree = true;
 	private int width = -1;
@@ -44,19 +41,27 @@ public class BrowserSizeAction extends Action {
 	 */
 	public BrowserSizeAction(IWorkbenchWindow window) {
 		super(ID, Action.AS_RADIO_BUTTON);
+		this.window = window;
 	}
 
 	public void run() {
-		IModelService modelService = ModelServiceUtils.getActiveModelService();
 
+		IModelService modelService = ModelServiceUtils.getActiveModelService();
 		// to avoid BrowserSize APIs into IWebBrowserACTF
-		if (modelService instanceof WebBrowserEdgeImpl && checkPrev()) {
+		if (modelService instanceof WebBrowserEdgeImpl && isChecked()) {
+
+			if (isCustom) {
+				CustomSizeDialog dialog = new CustomSizeDialog(window.getShell(), width, height);
+				if (1 == dialog.open()) {
+					width = dialog.getWidth();
+					height = dialog.getHeight();
+				} else {
+					return;
+				}
+			}
 
 			WebBrowserEdgeImpl browserImpl = (WebBrowserEdgeImpl) modelService;
 			browserImpl.setBrowserSize(isFree, width, height);
-			prevIsFree = isFree;
-			prevWidth = width;
-			prevHeight = height;
 
 			String urlS = browserImpl.getURL();
 			IEditorPart editorPart = modelService.getModelServiceHolder().getEditorPart();
@@ -79,19 +84,11 @@ public class BrowserSizeAction extends Action {
 		this.height = height;
 	}
 
-	
-	/**
-	 * Temp private method to avoid invalid BrowserSize change call. 
-	 * 
-	 * @return true if BrowserSize change needed
-	 */
-	private boolean checkPrev() {
-		if (isFirst) {
-			isFirst = false;
-			return true;
-		}
-
-		return !((prevIsFree == isFree) && (prevWidth == width) && (prevHeight == height));
+	public void setBrowserSizeToCustom() {
+		isCustom = true;
+		isFree = false;
+		width = 360;
+		height = 760;
 	}
 
 }
