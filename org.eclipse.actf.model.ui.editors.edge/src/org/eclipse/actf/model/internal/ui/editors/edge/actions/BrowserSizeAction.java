@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.actf.model.internal.ui.editors.edge.actions;
 
+import org.eclipse.actf.model.internal.ui.editors.edge.Messages;
 import org.eclipse.actf.model.internal.ui.editors.edge.WebBrowserEdgeImpl;
 import org.eclipse.actf.model.internal.ui.editors.edge.dialog.CustomSizeDialog;
 import org.eclipse.actf.model.ui.IModelService;
@@ -55,6 +56,7 @@ public class BrowserSizeAction extends Action {
 				if (1 == dialog.open()) {
 					width = dialog.getWidth();
 					height = dialog.getHeight();
+					this.setText(Messages.BrowserSizeMenu_custom + " (" + width + " * " + height + ")");
 				} else {
 					return;
 				}
