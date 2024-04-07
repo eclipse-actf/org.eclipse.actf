@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2023 IBM Corporation and Others
+ * Copyright (c) 2007, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -67,11 +67,15 @@ class WebBrowserEdgeComposite extends Composite {
 	}
 
 	int getClientWidth() {
-		return ((Number) browser.evaluate("return (document.compatMode === 'BackCompat' ? document.body : document.documentElement).clientWidth;")).intValue();
+		return ((Number) browser.evaluate(
+				"return (document.compatMode === 'BackCompat' ? document.body : document.documentElement).clientWidth;"))
+				.intValue();
 	}
 
 	int getClientHeight() {
-		return ((Number) browser.evaluate("return (document.compatMode === 'BackCompat' ? document.body : document.documentElement).clientHeight;")).intValue();
+		return ((Number) browser.evaluate(
+				"return (document.compatMode === 'BackCompat' ? document.body : document.documentElement).clientHeight;"))
+				.intValue();
 	}
 
 	int[] getWholeSize() {
@@ -96,11 +100,20 @@ class WebBrowserEdgeComposite extends Composite {
 	}
 
 	String getLiveDocument() {
-		return (String) browser.evaluate("return (document.doctype ? new XMLSerializer().serializeToString(document.doctype) : '') + document.documentElement.outerHTML;");
+		return (String) browser.evaluate(
+				"return (document.doctype ? new XMLSerializer().serializeToString(document.doctype) : '') + document.documentElement.outerHTML;");
 	}
 
 	String getOriginalDocument() {
-		return (String) browser.evaluate("return " + loadScript("getOriginalDocument.js"));
+		String urlS = getLocationURL();
+		if(urlS.startsWith("file://") && urlS.contains("#")) {
+			navigate(urlS.substring(0,urlS.indexOf("#")));
+		}
+		try {
+			return (String) browser.evaluate("return " + loadScript("getOriginalDocument.js"));			
+		}catch (Exception e) {
+			return null;
+		}
 	}
 
 	Object[] getAllImagePosition() {

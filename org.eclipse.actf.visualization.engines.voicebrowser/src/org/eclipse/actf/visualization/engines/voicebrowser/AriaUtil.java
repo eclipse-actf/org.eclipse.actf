@@ -24,30 +24,15 @@ public class AriaUtil {
 	 * @param target Element
 	 * @return calculated alternative text or null (if not specified)
 	 */
-	public static String getAlternativeText(Element target, Document doc) {
+	public static String getAlternativeText(Element target) {
 		String result = null;
 
 		switch (target.getTagName()) {
 		case "img" -> {
-			result = getAriaLabelledBy(target, doc);
-			if (null != result)
-				return result;
-
-			if (target.hasAttribute("aria-label")) {
-				result = target.getAttribute("aria-label");
-				if (null != result && result.trim().length() == 0) {
-					// if empty, override by alt
-					if (target.hasAttribute("alt")) {
-						result = target.getAttribute("alt");
-					}
-				}
-			}
-			if (null != result)
-				return result;
-
-			if (target.hasAttribute("alt")) {
-				result = target.getAttribute("alt");
-			}
+			result = getNameByAria(target, "alt");
+		}
+		default->{
+			result = getNameByAria(target, null);
 		}
 		}
 
@@ -140,6 +125,58 @@ public class AriaUtil {
 		}
 
 		return strBuf.toString();
+	}
+
+	private static String getNameByAria(Element target, String attrForAlt) {
+		String result = null;
+		if (target.hasAttribute("aria-labelledby")) {
+			String targetS = target.getAttribute("aria-labelledby").trim();
+			if (targetS.length() > 0) {
+				StringBuffer tmpSB = new StringBuffer();
+				String[] IDs = targetS.split(" ");
+				Document doc = target.getOwnerDocument();
+				if (null != doc) {
+					for (String id : IDs) {
+						Element tmpE = doc.getElementById(id);
+						if (null != tmpE) {
+							String tmpS = getTextAltDescendant(tmpE).trim();
+							if (tmpS.length() > 0) {
+								tmpSB.append(tmpS + " ");
+							}
+						}
+						if (tmpSB.length() > 0) {
+							result = tmpSB.substring(0, tmpSB.length() - 1);
+						}
+					}
+				}
+			}
+		}
+		if (null != result) {
+			return result;
+		}
+
+		boolean flagForAlt = (null != attrForAlt && attrForAlt.trim().length() > 0);
+
+		if (target.hasAttribute("aria-label")) {
+			result = target.getAttribute("aria-label");
+
+			if (flagForAlt && null != result && result.trim().length() == 0) {
+				// if empty, override by alt, etc. (actual behavior of browser + screenreader)
+				if (target.hasAttribute(attrForAlt)) {
+					result = target.getAttribute(attrForAlt);
+				}
+			}
+		}
+
+		if (null != result) {
+			return result;
+		}
+
+		if (flagForAlt && target.hasAttribute(attrForAlt)) {
+			result = target.getAttribute(attrForAlt);
+		}
+
+		return result;
 	}
 
 }

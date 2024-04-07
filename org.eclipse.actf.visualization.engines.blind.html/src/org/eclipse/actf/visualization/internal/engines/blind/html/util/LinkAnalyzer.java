@@ -11,6 +11,7 @@
 
 package org.eclipse.actf.visualization.internal.engines.blind.html.util;
 
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,6 +24,7 @@ import java.util.Vector;
 
 import org.eclipse.actf.visualization.engines.blind.ParamBlind;
 import org.eclipse.actf.visualization.engines.blind.html.IBlindProblem;
+import org.eclipse.actf.visualization.engines.voicebrowser.AriaUtil;
 import org.eclipse.actf.visualization.engines.voicebrowser.IPacket;
 import org.eclipse.actf.visualization.engines.voicebrowser.IPacketCollection;
 import org.eclipse.actf.visualization.eval.html.HtmlTagUtil;
@@ -120,6 +122,29 @@ public class LinkAnalyzer {
 					}
 					int words = textCounter.getWordCount(sb.toString());
 
+					String linkTextOrg = sb.toString();
+
+					if (words == 0) {
+						// use original Element to solve aria-labelledby
+						Node origNode = mapData.getOrigNode(curEl);
+						String tmpS = null;
+						if (origNode instanceof Element) {
+							tmpS = AriaUtil.getAlternativeText((Element) origNode);
+						} else {
+							tmpS = AriaUtil.getAlternativeText(curEl);
+						}
+
+						if (null != tmpS) {
+							linkTextOrg = tmpS;
+							words = textCounter.getWordCount(linkTextOrg);
+						}
+					}
+
+					String linkText = linkTextOrg;
+
+					linkText = linkText.trim();
+					linkText = linkText.replaceAll("\\[|\\]|\\.|\\!|\\>", NULL_STRING);
+
 					String linkTitleOrg = NULL_STRING;
 					String linkTitle = NULL_STRING;
 
@@ -150,16 +175,12 @@ public class LinkAnalyzer {
 						linkTitle = linkTitle.replaceAll("\\[|\\]|\\.|\\!|\\>", NULL_STRING);
 					}
 
-					String linkText = sb.toString();
-					linkText = linkText.trim();
-					linkText = linkText.replaceAll("\\[|\\]|\\.|\\!|\\>", NULL_STRING);
-
 					prob = null;
 
 					if (words > 0) {
 
 						if (linkText.matches(SKIP_TO_MAIN_LINK_DEFINITION)) {
-							skipLinkMap.put(curEl, sb.toString());
+							skipLinkMap.put(curEl, linkTextOrg);
 						} else if (linkTitle.matches(SKIP_TO_MAIN_LINK_DEFINITION)) {
 							skipLinkMap.put(curEl, linkTitleOrg);
 						} else {
@@ -265,6 +286,14 @@ public class LinkAnalyzer {
 				mapData.addIntraPageLinkMapping(lel, ael);
 			} else {
 				Element idEl = doc.getElementById(href);
+				if (idEl == null && href.contains("%")) {
+					// To support double byte id
+					try {
+						idEl = doc.getElementById(URLDecoder.decode(href, "UTF-8"));
+					} catch (Exception e) {
+					}
+				}
+
 				if (idEl != null) {
 					mapData.addIntraPageLinkMapping(lel, idEl);
 				} else {
