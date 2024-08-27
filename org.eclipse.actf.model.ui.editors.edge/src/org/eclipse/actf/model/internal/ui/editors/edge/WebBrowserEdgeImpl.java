@@ -11,9 +11,13 @@
 
 package org.eclipse.actf.model.internal.ui.editors.edge;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
@@ -543,12 +547,26 @@ public class WebBrowserEdgeImpl implements IWebBrowserACTF {
 			return null;
 
 		if (null != file) {
-			// TODO replace with DomByCOM (need write as XML support)
-			try (FileWriter fw = new FileWriter(file)) {
-				fw.write(browserComposite.getLiveDocument());
+			String encoding = browserComposite.getLiveCharset();
+			// System.out.println("######### charset="+encoding);
+			// System.out.println("######### file="+file);
+			try {
+				FileOutputStream fos = new FileOutputStream(file);
+				PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(fos, encoding)));
+				pw.write(browserComposite.getLiveDocument());
+				pw.close();
 				return new File(file);
-			} catch (Exception e) {
-				e.printStackTrace();
+			} catch (Exception ex) {
+				// System.out.println("######### retrying...!");
+				ex.printStackTrace();
+				// It may be non supported character set.
+				// Retry output by using FileWriter (OS default charset is used).
+				try (FileWriter fw = new FileWriter(file)) {
+					fw.write(browserComposite.getLiveDocument());
+					return new File(file);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return null;
