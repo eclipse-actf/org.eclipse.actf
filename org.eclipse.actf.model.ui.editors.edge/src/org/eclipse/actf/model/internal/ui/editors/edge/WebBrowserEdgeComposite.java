@@ -104,6 +104,12 @@ class WebBrowserEdgeComposite extends Composite {
 				"return (document.doctype ? new XMLSerializer().serializeToString(document.doctype) : '') + document.documentElement.outerHTML;");
 	}
 
+	String getLiveCharset() {
+		return (String) browser.evaluate(
+				"return document.characterSet;");
+	}
+
+	
 	String getOriginalDocument() {
 		String urlS = getLocationURL();
 		if(urlS.startsWith("file://") && urlS.contains("#")) {
