@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2009 IBM Corporation and Others
+ * Copyright (c) 2004, 2024 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -54,8 +54,7 @@ public class PartControlBlind implements IHighlightElementListener {
 
 	public final static String BLIND_REPORT_FILE = "report.htm"; //$NON-NLS-1$
 
-	private IBlindVisualizer[] blindVizualizers = BlindVisualizerExtension
-			.getVisualizers();
+	private IBlindVisualizer[] blindVizualizers = BlindVisualizerExtension.getVisualizers();
 
 	private BlindVisualizationBrowser _blindBrowser;
 
@@ -90,22 +89,24 @@ public class PartControlBlind implements IHighlightElementListener {
 	}
 
 	public void doSave(boolean withReport) {
-		String saveFile = DialogSave.open(_shell, DialogSave.CSV, targetUrl,
-				".csv"); //$NON-NLS-1$
+		String saveFile = DialogSave.open(_shell, DialogSave.CSV, targetUrl, ".csv"); //$NON-NLS-1$
 
 		if (saveFile != null) {
 
 			// final IViewPart curView =
 			// PlatformUIUtil.showView(IVisualizationView.ID_BLINDVIEW);
 			// TODO
-			IEvaluationResult result = (IEvaluationResult) Mediator
-					.getInstance().getReport(vizView);
+			IEvaluationResult result = (IEvaluationResult) Mediator.getInstance().getReport(vizView);
 			if (result != null) {
 				try {
-					OutputStreamWriter osw = new OutputStreamWriter(
-							new BufferedOutputStream(new FileOutputStream(saveFile)),
-							// "UTF-8");
-							"Shift_JIS"); // TODO
+					FileOutputStream fos = new FileOutputStream(saveFile);
+					OutputStreamWriter osw = new OutputStreamWriter(new BufferedOutputStream(fos), "UTF-8");
+
+					// write BOM marker
+					fos.write(0xef);
+					fos.write(0xbb);
+					fos.write(0xbf);
+
 					PrintWriter reportPW = new PrintWriter(osw);
 					ReportUtil reportUtil = new ReportUtil();
 					reportUtil.setPrintWriter(reportPW);
@@ -113,7 +114,7 @@ public class PartControlBlind implements IHighlightElementListener {
 					result.accept(reportUtil);
 					reportPW.flush();
 					reportPW.close();
-				
+
 				} catch (Exception e) {
 				}
 			}
@@ -128,8 +129,7 @@ public class PartControlBlind implements IHighlightElementListener {
 				}
 				saveFile = saveFile.concat(".html");
 
-				String imageBriefDir = saveFile.substring(saveFile
-						.lastIndexOf("\\") + 1, saveFile.lastIndexOf(".")) //$NON-NLS-1$ //$NON-NLS-2$
+				String imageBriefDir = saveFile.substring(saveFile.lastIndexOf("\\") + 1, saveFile.lastIndexOf(".")) //$NON-NLS-1$ //$NON-NLS-2$
 						+ "/"; //$NON-NLS-1$
 				// 2007.09.25 remove space character to include JavaScript files
 				imageBriefDir = imageBriefDir.replace(' ', '_');
@@ -153,18 +153,15 @@ public class PartControlBlind implements IHighlightElementListener {
 			IEditorPart editor = ModelServiceUtils.reopenInACTFBrowser();
 			if (editor instanceof IModelServiceHolder) {
 				modelService = ((IModelServiceHolder) editor).getModelService();
-				WaitExecSyncEventHandler handler = new WaitForBrowserReadyHandler(
-						(IWebBrowserACTF) modelService, 30, false,
-						new Runnable() {
+				WaitExecSyncEventHandler handler = new WaitForBrowserReadyHandler((IWebBrowserACTF) modelService, 30,
+						false, new Runnable() {
 							public void run() {
 								eventhandlerHolder.remove(LISTENER_KEY);
 								doVisualize();
-								PlatformUIUtil
-										.showView(IVisualizationView.ID_BLINDVIEW);
+								PlatformUIUtil.showView(IVisualizationView.ID_BLINDVIEW);
 							}
 						});
-				eventhandlerHolder.put(LISTENER_KEY,
-						new WaitExecSyncEventListener(handler));
+				eventhandlerHolder.put(LISTENER_KEY, new WaitExecSyncEventListener(handler));
 				// TODO
 				return ret = IBlindVisualizer.OK;
 			} else {
@@ -200,9 +197,8 @@ public class PartControlBlind implements IHighlightElementListener {
 
 				if (ret > IBlindVisualizer.ERROR) { // OK, Frame
 					vizView.setStatusMessage(Messages.BlindView_Now_rendering);
-					CreateReport cr = new CreateReport(checkResult, new File(
-							BlindVizResourceUtil.getTempDirectory(),
-							BLIND_REPORT_FILE));
+					CreateReport cr = new CreateReport(checkResult,
+							new File(BlindVizResourceUtil.getTempDirectory(), BLIND_REPORT_FILE));
 					if (isShowResult) {
 						_blindBrowser.navigate(resultFilePath);
 						_shell.getDisplay().asyncExec(cr);
@@ -227,15 +223,13 @@ public class PartControlBlind implements IHighlightElementListener {
 		return IBlindVisualizer.ERROR;
 	}
 
-	public void saveReportFile(String sFileName, String imageBriefDir,
-			boolean bAccessory) {
+	public void saveReportFile(String sFileName, String imageBriefDir, boolean bAccessory) {
 		if (_canSave) {
 			vizView.setStatusMessage(Messages.BlindView_saving_file); //
 
 			// TODO encoding
-			SaveReportBlind.saveReport((Document) resultDoc.cloneNode(true),
-					mediator.getReport(vizView), sFileName, imageBriefDir,
-					maxReachingTimeS, _pageEval, bAccessory);
+			SaveReportBlind.saveReport((Document) resultDoc.cloneNode(true), mediator.getReport(vizView), sFileName,
+					imageBriefDir, maxReachingTimeS, _pageEval, bAccessory);
 
 			vizView.setStatusMessage(Messages.BlindView_end_saving_file); //
 		}
@@ -258,22 +252,19 @@ public class PartControlBlind implements IHighlightElementListener {
 		}
 
 		public void run() {
-			_pageEval = new PageEvaluation(_checkResult.getProblemList(),
-					_pageData);
+			_pageEval = new PageEvaluation(_checkResult.getProblemList(), _pageData);
 			if (targetFile == null) {
 				// TODO clear pageData/score
 				checkResult.setSummaryReportUrl(ABOUT_BLANK);
-				checkResult.setSummaryReportText(""); //$NON-NLS-1$				
+				checkResult.setSummaryReportText(""); //$NON-NLS-1$
 			} else {
 				VisualizeReportUtil.createReport(this.targetFile, _pageEval);
 				_checkResult.setSummaryReportUrl(targetFile.getAbsolutePath());
 				_checkResult.setSummaryReportText(_pageEval.getSummary());
-				_checkResult.setLineStyleListener(PageEvaluation
-						.getHighLightStringListener());
+				_checkResult.setLineStyleListener(PageEvaluation.getHighLightStringListener());
 			}
 			if (_checkResult instanceof EvaluationResultBlind) {
-				((EvaluationResultBlind) _checkResult)
-						.setPageEvaluation(_pageEval);
+				((EvaluationResultBlind) _checkResult).setPageEvaluation(_pageEval);
 			}
 
 			_shell.getDisplay().asyncExec(new Runnable() {
@@ -334,9 +325,7 @@ public class PartControlBlind implements IHighlightElementListener {
 			for (IBlindVisualizer bvh : blindVizualizers) {
 				if (bvh.setModelService(msh.getModelService())) {
 					// TODO add method into interface
-					if (bvh.getClass()
-							.getName()
-							.startsWith("org.eclipse.actf.visualization.blind.")) {
+					if (bvh.getClass().getName().startsWith("org.eclipse.actf.visualization.blind.")) {
 						return true;
 					}
 				}
