@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2016 IBM Corporation and Others
+ * Copyright (c) 2007, 2025 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -71,6 +71,10 @@ public class Html2ViewMapMaker {
 
 	boolean inNoscript; // <noscript //TODO more improvement
 
+	boolean inStyle; // <style
+
+	boolean inStyleComment;
+
 	boolean inTitle; // <title
 
 	boolean inHeader; // <head
@@ -81,6 +85,8 @@ public class Html2ViewMapMaker {
 
 	StringBuffer scriptSB;
 
+	StringBuffer styleSB;
+
 	String currentTargetString;
 
 	private Html2ViewMapMaker() {
@@ -90,16 +96,12 @@ public class Html2ViewMapMaker {
 	 * Create mapping information between line number and ACTF_ID. The resulting
 	 * HTML file that includes ACTF_ID will be stored as a file.
 	 * 
-	 * @param filename
-	 *            file path of target HTML
-	 * @param resultFileName
-	 *            file name of resulting HTML file
-	 * @param targetDir
-	 *            path for target directory to save result file
+	 * @param filename       file path of target HTML
+	 * @param resultFileName file name of resulting HTML file
+	 * @param targetDir      path for target directory to save result file
 	 * @return mapping information as vector of {@link Html2ViewMapData}
 	 */
-	public static Vector<Html2ViewMapData> makeMap(String filename,
-			String resultFileName, String targetDir) {
+	public static Vector<Html2ViewMapData> makeMap(String filename, String resultFileName, String targetDir) {
 		Html2ViewMapMaker maker = new Html2ViewMapMaker();
 		maker.changeBase = false;
 		return (maker.makeMapLocal(filename, resultFileName, targetDir, true));
@@ -115,6 +117,8 @@ public class Html2ViewMapMaker {
 		inComment = false;
 		inScript = false;
 		inScriptComment = false;
+		inStyle = false;
+		inStyleComment = false;
 
 		insertBaseNow = false;
 
@@ -129,10 +133,10 @@ public class Html2ViewMapMaker {
 	}
 
 	// TODO throw syntactic error
-	private Vector<Html2ViewMapData> makeMapLocal(String filename,
-			String resultFileName, String tmpDir, boolean useTmpDir) {
+	private Vector<Html2ViewMapData> makeMapLocal(String filename, String resultFileName, String tmpDir,
+			boolean useTmpDir) {
 
-		PrintWriter htmlWriter=null;
+		PrintWriter htmlWriter = null;
 		FileInputStream fis = null;
 
 		String _tmpDir = "";
@@ -175,24 +179,21 @@ public class Html2ViewMapMaker {
 		}
 
 		try {
-			FileOutputStream fos = new FileOutputStream(new File(_tmpDir
-					+ resultFileName));
-			BufferedWriter bos = new BufferedWriter(new OutputStreamWriter(fos,
-					encoding));
+			FileOutputStream fos = new FileOutputStream(new File(_tmpDir + resultFileName));
+			BufferedWriter bos = new BufferedWriter(new OutputStreamWriter(fos, encoding));
 			htmlWriter = new PrintWriter(bos);
 		} catch (FileNotFoundException fnfe) {
 			fnfe.printStackTrace();
-			return new Vector<Html2ViewMapData>();			
+			return new Vector<Html2ViewMapData>();
 		} catch (UnsupportedEncodingException uee) {
 			uee.printStackTrace();
-			return new Vector<Html2ViewMapData>();			
+			return new Vector<Html2ViewMapData>();
 		}
 
 		try {
 			// fis = new FileInputStream(tmpDir + filename);
 			// InputStreamReader isr = new InputStreamReader(fis, encoding);
-			InputStreamReader isr = new InputStreamReader(JED.getInputStream(),
-					encoding);
+			InputStreamReader isr = new InputStreamReader(JED.getInputStream(), encoding);
 			br = new BufferedReader(isr);
 			while ((tmpS = br.readLine()) != null) {
 
@@ -288,6 +289,12 @@ public class Html2ViewMapMaker {
 				} else {
 					doScript(targetS);
 				}
+			} else if (inStyle) {
+				if (inStyleComment) {
+					doStyleComment(targetS);
+				} else {
+					doStyle(targetS);
+				}
 			} else if (inXmlDef) {
 				doXmlDef(targetS);
 			} else {
@@ -327,8 +334,7 @@ public class Html2ViewMapMaker {
 			} catch (Exception e) {
 			}
 			int tmpLine = line + 1;
-			while (startIndex > -1 && startIndex < threshold
-					&& !tmpS.matches("\\p{Alpha}.*")) {
+			while (startIndex > -1 && startIndex < threshold && !tmpS.matches("\\p{Alpha}.*")) {
 				startIndex = targetS.indexOf("<", startIndex + 1);
 				if (startIndex > -1) {
 					tmpS = "";
@@ -340,19 +346,15 @@ public class Html2ViewMapMaker {
 			}
 
 			if (startIndex > -1 && startIndex < threshold) {
-				System.out
-						.print("HTMLVMM: start tag in attribute value : line: "
-								+ tmpLine + " : " + targetS + " : ");
+				System.out.print("HTMLVMM: start tag in attribute value : line: " + tmpLine + " : " + targetS + " : ");
 
 				int tagEndIndex = targetS.indexOf(">");
 				if (tagEndIndex > -1 && tagEndIndex < startIndex) {
-					targetS = targetS.substring(0, tagEndIndex) + quatation
-							+ targetS.substring(tagEndIndex);
+					targetS = targetS.substring(0, tagEndIndex) + quatation + targetS.substring(tagEndIndex);
 					endIndex = targetS.indexOf(quatation);
 					System.out.println("with end tag");
 				} else {
-					targetS = targetS.substring(0, startIndex) + quatation
-							+ ">" + targetS.substring(startIndex);
+					targetS = targetS.substring(0, startIndex) + quatation + ">" + targetS.substring(startIndex);
 					endIndex = targetS.indexOf(quatation);
 					System.out.println("without end tag");
 				}
@@ -387,11 +389,10 @@ public class Html2ViewMapMaker {
 		return (false);
 	}
 
-	private boolean isUnexpectedStartTag(int singleIndex, int doubleIndex,
-			int endIndex, int startTagIndex) {
+	private boolean isUnexpectedStartTag(int singleIndex, int doubleIndex, int endIndex, int startTagIndex) {
 		if (startTagIndex > -1) {
-			return ((endIndex < 0 || endIndex > startTagIndex)
-					&& (singleIndex < 0 || singleIndex > startTagIndex) && (doubleIndex < 0 || doubleIndex > startTagIndex));
+			return ((endIndex < 0 || endIndex > startTagIndex) && (singleIndex < 0 || singleIndex > startTagIndex)
+					&& (doubleIndex < 0 || doubleIndex > startTagIndex));
 		}
 		return (false);
 	}
@@ -444,11 +445,9 @@ public class Html2ViewMapMaker {
 
 		if (isUnexpectedStartTag(singleIndex, doubleIndex, endIndex, startIndex)) {
 			int tmpLine = line + 1;
-			System.out.println("HTMLVMM: unexpected start tag: line:" + tmpLine
-					+ " : " + targetS);
+			System.out.println("HTMLVMM: unexpected start tag: line:" + tmpLine + " : " + targetS);
 
-			targetS = targetS.substring(0, startIndex) + ">"
-					+ targetS.substring(startIndex);
+			targetS = targetS.substring(0, startIndex) + ">" + targetS.substring(startIndex);
 
 			// System.out.println(targetS);
 			singleC = false;
@@ -482,11 +481,13 @@ public class Html2ViewMapMaker {
 				// System.out.println(tmpIndex+" "+endIndex);
 				if (tmpIndex > -1 && (tmpIndex == endIndex - 1)) {
 					endWithSlash = true;
+					if (inStyle) {
+						inStyle = false;
+					}
 				}
 
 				if (changeBase) {
-					String tmpS = toFindHtmlSB.toString()
-							+ targetS.substring(0, endIndex);
+					String tmpS = toFindHtmlSB.toString() + targetS.substring(0, endIndex);
 					tmpS = tmpS.toLowerCase();
 
 					if (tmpS.startsWith("html")) {
@@ -497,9 +498,8 @@ public class Html2ViewMapMaker {
 
 				}
 
-				Html2ViewMapData h2vmd = new Html2ViewMapData(new int[] {
-						startLine, startColumn }, new int[] { line,
-						column + endIndex + 1 });
+				Html2ViewMapData h2vmd = new Html2ViewMapData(new int[] { startLine, startColumn },
+						new int[] { line, column + endIndex + 1 });
 				// System.out.println(h2vmd.toString());
 				html2viewV.add(h2vmd);
 				doNext(targetS, endIndex, true, endWithSlash);
@@ -546,8 +546,7 @@ public class Html2ViewMapMaker {
 			String tmpScript2 = tmpScript.toLowerCase();
 
 			if (changeBase && tmpScript2.indexOf(".createstylesheet") > -1) {
-				resultSB.insert(resultSB.indexOf("<HEAD><BASE") + 6, tmpScript
-						+ ">");
+				resultSB.insert(resultSB.indexOf("<HEAD><BASE") + 6, tmpScript + ">");
 				resultSB.append("<!-- acc_memo script move to top--");
 			} else {
 				resultSB.append(tmpScript);
@@ -572,6 +571,41 @@ public class Html2ViewMapMaker {
 		doNext(targetS, endIndex);
 	}
 
+	private void doStyle(String targetS) {
+		// ToDo need to handle </style> used in content value, etc.
+
+		int commentIndex = targetS.toLowerCase().indexOf("/*");
+		int endIndex = targetS.toLowerCase().indexOf("</style>");
+
+		inStyleComment = checkIndex(endIndex, commentIndex);
+
+		if (inStyleComment) {
+			styleSB.append(targetS.substring(0, commentIndex + 1));
+			doNext(targetS, commentIndex);
+			return;
+		} else if (endIndex > -1) {
+			styleSB.append(targetS.substring(0, endIndex + 7));
+			resultSB.append(styleSB);
+			targetS = targetS.substring(endIndex + 7);
+			endIndex = 0;
+			inStyle = false;
+		} else {
+			styleSB.append(targetS + FileUtils.LINE_SEP);
+		}
+		doNext(targetS, endIndex);
+	}
+
+	private void doStyleComment(String targetS) {
+		int endIndex = targetS.indexOf("*/");
+		if (endIndex > -1) {
+			styleSB.append(targetS.substring(0, endIndex + 1));
+			inStyleComment = false;
+		} else {
+			styleSB.append(targetS + FileUtils.LINE_SEP);
+		}
+		doNext(targetS, endIndex);
+	}
+
 	private void doDoctype(String targetS) {
 		int endIndex = targetS.indexOf(">");
 		if (endIndex > -1) {
@@ -590,7 +624,6 @@ public class Html2ViewMapMaker {
 		doNext(targetS, endIndex);
 	}
 
-	
 	private void doNormal(String targetS) {
 		int startIndex = targetS.indexOf("<");
 		if (startIndex > -1) {
@@ -604,6 +637,7 @@ public class Html2ViewMapMaker {
 			int tmpIndex2 = tmpS.indexOf("<!doctype");
 			int tmpIndex3 = tmpS.indexOf("<script");
 			int tmpIndex4 = tmpS.indexOf("<?xml");
+			int tmpIndex5 = tmpS.indexOf("<style");
 			// System.out.println(tmpS+" : "+endTagIndex+" "+tmpIndex+"
 			// "+tmpIndex2+" "+tmpIndex3);
 			if (startIndex == endTagIndex) {
@@ -622,6 +656,11 @@ public class Html2ViewMapMaker {
 				resultSB.append(targetS.substring(0, startIndex));
 			} else if (startIndex == tmpIndex4) {
 				inXmlDef = true;
+			} else if (startIndex == tmpIndex5) {
+				// System.out.println("start style: " + line + " " + startColumn);
+				inTag = true;
+				inStyle = true;
+				styleSB = new StringBuffer();
 			} else {
 				// System.out.println("start tag: "+line+" "+startColumn);
 				if (changeBase) {
@@ -641,23 +680,21 @@ public class Html2ViewMapMaker {
 	// doNext(targetS, _index, insertId, false);
 	// }
 
-	private void doNext(String targetS, int _index, boolean insertId,
-			boolean endWithSlash) {
+	private void doNext(String targetS, int _index, boolean insertId, boolean endWithSlash) {
 		if (_index > -1) {
 			int index = _index + 1;
 			column = column + index;
 
 			if (insertId) {
 				if (endWithSlash) {
-					resultSB.append(targetS.substring(0, _index - 1) + " "
-							+ Html2ViewMapData.ACTF_ID + "=\'" + id + "\'/>");
+					resultSB.append(
+							targetS.substring(0, _index - 1) + " " + Html2ViewMapData.ACTF_ID + "=\'" + id + "\'/>");
 				} else {
-					resultSB.append(targetS.substring(0, _index) + " "
-							+ Html2ViewMapData.ACTF_ID + "=\'" + id + "\'>");
+					resultSB.append(targetS.substring(0, _index) + " " + Html2ViewMapData.ACTF_ID + "=\'" + id + "\'>");
 				}
 				id++;
 			} else {
-				if (!inScript) {
+				if (!inScript && (!inStyle || inTag)) {
 					resultSB.append(targetS.substring(0, index));
 				}
 			}
@@ -670,7 +707,7 @@ public class Html2ViewMapMaker {
 			// doFilter(targetS.substring(index));
 			currentTargetString = targetS.substring(index);
 		} else {
-			if (!inScript) {
+			if (!inScript && (!inStyle || inTag)) {
 				resultSB.append(targetS + FileUtils.LINE_SEP);
 			}
 			currentTargetString = null;
