@@ -4163,7 +4163,7 @@
 			<gItem techniques="ARIA5" id="4.1.2" name="WCAG 2.0" />
 		</guideline>
 		<metrics>
-			<mItem score="2" name="Robust" />
+			<mItem name="Robust" />
 		</metrics>
 		<description>
 			<desc>ARIA state and properties are used.</desc>
