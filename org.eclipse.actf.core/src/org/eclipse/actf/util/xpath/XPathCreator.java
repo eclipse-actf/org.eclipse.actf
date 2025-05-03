@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2008 IBM Corporation and Others
+ * Copyright (c) 2007, 2025 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,8 +27,7 @@ public class XPathCreator {
 	/**
 	 * Return XPath (child path sequence) of the target Node.
 	 * 
-	 * @param target
-	 *            the target Node
+	 * @param target the target Node
 	 * @return XPath (child path sequence)
 	 */
 	public static String childPathSequence(Node target) {
@@ -42,6 +41,7 @@ public class XPathCreator {
 			// short currentType = target.getNodeType();
 			String currentName = target.getNodeName();
 			int count = countSiblingByName(target, currentName);
+			boolean hasNext = (count > 0) ? true : hasNext(target, currentName);
 
 			if (TEXT_NODE_NAME.equalsIgnoreCase(currentName)) {
 				currentName = TEXT_NODE;
@@ -49,8 +49,9 @@ public class XPathCreator {
 
 			if (count > 0) {
 				count = count + 1;
-				tmpSB.insert(0, SLASH + currentName + LEFT_BRACKET + count
-						+ RIGHT_BRACKET);
+				tmpSB.insert(0, SLASH + currentName + LEFT_BRACKET + count + RIGHT_BRACKET);
+			} else if (hasNext) {
+				tmpSB.insert(0, SLASH + currentName + LEFT_BRACKET + "1" + RIGHT_BRACKET);
 			} else {
 				tmpSB.insert(0, SLASH + currentName);
 			}
@@ -72,6 +73,19 @@ public class XPathCreator {
 			target = target.getPreviousSibling();
 		}
 		return count;
+	}
+
+	private static boolean hasNext(Node target, String name) {
+		if (target != null) {
+			target = target.getNextSibling();
+		}
+		while (target != null) {
+			if (target.getNodeName().equals(name)) {
+				return true;
+			}
+			target = target.getNextSibling();
+		}
+		return false;
 	}
 
 }
