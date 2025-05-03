@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2024 IBM Corporation and Others
+ * Copyright (c) 2004, 2025 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -165,11 +165,11 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 					if (null != tmpS && tmpS.trim().length() > 0) {
 						strBuf.append(tmpS.trim() + " ");
 					}
-				}else if(tmpE.getAttribute("role").equalsIgnoreCase("img")) {
+				} else if (tmpE.getAttribute("role").equalsIgnoreCase("img")) {
 					String tmpS = getNameByAria((Element) curNode, null);
 					if (null != tmpS && tmpS.trim().length() > 0) {
 						strBuf.append(tmpS.trim() + " ");
-					}					
+					}
 				}
 			}
 
@@ -187,7 +187,58 @@ public class HtmlTagUtil implements IHtmlEventHandlerAttributes {
 			}
 		}
 
-		return strBuf.toString();
+		return strBuf.toString().trim();
+	}
+
+	/**
+	 * Gather text and alternative text that are not visibility:hidden nor
+	 * display:none from descendant nodes and return it as String.
+	 * 
+	 * @param target target {@link Node} 
+	 * @param hevu {@link HtmlElementVisibilityChecker}
+	 * @return gathered text and alternative text
+	 */
+	public static String getTextAltDescendant(Node target, HtmlElementVisibilityChecker hevu) {
+		Node curNode = target.getFirstChild();
+		StringBuffer strBuf = new StringBuffer(512);
+		Stack<Node> stack = new Stack<Node>();
+		while (curNode != null) {
+			if (!hevu.isDisplayNoneOrVisibilityHidden(curNode)) {
+				if (curNode.getNodeType() == Node.TEXT_NODE) {
+					strBuf.append(curNode.getNodeValue().trim() + " ");
+				} else if (curNode instanceof Element) {
+					Element tmpE = (Element) curNode;
+					if (tmpE.getTagName().equalsIgnoreCase("img")) { //$NON-NLS-1$
+						// strBuf.append(((Element) curNode).getAttribute(ATTR_ALT).trim() + " ");
+						// //$NON-NLS-1$
+						String tmpS = getNameByAria((Element) curNode, ATTR_ALT);
+						if (null != tmpS && tmpS.trim().length() > 0) {
+							strBuf.append(tmpS.trim() + " ");
+						}
+					} else if (tmpE.getAttribute("role").equalsIgnoreCase("img")) {
+						String tmpS = getNameByAria((Element) curNode, null);
+						if (null != tmpS && tmpS.trim().length() > 0) {
+							strBuf.append(tmpS.trim() + " ");
+						}
+					}
+				}
+			}
+
+			if (curNode.hasChildNodes() && !hevu.isDisplayNone(curNode)) {
+				stack.push(curNode);
+				curNode = curNode.getFirstChild();
+			} else if (curNode.getNextSibling() != null) {
+				curNode = curNode.getNextSibling();
+			} else {
+				curNode = null;
+				while ((curNode == null) && (stack.size() > 0)) {
+					curNode = stack.pop();
+					curNode = curNode.getNextSibling();
+				}
+			}
+		}
+
+		return strBuf.toString().trim();
 	}
 
 	private static String getNameByAria(Element target, String attrForAlt) {

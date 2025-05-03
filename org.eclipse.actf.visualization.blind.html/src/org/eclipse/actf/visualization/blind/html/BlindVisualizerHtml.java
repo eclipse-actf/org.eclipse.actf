@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2024 IBM Corporation and Others
+ * Copyright (c) 2008, 2025 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -259,8 +259,8 @@ public class BlindVisualizerHtml extends BlindVisualizerBase implements IBlindVi
 			//
 			// BrowserAndStyleInfo data =
 			// webBrowser.getBrowserAndStyleInfo();
-			IHtmlCheckTarget checkTarget = CheckTargetFactory.createHtmlCheckTarget(document, webBrowser.getURL(), null,
-					edu);
+			IHtmlCheckTarget checkTarget = CheckTargetFactory.createHtmlCheckTarget(document, webBrowser.getURL(),
+					webBrowser.getStyleInfo(), edu);
 
 			for (int i = 0; i < checkers.length; i++) {
 				if (checkers[i] instanceof IHtmlChecker) {
