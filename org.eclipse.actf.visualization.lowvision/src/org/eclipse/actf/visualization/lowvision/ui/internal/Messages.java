@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2005, 2008 IBM Corporation and Others
+ * Copyright (c) 2005, 2025 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *    Kentarou FUKUDA - initial API and implementation
+ *    IBM Corporation - updates
  *******************************************************************************/
 package org.eclipse.actf.visualization.lowvision.ui.internal;
 
@@ -57,6 +58,7 @@ public final class Messages extends NLS {
 	public static String LowVisionView_get_information_of_all_images__25;
 	public static String LowVisionView_dump_the_image_in_the_web_browser__26;
 	public static String LowVisionView_prepare_Simulation_Image__29;
+	public static String LowVisionView_stopped_by_error;
 	public static String LowVisionView_whole_page_1;
 	public static String LowVisionView_Synchronous_view_5;
 	public static String LowVisionView_Simulate_2;

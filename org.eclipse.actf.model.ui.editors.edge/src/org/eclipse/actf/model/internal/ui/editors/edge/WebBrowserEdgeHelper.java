@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2023 IBM Corporation and Others
+ * Copyright (c) 2007, 2025 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *    Takashi ITOH - initial API and implementation
+ *    IBM Corporation - updates
  *******************************************************************************/
 package org.eclipse.actf.model.internal.ui.editors.edge;
 
@@ -18,32 +19,49 @@ import org.eclipse.swt.internal.ole.win32.ICoreWebView2Controller;
 
 class WebBrowserEdgeHelper {
 
-    private ICoreWebView2Controller controller;
+	private ICoreWebView2Controller controller = null;
 
-    WebBrowserEdgeHelper(Browser browser) {
-        try {
-            Field field = browser.getClass().getDeclaredField("webBrowser");
-            field.setAccessible(true);
-            Object webBrowser = field.get(browser);
-            field = webBrowser.getClass().getDeclaredField("controller");
-            field.setAccessible(true);
-            controller = (ICoreWebView2Controller)field.get(webBrowser);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	private Field field_controller;
+	private Object object_webBrowser;
 
-    double getZoomFactor() {
-        long[] bits = { 0 };
-        if (controller != null) {
-            COM.VtblCall(7, controller.getAddress(), bits);
-        }
-        return Double.longBitsToDouble(bits[0]);
-    }
+	WebBrowserEdgeHelper(Browser browser) {
+		try {
+			Field field = browser.getClass().getDeclaredField("webBrowser");
+			field.setAccessible(true);
 
-    void setZoomFactor(double zoomFactor) {
-        if (controller != null) {
-            COM.VtblCall(8, controller.getAddress(), zoomFactor);
-        }
-    }
+			object_webBrowser = field.get(browser);
+			field_controller = object_webBrowser.getClass().getDeclaredField("controller");
+			field_controller.setAccessible(true);
+			// initialization of "controller" is performed when getZoomFactor() is called.
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void getController() {
+		if (controller == null) {
+			// initialize "controller" if it had not initialized.
+			try {
+				controller = (ICoreWebView2Controller) field_controller.get(object_webBrowser);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	double getZoomFactor() {
+		long[] bits = { 0 };
+		getController();
+		if (controller != null) {
+			COM.VtblCall(7, controller.getAddress(), bits);
+		}
+		return Double.longBitsToDouble(bits[0]);
+	}
+
+	void setZoomFactor(double zoomFactor) {
+		getController();
+		if (controller != null) {
+			COM.VtblCall(8, controller.getAddress(), zoomFactor);
+		}
+	}
 }

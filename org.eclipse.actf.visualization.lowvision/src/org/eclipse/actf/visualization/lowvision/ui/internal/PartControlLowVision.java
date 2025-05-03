@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2003, 2023 IBM Corporation and Others
+ * Copyright (c) 2003, 2025 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  * 	  Junji MAEDA - initial API and implementation
  *    Kentarou FUKUDA - initial API and implementation
+ *    IBM Corporation - updates
  *******************************************************************************/
 
 package org.eclipse.actf.visualization.lowvision.ui.internal;
@@ -492,10 +493,14 @@ public class PartControlLowVision implements ISelectionListener, IVisualizationC
 			} else {
 				_shell.setCursor(null);
 				_isInSimulate = false;
+				checker.setStatusMessage(Messages.LowVisionView_stopped_by_error);
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			_shell.setCursor(null);
+			_isInSimulate = false;
+			checker.setStatusMessage(Messages.LowVisionView_stopped_by_error);
 		}
 	}
 
@@ -578,7 +583,7 @@ public class PartControlLowVision implements ISelectionListener, IVisualizationC
 			checkThreads.add(checkThread);
 		} else {
 			for (int i = 0; i < frameUrl.length; i++) {
-				ExtractCheckThread checkThread = new ExtractCheckThread(i, frameUrl[i], null, null); //TODO
+				ExtractCheckThread checkThread = new ExtractCheckThread(i, frameUrl[i], null, null); // TODO
 				checkThread.start();
 				checkThreads.add(checkThread);
 			}
