@@ -2992,9 +2992,10 @@ public class CheckEngine extends HtmlTagUtil {
 				return FORMCONTROL_UNKNOWN;
 			}
 		case "button":
+			return FORMCONTROL_WITHOUT_LABEL;
 		case "select":
 		case "textarea":
-			return FORMCONTROL_WITHOUT_LABEL;
+			return FORMCONTROL_WITH_LABEL;
 		default:
 			return FORMCONTROL_UNKNOWN;
 		}
