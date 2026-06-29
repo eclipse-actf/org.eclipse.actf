@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2023 IBM Corporation and Others
+ * Copyright (c) 2004, 2025 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -63,7 +63,7 @@ public class Checker implements IHtmlChecker, IGuidelineSlectionChangedListener 
 			String id = cItem.getId();
 			if (id.matches(CHECK_ITEM_PATTERN)) {
 				id = id.substring(2);
-				int index = id.indexOf(".");  //$NON-NLS-1$
+				int index = id.indexOf("."); //$NON-NLS-1$
 				if (index > -1) {
 					id = id.substring(0, index);
 				}
@@ -83,7 +83,9 @@ public class Checker implements IHtmlChecker, IGuidelineSlectionChangedListener 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.eclipse.actf.visualization.eval.guideline.IGuidelineSlectionChangedListener#selectionChanged(org.eclipse.actf.visualization.eval.guideline.GuidelineSelectionChangedEvent)
+	 * @see org.eclipse.actf.visualization.eval.guideline.
+	 * IGuidelineSlectionChangedListener#selectionChanged(org.eclipse.actf.
+	 * visualization.eval.guideline.GuidelineSelectionChangedEvent)
 	 */
 	public void selectionChanged(GuidelineSelectionChangedEvent e) {
 		updateCheckItems();
@@ -106,8 +108,7 @@ public class Checker implements IHtmlChecker, IGuidelineSlectionChangedListener 
 	}
 
 	public List<IProblemItem> checkHtml(IHtmlCheckTarget checkTarget) {
-		CheckEngine engine = new CheckEngine(checkTarget.getHtmlEvalUtil(),
-				checkItems);
+		CheckEngine engine = new CheckEngine(checkTarget, checkItems);
 		return (engine.check());
 
 	}

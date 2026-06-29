@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2004, 2024 IBM Corporation and Others
+ * Copyright (c) 2004, 2025 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -39,10 +40,13 @@ import org.eclipse.actf.model.dom.dombyjs.IStyleSheet;
 import org.eclipse.actf.model.dom.dombyjs.IStyleSheets;
 import org.eclipse.actf.model.dom.html.DocumentTypeUtil;
 import org.eclipse.actf.util.JapaneseEncodingDetector;
+import org.eclipse.actf.util.logging.DebugPrintUtil;
 import org.eclipse.actf.util.xpath.XPathService;
 import org.eclipse.actf.util.xpath.XPathServiceFactory;
 import org.eclipse.actf.visualization.engines.blind.TextCheckResult;
 import org.eclipse.actf.visualization.engines.blind.TextChecker;
+import org.eclipse.actf.visualization.eval.IHtmlCheckTarget;
+import org.eclipse.actf.visualization.eval.html.HtmlElementVisibilityChecker;
 import org.eclipse.actf.visualization.eval.html.HtmlEvalUtil;
 import org.eclipse.actf.visualization.eval.html.HtmlTagUtil;
 import org.eclipse.actf.visualization.eval.problem.HighlightTargetId;
@@ -231,7 +235,6 @@ public class CheckEngine extends HtmlTagUtil {
 	private boolean isHTML5 = false;
 	private boolean isXML = false;
 
-	private List<Element> labelList;
 	private List<Element> formList;
 	private Vector<Node> formVwithText;
 	private List<Element> layoutTableList;
@@ -247,6 +250,7 @@ public class CheckEngine extends HtmlTagUtil {
 	// private int invisibleElementCount = 0;
 	// private String[] invisibleLinkStrings = new String[0];
 
+	private IHtmlCheckTarget checkTarget;
 	private HtmlEvalUtil edu;
 
 	private String docTypeS;
@@ -258,8 +262,9 @@ public class CheckEngine extends HtmlTagUtil {
 	/**
 	 * 
 	 */
-	public CheckEngine(HtmlEvalUtil edu, boolean[] checkItems) {
-		this.edu = edu;
+	public CheckEngine(IHtmlCheckTarget checkTarget, boolean[] checkItems) {
+		this.checkTarget = checkTarget;
+		this.edu = checkTarget.getHtmlEvalUtil();
 		this.targetDoc = edu.getTarget();
 		this.resultDoc = edu.getResult();
 
@@ -2130,8 +2135,9 @@ public class CheckEngine extends HtmlTagUtil {
 			if (getFormControlNum(form) <= 1)
 				continue;
 			List<Element> fieldsets = edu.getElementsList(form, "fieldset"); //$NON-NLS-1$
-			List<Element> groupList = edu.getElementsListByXPath("descendant::*[@role=\"group\"]", form);
-			List<Element> radiogroupList = edu.getElementsListByXPath("descendant::*[@role=\"radiogroup\"]", form);
+			List<Element> groupList = HtmlEvalUtil.getElementsListByXPath("descendant::*[@role=\"group\"]", form);
+			List<Element> radiogroupList = HtmlEvalUtil.getElementsListByXPath("descendant::*[@role=\"radiogroup\"]",
+					form);
 			if (fieldsets.size() == 0) {
 				if (groupList.size() + radiogroupList.size() == 0) {
 					noFieldsetForms.add(form);
@@ -2226,7 +2232,7 @@ public class CheckEngine extends HtmlTagUtil {
 							String noScriptText = getNoScriptText(el);
 
 							if ((!el.hasChildNodes() && el.getElementsByTagName("img").getLength() == 0)) { //$NON-NLS-1$
-								//ToDo check conditions (duplication)
+								// ToDo check conditions (duplication)
 								exceptCount++;
 								if (emptyMap.containsKey(aWithHref_hrefs[i])) {
 									emptyMap.get(aWithHref_hrefs[i]).add(el);
@@ -2301,10 +2307,10 @@ public class CheckEngine extends HtmlTagUtil {
 			addCheckerProblem("C_57.4", ((Element) link).getAttribute(ATTR_TITLE), (Element) link);
 		}
 
-		for(String hrefS : emptyMap.keySet()) {
+		for (String hrefS : emptyMap.keySet()) {
 			addCheckerProblem("C_57.6", hrefS, emptyMap.get(hrefS));
 		}
-			
+
 		// need URL check
 
 		length = length - exceptCount;
@@ -2812,23 +2818,54 @@ public class CheckEngine extends HtmlTagUtil {
 	 * Checks labels and titles for form controls
 	 */
 	private void item_79() {
-		if (labelList == null)
-			labelList = edu.getElementsList(targetDoc, "label"); //$NON-NLS-1$
+		List<Element> labelList = edu.getElementsList(targetDoc, "label"); //$NON-NLS-1$
+
+		// check visibility hidden/display none
+		// TODO confirm matching between ICurrentStyles map and exported HTML Document
+		// (snapshot of Live DOM)
+		HtmlElementVisibilityChecker hevu = new HtmlElementVisibilityChecker(checkTarget.getBrowserAndStyleInfo());
+
 		Vector<Node> noLabelTitleControls = new Vector<Node>();
 		Vector<Node> noLabelTitleControlsNew = new Vector<Node>();
 		Vector<Node> noLabelEmptyTitleControls = new Vector<Node>();
 		Vector<Node> noLabelEmptyTitleControlsNew = new Vector<Node>();
 		Vector<Node> labeledControls = new Vector<Node>();
 
+		Vector<Node> invisibleControlsWithInvisibleLabel = new Vector<Node>();
+		Vector<Node> invisibleLabelNoTitleControls = new Vector<Node>();
+		Vector<Node> invisibleLabelNoTitleControlsNew = new Vector<Node>();
+		Vector<Node> invisibleLabelEmptyTitleControls = new Vector<Node>();
+		Vector<Node> invisibleLabelEmptyTitleControlsNew = new Vector<Node>();
+
 		for (Element body : body_elements) { // $NON-NLS-1$
 			for (Element el : getFormControl(body)) {
+				boolean isInvisibleLabel = false;
+				boolean isInvisibleFormControl = false;
+				// visibility check
+				if (edu.isLiveDom() && hevu.isDisplayNoneOrVisibilityHidden(el)) {
+					isInvisibleFormControl = true;
+				}
 
-				Element label = null;
+				Element label = getLabel(el, labelList);
+				if (edu.isLiveDom() && label != null) {
+					if (hevu.isDisplayNoneOrVisibilityHidden(label)) {
+						label = null;
+						isInvisibleLabel = true;
+					} else {
+						String labelText = HtmlEvalUtil.getTextAltDescendant(label, hevu);
+						DebugPrintUtil
+								.devOrDebugPrintln("label(visible part) " + labelText.length() + " : " + labelText);
+						if (labelText.length() == 0) {
+							label = null;
+							isInvisibleLabel = true;
+						}
+					}
+				}
 
-				if ((label = getLabel(el)) != null) {
+				if (label != null) {
 					item_79_label(el, label);
 				} else if ((label = hasImplicitLabel(el)) != null) {
-					// TODO check label place
+					// TODO check label place/visibility
 					Vector<Node> target = new Vector<Node>();
 					target.add(el);
 					target.add(label);
@@ -2841,16 +2878,59 @@ public class CheckEngine extends HtmlTagUtil {
 						if (isLabelable(getFormControlType(el))) {
 							TitleCheckResult res = item_79_title(el);
 							if (res == TitleCheckResult.NO_TITLE) {
-								if (isInH44(el)) {
-									noLabelTitleControls.add(el);
-								} else {
-									noLabelTitleControlsNew.add(el);
+								switch (checkWithH44(el)) {
+								case FORMCONTROL_WITH_LABEL:
+									if (isInvisibleLabel) {
+										if (isInvisibleFormControl) {
+											invisibleControlsWithInvisibleLabel.add(el);
+										} else {
+											invisibleLabelNoTitleControls.add(el);
+										}
+									} else {
+										noLabelTitleControls.add(el);
+									}
+									break;
+								case FORMCONTROL_UNKNOWN:
+									if (isInvisibleLabel) {
+										if (isInvisibleFormControl) {
+											invisibleControlsWithInvisibleLabel.add(el);
+										} else {
+											invisibleLabelNoTitleControlsNew.add(el);
+										}
+									} else {
+										noLabelTitleControlsNew.add(el);
+									}
+									break;
+								case FORMCONTROL_WITHOUT_LABEL:
+								default:
+									// no action;
 								}
 							} else if (res == TitleCheckResult.EMPTY_TITLE) {
-								if (isInH44(label)) {
-									noLabelEmptyTitleControls.add(el);
-								} else {
-									noLabelEmptyTitleControlsNew.add(el);
+								switch (checkWithH44(el)) {
+								case FORMCONTROL_WITH_LABEL:
+									if (isInvisibleLabel) {
+										if (isInvisibleFormControl) {
+											invisibleControlsWithInvisibleLabel.add(el);
+										} else {
+											invisibleLabelEmptyTitleControls.add(el);
+										}
+									} else {
+										noLabelEmptyTitleControls.add(el);
+									}
+									break;
+								case FORMCONTROL_UNKNOWN:
+									if (isInvisibleLabel) {
+										if (isInvisibleFormControl) {
+											invisibleControlsWithInvisibleLabel.add(el);
+										} else {
+											invisibleLabelEmptyTitleControlsNew.add(el);
+										}
+									} else {
+										noLabelEmptyTitleControlsNew.add(el);
+									}
+								case FORMCONTROL_WITHOUT_LABEL:
+								default:
+									// no action;
 								}
 							} else if (res == TitleCheckResult.OK) {
 								addCheckerProblem("C_79.4", el.getAttribute(ATTR_TITLE), el);
@@ -2862,26 +2942,63 @@ public class CheckEngine extends HtmlTagUtil {
 		}
 
 		addCheckerProblem("C_79.6", "", noLabelTitleControls);
+		addCheckerProblem("C_79.6", "(label: visility:hidden/display:none)", invisibleLabelNoTitleControls);
 		addCheckerProblem("C_79.8", "", noLabelTitleControlsNew);
+		addCheckerProblem("C_79.8", "(label: visility:hidden/display:none)", invisibleLabelNoTitleControlsNew);
 		addCheckerProblem("C_79.0", "", noLabelEmptyTitleControls);
+		addCheckerProblem("C_79.0", "(label: visility:hidden/display:none)", invisibleLabelEmptyTitleControls);
 		addCheckerProblem("C_79.9", "", noLabelEmptyTitleControlsNew);
+		addCheckerProblem("C_79.9", "(label: visility:hidden/display:none)", invisibleLabelEmptyTitleControlsNew);
+		addCheckerProblem("C_79.10", "", invisibleControlsWithInvisibleLabel);
 	}
 
-	private boolean isInH44(Element el) {
-		if ("input".equals(el.getNodeName())) {
+	private static final int FORMCONTROL_WITH_LABEL = 0;
+	private static final int FORMCONTROL_WITHOUT_LABEL = 1;
+	private static final int FORMCONTROL_UNKNOWN = 2;
+
+	private int checkWithH44(Element el) {
+		switch (el.getNodeName().toLowerCase()) {
+		case "input":
 			String strType = el.getAttribute("type").toLowerCase();
-			if (strType.equals("") // default is text? //$NON-NLS-1$
-					|| strType.equals("text") //$NON-NLS-1$
-					|| strType.equals("textarea") //$NON-NLS-1$
-					|| strType.equals("radio") //$NON-NLS-1$
-					|| strType.equals("checkbox") //$NON-NLS-1$
-					|| strType.equals("file") //$NON-NLS-1$ // For new JIS
-					|| strType.equals("password")) { //$NON-NLS-1$
-				return true;
+			switch (strType) {
+			// text entry
+			case "": //$NON-NLS-1$ // default is text?
+			case "date": //$NON-NLS-1$
+			case "datetime-local": //$NON-NLS-1$
+			case "email": //$NON-NLS-1$
+			case "month": //$NON-NLS-1$
+			case "number": //$NON-NLS-1$
+			case "password": //$NON-NLS-1$
+			case "search": //$NON-NLS-1$
+			case "tel": //$NON-NLS-1$
+			case "text": //$NON-NLS-1$
+			case "time": //$NON-NLS-1$
+			case "url": //$NON-NLS-1$
+			case "week": //$NON-NLS-1$
+				// others
+			case "checkbox": //$NON-NLS-1$
+			case "color": //$NON-NLS-1$
+			case "file": //$NON-NLS-1$
+			case "radio": //$NON-NLS-1$
+			case "range": //$NON-NLS-1$
+				return FORMCONTROL_WITH_LABEL;
+			case "button": //$NON-NLS-1$
+			case "hidden": //$NON-NLS-1$
+			case "image": //$NON-NLS-1$
+			case "reset": //$NON-NLS-1$
+			case "submit": //$NON-NLS-1$
+				return FORMCONTROL_WITHOUT_LABEL;
+			default:
+				return FORMCONTROL_UNKNOWN;
 			}
-			return false;
+		case "button":
+			return FORMCONTROL_WITHOUT_LABEL;
+		case "select":
+		case "textarea":
+			return FORMCONTROL_WITH_LABEL;
+		default:
+			return FORMCONTROL_UNKNOWN;
 		}
-		return true;
 	}
 
 	private void item_79_label(Element ctrl, Element label) {
@@ -4263,6 +4380,7 @@ public class CheckEngine extends HtmlTagUtil {
 
 		// TODO update by using techniques
 		// keygen, meter, output, progress
+		// TODO button
 
 		nl = formEl.getElementsByTagName("textarea"); //$NON-NLS-1$
 		length = nl.getLength();
@@ -4321,6 +4439,7 @@ public class CheckEngine extends HtmlTagUtil {
 	private boolean hasTextFormControl(Element form) {
 		int iNum = 0;
 		for (Element e : edu.getElementsList(form, "input")) { //$NON-NLS-1$
+			// TODO check other types (password, url, etc.)
 			if (e.getAttribute("type").toLowerCase().matches("|text(area)?|password"))
 				iNum++;
 		}
@@ -4356,7 +4475,7 @@ public class CheckEngine extends HtmlTagUtil {
 	 * @param labels
 	 * @return
 	 */
-	private Element getLabel(Element el) {
+	private Element getLabel(Element el, List<Element> labelList) {
 		String strid = el.getAttribute("id"); //$NON-NLS-1$
 
 		if (strid.equals("")) //$NON-NLS-1$
@@ -4642,11 +4761,6 @@ public class CheckEngine extends HtmlTagUtil {
 			return strName.substring(iPos + 1);
 		}
 		return ""; //$NON-NLS-1$
-	}
-
-	private boolean isElementVisible(Element el) {
-		// TODO function stub // For new JIS
-		return true;
 	}
 
 	// For new JIS
