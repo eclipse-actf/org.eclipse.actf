@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2011 Ministry of Internal Affairs and Communications (MIC).
+ * Copyright (c) 2010, 2026 Ministry of Internal Affairs and Communications (MIC) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *    Yasuharu GOTOU (MIC) - initial API and implementation
+ *    IBM Corporation - updates
  *******************************************************************************/
 
 package org.eclipse.actf.examples.michecker.caption;
@@ -14,15 +15,15 @@ package org.eclipse.actf.examples.michecker.caption;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Vector;
 
 import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.eclipse.actf.examples.michecker.internal.Messages;
 import org.eclipse.actf.examples.michecker.smil.ClockValueParser;
+import org.eclipse.actf.util.xml.DocumentBuilderUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -87,7 +88,8 @@ public class CaptionDataFactory {
 		Vector<CaptionData> captions = new Vector<CaptionData>();
 		DocumentBuilder db;
 		try {
-			db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			//db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			db = DocumentBuilderUtil.newDocumentBuilderWithoutDTD();
 			Document doc = db.parse(url.toExternalForm());
 			NodeList nl = doc.getDocumentElement().getElementsByTagName("time");
 			for (int i = 0; i < nl.getLength(); i++) {
@@ -106,7 +108,8 @@ public class CaptionDataFactory {
 			return null;
 		} catch (SAXException e) {
 			e.printStackTrace();
-			return null;
+			captions.add(new CaptionData(0, "<<"+Messages.Error+">>"));
+			return captions;
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
@@ -150,18 +153,14 @@ public class CaptionDataFactory {
 	}
 
 	public static void main(String[] args) {
-		try {
-			/*
-			 * CaptionDataFactory.createCaptionData(100, new URL(
-			 * "file:///C:/home/ar/JIS/testcases/smil/CSUN/CESDemo.rt"));
-			 */
-			CaptionDataFactory
-					.createCaptionData(
-							100,
-							new URL(
-									"file:///C:/home/ar/JIS/testcases/smil/MAGpie/magpie2_demo.en_US.real.rt"));
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			CaptionDataFactory
+//					.createCaptionData(
+//							100,
+//							new URL(
+//									"file:///C:/home/ar/JIS/testcases/smil/test.rt"));
+//		} catch (MalformedURLException e) {
+//			e.printStackTrace();
+//		}
 	}
 }

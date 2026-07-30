@@ -15,6 +15,7 @@ Export-Package: org.eclipse.actf.core,
  org.eclipse.actf.util.comparator,
  org.eclipse.actf.util.dom,
  org.eclipse.actf.util.logging,
+ org.eclipse.actf.util.xml,
  org.eclipse.actf.util.xpath
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy

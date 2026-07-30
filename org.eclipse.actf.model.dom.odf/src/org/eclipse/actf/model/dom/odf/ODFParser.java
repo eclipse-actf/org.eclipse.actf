@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2016 IBM Corporation and Others
+ * Copyright (c) 2007, 2026 IBM Corporation and Others
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *    Tatsuya ISHIHARA - initial API and implementation
+ *    IBM Corporation - updates
  *******************************************************************************/
 package org.eclipse.actf.model.dom.odf;
 
@@ -23,13 +24,13 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.eclipse.actf.model.dom.odf.base.ODFDocument;
 import org.eclipse.actf.model.dom.odf.base.ODFNode;
 import org.eclipse.actf.model.dom.odf.base.impl.ODFDocumentImpl;
 import org.eclipse.actf.util.FileUtils;
+import org.eclipse.actf.util.xml.DocumentBuilderUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -100,12 +101,13 @@ public class ODFParser {
 	}
 
 	private ODFDocument parse(InputSource is) {
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setNamespaceAware(true);
+//		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//		factory.setNamespaceAware(true);
 
 		Document document = null;
 		try {
-			DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+			//DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+			DocumentBuilder documentBuilder = DocumentBuilderUtil.newSecureDocumentBuilder();
 			document = documentBuilder.parse(is);
 		} catch (ParserConfigurationException e) {
 		} catch (SAXException e) {

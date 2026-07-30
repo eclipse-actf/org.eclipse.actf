@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2011 Ministry of Internal Affairs and Communications (MIC).
+ * Copyright (c) 2010, 2026 Ministry of Internal Affairs and Communications (MIC) and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *    Yasuharu GOTOU (MIC) - initial API and implementation
+ *    IBM Corporation - updates
  *******************************************************************************/
 
 package org.eclipse.actf.examples.michecker.smil;
@@ -20,10 +21,10 @@ import java.util.Date;
 import java.util.Vector;
 
 import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.eclipse.actf.examples.michecker.caption.CaptionData;
 import org.eclipse.actf.examples.michecker.caption.CaptionDataFactory;
+import org.eclipse.actf.util.xml.DocumentBuilderUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -67,12 +68,13 @@ public class SMILReader {
 			System.out.println("-- reading " + filePath + "...");
 		captions = new Vector<CaptionData>();
 		try {
-			DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
-			df.setExpandEntityReferences(false);
-			df.setFeature(
-					"http://apache.org/xml/features/nonvalidating/load-external-dtd",
-					false);
-			DocumentBuilder db = df.newDocumentBuilder();
+//			DocumentBuilderFactory df = DocumentBuilderFactory.newInstance();
+//			df.setExpandEntityReferences(false);
+//			df.setFeature(
+//					"http://apache.org/xml/features/nonvalidating/load-external-dtd",
+//					false);
+//			DocumentBuilder db = df.newDocumentBuilder();
+			DocumentBuilder db = DocumentBuilderUtil.newSecureDocumentBuilder();
 			if (DEBUG) {
 				System.out.println(new SimpleDateFormat("HH:mm:ss.SSS")
 						.format(new Date()) + " parsing start");
